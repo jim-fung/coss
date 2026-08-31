@@ -7945,6 +7945,24 @@ export const Index: Record<string, any> = {
     categories: ["resizable"],
     meta: {"className":"**:data-[slot=preview]:w-full"},
   },
+  "p-resizable-3": {
+    name: "p-resizable-3",
+    description: "Panels that snap to 25, 50, and 75 percent while resizing",
+    type: "registry:block",
+    registryDependencies: ["@coss/resizable"],
+    files: [{
+      path: "registry/default/particles/p-resizable-3.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/particles/p-resizable-3.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["resizable"],
+    meta: {"className":"**:data-[slot=preview]:w-full"},
+  },
   "p-scroll-area-1": {
     name: "p-scroll-area-1",
     description: "Basic scroll area",
