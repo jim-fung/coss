@@ -13,6 +13,9 @@ export const Sheet: typeof SheetPrimitive.Root = SheetPrimitive.Root;
 
 export const SheetPortal: typeof SheetPrimitive.Portal = SheetPrimitive.Portal;
 
+export const SheetCreateHandle: typeof SheetPrimitive.createHandle =
+  SheetPrimitive.createHandle;
+
 export function SheetTrigger(
   props: SheetPrimitive.Trigger.Props,
 ): React.ReactElement {
@@ -97,7 +100,7 @@ export function SheetPopup({
             side === "left" &&
               "w-[calc(100%-(--spacing(12)))] max-w-md border-e data-ending-style:-translate-x-8 data-starting-style:-translate-x-8",
             side === "right" &&
-              "col-start-2 w-[calc(100%-(--spacing(12)))] max-w-md border-s data-ending-style:translate-x-8 data-starting-style:translate-x-8",
+              "w-[calc(100%-(--spacing(12)))] max-w-md border-s data-ending-style:translate-x-8 data-starting-style:translate-x-8",
             variant === "inset" &&
               "before:hidden sm:rounded-2xl sm:border sm:before:rounded-[calc(var(--radius-2xl)-1px)] sm:**:data-[slot=sheet-footer]:rounded-b-[calc(var(--radius-2xl)-1px)]",
             className,

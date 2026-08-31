@@ -72,9 +72,16 @@ export function FieldError({
   );
 }
 
-export const FieldControl: typeof FieldPrimitive.Control =
-  FieldPrimitive.Control;
-export const FieldValidity: typeof FieldPrimitive.Validity =
-  FieldPrimitive.Validity;
+export function FieldControl(
+  props: FieldPrimitive.Control.Props,
+): React.ReactElement {
+  return <FieldPrimitive.Control data-slot="field-control" {...props} />;
+}
+
+export function FieldValidity(
+  props: FieldPrimitive.Validity.Props,
+): React.ReactElement {
+  return <FieldPrimitive.Validity data-slot="field-validity" {...props} />;
+}
 
 export { FieldPrimitive };

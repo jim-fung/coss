@@ -11,7 +11,7 @@ export function RadioGroup({
 }: RadioGroupPrimitive.Props): React.ReactElement {
   return (
     <RadioGroupPrimitive
-      className={cn("flex flex-col gap-3", className)}
+      className={cn("flex flex-col items-start gap-3", className)}
       data-slot="radio-group"
       {...props}
     />

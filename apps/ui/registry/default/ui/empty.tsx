@@ -80,10 +80,7 @@ export function EmptyMedia({
           />
         </>
       )}
-      <div
-        className={cn(emptyMediaVariants({ className, variant }))}
-        {...props}
-      />
+      <div className={cn(emptyMediaVariants({ className, variant }))} />
     </div>
   );
 }
