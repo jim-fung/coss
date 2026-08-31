@@ -32,3 +32,4 @@ import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/componen
 
 - Thin adapter over react-resizable-panels v3 (`Group` / `Panel` / `Separator`); sizes are percentage strings ("50") or pixel numbers.
 - `orientation="vertical"` on the group; `withHandle` on `ResizableHandle` shows a visible grip.
+- Snapping: `<ResizablePanel id="sidebar" snapPoints={[25, 50, 75]} snapThreshold={5}>` — when a resize gesture settles within `snapThreshold` of a point, the panel snaps to it (delta absorbed by the largest other panel). Requires `id`. Entering a zone snaps; nudging off a point escapes, so keyboard resizing never gets trapped.

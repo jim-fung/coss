@@ -76,7 +76,14 @@ Plus every `Group` prop: `defaultLayout`, `onLayoutChange`, `disableCursor`, `di
 
 ### ResizablePanel
 
-A single resizable region. Styled wrapper for `Panel`. Sizes are percentage strings (`defaultSize="50"`) or pixel numbers (`defaultSize={200}`); supports `minSize`, `maxSize`, `collapsible`, `onResize`, ….
+A single resizable region. Styled wrapper for `Panel`. Sizes are percentage strings (`defaultSize="50"`) or pixel numbers (`defaultSize={200}`); supports `minSize`, `maxSize`, `collapsible`, `onResize`, …
+
+| Prop            | Type       | Default | Description                                                               |
+| --------------- | ---------- | ------- | ------------------------------------------------------------------------- |
+| `snapPoints`    | `number[]` | —       | Sizes (percentages of the group) the panel snaps to. Requires an `id`.     |
+| `snapThreshold` | `number`   | `5`     | Distance in percentage points within which a snap point attracts the panel. |
+
+When a resize gesture settles (drag release or a keyboard resize) inside a snap point's threshold, the panel snaps to that point; the snap delta is absorbed by the largest other panel. Moving away from a snapped point never traps you — the panel only snaps when it *enters* a zone, so a keyboard nudge off a point escapes it. A double-click on the handle still resets the layout to the `defaultSize` values.
 
 ### ResizableHandle
 
@@ -93,3 +100,9 @@ The drag handle between panels. Styled wrapper for `Separator`.
 `orientation="vertical"` on the group and `withHandle` on the handle.
 
 <ComponentPreview name="p-resizable-2" />
+
+### Snap points
+
+`snapPoints` on a panel (plus an `id`) makes resizing snap: release a drag near 25/50/75 and the panel jumps to it, with a live readout.
+
+<ComponentPreview name="p-resizable-3" />

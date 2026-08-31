@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-resizable-3",
+  "description": "Panels that snap to 25, 50, and 75 percent while resizing",
+  "registryDependencies": [
+    "@coss/resizable"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-resizable-3.tsx",
+      "content": "\"use client\";\n\nimport { useState } from \"react\";\nimport {\n  ResizableHandle,\n  ResizablePanel,\n  ResizablePanelGroup,\n} from \"@/registry/default/ui/resizable\";\n\nexport default function Particle() {\n  const [size, setSize] = useState(50);\n\n  return (\n    <ResizablePanelGroup className=\"h-48 max-w-md overflow-hidden rounded-lg border\">\n      <ResizablePanel\n        defaultSize=\"50\"\n        id=\"sidebar\"\n        onResize={(panelSize) => setSize(panelSize.asPercentage)}\n        snapPoints={[25, 50, 75]}\n      >\n        <div className=\"flex h-full flex-col items-center justify-center gap-1 p-6\">\n          <span className=\"font-medium text-muted-foreground text-sm\">\n            Sidebar\n          </span>\n          <span className=\"font-medium tabular-nums\">{Math.round(size)}%</span>\n        </div>\n      </ResizablePanel>\n      <ResizableHandle />\n      <ResizablePanel defaultSize=\"50\">\n        <div className=\"flex h-full items-center justify-center p-6\">\n          <span className=\"font-medium text-muted-foreground text-sm\">\n            Content\n          </span>\n        </div>\n      </ResizablePanel>\n    </ResizablePanelGroup>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "meta": {
+    "className": "**:data-[slot=preview]:w-full"
+  },
+  "categories": [
+    "resizable"
+  ],
+  "type": "registry:block"
+}
