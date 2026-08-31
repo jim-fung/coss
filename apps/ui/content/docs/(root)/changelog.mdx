@@ -3,6 +3,21 @@ title: Changelog
 description: Breaking changes, migration guides, and notable updates.
 ---
 
+## August 31, 2026
+
+### Nine new primitives
+
+**`apps/ui`** adds nine components: **[Menubar](/ui/docs/components/menubar)** and **[Navigation Menu](/ui/docs/components/navigation-menu)** wrap the Base UI 1.6 primitives of the same name. **[Stepper](/ui/docs/components/stepper)**, **[Timeline](/ui/docs/components/timeline)**, **[Tree](/ui/docs/components/tree)**, **[Resizable](/ui/docs/components/resizable)**, **[Carousel](/ui/docs/components/carousel)**, **[Data Table](/ui/docs/components/data-table)**, and **[Select Native](/ui/docs/components/select-native)** cover the remaining gaps against the Origin UI collection.
+
+Install them with the shadcn CLI, for example:
+
+```bash
+npx shadcn@latest add @coss/menubar
+npx shadcn@latest add @coss/data-table
+```
+
+New dependencies: **`@tanstack/react-table`** (Data Table), **`react-resizable-panels`** (Resizable), **`embla-carousel-react`** (Carousel), and **`@headless-tree/core`** / **`@headless-tree/react`** (Tree). Each component's installation section lists the dependencies it needs.
+
 ## August 19, 2026
 
 ### Tabs sizing and segmented control styles

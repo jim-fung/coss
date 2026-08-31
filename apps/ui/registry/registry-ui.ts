@@ -12,6 +12,7 @@ export const ui: Registry["items"] = [
       "@coss/badge",
       "@coss/breadcrumb",
       "@coss/button",
+      "@coss/carousel",
       "@coss/calendar",
       "@coss/card",
       "@coss/checkbox",
@@ -20,6 +21,7 @@ export const ui: Registry["items"] = [
       "@coss/combobox",
       "@coss/command",
       "@coss/context-menu",
+      "@coss/data-table",
       "@coss/dialog",
       "@coss/drawer",
       "@coss/empty",
@@ -34,30 +36,37 @@ export const ui: Registry["items"] = [
       "@coss/kbd",
       "@coss/label",
       "@coss/menu",
+      "@coss/menubar",
       "@coss/meter",
+      "@coss/navigation-menu",
       "@coss/number-field",
       "@coss/pagination",
       "@coss/popover",
       "@coss/preview-card",
       "@coss/progress",
       "@coss/radio-group",
+      "@coss/resizable",
       "@coss/scroll-area",
       "@coss/select",
+      "@coss/select-native",
       "@coss/separator",
       "@coss/sheet",
       "@coss/sidebar",
       "@coss/skeleton",
       "@coss/slider",
       "@coss/spinner",
+      "@coss/stepper",
       "@coss/switch",
       "@coss/table",
       "@coss/tabs",
       "@coss/textarea",
+      "@coss/timeline",
       "@coss/toast",
       "@coss/toggle",
       "@coss/toggle-group",
       "@coss/toolbar",
       "@coss/tooltip",
+      "@coss/tree",
     ],
     type: "registry:ui",
   },
@@ -222,6 +231,18 @@ export const ui: Registry["items"] = [
     type: "registry:ui",
   },
   {
+    dependencies: ["embla-carousel-react"],
+    files: [
+      {
+        path: "ui/carousel.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "carousel",
+    registryDependencies: ["@coss/button"],
+    type: "registry:ui",
+  },
+  {
     dependencies: ["@base-ui/react"],
     files: [
       {
@@ -295,6 +316,18 @@ export const ui: Registry["items"] = [
       },
     ],
     name: "context-menu",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@tanstack/react-table"],
+    files: [
+      {
+        path: "ui/data-table.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "data-table",
+    registryDependencies: ["@coss/button", "@coss/select", "@coss/table"],
     type: "registry:ui",
   },
   {
@@ -487,11 +520,33 @@ export const ui: Registry["items"] = [
     dependencies: ["@base-ui/react"],
     files: [
       {
+        path: "ui/menubar.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "menubar",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@base-ui/react"],
+    files: [
+      {
         path: "ui/meter.tsx",
         type: "registry:ui",
       },
     ],
     name: "meter",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@base-ui/react"],
+    files: [
+      {
+        path: "ui/navigation-menu.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "navigation-menu",
     type: "registry:ui",
   },
   {
@@ -562,6 +617,17 @@ export const ui: Registry["items"] = [
     type: "registry:ui",
   },
   {
+    dependencies: ["react-resizable-panels"],
+    files: [
+      {
+        path: "ui/resizable.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "resizable",
+    type: "registry:ui",
+  },
+  {
     dependencies: ["@base-ui/react"],
     files: [
       {
@@ -581,6 +647,16 @@ export const ui: Registry["items"] = [
       },
     ],
     name: "select",
+    type: "registry:ui",
+  },
+  {
+    files: [
+      {
+        path: "ui/select-native.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "select-native",
     type: "registry:ui",
   },
   {
@@ -674,6 +750,17 @@ export const ui: Registry["items"] = [
     dependencies: ["@base-ui/react"],
     files: [
       {
+        path: "ui/stepper.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "stepper",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@base-ui/react"],
+    files: [
+      {
         path: "ui/switch.tsx",
         type: "registry:ui",
       },
@@ -713,6 +800,17 @@ export const ui: Registry["items"] = [
       },
     ],
     name: "textarea",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@base-ui/react"],
+    files: [
+      {
+        path: "ui/timeline.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "timeline",
     type: "registry:ui",
   },
   {
@@ -846,6 +944,17 @@ export const ui: Registry["items"] = [
       },
     ],
     name: "tooltip",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@base-ui/react", "@headless-tree/core"],
+    files: [
+      {
+        path: "ui/tree.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "tree",
     type: "registry:ui",
   },
 ];

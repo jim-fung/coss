@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-data-table-1",
+  "description": "Data table with sortable columns and pagination",
+  "registryDependencies": [
+    "@coss/data-table"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-data-table-1.tsx",
+      "content": "\"use client\";\n\nimport type { ColumnDef } from \"@tanstack/react-table\";\nimport {\n  DataTable,\n  DataTableColumnHeader,\n  DataTableContent,\n  DataTablePagination,\n} from \"@/registry/default/ui/data-table\";\n\ntype Payment = {\n  id: string;\n  amount: number;\n  status: \"pending\" | \"processing\" | \"success\" | \"failed\";\n  email: string;\n};\n\nconst data: Payment[] = [\n  {\n    id: \"m5gr84i9\",\n    amount: 316,\n    status: \"success\",\n    email: \"ken99@example.com\",\n  },\n  {\n    id: \"3u1reuv4\",\n    amount: 242,\n    status: \"success\",\n    email: \"Abe45@example.com\",\n  },\n  {\n    id: \"derv1ws0\",\n    amount: 837,\n    status: \"processing\",\n    email: \"Monserrat44@example.com\",\n  },\n  {\n    id: \"5kma53ae\",\n    amount: 874,\n    status: \"success\",\n    email: \"Silas22@example.com\",\n  },\n  {\n    id: \"bhqecj4p\",\n    amount: 721,\n    status: \"failed\",\n    email: \"carmella@example.com\",\n  },\n];\n\nconst columns: ColumnDef<Payment>[] = [\n  {\n    accessorKey: \"status\",\n    header: ({ column }) => (\n      <DataTableColumnHeader column={column} title=\"Status\" />\n    ),\n    cell: ({ row }) => (\n      <span className=\"capitalize\">{row.original.status}</span>\n    ),\n  },\n  {\n    accessorKey: \"email\",\n    header: ({ column }) => (\n      <DataTableColumnHeader column={column} title=\"Email\" />\n    ),\n  },\n  {\n    accessorKey: \"amount\",\n    header: ({ column }) => (\n      <DataTableColumnHeader\n        className=\"justify-end\"\n        column={column}\n        title=\"Amount\"\n      />\n    ),\n    cell: ({ row }) => (\n      <span className=\"font-medium tabular-nums\">\n        ${row.original.amount.toFixed(2)}\n      </span>\n    ),\n  },\n];\n\nexport default function Particle() {\n  return (\n    <DataTable className=\"w-full max-w-xl\" columns={columns} data={data}>\n      <DataTableContent className=\"rounded-lg border\" />\n      <DataTablePagination />\n    </DataTable>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "meta": {
+    "className": "**:data-[slot=preview]:w-full"
+  },
+  "categories": [
+    "data table",
+    "sort",
+    "tanstack"
+  ],
+  "type": "registry:block"
+}

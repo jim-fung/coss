@@ -12,6 +12,7 @@
         "@coss/badge",
         "@coss/breadcrumb",
         "@coss/button",
+        "@coss/carousel",
         "@coss/calendar",
         "@coss/card",
         "@coss/checkbox",
@@ -20,6 +21,7 @@
         "@coss/combobox",
         "@coss/command",
         "@coss/context-menu",
+        "@coss/data-table",
         "@coss/dialog",
         "@coss/drawer",
         "@coss/empty",
@@ -34,30 +36,37 @@
         "@coss/kbd",
         "@coss/label",
         "@coss/menu",
+        "@coss/menubar",
         "@coss/meter",
+        "@coss/navigation-menu",
         "@coss/number-field",
         "@coss/pagination",
         "@coss/popover",
         "@coss/preview-card",
         "@coss/progress",
         "@coss/radio-group",
+        "@coss/resizable",
         "@coss/scroll-area",
         "@coss/select",
+        "@coss/select-native",
         "@coss/separator",
         "@coss/sheet",
         "@coss/sidebar",
         "@coss/skeleton",
         "@coss/slider",
         "@coss/spinner",
+        "@coss/stepper",
         "@coss/switch",
         "@coss/table",
         "@coss/tabs",
         "@coss/textarea",
+        "@coss/timeline",
         "@coss/toast",
         "@coss/toggle",
         "@coss/toggle-group",
         "@coss/toolbar",
-        "@coss/tooltip"
+        "@coss/tooltip",
+        "@coss/tree"
       ],
       "type": "registry:ui"
     },
@@ -247,6 +256,22 @@
     },
     {
       "dependencies": [
+        "embla-carousel-react"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/carousel.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "carousel",
+      "registryDependencies": [
+        "@coss/button"
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "dependencies": [
         "@base-ui/react"
       ],
       "files": [
@@ -336,6 +361,24 @@
         }
       ],
       "name": "context-menu",
+      "type": "registry:ui"
+    },
+    {
+      "dependencies": [
+        "@tanstack/react-table"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/data-table.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "data-table",
+      "registryDependencies": [
+        "@coss/button",
+        "@coss/select",
+        "@coss/table"
+      ],
       "type": "registry:ui"
     },
     {
@@ -563,11 +606,37 @@
       ],
       "files": [
         {
+          "path": "registry/default/ui/menubar.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "menubar",
+      "type": "registry:ui"
+    },
+    {
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "files": [
+        {
           "path": "registry/default/ui/meter.tsx",
           "type": "registry:ui"
         }
       ],
       "name": "meter",
+      "type": "registry:ui"
+    },
+    {
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/navigation-menu.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "navigation-menu",
       "type": "registry:ui"
     },
     {
@@ -653,6 +722,19 @@
     },
     {
       "dependencies": [
+        "react-resizable-panels"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/resizable.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "resizable",
+      "type": "registry:ui"
+    },
+    {
+      "dependencies": [
         "@base-ui/react"
       ],
       "files": [
@@ -675,6 +757,16 @@
         }
       ],
       "name": "select",
+      "type": "registry:ui"
+    },
+    {
+      "files": [
+        {
+          "path": "registry/default/ui/select-native.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "select-native",
       "type": "registry:ui"
     },
     {
@@ -779,6 +871,19 @@
       ],
       "files": [
         {
+          "path": "registry/default/ui/stepper.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "stepper",
+      "type": "registry:ui"
+    },
+    {
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "files": [
+        {
           "path": "registry/default/ui/switch.tsx",
           "type": "registry:ui"
         }
@@ -826,6 +931,19 @@
         }
       ],
       "name": "textarea",
+      "type": "registry:ui"
+    },
+    {
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/timeline.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "timeline",
       "type": "registry:ui"
     },
     {
@@ -970,6 +1088,20 @@
         }
       ],
       "name": "tooltip",
+      "type": "registry:ui"
+    },
+    {
+      "dependencies": [
+        "@base-ui/react",
+        "@headless-tree/core"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/tree.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "tree",
       "type": "registry:ui"
     },
     {
@@ -3627,6 +3759,28 @@
     },
     {
       "categories": [
+        "data table",
+        "sort",
+        "tanstack"
+      ],
+      "description": "Data table with sortable columns and pagination",
+      "files": [
+        {
+          "path": "registry/default/particles/p-data-table-1.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "className": "**:data-[slot=preview]:w-full"
+      },
+      "name": "p-data-table-1",
+      "registryDependencies": [
+        "@coss/data-table"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
         "date picker",
         "calendar",
         "popover",
@@ -4202,6 +4356,23 @@
         "@coss/button",
         "@coss/card",
         "@coss/empty"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
+        "carousel"
+      ],
+      "description": "Basic carousel with previous and next buttons",
+      "files": [
+        {
+          "path": "registry/default/particles/p-carousel-1.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "name": "p-carousel-1",
+      "registryDependencies": [
+        "@coss/carousel"
       ],
       "type": "registry:block"
     },
@@ -8352,6 +8523,26 @@
     },
     {
       "categories": [
+        "menubar",
+        "dropdown",
+        "menu"
+      ],
+      "description": "Horizontal menubar with File and Edit menus",
+      "files": [
+        {
+          "path": "registry/default/particles/p-menubar-1.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "name": "p-menubar-1",
+      "registryDependencies": [
+        "@coss/menubar",
+        "@coss/menu"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
         "navigation",
         "segmented control"
       ],
@@ -8401,6 +8592,24 @@
       "name": "p-navigation-3",
       "registryDependencies": [
         "@coss/segmented-control"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
+        "navigation menu",
+        "navigation"
+      ],
+      "description": "Navigation menu with dropdown panels",
+      "files": [
+        {
+          "path": "registry/default/particles/p-navigation-menu-1.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "name": "p-navigation-menu-1",
+      "registryDependencies": [
+        "@coss/navigation-menu"
       ],
       "type": "registry:block"
     },
@@ -8821,6 +9030,26 @@
       "registryDependencies": [
         "@coss/radio-group",
         "@coss/segmented-control"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
+        "resizable"
+      ],
+      "description": "Two horizontally resizable panels with a handle",
+      "files": [
+        {
+          "path": "registry/default/particles/p-resizable-1.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "className": "**:data-[slot=preview]:w-full"
+      },
+      "name": "p-resizable-1",
+      "registryDependencies": [
+        "@coss/resizable"
       ],
       "type": "registry:block"
     },
@@ -9385,6 +9614,23 @@
         "@coss/field",
         "@coss/form",
         "@coss/select"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
+        "select"
+      ],
+      "description": "Styled native select element",
+      "files": [
+        {
+          "path": "registry/default/particles/p-select-native-1.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "name": "p-select-native-1",
+      "registryDependencies": [
+        "@coss/select-native"
       ],
       "type": "registry:block"
     },
@@ -10010,6 +10256,26 @@
       "name": "p-spinner-1",
       "registryDependencies": [
         "@coss/spinner"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
+        "stepper"
+      ],
+      "description": "Horizontal stepper with clickable steps",
+      "files": [
+        {
+          "path": "registry/default/particles/p-stepper-1.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "className": "**:data-[slot=preview]:w-full"
+      },
+      "name": "p-stepper-1",
+      "registryDependencies": [
+        "@coss/stepper"
       ],
       "type": "registry:block"
     },
@@ -11061,6 +11327,26 @@
     },
     {
       "categories": [
+        "timeline"
+      ],
+      "description": "Vertical timeline with dates and indicators",
+      "files": [
+        {
+          "path": "registry/default/particles/p-timeline-1.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "className": "**:data-[slot=preview]:w-full"
+      },
+      "name": "p-timeline-1",
+      "registryDependencies": [
+        "@coss/timeline"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
         "toast"
       ],
       "description": "Default stacked toast with title and description",
@@ -11720,6 +12006,26 @@
         "@coss/button",
         "@coss/group",
         "@coss/tooltip"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
+        "tree"
+      ],
+      "dependencies": [
+        "@headless-tree/react"
+      ],
+      "description": "File tree with folders, selection, and keyboard navigation",
+      "files": [
+        {
+          "path": "registry/default/particles/p-tree-1.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "name": "p-tree-1",
+      "registryDependencies": [
+        "@coss/tree"
       ],
       "type": "registry:block"
     },

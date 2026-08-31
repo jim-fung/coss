@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-tree-1",
+  "description": "File tree with folders, selection, and keyboard navigation",
+  "dependencies": [
+    "@headless-tree/react"
+  ],
+  "registryDependencies": [
+    "@coss/tree"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-tree-1.tsx",
+      "content": "\"use client\";\n\nimport {\n  hotkeysCoreFeature,\n  selectionFeature,\n  syncDataLoaderFeature,\n} from \"@headless-tree/core\";\nimport { useTree } from \"@headless-tree/react\";\nimport { FileIcon, FolderIcon, type LucideIcon } from \"lucide-react\";\nimport { Tree, TreeItem, TreeItemLabel } from \"@/registry/default/ui/tree\";\n\ninterface Item {\n  name: string;\n  children?: string[];\n}\n\nconst items: Record<string, Item> = {\n  app: {\n    children: [\"app/layout.tsx\", \"app/page.tsx\"],\n    name: \"app\",\n  },\n  \"app/layout.tsx\": { name: \"layout.tsx\" },\n  \"app/page.tsx\": { name: \"page.tsx\" },\n  components: {\n    children: [\"components/button.tsx\", \"components/card.tsx\"],\n    name: \"components\",\n  },\n  \"components/button.tsx\": { name: \"button.tsx\" },\n  \"components/card.tsx\": { name: \"card.tsx\" },\n  lib: { children: [\"lib/utils.ts\"], name: \"lib\" },\n  \"lib/utils.ts\": { name: \"utils.ts\" },\n  \"package.json\": { name: \"package.json\" },\n  root: {\n    children: [\"app\", \"components\", \"lib\", \"package.json\"],\n    name: \"Project\",\n  },\n};\n\nfunction ItemIcon({ isFolder }: { isFolder: boolean }) {\n  const Icon: LucideIcon = isFolder ? FolderIcon : FileIcon;\n  return <Icon aria-hidden=\"true\" className=\"size-4 text-muted-foreground\" />;\n}\n\nexport default function Particle() {\n  const tree = useTree<Item>({\n    dataLoader: {\n      getChildren: (itemId) => items[itemId]?.children ?? [],\n      getItem: (itemId) => items[itemId] ?? { name: itemId },\n    },\n    features: [syncDataLoaderFeature, selectionFeature, hotkeysCoreFeature],\n    getItemName: (item) => item.getItemData()?.name ?? \"Unknown\",\n    isItemFolder: (item) => Boolean(item.getItemData()?.children),\n    rootItemId: \"root\",\n    initialState: { expandedItems: [\"app\", \"components\"] },\n  });\n\n  const selectedNames = tree\n    .getSelectedItems()\n    .map((item) => item.getItemName())\n    .join(\", \");\n\n  return (\n    <div className=\"w-full max-w-sm\">\n      <Tree indent={20} tree={tree}>\n        {tree.getItems().map((item) => (\n          <TreeItem item={item} key={item.getId()}>\n            <TreeItemLabel className=\"gap-2\">\n              <ItemIcon isFolder={item.isFolder()} />\n              {item.getItemName()}\n            </TreeItemLabel>\n          </TreeItem>\n        ))}\n      </Tree>\n      <p className=\"mt-3 text-muted-foreground text-sm\">\n        Selected: {selectedNames || \"none\"}\n      </p>\n    </div>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "categories": [
+    "tree"
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,87 @@
+---
+title: Stepper
+description: A numbered step indicator for multi-step flows.
+
+---
+
+<ComponentPreview name="p-stepper-1" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTab value="cli">CLI</TabsTab>
+  <TabsTab value="manual">Manual</TabsTab>
+</TabsList>
+<TabsPanel value="cli">
+
+```bash
+npx shadcn@latest add @coss/stepper
+```
+
+</TabsPanel>
+
+<TabsPanel value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @base-ui/react
+npm install lucide-react
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="stepper" title="components/ui/stepper.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsPanel>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import {
+  Stepper,
+  StepperIndicator,
+  StepperItem,
+  StepperSeparator,
+  StepperTitle,
+  StepperTrigger,
+} from "@/components/ui/stepper"
+```
+
+```tsx
+const [activeStep, setActiveStep] = useState(1)
+
+<Stepper onValueChange={setActiveStep} value={activeStep}>
+  {steps.map((step, index) => (
+    <StepperItem completed={activeStep > index} key={step} step={index}>
+      <StepperTrigger>
+        <StepperIndicator />
+        <StepperTitle>{step}</StepperTitle>
+      </StepperTrigger>
+      {index < steps.length - 1 && <StepperSeparator />}
+    </StepperItem>
+  ))}
+</Stepper>
+```
+
+## Examples
+
+### Vertical
+
+Set `orientation="vertical"` on the `Stepper` to stack the steps.
+
+### States
+
+- `completed` — set `completed` on a `StepperItem` (or step below `value`) to show a checkmark.
+- `loading` — set `loading` on the active `StepperItem` to show a spinner.
+- `disabled` — set `disabled` on a `StepperItem` to make it non-interactive.

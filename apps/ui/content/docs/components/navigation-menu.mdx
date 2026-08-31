@@ -1,0 +1,83 @@
+---
+title: Navigation Menu
+description: A horizontal navigation menu with a morphing viewport for dropdown panels.
+
+links:
+  doc: https://base-ui.com/react/components/navigation-menu#api-reference
+---
+
+<ComponentPreview name="p-navigation-menu-1" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTab value="cli">CLI</TabsTab>
+  <TabsTab value="manual">Manual</TabsTab>
+</TabsList>
+<TabsPanel value="cli">
+
+```bash
+npx shadcn@latest add @coss/navigation-menu
+```
+
+</TabsPanel>
+
+<TabsPanel value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @base-ui/react
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="navigation-menu" title="components/ui/navigation-menu.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsPanel>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuPopup,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu"
+```
+
+```tsx
+<NavigationMenu>
+  <NavigationMenuList>
+    <NavigationMenuItem>
+      <NavigationMenuTrigger>Components</NavigationMenuTrigger>
+      <NavigationMenuContent>
+        <NavigationMenuLink href="/docs/components/dialog">
+          Dialog
+        </NavigationMenuLink>
+      </NavigationMenuContent>
+    </NavigationMenuItem>
+  </NavigationMenuList>
+  <NavigationMenuPopup />
+</NavigationMenu>
+```
+
+## Notes
+
+- `NavigationMenuPopup` bundles the portal, positioner, popup, and morphing viewport. Render it once, as a sibling of `NavigationMenuList`.
+- Use `NavigationMenuLink` with your framework's router via the `render` prop, e.g. `render={<Link href="…" />}` for client-side navigation.
+- Set the `active` prop on a `NavigationMenuLink` to mark the current page with `data-active`.
