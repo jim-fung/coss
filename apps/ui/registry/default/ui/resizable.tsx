@@ -42,6 +42,8 @@ function ResizablePanelGroup({
   const settledLayoutRef = useRef<Layout | null>(null);
   const latestLayoutRef = useRef<Layout | null>(null);
   const pointerGestureRef = useRef(false);
+  const releasePendingRef = useRef(false);
+  const releaseFrameRef = useRef<number | null>(null);
 
   const setGroupHandle = useCallback(
     (handle: GroupImperativeHandle | null) => {
@@ -151,9 +153,23 @@ function ResizablePanelGroup({
   >(
     (layout) => {
       latestLayoutRef.current = layout;
-      // Pointer drags snap when the gesture ends (see the pointerup handler);
-      // keyboard and other single-step changes snap right away.
-      if (!pointerGestureRef.current) {
+      // A release can arrive before the panel library publishes its final
+      // layout. Apply the snap after the next layout frame instead of using a
+      // stale intermediate value.
+      if (releasePendingRef.current) {
+        releasePendingRef.current = false;
+        if (releaseFrameRef.current !== null) {
+          cancelAnimationFrame(releaseFrameRef.current);
+        }
+        releaseFrameRef.current = requestAnimationFrame(() => {
+          releaseFrameRef.current = null;
+          const latest = latestLayoutRef.current;
+          if (latest) {
+            applySnap(latest, true);
+          }
+        });
+      } else if (!pointerGestureRef.current) {
+        // Keyboard and other single-step changes snap right away.
         applySnap(layout, false);
       }
       consumerOnLayoutChange?.(layout);
@@ -177,13 +193,20 @@ function ResizablePanelGroup({
         return;
       }
       pointerGestureRef.current = false;
-      const layout = latestLayoutRef.current;
-      if (layout) {
-        // Pointer releases snap unconditionally within the threshold — like
-        // CSS scroll-snap proximity — so the outcome never depends on where
-        // the drag started.
-        applySnap(layout, true);
+      // Let the panel library publish its final pointer position first, then
+      // snap from the latest layout on the next animation frame.
+      releasePendingRef.current = true;
+      if (releaseFrameRef.current !== null) {
+        cancelAnimationFrame(releaseFrameRef.current);
       }
+      releaseFrameRef.current = requestAnimationFrame(() => {
+        releaseFrameRef.current = null;
+        releasePendingRef.current = false;
+        const latest = latestLayoutRef.current;
+        if (latest) {
+          applySnap(latest, true);
+        }
+      });
     };
     window.addEventListener("pointerup", endGesture);
     window.addEventListener("pointercancel", endGesture);
