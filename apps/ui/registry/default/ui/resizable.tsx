@@ -90,18 +90,17 @@ function ResizablePanelGroup({
         }
       }
 
-      if (
-        target === undefined ||
-        distance >= snapThreshold ||
-        distance < 0.01
-      ) {
+      if (target === undefined || distance < 0.01) {
         continue;
       }
 
       if (!onRelease) {
-        // Keyboard steps are smaller than the threshold, so snapping
-        // unconditionally would trap a nudge trying to leave a point. Steps
-        // only snap when they enter a zone the panel was not already in.
+        // Keyboard steps are smaller than the threshold, so mandatory
+        // snapping would trap a nudge trying to leave a point. Steps only
+        // snap when they enter a snap zone they were not already in.
+        if (distance >= snapThreshold) {
+          continue;
+        }
         const previousSize = previous?.[id];
         if (
           previousSize === undefined ||
@@ -128,8 +127,11 @@ function ResizablePanelGroup({
       }
 
       const delta = target - size;
-      const flexSize = (adjusted[flexId] ?? 0) - delta;
-      if (flexSize < 0) {
+      // The layout stream sums to 100 only up to floating-point dust; without
+      // the tolerance, edge snaps (which transfer exactly the full remainder)
+      // are rejected at random depending on rounding.
+      const flexSize = Math.max(0, (adjusted[flexId] ?? 0) - delta);
+      if ((adjusted[flexId] ?? 0) - delta < -0.01) {
         continue;
       }
 
@@ -218,8 +220,8 @@ function ResizablePanel({
 }: React.ComponentProps<typeof Panel> & {
   /**
    * Sizes (as percentages of the group, 0–100) the panel snaps to when a
-   * resize gesture settles on them. Requires an `id` so the group can apply
-   * the snapped layout.
+   * resize gesture settles on them. The edges (0 and 100) are always
+   * included. Requires an `id` so the group can apply the snapped layout.
    */
   snapPoints?: number[];
   /** Distance, in percentage points, within which a snap point attracts the panel. */
@@ -237,7 +239,12 @@ function ResizablePanel({
       );
       return;
     }
-    registerSnap(String(id), { snapPoints, snapThreshold });
+    // Edges are always snap points — a panel dragged to the end of the group
+    // settles fully closed (or fully open) instead of stopping just short.
+    const points = Array.from(new Set([0, ...snapPoints, 100])).sort(
+      (a, b) => a - b,
+    );
+    registerSnap(String(id), { snapPoints: points, snapThreshold });
     return () => registerSnap(String(id), null);
   }, [id, registerSnap, snapPoints, snapThreshold]);
 

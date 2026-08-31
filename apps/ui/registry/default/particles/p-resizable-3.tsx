@@ -8,7 +8,7 @@ import {
   ResizablePanelGroup,
 } from "@/registry/default/ui/resizable";
 
-const snapPoints = [25, 50, 75];
+const snapPoints = [0, 25, 50, 75, 100];
 
 export default function Particle() {
   const [size, setSize] = useState(50);
