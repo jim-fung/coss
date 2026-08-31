@@ -6,9 +6,9 @@ import {
   CarouselPrevious,
 } from "@/registry/default/ui/carousel";
 
-export default function Particle() {
-  const slides = [1, 2, 3, 4, 5];
+const slides = [1, 2, 3, 4, 5];
 
+export default function Particle() {
   return (
     <Carousel className="w-full max-w-xs">
       <CarouselContent>
