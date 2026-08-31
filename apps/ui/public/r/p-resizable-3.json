@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "p-resizable-3",
-  "description": "Panels that snap to 25, 50, and 75 percent while resizing",
+  "description": "Panels that snap to 25, 50, and 75 percent on release",
   "registryDependencies": [
     "@coss/resizable"
   ],
