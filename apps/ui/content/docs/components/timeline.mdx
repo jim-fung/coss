@@ -73,7 +73,51 @@ import {
 </Timeline>
 ```
 
-## Notes
+## API Reference
 
-- Items with a `step` less than or equal to the Timeline's `value` are marked completed, which fills their indicator and connector.
-- Set `orientation="horizontal"` on the `Timeline` for a horizontal layout.
+### Timeline
+
+Root component. Owns the active-step state used to mark items completed.
+
+| Prop           | Type                                | Default     | Description                                  |
+| -------------- | ----------------------------------- | ----------- | -------------------------------------------- |
+| `value`        | `number`                            | —           | Controlled number of completed steps.        |
+| `defaultValue` | `number`                            | `1`         | Uncontrolled initial value.                  |
+| `onValueChange`| `(value: number) => void`           | —           | Called when the value changes.               |
+| `orientation`  | `"horizontal" \| "vertical"`        | `"vertical"` | Layout direction.                           |
+
+### TimelineItem
+
+One event. `data-completed` is set when `step <= value`, which fills its indicator and connector.
+
+| Prop   | Type     | Description                                  |
+| ------ | -------- | -------------------------------------------- |
+| `step` | `number` | 1-based position used against the timeline value. |
+
+### TimelineHeader
+
+Groups the date and title.
+
+### TimelineDate
+
+Timestamp element; supports `render` for custom elements.
+
+### TimelineTitle / TimelineContent
+
+Heading and body for the event.
+
+### TimelineIndicator
+
+The dot on the line; filled via `data-completed` on the item.
+
+### TimelineSeparator
+
+The connector between events; hidden on the last item.
+
+## Examples
+
+### Horizontal milestones
+
+`orientation="horizontal"` lays the events out left to right.
+
+<ComponentPreview name="p-timeline-2" />

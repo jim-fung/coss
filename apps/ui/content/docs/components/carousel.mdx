@@ -69,28 +69,35 @@ import {
 </Carousel>
 ```
 
+## API Reference
+
+### Carousel
+
+Root component. Wraps Embla Carousel; keyboard and state are provided to children via context.
+
+| Prop          | Type                       | Default       | Description                                        |
+| ------------- | -------------------------- | ------------- | -------------------------------------------------- |
+| `opts`        | `EmblaOptions`             | —             | Options passed to `useEmblaCarousel`.              |
+| `plugins`     | `EmblaPlugin[]`            | —             | Embla plugins.                                     |
+| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | Slide axis.                                      |
+| `setApi`      | `(api: CarouselApi) => void` | —           | Receives the Embla instance for programmatic control. |
+
+### CarouselContent
+
+The scrolling track. Apply `basis-*` classes to items to control how many slides are visible.
+
+### CarouselItem
+
+One slide. `aria-roledescription="slide"` for screen readers.
+
+### CarouselPrevious / CarouselNext
+
+Arrow buttons; reuse the Button `outline` variant, disable at the ends, and rotate for vertical carousels. Accept all [Button](/ui/docs/components/button) props.
+
 ## Examples
 
-### Size
+### Multiple slides visible
 
-Use the `basis-*` classes on `CarouselItem` to control how many slides are visible at once.
+`basis-1/3` on each `CarouselItem` shows three slides at a time.
 
-```tsx
-<Carousel>
-  <CarouselContent>
-    <CarouselItem className="basis-1/3">…</CarouselItem>
-  </CarouselContent>
-</Carousel>
-```
-
-### API
-
-Use the `setApi` prop to get an Embla Carousel instance and control the carousel programmatically.
-
-```tsx
-const [api, setApi] = useState<CarouselApi>()
-
-<Carousel setApi={setApi}>
-  …
-</Carousel>
-```
+<ComponentPreview name="p-carousel-2" />

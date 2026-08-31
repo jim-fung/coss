@@ -76,8 +76,49 @@ import {
 </NavigationMenu>
 ```
 
-## Notes
+## API Reference
 
-- `NavigationMenuPopup` bundles the portal, positioner, popup, and morphing viewport. Render it once, as a sibling of `NavigationMenuList`.
-- Use `NavigationMenuLink` with your framework's router via the `render` prop, e.g. `render={<Link href="…" />}` for client-side navigation.
-- Set the `active` prop on a `NavigationMenuLink` to mark the current page with `data-active`.
+### NavigationMenu
+
+Root component. Styled wrapper for `NavigationMenu.Root` from Base UI.
+
+### NavigationMenuList
+
+Container for items. Styled wrapper for `NavigationMenu.List` from Base UI.
+
+### NavigationMenuItem
+
+Wrapper for one trigger + its content. Styled wrapper for `NavigationMenu.Item` from Base UI.
+
+### NavigationMenuTrigger
+
+Dropdown trigger with a rotating chevron. Styled wrapper for `NavigationMenu.Trigger` from Base UI.
+
+### NavigationMenuContent
+
+Panel that swaps inside the shared viewport. Styled wrapper for `NavigationMenu.Content` from Base UI; fades and slides based on the activation direction.
+
+### NavigationMenuLink
+
+Navigation link. Styled wrapper for `NavigationMenu.Link` from Base UI. Accepts `active` to mark the current page with `data-active`, and `render` to integrate a router Link.
+
+### NavigationMenuPopup
+
+Bundles `Portal`, `Positioner`, `Popup`, and the morphing `Viewport`. Render it once, as a sibling of the list.
+
+| Prop               | Type            | Default    | Description                                       |
+| ------------------ | --------------- | ---------- | ------------------------------------------------- |
+| `side`             | `Side`          | `"bottom"` | Side of the trigger the popup renders on.         |
+| `align`            | `Align`         | `"center"` | Alignment relative to the side.                   |
+| `sideOffset`       | `number`        | `10`       | Distance from the trigger, bridged for hover.     |
+| `alignOffset`      | `number`        | —          | Offset along the alignment axis.                  |
+| `collisionPadding` | `Padding`       | see Base UI | Keeps the popup inside the viewport padding.     |
+| `portalProps`      | `Portal.Props`  | —          | Forwarded to the internal Base UI `Portal`.       |
+
+## Examples
+
+### Two-column panel with active link
+
+Content panels are free-form; `NavigationMenuLink` accepts `active` for the current page.
+
+<ComponentPreview name="p-navigation-menu-2" />

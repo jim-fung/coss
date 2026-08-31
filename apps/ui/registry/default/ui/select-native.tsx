@@ -24,7 +24,7 @@ function SelectNative({
   children,
   size,
   ...props
-}: React.ComponentProps<"select"> &
+}: Omit<React.ComponentProps<"select">, "size"> &
   VariantProps<typeof selectNativeVariants>): React.ReactElement {
   return (
     <div className="relative flex w-full" data-slot="select-native-wrapper">

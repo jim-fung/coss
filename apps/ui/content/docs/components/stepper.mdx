@@ -74,14 +74,50 @@ const [activeStep, setActiveStep] = useState(1)
 </Stepper>
 ```
 
+## API Reference
+
+### Stepper
+
+Root component. Owns the active-step state and orientation, provided to items via context.
+
+| Prop           | Type                                | Default      | Description                                    |
+| -------------- | ----------------------------------- | ------------ | ---------------------------------------------- |
+| `value`        | `number`                            | —            | Controlled active step.                        |
+| `defaultValue` | `number`                            | `0`          | Uncontrolled initial step.                     |
+| `onValueChange`| `(value: number) => void`           | —            | Called when the active step changes.           |
+| `orientation`  | `"horizontal" \| "vertical"`        | `"horizontal"` | Layout direction for steps and separators.   |
+
+### StepperItem
+
+One step. Derives `data-state` (`active` / `completed` / `inactive`) from its `step` versus the stepper value.
+
+| Prop       | Type      | Default | Description                                         |
+| ---------- | --------- | ------- | --------------------------------------------------- |
+| `step`     | `number`  | —       | Zero-based index of this step (rendered as the label). |
+| `completed`| `boolean` | `false` | Forces the completed state regardless of `value`.   |
+| `disabled` | `boolean` | `false` | Makes the step trigger non-interactive.             |
+| `loading`  | `boolean` | `false` | Shows a spinner on the active step.                 |
+
+### StepperTrigger
+
+Clickable trigger around the indicator and title; supports `render`.
+
+### StepperIndicator
+
+Number/check/spinner circle. Supports `render` — the default content flows into custom elements.
+
+### StepperTitle / StepperDescription
+
+Text parts for the step label and optional description.
+
+### StepperSeparator
+
+Connector between steps. Horizontal items distribute with `flex-1`, so separators get real width; turns `bg-primary` when the step is completed.
+
 ## Examples
 
-### Vertical
+### Vertical with descriptions and loading
 
-Set `orientation="vertical"` on the `Stepper` to stack the steps.
+`orientation="vertical"` stacks steps; `loading` on the active `StepperItem` swaps the number for a spinner.
 
-### States
-
-- `completed` — set `completed` on a `StepperItem` (or step below `value`) to show a checkmark.
-- `loading` — set `loading` on the active `StepperItem` to show a spinner.
-- `disabled` — set `disabled` on a `StepperItem` to make it non-interactive.
+<ComponentPreview name="p-stepper-2" />

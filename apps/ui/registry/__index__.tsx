@@ -3589,6 +3589,24 @@ export const Index: Record<string, any> = {
     categories: ["data table","sort","tanstack"],
     meta: {"className":"**:data-[slot=preview]:w-full"},
   },
+  "p-data-table-2": {
+    name: "p-data-table-2",
+    description: "Data table with row selection and indeterminate header checkbox",
+    type: "registry:block",
+    registryDependencies: ["@coss/checkbox","@coss/data-table","@coss/label"],
+    files: [{
+      path: "registry/default/particles/p-data-table-2.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/particles/p-data-table-2.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["data table","multiselect","tanstack"],
+    meta: {"className":"**:data-[slot=preview]:w-full"},
+  },
   "p-date-picker-1": {
     name: "p-date-picker-1",
     description: "Basic date picker",
@@ -3961,6 +3979,24 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/default/particles/p-carousel-1.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["carousel"],
+    meta: undefined,
+  },
+  "p-carousel-2": {
+    name: "p-carousel-2",
+    description: "Carousel with multiple slides visible at once",
+    type: "registry:block",
+    registryDependencies: ["@coss/carousel"],
+    files: [{
+      path: "registry/default/particles/p-carousel-2.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/particles/p-carousel-2.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),
@@ -7405,6 +7441,24 @@ export const Index: Record<string, any> = {
     categories: ["menubar","dropdown","menu"],
     meta: undefined,
   },
+  "p-menubar-2": {
+    name: "p-menubar-2",
+    description: "Menubar with a submenu",
+    type: "registry:block",
+    registryDependencies: ["@coss/menubar","@coss/menu"],
+    files: [{
+      path: "registry/default/particles/p-menubar-2.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/particles/p-menubar-2.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["menubar","dropdown","menu"],
+    meta: undefined,
+  },
   "p-navigation-1": {
     name: "p-navigation-1",
     description: "Segmented navigation built with links",
@@ -7471,6 +7525,24 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/default/particles/p-navigation-menu-1.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["navigation menu","navigation"],
+    meta: undefined,
+  },
+  "p-navigation-menu-2": {
+    name: "p-navigation-menu-2",
+    description: "Navigation menu with a two-column panel and active link",
+    type: "registry:block",
+    registryDependencies: ["@coss/navigation-menu"],
+    files: [{
+      path: "registry/default/particles/p-navigation-menu-2.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/particles/p-navigation-menu-2.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),
@@ -7849,6 +7921,24 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/default/particles/p-resizable-1.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["resizable"],
+    meta: {"className":"**:data-[slot=preview]:w-full"},
+  },
+  "p-resizable-2": {
+    name: "p-resizable-2",
+    description: "Vertical resizable panels with a visible handle",
+    type: "registry:block",
+    registryDependencies: ["@coss/resizable"],
+    files: [{
+      path: "registry/default/particles/p-resizable-2.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/particles/p-resizable-2.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),
@@ -8371,6 +8461,24 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/default/particles/p-select-native-1.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["select"],
+    meta: undefined,
+  },
+  "p-select-native-2": {
+    name: "p-select-native-2",
+    description: "Native select with multiple selection and a small size",
+    type: "registry:block",
+    registryDependencies: ["@coss/select-native"],
+    files: [{
+      path: "registry/default/particles/p-select-native-2.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/particles/p-select-native-2.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),
@@ -8933,6 +9041,24 @@ export const Index: Record<string, any> = {
       return { default: mod.default || mod[exportName] }
     }),
     categories: ["stepper"],
+    meta: {"className":"**:data-[slot=preview]:w-full"},
+  },
+  "p-stepper-2": {
+    name: "p-stepper-2",
+    description: "Vertical stepper with descriptions and a loading step",
+    type: "registry:block",
+    registryDependencies: ["@coss/stepper"],
+    files: [{
+      path: "registry/default/particles/p-stepper-2.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/particles/p-stepper-2.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["stepper","loading"],
     meta: {"className":"**:data-[slot=preview]:w-full"},
   },
   "p-switch-1": {
@@ -9799,6 +9925,24 @@ export const Index: Record<string, any> = {
     categories: ["timeline"],
     meta: {"className":"**:data-[slot=preview]:w-full"},
   },
+  "p-timeline-2": {
+    name: "p-timeline-2",
+    description: "Horizontal timeline of project milestones",
+    type: "registry:block",
+    registryDependencies: ["@coss/timeline"],
+    files: [{
+      path: "registry/default/particles/p-timeline-2.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/particles/p-timeline-2.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["timeline"],
+    meta: {"className":"**:data-[slot=preview]:w-full"},
+  },
   "p-toast-1": {
     name: "p-toast-1",
     description: "Default stacked toast with title and description",
@@ -10445,6 +10589,24 @@ export const Index: Record<string, any> = {
       return { default: mod.default || mod[exportName] }
     }),
     categories: ["tree"],
+    meta: undefined,
+  },
+  "p-tree-2": {
+    name: "p-tree-2",
+    description: "Checkbox tree with cascading checked state",
+    type: "registry:block",
+    registryDependencies: ["@coss/checkbox","@coss/tree"],
+    files: [{
+      path: "registry/default/particles/p-tree-2.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/particles/p-tree-2.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["tree","checkbox"],
     meta: undefined,
   },
   "fonts": {

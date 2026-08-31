@@ -62,12 +62,34 @@ import {
 </ResizablePanelGroup>
 ```
 
+## API Reference
+
+### ResizablePanelGroup
+
+Container for panels and handles. Styled wrapper for `Group` from react-resizable-panels.
+
+| Prop          | Type                        | Default       | Description                                |
+| ------------- | --------------------------- | ------------- | ------------------------------------------ |
+| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | Axis the panels split along.             |
+
+Plus every `Group` prop: `defaultLayout`, `onLayoutChange`, `disableCursor`, `disabled`, `id`, … See the [react-resizable-panels docs](https://github.com/bvaughn/react-resizable-panels).
+
+### ResizablePanel
+
+A single resizable region. Styled wrapper for `Panel`. Sizes are percentage strings (`defaultSize="50"`) or pixel numbers (`defaultSize={200}`); supports `minSize`, `maxSize`, `collapsible`, `onResize`, ….
+
+### ResizableHandle
+
+The drag handle between panels. Styled wrapper for `Separator`.
+
+| Prop         | Type      | Default | Description                                 |
+| ------------ | --------- | ------- | ------------------------------------------- |
+| `withHandle` | `boolean` | `false` | Renders a visible grip on the handle.       |
+
 ## Examples
 
-### Vertical
+### Vertical with visible handle
 
-Set `orientation="vertical"` on the group.
+`orientation="vertical"` on the group and `withHandle` on the handle.
 
-### With handle
-
-Add the `withHandle` prop to `ResizableHandle` to render a visible grip.
+<ComponentPreview name="p-resizable-2" />

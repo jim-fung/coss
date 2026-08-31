@@ -3781,6 +3781,30 @@
     },
     {
       "categories": [
+        "data table",
+        "multiselect",
+        "tanstack"
+      ],
+      "description": "Data table with row selection and indeterminate header checkbox",
+      "files": [
+        {
+          "path": "registry/default/particles/p-data-table-2.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "className": "**:data-[slot=preview]:w-full"
+      },
+      "name": "p-data-table-2",
+      "registryDependencies": [
+        "@coss/checkbox",
+        "@coss/data-table",
+        "@coss/label"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
         "date picker",
         "calendar",
         "popover",
@@ -4371,6 +4395,23 @@
         }
       ],
       "name": "p-carousel-1",
+      "registryDependencies": [
+        "@coss/carousel"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
+        "carousel"
+      ],
+      "description": "Carousel with multiple slides visible at once",
+      "files": [
+        {
+          "path": "registry/default/particles/p-carousel-2.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "name": "p-carousel-2",
       "registryDependencies": [
         "@coss/carousel"
       ],
@@ -8543,6 +8584,26 @@
     },
     {
       "categories": [
+        "menubar",
+        "dropdown",
+        "menu"
+      ],
+      "description": "Menubar with a submenu",
+      "files": [
+        {
+          "path": "registry/default/particles/p-menubar-2.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "name": "p-menubar-2",
+      "registryDependencies": [
+        "@coss/menubar",
+        "@coss/menu"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
         "navigation",
         "segmented control"
       ],
@@ -8608,6 +8669,24 @@
         }
       ],
       "name": "p-navigation-menu-1",
+      "registryDependencies": [
+        "@coss/navigation-menu"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
+        "navigation menu",
+        "navigation"
+      ],
+      "description": "Navigation menu with a two-column panel and active link",
+      "files": [
+        {
+          "path": "registry/default/particles/p-navigation-menu-2.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "name": "p-navigation-menu-2",
       "registryDependencies": [
         "@coss/navigation-menu"
       ],
@@ -9048,6 +9127,26 @@
         "className": "**:data-[slot=preview]:w-full"
       },
       "name": "p-resizable-1",
+      "registryDependencies": [
+        "@coss/resizable"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
+        "resizable"
+      ],
+      "description": "Vertical resizable panels with a visible handle",
+      "files": [
+        {
+          "path": "registry/default/particles/p-resizable-2.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "className": "**:data-[slot=preview]:w-full"
+      },
+      "name": "p-resizable-2",
       "registryDependencies": [
         "@coss/resizable"
       ],
@@ -9629,6 +9728,23 @@
         }
       ],
       "name": "p-select-native-1",
+      "registryDependencies": [
+        "@coss/select-native"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
+        "select"
+      ],
+      "description": "Native select with multiple selection and a small size",
+      "files": [
+        {
+          "path": "registry/default/particles/p-select-native-2.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "name": "p-select-native-2",
       "registryDependencies": [
         "@coss/select-native"
       ],
@@ -10274,6 +10390,27 @@
         "className": "**:data-[slot=preview]:w-full"
       },
       "name": "p-stepper-1",
+      "registryDependencies": [
+        "@coss/stepper"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
+        "stepper",
+        "loading"
+      ],
+      "description": "Vertical stepper with descriptions and a loading step",
+      "files": [
+        {
+          "path": "registry/default/particles/p-stepper-2.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "className": "**:data-[slot=preview]:w-full"
+      },
+      "name": "p-stepper-2",
       "registryDependencies": [
         "@coss/stepper"
       ],
@@ -11347,6 +11484,26 @@
     },
     {
       "categories": [
+        "timeline"
+      ],
+      "description": "Horizontal timeline of project milestones",
+      "files": [
+        {
+          "path": "registry/default/particles/p-timeline-2.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "className": "**:data-[slot=preview]:w-full"
+      },
+      "name": "p-timeline-2",
+      "registryDependencies": [
+        "@coss/timeline"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
         "toast"
       ],
       "description": "Default stacked toast with title and description",
@@ -12025,6 +12182,28 @@
       ],
       "name": "p-tree-1",
       "registryDependencies": [
+        "@coss/tree"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
+        "tree",
+        "checkbox"
+      ],
+      "dependencies": [
+        "@headless-tree/react"
+      ],
+      "description": "Checkbox tree with cascading checked state",
+      "files": [
+        {
+          "path": "registry/default/particles/p-tree-2.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "name": "p-tree-2",
+      "registryDependencies": [
+        "@coss/checkbox",
         "@coss/tree"
       ],
       "type": "registry:block"

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-data-table-2",
+  "description": "Data table with row selection and indeterminate header checkbox",
+  "registryDependencies": [
+    "@coss/checkbox",
+    "@coss/data-table",
+    "@coss/label"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-data-table-2.tsx",
+      "content": "\"use client\";\n\nimport type { ColumnDef } from \"@tanstack/react-table\";\nimport { Checkbox } from \"@/registry/default/ui/checkbox\";\nimport {\n  DataTable,\n  DataTableColumnHeader,\n  DataTableContent,\n  DataTablePagination,\n} from \"@/registry/default/ui/data-table\";\nimport { Label } from \"@/registry/default/ui/label\";\n\ntype Member = {\n  id: string;\n  name: string;\n  role: \"Owner\" | \"Admin\" | \"Member\";\n};\n\nconst data: Member[] = [\n  { id: \"m5gr84i9\", name: \"Ken99\", role: \"Owner\" },\n  { id: \"3u1reuv4\", name: \"Abe45\", role: \"Admin\" },\n  { id: \"derv1ws0\", name: \"Monserrat44\", role: \"Member\" },\n  { id: \"5kma53ae\", name: \"Silas22\", role: \"Member\" },\n  { id: \"bhqecj4p\", name: \"Carmella\", role: \"Member\" },\n];\n\nconst columns: ColumnDef<Member>[] = [\n  {\n    id: \"select\",\n    header: ({ table }) => (\n      <Checkbox\n        aria-label=\"Select all\"\n        checked={table.getIsAllPageRowsSelected()}\n        indeterminate={table.getIsSomePageRowsSelected()}\n        onCheckedChange={(checked) =>\n          table.toggleAllPageRowsSelected(Boolean(checked))\n        }\n      />\n    ),\n    cell: ({ row }) => (\n      <Checkbox\n        aria-label={`Select ${row.original.name}`}\n        checked={row.getIsSelected()}\n        onCheckedChange={(checked) => row.toggleSelected(Boolean(checked))}\n      />\n    ),\n    enableSorting: false,\n  },\n  {\n    accessorKey: \"name\",\n    header: ({ column }) => (\n      <DataTableColumnHeader column={column} title=\"Name\" />\n    ),\n    cell: ({ row }) => <Label>{row.original.name}</Label>,\n  },\n  {\n    accessorKey: \"role\",\n    header: ({ column }) => (\n      <DataTableColumnHeader column={column} title=\"Role\" />\n    ),\n    cell: ({ row }) => <span className=\"capitalize\">{row.original.role}</span>,\n  },\n];\n\nexport default function Particle() {\n  return (\n    <DataTable\n      className=\"w-full max-w-xl\"\n      columns={columns}\n      data={data}\n      enableRowSelection\n      pageSize={5}\n    >\n      <DataTableContent className=\"rounded-lg border\" />\n      <DataTablePagination />\n    </DataTable>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "meta": {
+    "className": "**:data-[slot=preview]:w-full"
+  },
+  "categories": [
+    "data table",
+    "multiselect",
+    "tanstack"
+  ],
+  "type": "registry:block"
+}
