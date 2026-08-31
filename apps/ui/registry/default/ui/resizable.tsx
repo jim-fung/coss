@@ -63,7 +63,7 @@ function ResizablePanelGroup({
     }
   }, []);
 
-  const applySnap = useCallback((layout: Layout) => {
+  const applySnap = useCallback((layout: Layout, onRelease: boolean) => {
     const registrations = registrationsRef.current;
     if (registrations.size === 0 || !groupHandleRef.current) {
       settledLayoutRef.current = layout;
@@ -90,19 +90,25 @@ function ResizablePanelGroup({
         }
       }
 
-      // Snap only when the size entered a snap zone it was not already in —
-      // snapping unconditionally would trap keyboard resizes that step away
-      // from a point.
-      const previousSize = previous?.[id];
-      if (target === undefined || previousSize === undefined) {
+      if (
+        target === undefined ||
+        distance >= snapThreshold ||
+        distance < 0.01
+      ) {
         continue;
       }
-      const enteredZone =
-        distance < snapThreshold &&
-        distance >= 0.01 &&
-        Math.abs(previousSize - target) >= snapThreshold;
-      if (!enteredZone) {
-        continue;
+
+      if (!onRelease) {
+        // Keyboard steps are smaller than the threshold, so snapping
+        // unconditionally would trap a nudge trying to leave a point. Steps
+        // only snap when they enter a zone the panel was not already in.
+        const previousSize = previous?.[id];
+        if (
+          previousSize === undefined ||
+          Math.abs(previousSize - target) < snapThreshold
+        ) {
+          continue;
+        }
       }
 
       // Absorb the snap delta in the largest other panel so the layout keeps
@@ -146,7 +152,7 @@ function ResizablePanelGroup({
       // Pointer drags snap when the gesture ends (see the pointerup handler);
       // keyboard and other single-step changes snap right away.
       if (!pointerGestureRef.current) {
-        applySnap(layout);
+        applySnap(layout, false);
       }
       consumerOnLayoutChange?.(layout);
     },
@@ -171,7 +177,10 @@ function ResizablePanelGroup({
       pointerGestureRef.current = false;
       const layout = latestLayoutRef.current;
       if (layout) {
-        applySnap(layout);
+        // Pointer releases snap unconditionally within the threshold — like
+        // CSS scroll-snap proximity — so the outcome never depends on where
+        // the drag started.
+        applySnap(layout, true);
       }
     };
     window.addEventListener("pointerup", endGesture);

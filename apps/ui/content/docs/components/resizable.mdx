@@ -83,7 +83,7 @@ A single resizable region. Styled wrapper for `Panel`. Sizes are percentage stri
 | `snapPoints`    | `number[]` | —       | Sizes (percentages of the group) the panel snaps to. Requires an `id`.     |
 | `snapThreshold` | `number`   | `5`     | Distance in percentage points within which a snap point attracts the panel. |
 
-When a resize gesture settles (drag release or a keyboard resize) inside a snap point's threshold, the panel snaps to that point; the snap delta is absorbed by the largest other panel. Moving away from a snapped point never traps you — the panel only snaps when it *enters* a zone, so a keyboard nudge off a point escapes it. A double-click on the handle still resets the layout to the `defaultSize` values.
+Pointer releases snap **unconditionally** whenever they settle within `snapThreshold` of a point — like CSS scroll-snap proximity, the outcome never depends on where the drag started. The snap delta is absorbed by the largest other panel. Keyboard resizes keep a zone-entry rule (arrow steps are smaller than the threshold, so unconditional snapping would trap a nudge trying to leave a point), and a double-click on the handle still resets the layout to the `defaultSize` values.
 
 ### ResizableHandle
 
