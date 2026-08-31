@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-timeline-1",
+  "description": "Vertical timeline with dates and indicators",
+  "registryDependencies": [
+    "@coss/timeline"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-timeline-1.tsx",
+      "content": "import {\n  Timeline,\n  TimelineContent,\n  TimelineDate,\n  TimelineHeader,\n  TimelineIndicator,\n  TimelineItem,\n  TimelineSeparator,\n  TimelineTitle,\n} from \"@/registry/default/ui/timeline\";\n\nconst updates = [\n  {\n    content: \"Order confirmed and payment processed.\",\n    date: \"Aug 24, 2026\",\n    title: \"Order placed\",\n  },\n  {\n    content: \"Your parcel left the fulfilment centre.\",\n    date: \"Aug 26, 2026\",\n    title: \"Shipped\",\n  },\n  {\n    content: \"The parcel is on its way to the local depot.\",\n    date: \"Aug 28, 2026\",\n    title: \"In transit\",\n  },\n  {\n    content: \"Delivered to your door between 9am and 6pm.\",\n    date: \"Aug 30, 2026\",\n    title: \"Out for delivery\",\n  },\n];\n\nexport default function Particle() {\n  return (\n    <Timeline className=\"w-full max-w-md\" defaultValue={3}>\n      {updates.map((update, index) => (\n        <TimelineItem key={update.title} step={index + 1}>\n          <TimelineHeader>\n            <TimelineDate>{update.date}</TimelineDate>\n            <TimelineTitle>{update.title}</TimelineTitle>\n          </TimelineHeader>\n          <TimelineIndicator />\n          <TimelineSeparator />\n          <TimelineContent>{update.content}</TimelineContent>\n        </TimelineItem>\n      ))}\n    </Timeline>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "meta": {
+    "className": "**:data-[slot=preview]:w-full"
+  },
+  "categories": [
+    "timeline"
+  ],
+  "type": "registry:block"
+}

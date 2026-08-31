@@ -16,11 +16,13 @@ For optional **`portalProps`** on composed `*Popup` components and **toast** pro
 - **Tooltip** — Short hover/focus hint text. `./references/primitives/tooltip.md`
 - **PreviewCard** — Hover-triggered rich entity preview. `./references/primitives/preview-card.md`
 - **Menu** — Dropdown action list with groups/submenus. `./references/primitives/menu.md`
+- **Menubar** — Horizontal application menu bar composed from Menu parts. `./references/primitives/menubar.md`
 - **ContextMenu** — Right-click/long-press action menu at the pointer. `./references/primitives/context-menu.md`
 - **Command** — Searchable command palette (not cmdk). `./references/primitives/command.md`
 
 ## Selection & Input
 - **Select** — Single-choice from predefined list (no search). `./references/primitives/select.md`
+- **Select Native** — Styled native `<select>` for no-JS/mobile-native pickers. `./references/primitives/select-native.md`
 - **Combobox** — Searchable selection with filtering. `./references/primitives/combobox.md`
 - **Autocomplete** — Free-text with suggestions. `./references/primitives/autocomplete.md`
 - **Input** — Single-line text entry. `./references/primitives/input.md`
@@ -47,16 +49,23 @@ For optional **`portalProps`** on composed `*Popup` components and **toast** pro
 
 ## Layout & Navigation
 - **Tabs** — Mutually exclusive tabbed panels. `./references/primitives/tabs.md`
+- **NavigationMenu** — Horizontal navigation with a shared morphing dropdown viewport. `./references/primitives/navigation-menu.md`
 - **Accordion** — Collapsible content sections. `./references/primitives/accordion.md`
 - **Collapsible** — Single expand/collapse region. `./references/primitives/collapsible.md`
 - **Sidebar** — Persistent app shell navigation. `./references/primitives/sidebar.md`
+- **Tree** — File-tree hierarchy with selection and keyboard navigation (Headless Tree). `./references/primitives/tree.md`
 - **Breadcrumb** — Hierarchical navigation trail. `./references/primitives/breadcrumb.md`
 - **Pagination** — Paged navigation controls. `./references/primitives/pagination.md`
 - **Toolbar** — Grouped command/action strip. `./references/primitives/toolbar.md`
+- **Stepper** — Numbered clickable steps for multi-step flows. `./references/primitives/stepper.md`
+- **Resizable** — Adjustable split panes (react-resizable-panels). `./references/primitives/resizable.md`
 - **ScrollArea** — Styled scroll container. `./references/primitives/scroll-area.md`
 
 ## Content & Display
 - **Card** — Content container with sections. `./references/primitives/card.md`
+- **Carousel** — Slideshow / horizontal scroller with prev-next controls (Embla). `./references/primitives/carousel.md`
+- **DataTable** — Sortable, paginated table composed on TanStack Table. `./references/primitives/data-table.md`
+- **Timeline** — Chronological event list with indicators. `./references/primitives/timeline.md`
 - **Frame** — Bordered content surface. `./references/primitives/frame.md`
 - **Table** — Tabular data presentation. `./references/primitives/table.md`
 - **Avatar** — User/entity profile image. `./references/primitives/avatar.md`

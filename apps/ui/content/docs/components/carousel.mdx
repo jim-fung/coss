@@ -1,0 +1,96 @@
+---
+title: Carousel
+description: A carousel built with Embla Carousel for cycling through slides.
+
+---
+
+<ComponentPreview name="p-carousel-1" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTab value="cli">CLI</TabsTab>
+  <TabsTab value="manual">Manual</TabsTab>
+</TabsList>
+<TabsPanel value="cli">
+
+```bash
+npx shadcn@latest add @coss/carousel
+```
+
+</TabsPanel>
+
+<TabsPanel value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install embla-carousel-react
+npm install @base-ui/react
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="carousel" title="components/ui/carousel.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsPanel>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
+```
+
+```tsx
+<Carousel>
+  <CarouselContent>
+    <CarouselItem>…</CarouselItem>
+    <CarouselItem>…</CarouselItem>
+    <CarouselItem>…</CarouselItem>
+  </CarouselContent>
+  <CarouselPrevious />
+  <CarouselNext />
+</Carousel>
+```
+
+## Examples
+
+### Size
+
+Use the `basis-*` classes on `CarouselItem` to control how many slides are visible at once.
+
+```tsx
+<Carousel>
+  <CarouselContent>
+    <CarouselItem className="basis-1/3">…</CarouselItem>
+  </CarouselContent>
+</Carousel>
+```
+
+### API
+
+Use the `setApi` prop to get an Embla Carousel instance and control the carousel programmatically.
+
+```tsx
+const [api, setApi] = useState<CarouselApi>()
+
+<Carousel setApi={setApi}>
+  …
+</Carousel>
+```

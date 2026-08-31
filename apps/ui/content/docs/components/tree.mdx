@@ -1,0 +1,83 @@
+---
+title: Tree
+description: A file-tree style component with keyboard navigation, powered by Headless Tree.
+
+---
+
+<ComponentPreview name="p-tree-1" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTab value="cli">CLI</TabsTab>
+  <TabsTab value="manual">Manual</TabsTab>
+</TabsList>
+<TabsPanel value="cli">
+
+```bash
+npx shadcn@latest add @coss/tree
+```
+
+</TabsPanel>
+
+<TabsPanel value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @headless-tree/core @headless-tree/react
+npm install @base-ui/react
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="tree" title="components/ui/tree.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsPanel>
+
+</CodeTabs>
+
+## Usage
+
+The `Tree` is a styled layer over [Headless Tree](https://headless-tree.lukasbach.com/). Build a tree with `useTree`, then render its items.
+
+```tsx
+import { selectionFeature, syncDataLoaderFeature, hotkeysCoreFeature } from "@headless-tree/core"
+import { useTree } from "@headless-tree/react"
+import { Tree, TreeItem, TreeItemLabel } from "@/components/ui/tree"
+```
+
+```tsx
+const tree = useTree({
+  dataLoader: {
+    getChildren: (itemId) => items[itemId]?.children ?? [],
+    getItem: (itemId) => items[itemId],
+  },
+  features: [syncDataLoaderFeature, selectionFeature, hotkeysCoreFeature],
+  getItemName: (item) => item.getItemData()?.name,
+  isItemFolder: (item) => Boolean(item.getItemData()?.children),
+  rootItemId: "root",
+})
+
+<Tree indent={20} tree={tree}>
+  {tree.getItems().map((item) => (
+    <TreeItem item={item} key={item.getId()}>
+      <TreeItemLabel>{item.getItemName()}</TreeItemLabel>
+    </TreeItem>
+  ))}
+</Tree>
+```
+
+## Notes
+
+- `TreeItemLabel` renders the folder chevron automatically and rotates it based on expansion state.
+- Add `dragAndDropFeature` / `keyboardDragAndDropFeature` from Headless Tree and render `TreeDragLine` for drag and drop.
+- Selection styles are driven by `data-selected` on items; focus styles by `data-focus`.

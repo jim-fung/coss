@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-select-native-1",
+  "description": "Styled native select element",
+  "registryDependencies": [
+    "@coss/select-native"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-select-native-1.tsx",
+      "content": "import { SelectNative } from \"@/registry/default/ui/select-native\";\n\nexport default function Particle() {\n  return (\n    <SelectNative aria-label=\"Framework\" className=\"max-w-64\">\n      <option value=\"\">Select framework</option>\n      <option value=\"next\">Next.js</option>\n      <option value=\"vite\">Vite</option>\n      <option value=\"astro\">Astro</option>\n    </SelectNative>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "categories": [
+    "select"
+  ],
+  "type": "registry:block"
+}

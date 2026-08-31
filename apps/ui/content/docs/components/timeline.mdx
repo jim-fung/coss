@@ -1,0 +1,79 @@
+---
+title: Timeline
+description: A vertical or horizontal timeline for chronological content.
+
+---
+
+<ComponentPreview name="p-timeline-1" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTab value="cli">CLI</TabsTab>
+  <TabsTab value="manual">Manual</TabsTab>
+</TabsList>
+<TabsPanel value="cli">
+
+```bash
+npx shadcn@latest add @coss/timeline
+```
+
+</TabsPanel>
+
+<TabsPanel value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @base-ui/react
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="timeline" title="components/ui/timeline.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsPanel>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import {
+  Timeline,
+  TimelineContent,
+  TimelineDate,
+  TimelineHeader,
+  TimelineIndicator,
+  TimelineItem,
+  TimelineSeparator,
+  TimelineTitle,
+} from "@/components/ui/timeline"
+```
+
+```tsx
+<Timeline defaultValue={3}>
+  <TimelineItem step={1}>
+    <TimelineHeader>
+      <TimelineDate>Aug 24, 2026</TimelineDate>
+      <TimelineTitle>Order placed</TimelineTitle>
+    </TimelineHeader>
+    <TimelineIndicator />
+    <TimelineSeparator />
+    <TimelineContent>Order confirmed and payment processed.</TimelineContent>
+  </TimelineItem>
+</Timeline>
+```
+
+## Notes
+
+- Items with a `step` less than or equal to the Timeline's `value` are marked completed, which fills their indicator and connector.
+- Set `orientation="horizontal"` on the `Timeline` for a horizontal layout.

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-navigation-menu-1",
+  "description": "Navigation menu with dropdown panels",
+  "registryDependencies": [
+    "@coss/navigation-menu"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-navigation-menu-1.tsx",
+      "content": "import {\n  NavigationMenu,\n  NavigationMenuContent,\n  NavigationMenuItem,\n  NavigationMenuLink,\n  NavigationMenuList,\n  NavigationMenuPopup,\n  NavigationMenuTrigger,\n} from \"@/registry/default/ui/navigation-menu\";\n\nconst components = [\n  {\n    description: \"Accessible overlays built on Base UI primitives.\",\n    href: \"#\",\n    title: \"Dialog\",\n  },\n  {\n    description: \"Transient notifications with a headless manager.\",\n    href: \"#\",\n    title: \"Toast\",\n  },\n  {\n    description: \"Searchable single- and multi-select fields.\",\n    href: \"#\",\n    title: \"Combobox\",\n  },\n];\n\nexport default function Particle() {\n  return (\n    <NavigationMenu>\n      <NavigationMenuList>\n        <NavigationMenuItem>\n          <NavigationMenuTrigger>Components</NavigationMenuTrigger>\n          <NavigationMenuContent>\n            <ul className=\"grid w-80 gap-1\">\n              {components.map((component) => (\n                <li key={component.title}>\n                  <NavigationMenuLink\n                    className=\"block rounded-md p-3 transition-colors hover:bg-accent\"\n                    href={component.href}\n                  >\n                    <p className=\"font-medium text-sm\">{component.title}</p>\n                    <p className=\"text-muted-foreground text-sm\">\n                      {component.description}\n                    </p>\n                  </NavigationMenuLink>\n                </li>\n              ))}\n            </ul>\n          </NavigationMenuContent>\n        </NavigationMenuItem>\n        <NavigationMenuItem>\n          <NavigationMenuTrigger>Resources</NavigationMenuTrigger>\n          <NavigationMenuContent>\n            <ul className=\"grid w-64 gap-1\">\n              {[\n                { href: \"#\", title: \"Styling guide\" },\n                { href: \"#\", title: \"Accessibility\" },\n                { href: \"#\", title: \"Changelog\" },\n              ].map((resource) => (\n                <li key={resource.title}>\n                  <NavigationMenuLink\n                    className=\"block rounded-md p-2 font-medium text-sm transition-colors hover:bg-accent\"\n                    href={resource.href}\n                  >\n                    {resource.title}\n                  </NavigationMenuLink>\n                </li>\n              ))}\n            </ul>\n          </NavigationMenuContent>\n        </NavigationMenuItem>\n        <NavigationMenuItem>\n          <NavigationMenuLink\n            className=\"flex h-8 items-center rounded-md px-2.5 font-medium text-base transition-colors hover:bg-accent sm:text-sm\"\n            href=\"#\"\n          >\n            GitHub\n          </NavigationMenuLink>\n        </NavigationMenuItem>\n      </NavigationMenuList>\n      <NavigationMenuPopup />\n    </NavigationMenu>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "categories": [
+    "navigation menu",
+    "navigation"
+  ],
+  "type": "registry:block"
+}

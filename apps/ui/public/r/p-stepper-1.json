@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-stepper-1",
+  "description": "Horizontal stepper with clickable steps",
+  "registryDependencies": [
+    "@coss/stepper"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-stepper-1.tsx",
+      "content": "\"use client\";\n\nimport { useState } from \"react\";\nimport {\n  Stepper,\n  StepperIndicator,\n  StepperItem,\n  StepperSeparator,\n  StepperTitle,\n  StepperTrigger,\n} from \"@/registry/default/ui/stepper\";\n\nconst steps = [\"Address\", \"Shipping\", \"Payment\", \"Review\"];\n\nexport default function Particle() {\n  const [activeStep, setActiveStep] = useState(1);\n\n  return (\n    <Stepper\n      className=\"w-full max-w-2xl\"\n      onValueChange={setActiveStep}\n      value={activeStep}\n    >\n      {steps.map((step, index) => (\n        <StepperItem\n          completed={activeStep > index}\n          key={step}\n          loading={activeStep === 2 && index === 2}\n          step={index}\n        >\n          <StepperTrigger>\n            <StepperIndicator />\n            <StepperTitle>{step}</StepperTitle>\n          </StepperTrigger>\n          {index < steps.length - 1 && <StepperSeparator />}\n        </StepperItem>\n      ))}\n    </Stepper>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "meta": {
+    "className": "**:data-[slot=preview]:w-full"
+  },
+  "categories": [
+    "stepper"
+  ],
+  "type": "registry:block"
+}

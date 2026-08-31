@@ -1317,6 +1317,17 @@ export const particles: ParticleItem[] = [
     type: "registry:block",
   },
   {
+    categories: categories("data table", "sort", "tanstack"),
+    description: "Data table with sortable columns and pagination",
+    files: [{ path: "particles/p-data-table-1.tsx", type: "registry:block" }],
+    meta: {
+      className: "**:data-[slot=preview]:w-full",
+    },
+    name: "p-data-table-1",
+    registryDependencies: ["@coss/data-table"],
+    type: "registry:block",
+  },
+  {
     categories: categories("date picker", "calendar", "popover", "button"),
     dependencies: ["date-fns", "lucide-react"],
     description: "Basic date picker",
@@ -1677,6 +1688,14 @@ export const particles: ParticleItem[] = [
     },
     name: "p-card-11",
     registryDependencies: ["@coss/button", "@coss/card", "@coss/empty"],
+    type: "registry:block",
+  },
+  {
+    categories: categories("carousel"),
+    description: "Basic carousel with previous and next buttons",
+    files: [{ path: "particles/p-carousel-1.tsx", type: "registry:block" }],
+    name: "p-carousel-1",
+    registryDependencies: ["@coss/carousel"],
     type: "registry:block",
   },
   {
@@ -3955,6 +3974,14 @@ export const particles: ParticleItem[] = [
     type: "registry:block",
   },
   {
+    categories: categories("menubar", "dropdown", "menu"),
+    description: "Horizontal menubar with File and Edit menus",
+    files: [{ path: "particles/p-menubar-1.tsx", type: "registry:block" }],
+    name: "p-menubar-1",
+    registryDependencies: ["@coss/menubar", "@coss/menu"],
+    type: "registry:block",
+  },
+  {
     categories: categories("navigation", "segmented control"),
     description: "Segmented navigation built with links",
     files: [{ path: "particles/p-navigation-1.tsx", type: "registry:block" }],
@@ -3976,6 +4003,16 @@ export const particles: ParticleItem[] = [
     files: [{ path: "particles/p-navigation-3.tsx", type: "registry:block" }],
     name: "p-navigation-3",
     registryDependencies: ["@coss/segmented-control"],
+    type: "registry:block",
+  },
+  {
+    categories: categories("navigation menu", "navigation"),
+    description: "Navigation menu with dropdown panels",
+    files: [
+      { path: "particles/p-navigation-menu-1.tsx", type: "registry:block" },
+    ],
+    name: "p-navigation-menu-1",
+    registryDependencies: ["@coss/navigation-menu"],
     type: "registry:block",
   },
   {
@@ -4193,6 +4230,17 @@ export const particles: ParticleItem[] = [
     files: [{ path: "particles/p-radio-group-9.tsx", type: "registry:block" }],
     name: "p-radio-group-9",
     registryDependencies: ["@coss/radio-group", "@coss/segmented-control"],
+    type: "registry:block",
+  },
+  {
+    categories: categories("resizable"),
+    description: "Two horizontally resizable panels with a handle",
+    files: [{ path: "particles/p-resizable-1.tsx", type: "registry:block" }],
+    meta: {
+      className: "**:data-[slot=preview]:w-full",
+    },
+    name: "p-resizable-1",
+    registryDependencies: ["@coss/resizable"],
     type: "registry:block",
   },
   {
@@ -4520,6 +4568,16 @@ export const particles: ParticleItem[] = [
       "@coss/form",
       "@coss/select",
     ],
+    type: "registry:block",
+  },
+  {
+    categories: categories("select"),
+    description: "Styled native select element",
+    files: [
+      { path: "particles/p-select-native-1.tsx", type: "registry:block" },
+    ],
+    name: "p-select-native-1",
+    registryDependencies: ["@coss/select-native"],
     type: "registry:block",
   },
   {
@@ -4882,6 +4940,17 @@ export const particles: ParticleItem[] = [
     files: [{ path: "particles/p-spinner-1.tsx", type: "registry:block" }],
     name: "p-spinner-1",
     registryDependencies: ["@coss/spinner"],
+    type: "registry:block",
+  },
+  {
+    categories: categories("stepper"),
+    description: "Horizontal stepper with clickable steps",
+    files: [{ path: "particles/p-stepper-1.tsx", type: "registry:block" }],
+    meta: {
+      className: "**:data-[slot=preview]:w-full",
+    },
+    name: "p-stepper-1",
+    registryDependencies: ["@coss/stepper"],
     type: "registry:block",
   },
   {
@@ -5481,6 +5550,17 @@ export const particles: ParticleItem[] = [
     type: "registry:block",
   },
   {
+    categories: categories("timeline"),
+    description: "Vertical timeline with dates and indicators",
+    files: [{ path: "particles/p-timeline-1.tsx", type: "registry:block" }],
+    meta: {
+      className: "**:data-[slot=preview]:w-full",
+    },
+    name: "p-timeline-1",
+    registryDependencies: ["@coss/timeline"],
+    type: "registry:block",
+  },
+  {
     categories: categories("toast"),
     description: "Default stacked toast with title and description",
     files: [{ path: "particles/p-toast-1.tsx", type: "registry:block" }],
@@ -5777,6 +5857,15 @@ export const particles: ParticleItem[] = [
     files: [{ path: "particles/p-tooltip-4.tsx", type: "registry:block" }],
     name: "p-tooltip-4",
     registryDependencies: ["@coss/button", "@coss/group", "@coss/tooltip"],
+    type: "registry:block",
+  },
+  {
+    categories: categories("tree"),
+    dependencies: ["@headless-tree/react"],
+    description: "File tree with folders, selection, and keyboard navigation",
+    files: [{ path: "particles/p-tree-1.tsx", type: "registry:block" }],
+    name: "p-tree-1",
+    registryDependencies: ["@coss/tree"],
     type: "registry:block",
   },
 ];

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-menubar-1",
+  "description": "Horizontal menubar with File and Edit menus",
+  "registryDependencies": [
+    "@coss/menubar",
+    "@coss/menu"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-menubar-1.tsx",
+      "content": "import {\n  Menu,\n  MenuItem,\n  MenuPopup,\n  MenuSeparator,\n  MenuShortcut,\n} from \"@/registry/default/ui/menu\";\nimport { Menubar, MenubarTrigger } from \"@/registry/default/ui/menubar\";\n\nexport default function Particle() {\n  return (\n    <Menubar>\n      <Menu>\n        <MenubarTrigger>File</MenubarTrigger>\n        <MenuPopup align=\"start\" sideOffset={8}>\n          <MenuItem>New Tab</MenuItem>\n          <MenuItem>New Window</MenuItem>\n          <MenuSeparator />\n          <MenuItem>Share</MenuItem>\n          <MenuSeparator />\n          <MenuItem variant=\"destructive\">Close Window</MenuItem>\n        </MenuPopup>\n      </Menu>\n      <Menu>\n        <MenubarTrigger>Edit</MenubarTrigger>\n        <MenuPopup align=\"start\" sideOffset={8}>\n          <MenuItem>\n            Undo\n            <MenuShortcut>⌘Z</MenuShortcut>\n          </MenuItem>\n          <MenuItem>\n            Redo\n            <MenuShortcut>⇧⌘Z</MenuShortcut>\n          </MenuItem>\n          <MenuSeparator />\n          <MenuItem>\n            Cut\n            <MenuShortcut>⌘X</MenuShortcut>\n          </MenuItem>\n          <MenuItem>\n            Copy\n            <MenuShortcut>⌘C</MenuShortcut>\n          </MenuItem>\n        </MenuPopup>\n      </Menu>\n    </Menubar>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "categories": [
+    "menubar",
+    "dropdown",
+    "menu"
+  ],
+  "type": "registry:block"
+}

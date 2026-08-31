@@ -1,0 +1,84 @@
+---
+title: Menubar
+description: A horizontal bar of dropdown menus, styled triggers included.
+
+links:
+  doc: https://base-ui.com/react/components/menubar#api-reference
+---
+
+<ComponentPreview name="p-menubar-1" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTab value="cli">CLI</TabsTab>
+  <TabsTab value="manual">Manual</TabsTab>
+</TabsList>
+<TabsPanel value="cli">
+
+```bash
+npx shadcn@latest add @coss/menubar
+```
+
+</TabsPanel>
+
+<TabsPanel value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @base-ui/react
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="menubar" title="components/ui/menubar.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsPanel>
+
+</CodeTabs>
+
+## Usage
+
+The `Menubar` composes with the [Menu](/docs/components/menu) parts — every menu inside the bar is a regular `Menu` with a `MenubarTrigger`.
+
+```tsx
+import {
+  Menu,
+  MenuItem,
+  MenuPopup,
+  MenuSeparator,
+  MenuShortcut,
+} from "@/components/ui/menu"
+import { Menubar, MenubarTrigger } from "@/components/ui/menubar"
+```
+
+```tsx
+<Menubar>
+  <Menu>
+    <MenubarTrigger>File</MenubarTrigger>
+    <MenuPopup align="start">
+      <MenuItem>New Tab</MenuItem>
+      <MenuItem>
+        Open
+        <MenuShortcut>⌘O</MenuShortcut>
+      </MenuItem>
+      <MenuSeparator />
+      <MenuItem variant="destructive">Close Window</MenuItem>
+    </MenuPopup>
+  </Menu>
+</Menubar>
+```
+
+## Notes
+
+- `MenubarTrigger` replaces `MenuTrigger` inside a menubar so it inherits the bar's styling and `data-popup-open` state.
+- Submenus, checkbox items, radio items, and shortcuts work exactly as they do in the Menu component.
