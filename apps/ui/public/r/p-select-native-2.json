@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-select-native-2",
+  "description": "Native select with multiple selection and a small size",
+  "registryDependencies": [
+    "@coss/select-native"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-select-native-2.tsx",
+      "content": "import { SelectNative } from \"@/registry/default/ui/select-native\";\n\nexport default function Particle() {\n  return (\n    <div className=\"flex w-full max-w-sm flex-col gap-4\">\n      <SelectNative aria-label=\"Assignees\" multiple className=\"max-h-32\">\n        <option value=\"ken\">Ken99</option>\n        <option value=\"abe\">Abe45</option>\n        <option value=\"monserrat\">Monserrat44</option>\n        <option value=\"silas\">Silas22</option>\n      </SelectNative>\n      <SelectNative aria-label=\"Framework\" defaultValue=\"next\" size=\"sm\">\n        <option value=\"next\">Next.js</option>\n        <option value=\"vite\">Vite</option>\n        <option value=\"astro\">Astro</option>\n      </SelectNative>\n    </div>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "categories": [
+    "select"
+  ],
+  "type": "registry:block"
+}

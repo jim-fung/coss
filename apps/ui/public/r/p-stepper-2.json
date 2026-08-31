@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-stepper-2",
+  "description": "Vertical stepper with descriptions and a loading step",
+  "registryDependencies": [
+    "@coss/stepper"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-stepper-2.tsx",
+      "content": "\"use client\";\n\nimport { useState } from \"react\";\nimport {\n  Stepper,\n  StepperDescription,\n  StepperIndicator,\n  StepperItem,\n  StepperSeparator,\n  StepperTitle,\n  StepperTrigger,\n} from \"@/registry/default/ui/stepper\";\n\nconst steps = [\n  { description: \"Where should we ship it?\", title: \"Address\" },\n  { description: \"Pick a delivery speed.\", title: \"Shipping\" },\n  { description: \"Enter your card details.\", title: \"Payment\" },\n  { description: \"Confirm and place the order.\", title: \"Review\" },\n];\n\nexport default function Particle() {\n  const [activeStep, setActiveStep] = useState(2);\n\n  return (\n    <Stepper\n      className=\"max-w-md\"\n      onValueChange={setActiveStep}\n      orientation=\"vertical\"\n      value={activeStep}\n    >\n      {steps.map((step, index) => (\n        <StepperItem\n          completed={activeStep > index}\n          key={step.title}\n          loading={activeStep === 2 && index === 2}\n          step={index}\n        >\n          <StepperTrigger>\n            <StepperIndicator />\n            <div className=\"flex flex-col items-start gap-0.5\">\n              <StepperTitle>{step.title}</StepperTitle>\n              <StepperDescription>{step.description}</StepperDescription>\n            </div>\n          </StepperTrigger>\n          {index < steps.length - 1 && <StepperSeparator />}\n        </StepperItem>\n      ))}\n    </Stepper>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "meta": {
+    "className": "**:data-[slot=preview]:w-full"
+  },
+  "categories": [
+    "stepper",
+    "loading"
+  ],
+  "type": "registry:block"
+}

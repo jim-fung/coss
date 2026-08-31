@@ -78,8 +78,47 @@ const columns: ColumnDef<Payment>[] = [
 </DataTable>
 ```
 
-## Notes
+## API Reference
 
-- `DataTable` owns the sorting and pagination state internally; pass `initialSorting` and `pageSize` to customize the defaults.
-- `DataTableColumnHeader` cycles none → ascending → descending on click and is only interactive for columns where sorting is enabled.
-- `DataTableContent` renders the actual `Table`; every `Table` prop (including the `card` variant) passes through.
+### DataTable
+
+Root component. Creates the TanStack Table instance (sorting + pagination + optional row selection) and provides it to the other parts via context.
+
+| Prop                    | Type                                  | Default | Description                                              |
+| ----------------------- | ------------------------------------- | ------- | -------------------------------------------------------- |
+| `columns`               | `ColumnDef<TData>[]`                  | —       | TanStack column definitions.                             |
+| `data`                  | `TData[]`                             | —       | Row data.                                                |
+| `initialSorting`        | `SortingState`                        | `[]`    | Initial sort state.                                      |
+| `pageSize`              | `number`                              | `10`    | Initial rows per page.                                   |
+| `enableRowSelection`    | `boolean \| ((row) => boolean)`        | `false` | Enables row selection (per-row when a function).        |
+| `rowSelection`          | `RowSelectionState`                   | —       | Controlled selection state.                              |
+| `onRowSelectionChange`  | `(state: RowSelectionState) => void`  | —       | Called when the selection changes.                       |
+
+### DataTableContent
+
+Renders the rows through the [Table](/ui/docs/components/table) parts; accepts every `Table` prop, including `variant="card"`.
+
+### DataTableColumnHeader
+
+Sort header for a column: cycles none → ascending → descending and shows the direction icon.
+
+| Prop     | Type              | Description                                   |
+| -------- | ----------------- | --------------------------------------------- |
+| `column` | `Column<TData>`   | Column from `header({ column })` in the def.  |
+| `title`  | `ReactNode`       | Header content.                               |
+
+### DataTablePagination
+
+Rows-per-page select, row count, and previous/next buttons.
+
+| Prop            | Type       | Default | Description                        |
+| --------------- | ---------- | ------- | ---------------------------------- |
+| `pageSizeOptions`| `number[]` | `[10, 20, 30, 40, 50]` | Page size choices. |
+
+## Examples
+
+### Row selection
+
+`enableRowSelection` plus a checkbox column — the header checkbox toggles the page and goes indeterminate on partial selection.
+
+<ComponentPreview name="p-data-table-2" />

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-timeline-2",
+  "description": "Horizontal timeline of project milestones",
+  "registryDependencies": [
+    "@coss/timeline"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-timeline-2.tsx",
+      "content": "import {\n  Timeline,\n  TimelineContent,\n  TimelineDate,\n  TimelineHeader,\n  TimelineIndicator,\n  TimelineItem,\n  TimelineSeparator,\n  TimelineTitle,\n} from \"@/registry/default/ui/timeline\";\n\nconst milestones = [\n  { date: \"Q1\", title: \"Kickoff\" },\n  { date: \"Q2\", title: \"Beta\" },\n  { date: \"Q3\", title: \"Launch\" },\n  { date: \"Q4\", title: \"GA\" },\n];\n\nexport default function Particle() {\n  return (\n    <Timeline\n      className=\"w-full max-w-2xl\"\n      defaultValue={2}\n      orientation=\"horizontal\"\n    >\n      {milestones.map((milestone, index) => (\n        <TimelineItem key={milestone.title} step={index + 1}>\n          <TimelineHeader>\n            <TimelineDate>{milestone.date}</TimelineDate>\n            <TimelineTitle>{milestone.title}</TimelineTitle>\n          </TimelineHeader>\n          <TimelineIndicator />\n          <TimelineSeparator />\n          <TimelineContent>\n            Milestone {index + 1} of {milestones.length}.\n          </TimelineContent>\n        </TimelineItem>\n      ))}\n    </Timeline>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "meta": {
+    "className": "**:data-[slot=preview]:w-full"
+  },
+  "categories": [
+    "timeline"
+  ],
+  "type": "registry:block"
+}

@@ -76,8 +76,38 @@ const tree = useTree({
 </Tree>
 ```
 
-## Notes
+## API Reference
 
-- `TreeItemLabel` renders the folder chevron automatically and rotates it based on expansion state.
-- Add `dragAndDropFeature` / `keyboardDragAndDropFeature` from Headless Tree and render `TreeDragLine` for drag and drop.
-- Selection styles are driven by `data-selected` on items; focus styles by `data-focus`.
+### Tree
+
+Root container. Registers the Headless Tree instance (so keyboard handling and focus work) and provides the indent used for nesting.
+
+| Prop     | Type                | Default | Description                                        |
+| -------- | ------------------- | ------- | -------------------------------------------------- |
+| `tree`   | `TreeInstance<T>`   | —       | Instance from `useTree`.                           |
+| `indent` | `number`            | `20`    | Pixels of indentation per nesting level.           |
+
+### TreeItem
+
+One row. Merges Headless Tree's item props (focus, expansion, selection) and supports `render` for custom row elements. Emits `data-focus`, `data-selected`, `data-folder`, `data-drag-target`, and `data-search-match` for styling.
+
+| Prop   | Type                 | Description                          |
+| ------ | -------------------- | ------------------------------------ |
+| `item` | `ItemInstance<T>`    | Item instance from the tree.         |
+| `render` | `ReactElement`     | Replace the rendered row element.    |
+
+### TreeItemLabel
+
+Label with the rotating folder chevron. Accepts an optional `item`, otherwise reads the wrapping item from context.
+
+### TreeDragLine
+
+Drop indicator for drag and drop; reads its position from the tree instance.
+
+## Examples
+
+### Checkbox tree
+
+Add Headless Tree's `checkboxesFeature` (with `propagateCheckedState`) and render a `Checkbox` per item — folder checkboxes go indeterminate automatically.
+
+<ComponentPreview name="p-tree-2" />

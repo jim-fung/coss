@@ -52,8 +52,22 @@ import { SelectNative } from "@/components/ui/select-native"
 </SelectNative>
 ```
 
-## Notes
+## API Reference
 
-- Accepts the same `size` variants as the Select trigger: `sm`, `default`, and `lg`.
-- Multiple selection is supported via the native `multiple` attribute; the chevron indicator is hidden in that mode.
-- Because it renders a real `<select>`, it works without JavaScript and inside server components.
+### SelectNative
+
+A styled native `<select>`. Server-renderable and functional without JavaScript.
+
+| Prop   | Type                                | Default    | Description                                     |
+| ------ | ----------------------------------- | ---------- | ----------------------------------------------- |
+| `size` | `"sm" \| "default" \| "lg"`          | `"default"` | Matches the Select trigger sizes.               |
+
+Accepts every native `<select>` prop (`multiple`, `required`, `disabled`, `aria-invalid`, …). With `multiple`, the chevron is hidden and options get accent highlighting.
+
+## Examples
+
+### Multiple and small
+
+`multiple` renders a list box with checked-option highlighting; `size="sm"` matches small form controls.
+
+<ComponentPreview name="p-select-native-2" />

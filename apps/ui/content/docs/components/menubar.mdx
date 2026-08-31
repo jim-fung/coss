@@ -78,7 +78,29 @@ import { Menubar, MenubarTrigger } from "@/components/ui/menubar"
 </Menubar>
 ```
 
-## Notes
+## API Reference
 
-- `MenubarTrigger` replaces `MenuTrigger` inside a menubar so it inherits the bar's styling and `data-popup-open` state.
-- Submenus, checkbox items, radio items, and shortcuts work exactly as they do in the Menu component.
+### Menubar
+
+Root component. Styled wrapper for `Menubar` from Base UI — provides the container context that coordinates the menus inside it.
+
+| Prop         | Type                       | Default      | Description                                            |
+| ------------ | -------------------------- | ------------ | ------------------------------------------------------ |
+| `orientation`| `"horizontal" \| "vertical"` | `"horizontal"` | Orientation of the bar.                              |
+| `modal`      | `boolean`                  | `true`       | Whether open menus are modal.                          |
+| `disabled`   | `boolean`                  | `false`      | Disables every menu in the bar.                        |
+| `loopFocus`  | `boolean`                  | `true`       | Wraps arrow-key focus back to the first menu.          |
+
+### MenubarTrigger
+
+Menu trigger styled for the bar. Styled wrapper for `Menu.Trigger` from Base UI; replaces `MenuTrigger` inside a `Menubar` so it inherits the bar's compact styling and `data-popup-open` state.
+
+Every other [Menu](/ui/docs/components/menu) part (`MenuPopup`, `MenuItem`, `MenuSub`, `MenuCheckboxItem`, …) works inside the bar unchanged.
+
+## Examples
+
+### With a submenu
+
+Menu parts compose directly — `MenuSub` renders an inline-end submenu exactly like in a regular menu.
+
+<ComponentPreview name="p-menubar-2" />
