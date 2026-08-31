@@ -11,7 +11,7 @@ export default function Particle() {
         className="h-full overflow-hidden rounded-lg border"
         orientation="vertical"
       >
-        <ResizablePanel defaultSize="30">
+        <ResizablePanel defaultSize="30" maxSize="60" minSize="20">
           <div className="flex h-full items-center justify-center p-6">
             <span className="font-medium text-muted-foreground text-sm">
               Header
@@ -19,7 +19,7 @@ export default function Particle() {
           </div>
         </ResizablePanel>
         <ResizableHandle withHandle />
-        <ResizablePanel defaultSize="70">
+        <ResizablePanel defaultSize="70" maxSize="80" minSize="40">
           <div className="flex h-full items-center justify-center p-6">
             <span className="font-medium text-muted-foreground text-sm">
               Content
