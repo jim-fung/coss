@@ -72,7 +72,7 @@ function TreeItem<T = any>({
   className,
   render,
   ...props
-}: Omit<TreeItemProps<T>, "indent">): React.ReactElement {
+}: TreeItemProps<T>): React.ReactElement {
   const { indent } = useTreeContext<T>();
 
   const itemProps = typeof item.getProps === "function" ? item.getProps() : {};

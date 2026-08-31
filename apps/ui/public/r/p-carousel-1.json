@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "registry/default/particles/p-carousel-1.tsx",
-      "content": "import {\n  Carousel,\n  CarouselContent,\n  CarouselItem,\n  CarouselNext,\n  CarouselPrevious,\n} from \"@/registry/default/ui/carousel\";\n\nexport default function Particle() {\n  const slides = [1, 2, 3, 4, 5];\n\n  return (\n    <Carousel className=\"w-full max-w-xs\">\n      <CarouselContent>\n        {slides.map((slide) => (\n          <CarouselItem key={slide}>\n            <div className=\"flex aspect-square items-center justify-center rounded-lg border bg-muted/40 p-6\">\n              <span className=\"font-semibold text-4xl tabular-nums\">\n                {slide}\n              </span>\n            </div>\n          </CarouselItem>\n        ))}\n      </CarouselContent>\n      <CarouselPrevious />\n      <CarouselNext />\n    </Carousel>\n  );\n}\n",
+      "content": "import {\n  Carousel,\n  CarouselContent,\n  CarouselItem,\n  CarouselNext,\n  CarouselPrevious,\n} from \"@/registry/default/ui/carousel\";\n\nconst slides = [1, 2, 3, 4, 5];\n\nexport default function Particle() {\n  return (\n    <Carousel className=\"w-full max-w-xs\">\n      <CarouselContent>\n        {slides.map((slide) => (\n          <CarouselItem key={slide}>\n            <div className=\"flex aspect-square items-center justify-center rounded-lg border bg-muted/40 p-6\">\n              <span className=\"font-semibold text-4xl tabular-nums\">\n                {slide}\n              </span>\n            </div>\n          </CarouselItem>\n        ))}\n      </CarouselContent>\n      <CarouselPrevious />\n      <CarouselNext />\n    </Carousel>\n  );\n}\n",
       "type": "registry:block"
     }
   ],

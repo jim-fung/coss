@@ -7,6 +7,8 @@ import {
   getCoreRowModel,
   getPaginationRowModel,
   getSortedRowModel,
+  type Row,
+  type RowSelectionState,
   type SortingState,
   type Table as TanStackTable,
   useReactTable,
@@ -55,6 +57,9 @@ interface DataTableProps<TData>
   data: TData[];
   initialSorting?: SortingState;
   pageSize?: number;
+  enableRowSelection?: boolean | ((row: Row<TData>) => boolean);
+  rowSelection?: RowSelectionState;
+  onRowSelectionChange?: (rowSelection: RowSelectionState) => void;
   children: React.ReactNode;
 }
 
@@ -63,25 +68,55 @@ function DataTable<TData>({
   data,
   initialSorting = [],
   pageSize = 10,
+  enableRowSelection,
+  rowSelection: rowSelectionProp,
+  onRowSelectionChange,
   className,
   children,
   ...props
 }: DataTableProps<TData>): React.ReactElement {
   const [sorting, setSorting] = React.useState<SortingState>(initialSorting);
+  const [internalSelection, setInternalSelection] =
+    React.useState<RowSelectionState>({});
+
+  const currentSelection = rowSelectionProp ?? internalSelection;
+
+  const handleRowSelectionChange = React.useCallback(
+    (
+      updater:
+        | RowSelectionState
+        | ((old: RowSelectionState) => RowSelectionState),
+    ) => {
+      const nextSelection =
+        typeof updater === "function" ? updater(currentSelection) : updater;
+      if (rowSelectionProp === undefined) {
+        setInternalSelection(nextSelection);
+      }
+      onRowSelectionChange?.(nextSelection);
+    },
+    [currentSelection, rowSelectionProp, onRowSelectionChange],
+  );
 
   const table = useReactTable({
     columns,
     data,
+    enableRowSelection,
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
     getSortedRowModel: getSortedRowModel(),
+    onRowSelectionChange: handleRowSelectionChange,
     onSortingChange: setSorting,
-    state: { sorting },
+    initialState: { pagination: { pageSize } },
+    state: { sorting, rowSelection: currentSelection },
   });
 
   return (
     <DataTableContext.Provider value={table as TanStackTable<unknown>}>
-      <div className={cn("flex flex-col gap-4", className)} {...props}>
+      <div
+        className={cn("flex flex-col gap-4", className)}
+        data-slot="data-table"
+        {...props}
+      >
         {children}
       </div>
     </DataTableContext.Provider>

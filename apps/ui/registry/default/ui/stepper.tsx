@@ -177,39 +177,39 @@ function StepperIndicator({
 }: useRender.ComponentProps<"span">): React.ReactElement {
   const { state, step, isLoading } = useStepItem();
 
-  return (
-    <span
-      className={cn(
-        "relative flex size-6 shrink-0 items-center justify-center rounded-full bg-muted font-medium text-muted-foreground text-xs transition-colors data-[state=active]:bg-primary data-[state=completed]:bg-primary data-[state=active]:text-primary-foreground data-[state=completed]:text-primary-foreground",
-        className,
-      )}
-      data-slot="stepper-indicator"
-      data-state={state}
-      {...props}
-    >
-      {render ? (
-        children
-      ) : (
-        <>
-          <span className="transition-all group-data-[state=completed]/step:scale-0 group-data-loading/step:scale-0 group-data-[state=completed]/step:opacity-0 group-data-loading/step:opacity-0 group-data-loading/step:transition-none">
-            {step}
+  const defaultProps = {
+    children: children ?? (
+      <>
+        <span className="transition-all group-data-[state=completed]/step:scale-0 group-data-loading/step:scale-0 group-data-[state=completed]/step:opacity-0 group-data-loading/step:opacity-0 group-data-loading/step:transition-none">
+          {step}
+        </span>
+        <CheckIcon
+          aria-hidden="true"
+          className="absolute size-4 scale-0 opacity-0 transition-all group-data-[state=completed]/step:scale-100 group-data-[state=completed]/step:opacity-100"
+        />
+        {isLoading && (
+          <span className="absolute transition-all">
+            <LoaderCircleIcon
+              aria-hidden="true"
+              className="size-3.5 animate-spin"
+            />
           </span>
-          <CheckIcon
-            aria-hidden="true"
-            className="absolute size-4 scale-0 opacity-0 transition-all group-data-[state=completed]/step:scale-100 group-data-[state=completed]/step:opacity-100"
-          />
-          {isLoading && (
-            <span className="absolute transition-all">
-              <LoaderCircleIcon
-                aria-hidden="true"
-                className="size-3.5 animate-spin"
-              />
-            </span>
-          )}
-        </>
-      )}
-    </span>
-  );
+        )}
+      </>
+    ),
+    className: cn(
+      "relative flex size-6 shrink-0 items-center justify-center rounded-full bg-muted font-medium text-muted-foreground text-xs transition-colors data-[state=active]:bg-primary data-[state=completed]:bg-primary data-[state=active]:text-primary-foreground data-[state=completed]:text-primary-foreground",
+      className,
+    ),
+    "data-slot": "stepper-indicator",
+    "data-state": state,
+  };
+
+  return useRender({
+    defaultTagName: "span",
+    props: mergeProps<"span">(defaultProps, props),
+    render,
+  });
 }
 
 function StepperTitle({
