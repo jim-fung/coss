@@ -18,6 +18,12 @@ npx shadcn@latest add @coss/data-table
 
 New dependencies: **`@tanstack/react-table`** (Data Table), **`react-resizable-panels`** (Resizable), **`embla-carousel-react`** (Carousel), and **`@headless-tree/core`** / **`@headless-tree/react`** (Tree). Each component's installation section lists the dependencies it needs.
 
+### Existing component fixes
+
+**`Sidebar`** now writes its state cookie through `document.cookie` — the previous Cookie Store API call is unavailable in Firefox, Safari, and non-secure contexts — and its mobile breakpoint now matches Tailwind's `md` (768px) instead of 800px. **`ToggleGroup`** no longer forces `variant="default"` / `size="default"` into item context, so per-item `variant` and `size` props are honored. **`Menu`** and **`Context Menu`** items no longer emit `data-inset="false"`, which matched Tailwind's presence selector and incorrectly applied inset padding.
+
+Also in this batch: `AlertDialog`'s popup no longer shows a focus outline and its Header/Footer support the `render` prop; `ComboboxInput` merges consumer `className` from `triggerProps`/`clearProps` instead of letting the spread drop its positioning classes; `Toolbar` stacks vertically with `orientation="vertical"`; `Button` keeps `type="button"` when `render={<button />}` and uses `aria-disabled` (focusable, click-blocked) for non-button renders; `Autocomplete` and `Popover` gained enter/exit animations; `AccordionPanel` className now lands on the panel element; missing `data-slot` attributes were added (`checkbox-group`, `meter`, `scroll-area`, `field-control`, `field-validity`); `GroupSeparator` flips to a horizontal line inside vertical groups; `SheetCreateHandle` and `PreviewCardCreateHandle` were added; `PreviewCardPopup` exposes `side` and uses the `preview-card-popup` data-slot; `EmptyMedia` no longer applies props to two elements; `RadioGroup` aligns items to the start like `CheckboxGroup`; and dead utility classes were removed from `Command`, `Drawer`, `Sheet`, and `OTP Field`.
+
 ## August 19, 2026
 
 ### Tabs sizing and segmented control styles
