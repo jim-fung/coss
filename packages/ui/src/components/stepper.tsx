@@ -160,6 +160,7 @@ function StepperTrigger({
     "data-slot": "stepper-trigger",
     disabled: isDisabled,
     onClick: () => setActiveStep(step),
+    type: "button" as const,
   };
 
   return useRender({

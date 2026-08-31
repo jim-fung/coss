@@ -4294,7 +4294,7 @@ export const particles: ParticleItem[] = [
   },
   {
     categories: categories("resizable"),
-    description: "Panels that snap to 25, 50, and 75 percent while resizing",
+    description: "Panels that snap to 25, 50, and 75 percent on release",
     files: [{ path: "particles/p-resizable-3.tsx", type: "registry:block" }],
     meta: {
       className: "**:data-[slot=preview]:w-full",

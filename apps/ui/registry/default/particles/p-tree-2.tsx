@@ -56,14 +56,18 @@ export default function Particle() {
   return (
     <Tree indent={20} tree={tree}>
       {tree.getItems().map((item) => (
-        <TreeItem item={item} key={item.getId()}>
+        <TreeItem item={item} key={item.getId()} render={<div />}>
           <TreeItemLabel className="gap-2">
             <Checkbox
+              aria-label={`Select ${item.getItemName()}`}
               checked={item.getCheckedState() === CheckedState.Checked}
               indeterminate={
                 item.getCheckedState() === CheckedState.Indeterminate
               }
-              onClick={() => item.toggleCheckedState()}
+              onClick={(event) => {
+                event.stopPropagation();
+                item.toggleCheckedState();
+              }}
             />
             <ItemIcon isFolder={item.isFolder()} />
             {item.getItemName()}
