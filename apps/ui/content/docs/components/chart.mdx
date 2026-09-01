@@ -97,7 +97,7 @@ type ChartConfig = Record<
 >
 ```
 
-Colors are plain CSS color strings. Use the theme tokens (`var(--chart-1)` … `var(--chart-5)`) for colors that follow light/dark mode, or the `theme` variant (`{ theme: { light: "…", dark: "…" } }`) to switch a series color per theme.
+Colors are plain CSS color strings. Use the theme tokens (`var(--chart-1)` … `var(--chart-5)`) for colors that follow light/dark mode, or the `theme` variant (`{ theme: { light: "…", dark: "…" } }`) to switch a series color per theme. The `theme` variant keys off a `.dark` class on an ancestor element, so it applies when dark mode is toggled that way (the default in this library); `data-theme` or media-query based dark modes are not detected.
 
 ### ChartStyle
 
@@ -105,7 +105,7 @@ Emits the scoped style block that defines `--color-<key>` for each configured se
 
 ### ChartTooltip
 
-Re--export of the Recharts `Tooltip` — pass `content={<ChartTooltipContent />}` and any Recharts options such as `cursor` or `defaultIndex`.
+Re-export of the Recharts `Tooltip` — pass `content={<ChartTooltipContent />}` and any Recharts options such as `cursor` or `defaultIndex`.
 
 ### ChartTooltipContent
 
