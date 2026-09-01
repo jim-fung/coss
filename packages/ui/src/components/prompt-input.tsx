@@ -181,7 +181,7 @@ function PromptInputButton({
         <TooltipTrigger
           render={
             <Button
-              aria-label={typeof tooltip === "string" ? tooltip : undefined}
+              aria-label={tooltip}
               className={className}
               data-slot="prompt-input-button"
               size={size}

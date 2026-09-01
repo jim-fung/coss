@@ -5,8 +5,10 @@ import {
   ConversationContent,
   ConversationScrollButton,
 } from "@/registry/default/ui/conversation";
+import { Message, MessageContent } from "@/registry/default/ui/message";
 
 const messages = Array.from({ length: 12 }, (_, index) => ({
+  from: index % 2 === 0 ? ("user" as const) : ("assistant" as const),
   id: index,
   text: `Message ${index + 1}: this filler keeps the thread long enough to scroll and exercise the stick-to-bottom behavior.`,
 }));
@@ -17,13 +19,9 @@ export default function Particle() {
       <Conversation className="rounded-lg border">
         <ConversationContent>
           {messages.map((message) => (
-            <p
-              className="text-sm"
-              data-from={message.id % 2 === 0 ? "user" : "assistant"}
-              key={message.id}
-            >
-              {message.text}
-            </p>
+            <Message from={message.from} key={message.id}>
+              <MessageContent>{message.text}</MessageContent>
+            </Message>
           ))}
         </ConversationContent>
         <ConversationScrollButton />

@@ -4745,7 +4745,7 @@ export const Index: Record<string, any> = {
     name: "p-conversation-1",
     description: "Scrollable chat thread with stick-to-bottom and jump button",
     type: "registry:block",
-    registryDependencies: ["@coss/conversation"],
+    registryDependencies: ["@coss/conversation","@coss/message"],
     files: [{
       path: "registry/default/particles/p-conversation-1.tsx",
       type: "registry:block",

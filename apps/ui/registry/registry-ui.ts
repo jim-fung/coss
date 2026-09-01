@@ -812,6 +812,7 @@ export const ui: Registry["items"] = [
       },
     ],
     name: "sources",
+    dependencies: ["@base-ui/react"],
     registryDependencies: ["@coss/collapsible"],
     type: "registry:ui",
   },

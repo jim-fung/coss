@@ -2147,7 +2147,7 @@ export const particles: ParticleItem[] = [
       className: "**:data-[slot=preview]:w-full",
     },
     name: "p-conversation-1",
-    registryDependencies: ["@coss/conversation"],
+    registryDependencies: ["@coss/conversation", "@coss/message"],
     type: "registry:block",
   },
   {

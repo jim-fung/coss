@@ -65,7 +65,11 @@ Collapsible root wrapping the trigger and panel.
 
 ### SourcesTrigger
 
-Trigger that defaults to "Used N sources" (singular-aware). Accepts trigger props plus `count: number`; `children` replaces the label.
+Trigger that defaults to "Used N sources" (singular-aware). Accepts trigger props; `children` replaces the label.
+
+| Prop | Type | Description |
+| --- | --- | --- |
+| `count` | `number` | Number of cited sources (required). |
 
 ### SourcesPanel
 
@@ -73,7 +77,11 @@ Collapsible panel; lay out `Source` items inside.
 
 ### Source
 
-External link with a leading icon: renders an anchor with `target="_blank"` and `rel="noreferrer"`. Accepts anchor props.
+External link with a leading icon: renders an anchor with `target="_blank"` and `rel="noreferrer"`, and supports `render` for custom elements (e.g. a router link). Accepts anchor props.
+
+| Prop | Type | Description |
+| --- | --- | --- |
+| `title` | `string` | Link title; also the label when there are no `children`. |
 
 ## Examples
 

@@ -102,66 +102,70 @@ export default function Particle() {
                 title="No messages yet"
               />
             ) : (
-              messages.map((message) => (
-                <Message from={message.role} key={message.id}>
-                  <MessageContent>
-                    {message.role === "assistant" && message.reasoning ? (
-                      <Reasoning>
-                        <ReasoningTrigger />
-                        <ReasoningPanel>
-                          The user wants a definition. I will keep it to one
-                          sentence and mention tokens, components, and
-                          guidelines.
-                        </ReasoningPanel>
-                      </Reasoning>
-                    ) : null}
-                    {message.text}
-                    {message.role === "assistant" && message.reasoning ? (
-                      <>
-                        <Sources defaultOpen>
-                          <SourcesTrigger count={2} />
-                          <SourcesPanel>
-                            <Source
-                              href="https://atomicblends.com"
-                              title="Design systems primer"
+              messages.map((message) => {
+                const isRichAssistant =
+                  message.role === "assistant" && message.reasoning;
+                return (
+                  <Message from={message.role} key={message.id}>
+                    <MessageContent>
+                      {isRichAssistant ? (
+                        <Reasoning>
+                          <ReasoningTrigger />
+                          <ReasoningPanel>
+                            The user wants a definition. I will keep it to one
+                            sentence and mention tokens, components, and
+                            guidelines.
+                          </ReasoningPanel>
+                        </Reasoning>
+                      ) : null}
+                      {message.text}
+                      {isRichAssistant ? (
+                        <>
+                          <Sources defaultOpen>
+                            <SourcesTrigger count={2} />
+                            <SourcesPanel>
+                              <Source
+                                href="https://atomicblends.com"
+                                title="Design systems primer"
+                              />
+                              <Source
+                                href="https://base-ui.com"
+                                title="Base UI docs"
+                              />
+                            </SourcesPanel>
+                          </Sources>
+                          <Tool defaultOpen>
+                            <ToolHeader
+                              state="output-available"
+                              title="lookup_glossary"
                             />
-                            <Source
-                              href="https://base-ui.com"
-                              title="Base UI docs"
-                            />
-                          </SourcesPanel>
-                        </Sources>
-                        <Tool defaultOpen>
-                          <ToolHeader
-                            state="output-available"
-                            title="lookup_glossary"
-                          />
-                          <ToolPanel>
-                            <ToolInput input={{ term: "design system" }} />
-                            <ToolOutput output="1 result from the internal glossary." />
-                          </ToolPanel>
-                        </Tool>
-                      </>
+                            <ToolPanel>
+                              <ToolInput input={{ term: "design system" }} />
+                              <ToolOutput output="1 result from the internal glossary." />
+                            </ToolPanel>
+                          </Tool>
+                        </>
+                      ) : null}
+                    </MessageContent>
+                    {isRichAssistant ? (
+                      <MessageActions>
+                        <MessageAction label="Copy message" tooltip="Copy">
+                          <CopyIcon aria-hidden="true" />
+                        </MessageAction>
+                        <MessageAction
+                          label="Good response"
+                          tooltip="Good response"
+                        >
+                          <ThumbsUpIcon aria-hidden="true" />
+                        </MessageAction>
+                        <MessageAction label="Regenerate" tooltip="Regenerate">
+                          <RefreshCwIcon aria-hidden="true" />
+                        </MessageAction>
+                      </MessageActions>
                     ) : null}
-                  </MessageContent>
-                  {message.role === "assistant" && message.reasoning ? (
-                    <MessageActions>
-                      <MessageAction label="Copy message" tooltip="Copy">
-                        <CopyIcon aria-hidden="true" />
-                      </MessageAction>
-                      <MessageAction
-                        label="Good response"
-                        tooltip="Good response"
-                      >
-                        <ThumbsUpIcon aria-hidden="true" />
-                      </MessageAction>
-                      <MessageAction label="Regenerate" tooltip="Regenerate">
-                        <RefreshCwIcon aria-hidden="true" />
-                      </MessageAction>
-                    </MessageActions>
-                  ) : null}
-                </Message>
-              ))
+                  </Message>
+                );
+              })
             )}
           </ConversationContent>
           <ConversationScrollButton />

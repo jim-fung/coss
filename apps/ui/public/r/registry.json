@@ -942,6 +942,9 @@
         }
       ],
       "name": "sources",
+      "dependencies": [
+        "@base-ui/react"
+      ],
       "registryDependencies": [
         "@coss/collapsible"
       ],
@@ -5282,7 +5285,8 @@
       },
       "name": "p-conversation-1",
       "registryDependencies": [
-        "@coss/conversation"
+        "@coss/conversation",
+        "@coss/message"
       ],
       "type": "registry:block"
     },

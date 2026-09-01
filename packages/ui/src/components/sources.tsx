@@ -1,6 +1,8 @@
 "use client";
 
 import type { Collapsible as CollapsiblePrimitive } from "@base-ui/react/collapsible";
+import { mergeProps } from "@base-ui/react/merge-props";
+import { useRender } from "@base-ui/react/use-render";
 import {
   Collapsible,
   CollapsiblePanel,
@@ -67,27 +69,34 @@ function Source({
   className,
   children,
   title,
+  render,
   ...props
-}: React.ComponentProps<"a">): React.ReactElement {
-  return (
-    <a
-      className={cn(
-        "flex w-fit items-center gap-1.5 text-foreground text-xs underline-offset-4 hover:underline",
-        className,
-      )}
-      data-slot="source"
-      rel="noreferrer"
-      target="_blank"
-      title={title}
-      {...props}
-    >
-      <LinkIcon
-        aria-hidden="true"
-        className="size-3.5 shrink-0 text-muted-foreground"
-      />
-      {children ?? title}
-    </a>
-  );
+}: useRender.ComponentProps<"a">): React.ReactElement {
+  const defaultProps = {
+    children: (
+      <>
+        <LinkIcon
+          aria-hidden="true"
+          className="size-3.5 shrink-0 text-muted-foreground"
+        />
+        {children ?? title}
+      </>
+    ),
+    className: cn(
+      "flex w-fit items-center gap-1.5 text-foreground text-xs underline-offset-4 hover:underline",
+      className,
+    ),
+    "data-slot": "source",
+    rel: "noreferrer",
+    target: "_blank",
+    title,
+  };
+
+  return useRender({
+    defaultTagName: "a",
+    props: mergeProps<"a">(defaultProps, props),
+    render,
+  });
 }
 
 export { Source, Sources, SourcesPanel, SourcesTrigger };
