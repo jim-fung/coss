@@ -101,6 +101,8 @@ const ChartStyle = ({
 
   return (
     <style
+      // Keys and colors come from the consumer's own config object, so the
+      // interpolation is inside the application's trust boundary.
       dangerouslySetInnerHTML={{
         __html: Object.entries(THEMES)
           .map(
@@ -139,15 +141,18 @@ function ChartTooltipContent({
   color,
   nameKey,
   labelKey,
-}: React.ComponentProps<typeof Tooltip> &
-  React.ComponentProps<"div"> & {
-    hideLabel?: boolean;
-    hideIndicator?: boolean;
-    /** Shape of the colored indicator shown next to each series. */
-    indicator?: "line" | "dot" | "dashed";
-    nameKey?: string;
-    labelKey?: string;
-  } & Omit<
+}: React.ComponentProps<typeof Tooltip> & {
+  /** Classes for the rendered tooltip. No other DOM props are forwarded. */
+  className?: string;
+  hideLabel?: boolean;
+  hideIndicator?: boolean;
+  /** Shape of the colored indicator shown next to each series. */
+  indicator?: "line" | "dot" | "dashed";
+  /** Overrides the indicator color for every row; defaults to each series' own color. */
+  color?: string;
+  nameKey?: string;
+  labelKey?: string;
+} & Omit<
     DefaultTooltipContentProps<TooltipValueType, TooltipNameType>,
     "accessibilityLayer"
   >): React.ReactElement | null {
@@ -287,7 +292,9 @@ function ChartLegendContent({
   payload,
   verticalAlign = "bottom",
   nameKey,
-}: React.ComponentProps<"div"> & {
+}: {
+  /** Classes for the rendered legend. No other DOM props are forwarded. */
+  className?: string;
   hideIcon?: boolean;
   nameKey?: string;
 } & DefaultLegendContentProps): React.ReactElement | null {

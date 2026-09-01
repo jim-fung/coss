@@ -33,6 +33,11 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 export default function Particle() {
+  const totalVisitors = chartData.reduce(
+    (sum, entry) => sum + entry.visitors,
+    0,
+  );
+
   return (
     <Card className="flex max-w-md flex-col">
       <CardHeader>
@@ -67,7 +72,7 @@ export default function Particle() {
           <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
             <div className="text-center">
               <div className="font-semibold text-lg tabular-nums leading-none">
-                925
+                {totalVisitors.toLocaleString()}
               </div>
               <div className="text-muted-foreground text-xs">visitors</div>
             </div>
