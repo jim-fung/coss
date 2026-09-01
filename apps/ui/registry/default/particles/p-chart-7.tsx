@@ -49,7 +49,7 @@ export default function Particle() {
             <XAxis
               axisLine={false}
               dataKey="hour"
-              tickFormatter={(value) => value.slice(0, 2)}
+              tickFormatter={(value) => value.split(":")[0]}
               tickLine={false}
               tickMargin={8}
             />
