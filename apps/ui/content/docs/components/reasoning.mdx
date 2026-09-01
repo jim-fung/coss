@@ -1,0 +1,91 @@
+---
+title: Reasoning
+description: A collapsible disclosure for model thinking, with streaming awareness.
+---
+
+<ComponentPreview name="p-reasoning-1" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTab value="cli">CLI</TabsTab>
+  <TabsTab value="manual">Manual</TabsTab>
+</TabsList>
+<TabsPanel value="cli">
+
+```bash
+npx shadcn@latest add @coss/reasoning
+```
+
+</TabsPanel>
+
+<TabsPanel value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="reasoning" title="components/ui/reasoning.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsPanel>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import {
+  Reasoning,
+  ReasoningPanel,
+  ReasoningTrigger,
+} from "@/components/ui/reasoning"
+```
+
+```tsx
+<Reasoning isStreaming={isThinking} duration={seconds}>
+  <ReasoningTrigger />
+  <ReasoningPanel>{thinkingText}</ReasoningPanel>
+</Reasoning>
+```
+
+Toggle `isStreaming` while the model thinks: the panel auto-opens at stream start (unless `defaultOpen` is explicitly `false`), the trigger shimmers "Thinking…", the elapsed seconds are measured internally, and one second after the stream ends the panel auto-closes and the trigger reads "Thought for Ns" — exactly once, so re-opening manually is never overridden.
+
+## API Reference
+
+### Reasoning
+
+Collapsible root with stream-aware behavior.
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `isStreaming` | `boolean` | `false` | Drives auto-open, the shimmering label, and duration measurement. |
+| `duration` | `number` | measured | Overrides the measured seconds shown after streaming. |
+| `open` | `boolean` | — | Controlled open state. |
+| `defaultOpen` | `boolean` | `false` | Uncontrolled initial state; `false` also disables auto-open. |
+| `onOpenChange` | Base UI signature | — | Called on user-driven open changes. |
+
+When `open` is controlled, the auto-open and auto-close only drive the internal state, so they have no visible effect — drive `open` from your own stream state instead. Uncontrolled usage (the default) gets the full auto behavior; the once-only auto-close is never re-armed, so manually re-opening afterwards is never overridden.
+
+### ReasoningTrigger
+
+Collapsible trigger. Default label: pulsing dot + shimmering "Thinking…" while streaming, "Thought for Ns" once measured, "Thought process" otherwise.
+
+| Prop | Type | Description |
+| --- | --- | --- |
+| `getThinkingMessage` | `(isStreaming: boolean, duration?: number) => string` | Custom label text. |
+
+### ReasoningPanel
+
+Collapsible panel for the thinking text. Children are plain nodes — compose your own Markdown renderer if the content is rich.
+
+## Examples
+
+### Simulated stream
+
+<ComponentPreview name="p-reasoning-2" />

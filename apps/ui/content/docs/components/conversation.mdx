@@ -1,0 +1,122 @@
+---
+title: Conversation
+description: A scrollable chat thread with stick-to-bottom auto-scroll.
+---
+
+<ComponentPreview name="p-conversation-1" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTab value="cli">CLI</TabsTab>
+  <TabsTab value="manual">Manual</TabsTab>
+</TabsList>
+<TabsPanel value="cli">
+
+```bash
+npx shadcn@latest add @coss/conversation
+```
+
+</TabsPanel>
+
+<TabsPanel value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install use-stick-to-bottom
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="conversation" title="components/ui/conversation.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsPanel>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import {
+  Conversation,
+  ConversationContent,
+  ConversationEmptyState,
+  ConversationScrollButton,
+} from "@/components/ui/conversation"
+```
+
+```tsx
+<div className="flex h-96 flex-col">
+  <Conversation>
+    <ConversationContent>
+      <Message from="user">…</Message>
+      <Message from="assistant">…</Message>
+    </ConversationContent>
+    <ConversationScrollButton />
+  </Conversation>
+</div>
+```
+
+The root is a `role="log"` landmark with `aria-live="polite"`, so assistive tech announces appended messages. It uses `use-stick-to-bottom`: during streaming, the view follows new content as long as the user has not scrolled away; scrolling up releases the lock, and `ConversationScrollButton` appears to jump back.
+
+Give the thread a height by placing it in a fixed-height flex container (as above) or another flex context with a bounded height — the root has `flex-1 min-h-0` and scrolls its content.
+
+## API Reference
+
+### Conversation
+
+Scroll container that pins the view to the latest content.
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `initial` | `"auto" \| "smooth" \| SpringAnimation` | `"smooth"` | Scroll animation for the initial pin. |
+| `resize` | `"auto" \| "smooth" \| SpringAnimation` | `"smooth"` | Scroll animation when content grows. |
+
+All other props are forwarded to the underlying scroll `div`.
+
+### ConversationContent
+
+The message list. Passes through the stick-to-bottom content element; children may also be a render function receiving the scroll context.
+
+### ConversationEmptyState
+
+Centered placeholder shown when the thread has no messages. Renders an `Empty` layout by default; `children` replaces it entirely.
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `title` | `ReactNode` | `"No messages yet"` | Heading text. |
+| `description` | `ReactNode` | `"Start a conversation…"` | Supporting text. |
+| `icon` | `ReactNode` | — | Icon for the media slot. |
+
+### ConversationScrollButton
+
+Renders only while the user has scrolled away from the bottom. Clicking returns to the latest messages. Accepts `Button` props.
+
+### ConversationDownload
+
+Downloads the thread as a Markdown file. Accepts `Button` props.
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `messages` | `ConversationMessage[]` | — (required) | Messages to serialize. |
+| `filename` | `string` | `"conversation.md"` | Download filename. |
+| `formatMessage` | `(message) => string` | Role heading + text | Custom Markdown serializer. |
+
+`ConversationMessage` is `{ role: string; content: ReactNode }`; `messagesToMarkdown(messages, formatMessage?)` is exported for reuse.
+
+## Examples
+
+### Complete chat interface
+
+Composed with `Message`, `PromptInput`, `Reasoning`, `Sources`, `Tool`, and `Suggestions` — see the individual pages for each part.
+
+<ComponentPreview name="p-conversation-2" />

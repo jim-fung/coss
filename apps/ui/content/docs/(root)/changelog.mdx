@@ -3,6 +3,23 @@ title: Changelog
 description: Breaking changes, migration guides, and notable updates.
 ---
 
+## September 1, 2026
+
+### AI chat primitives
+
+**`apps/ui`** adds eight components for composing AI chat interfaces, organized under a new **ai** category: **[Conversation](/ui/docs/components/conversation)** is a `role="log"` thread with stick-to-bottom auto-scroll during streaming, a jump-to-latest button, an empty state, and Markdown download. **[Message](/ui/docs/components/message)** provides role-aware bubbles (`from="user" | "assistant" | "system" | "tool"`), copy/feedback actions, and a branching compound for alternative replies. **[Prompt Input](/ui/docs/components/prompt-input)** is a composer built on `InputGroup` with an auto-grow textarea, Enter-to-submit, and submit-status icons. **[Reasoning](/ui/docs/components/reasoning)** wraps model thinking in a collapsible that auto-opens while streaming, measures the duration, and auto-closes once after a short delay. **[Tool](/ui/docs/components/tool)** renders tool calls with a seven-state status badge, JSON input, and output/error sections. **[Sources](/ui/docs/components/sources)** lists citations, **[Suggestion](/ui/docs/components/suggestion)** renders prompt chips, and **[Shimmer](/ui/docs/components/shimmer)** animates streaming text via the Web Animations API (no global keyframes, disabled under reduced motion).
+
+The components are presentational and AI-SDK-agnostic: role and status unions are declared locally, and message content is plain children — bring your own Markdown renderer. The set composes into a full chat demo in the Conversation examples.
+
+Install them with the shadcn CLI, for example:
+
+```bash
+npx shadcn@latest add @coss/conversation
+npx shadcn@latest add @coss/prompt-input
+```
+
+New dependency: **`use-stick-to-bottom`** (Conversation).
+
 ## August 31, 2026
 
 ### Nine new primitives

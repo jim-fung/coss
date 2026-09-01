@@ -1,0 +1,101 @@
+---
+title: Tool
+description: A collapsible tool-call card with status badge, input, and output.
+---
+
+<ComponentPreview name="p-tool-1" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTab value="cli">CLI</TabsTab>
+  <TabsTab value="manual">Manual</TabsTab>
+</TabsList>
+<TabsPanel value="cli">
+
+```bash
+npx shadcn@latest add @coss/tool
+```
+
+</TabsPanel>
+
+<TabsPanel value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="tool" title="components/ui/tool.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsPanel>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import {
+  Tool,
+  ToolHeader,
+  ToolInput,
+  ToolOutput,
+  ToolPanel,
+} from "@/components/ui/tool"
+```
+
+```tsx
+<Tool defaultOpen>
+  <ToolHeader state="output-available" title="get_weather" />
+  <ToolPanel>
+    <ToolInput input={{ location: "San Francisco" }} />
+    <ToolOutput output="18°C, partly cloudy." />
+  </ToolPanel>
+</Tool>
+```
+
+## API Reference
+
+### Tool
+
+Bordered collapsible card. Accepts collapsible props (`defaultOpen`, `open`, `onOpenChange`).
+
+### ToolHeader
+
+Trigger row with a status badge. Label falls back `title` → `toolName` → "Tool"; `children` replaces the whole row.
+
+| Prop | Type | Description |
+| --- | --- | --- |
+| `state` | `ToolState` | Drives the badge (required). |
+| `title` | `ReactNode` | Header label. |
+| `toolName` | `string` | Fallback label, e.g. for dynamic tools. |
+
+`ToolState` is `"input-streaming" | "input-available" | "approval-requested" | "approval-responded" | "output-available" | "output-error" | "output-denied"`, mapped to Pending, Running, Awaiting approval, Responded, Completed, Error, and Denied badges respectively.
+
+### ToolPanel
+
+Collapsible body, separated from the header by a border.
+
+### ToolInput
+
+Pretty-printed JSON of the call arguments in a muted `<pre>`. Renders nothing when `input` is `undefined`; `children` replaces the serialized code.
+
+### ToolOutput
+
+Output section. Renders nothing when there is nothing to show.
+
+| Prop | Type | Description |
+| --- | --- | --- |
+| `output` | `ReactNode` | Result content (compose a Markdown renderer for rich text). |
+| `errorText` | `string` | Error paragraph announced via `role="alert"`. |
+
+## Examples
+
+### Approval and error states
+
+<ComponentPreview name="p-tool-2" />

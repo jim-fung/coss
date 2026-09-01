@@ -1,0 +1,109 @@
+---
+title: Prompt Input
+description: A chat composer with auto-grow textarea, tools, and submit states.
+---
+
+<ComponentPreview name="p-prompt-input-1" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTab value="cli">CLI</TabsTab>
+  <TabsTab value="manual">Manual</TabsTab>
+</TabsList>
+<TabsPanel value="cli">
+
+```bash
+npx shadcn@latest add @coss/prompt-input
+```
+
+</TabsPanel>
+
+<TabsPanel value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="prompt-input" title="components/ui/prompt-input.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsPanel>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import {
+  PromptInput,
+  PromptInputButton,
+  PromptInputFooter,
+  PromptInputSubmit,
+  PromptInputTextarea,
+  PromptInputTools,
+} from "@/components/ui/prompt-input"
+```
+
+```tsx
+<PromptInput onSubmit={(message) => console.log(message.text)}>
+  <PromptInputTextarea placeholder="Write a message…" />
+  <PromptInputFooter>
+    <PromptInputTools>
+      <PromptInputButton aria-label="Attach file" tooltip="Attach file">
+        <PaperclipIcon aria-hidden="true" />
+      </PromptInputButton>
+    </PromptInputTools>
+    <PromptInputSubmit />
+  </PromptInputFooter>
+</PromptInput>
+```
+
+The root renders a `form` around an `InputGroup`. `PromptInputTextarea` grows with its content (`field-sizing`), submits on Enter (Shift+Enter inserts a newline, IME composition is respected), and is reset after each accepted submit. Parts that render before the textarea (`PromptInputHeader`, `PromptInputFooter`) are `InputGroupAddon`s — keep them after the textarea in DOM order.
+
+## API Reference
+
+### PromptInput
+
+Form wrapper. Owns the textarea ref used by `PromptInputTextarea` and `PromptInputSubmit`.
+
+| Prop | Type | Description |
+| --- | --- | --- |
+| `onSubmit` | `(message: PromptInputMessage, event: FormEvent<HTMLFormElement>) => void` | Called with trimmed, non-empty text; the textarea resets first. |
+
+`PromptInputMessage` is `{ text: string }`.
+
+### PromptInputTextarea
+
+Auto-growing textarea (`TextareaProps`). Enter submits, Shift+Enter inserts a newline.
+
+### PromptInputHeader / PromptInputFooter
+
+`InputGroupAddon` slots (`align="block-start"` / `"block-end"`) pinned above and below the textarea.
+
+### PromptInputTools
+
+Left-aligned cluster for `PromptInputButton`s inside the footer.
+
+### PromptInputButton
+
+Ghost icon button; accepts `Button` props plus `tooltip?: string` for a tooltip and accessible name.
+
+### PromptInputSubmit
+
+Submit button whose icon reflects `status`. Accepts `Button` props; defaults `variant="default" size="icon-sm" type="submit"`.
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `status` | `"ready" \| "submitted" \| "streaming" \| "error"` | `"ready"` | `submitted`/`streaming` show a stop square (and `aria-label="Stop generating"`); `error` shows a retry arrow. |
+
+## Examples
+
+### With a model picker and status cycle
+
+<ComponentPreview name="p-prompt-input-2" />

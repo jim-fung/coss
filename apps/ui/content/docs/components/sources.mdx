@@ -1,0 +1,82 @@
+---
+title: Sources
+description: A collapsible list of citations used by an AI response.
+---
+
+<ComponentPreview name="p-sources-1" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTab value="cli">CLI</TabsTab>
+  <TabsTab value="manual">Manual</TabsTab>
+</TabsList>
+<TabsPanel value="cli">
+
+```bash
+npx shadcn@latest add @coss/sources
+```
+
+</TabsPanel>
+
+<TabsPanel value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="sources" title="components/ui/sources.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsPanel>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import {
+  Source,
+  Sources,
+  SourcesPanel,
+  SourcesTrigger,
+} from "@/components/ui/sources"
+```
+
+```tsx
+<Sources>
+  <SourcesTrigger count={2} />
+  <SourcesPanel>
+    <Source href="https://example.com" title="Example reference" />
+  </SourcesPanel>
+</Sources>
+```
+
+## API Reference
+
+### Sources
+
+Collapsible root wrapping the trigger and panel.
+
+### SourcesTrigger
+
+Trigger that defaults to "Used N sources" (singular-aware). Accepts trigger props plus `count: number`; `children` replaces the label.
+
+### SourcesPanel
+
+Collapsible panel; lay out `Source` items inside.
+
+### Source
+
+External link with a leading icon: renders an anchor with `target="_blank"` and `rel="noreferrer"`. Accepts anchor props.
+
+## Examples
+
+### Inside an assistant message
+
+<ComponentPreview name="p-sources-2" />

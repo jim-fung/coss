@@ -1,0 +1,66 @@
+---
+title: Shimmer
+description: Animated gradient text for streaming and loading states.
+---
+
+<ComponentPreview name="p-shimmer-1" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTab value="cli">CLI</TabsTab>
+  <TabsTab value="manual">Manual</TabsTab>
+</TabsList>
+<TabsPanel value="cli">
+
+```bash
+npx shadcn@latest add @coss/shimmer
+```
+
+</TabsPanel>
+
+<TabsPanel value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="shimmer" title="components/ui/shimmer.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsPanel>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Shimmer } from "@/components/ui/shimmer"
+```
+
+```tsx
+<Shimmer>Generating response…</Shimmer>
+```
+
+The animation runs through the Web Animations API — no global CSS keyframes needed — and is skipped entirely under `prefers-reduced-motion: reduce`.
+
+## API Reference
+
+### Shimmer
+
+Inline `span` with a muted-to-foreground moving gradient.
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `duration` | `number` | `2` | Seconds per shimmer cycle. |
+
+## Examples
+
+### Multiple speeds
+
+<ComponentPreview name="p-shimmer-2" />

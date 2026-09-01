@@ -1,0 +1,112 @@
+---
+title: Message
+description: Chat message bubbles with actions and conversation branching.
+---
+
+<ComponentPreview name="p-message-1" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTab value="cli">CLI</TabsTab>
+  <TabsTab value="manual">Manual</TabsTab>
+</TabsList>
+<TabsPanel value="cli">
+
+```bash
+npx shadcn@latest add @coss/message
+```
+
+</TabsPanel>
+
+<TabsPanel value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="message" title="components/ui/message.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsPanel>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import {
+  Message,
+  MessageAction,
+  MessageActions,
+  MessageContent,
+} from "@/components/ui/message"
+```
+
+```tsx
+<Message from="assistant">
+  <MessageContent>Indexed 128 files in 3.2s.</MessageContent>
+  <MessageActions>
+    <MessageAction label="Copy message" tooltip="Copy">
+      <CopyIcon aria-hidden="true" />
+    </MessageAction>
+  </MessageActions>
+</Message>
+```
+
+`from` accepts `"user" | "assistant" | "system" | "tool"` and sets `data-from` on the root. User messages align to the end and render as a secondary bubble; other roles span the full width. Content is plain children — compose your own Markdown renderer for rich responses.
+
+## API Reference
+
+### Message
+
+Row for one message. Owns `data-from`; style descendants with `group-data-[from=…]/message:` selectors.
+
+| Prop | Type | Description |
+| --- | --- | --- |
+| `from` | `"user" \| "assistant" \| "system" \| "tool"` | Speaker, drives alignment and bubble styling. |
+
+### MessageContent
+
+The bubble body. Styling is driven by the parent `Message`'s `data-from`.
+
+### MessageActions / MessageAction
+
+Action row and per-action button. `MessageAction` accepts `Button` props (defaults `variant="ghost" size="icon-sm"`) plus:
+
+| Prop | Type | Description |
+| --- | --- | --- |
+| `tooltip` | `string` | Shows a tooltip; also the accessible name when `label` is omitted. |
+| `label` | `string` | Accessible name for an icon-only action (set as `aria-label`). |
+
+### MessageBranch
+
+Wraps alternative versions of one assistant reply. Navigation state is controlled/uncontrolled like a Stepper.
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `totalBranches` | `number` | — (required) | Number of alternatives. |
+| `branch` | `number` | — | Controlled branch index. |
+| `defaultBranch` | `number` | `0` | Uncontrolled initial index. |
+| `onBranchChange` | `(branch: number) => void` | — | Called with the clamped index. |
+
+Render the alternative whose index matches the current branch yourself — the compound only owns navigation.
+
+### MessageBranchSelector / MessageBranchPrevious / MessageBranchNext / MessageBranchPage
+
+Navigation cluster: a chevron pair (disabled at the bounds) and a `1 / N` counter. Each reads the branch context and errors outside `MessageBranch`.
+
+### MessageToolbar
+
+Full-width row that pairs `MessageActions` with a `MessageBranchSelector`.
+
+## Examples
+
+### Branching a reply
+
+<ComponentPreview name="p-message-2" />

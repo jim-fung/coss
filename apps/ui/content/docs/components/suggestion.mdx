@@ -1,0 +1,74 @@
+---
+title: Suggestion
+description: Clickable prompt chips for common follow-up questions.
+---
+
+<ComponentPreview name="p-suggestion-1" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTab value="cli">CLI</TabsTab>
+  <TabsTab value="manual">Manual</TabsTab>
+</TabsList>
+<TabsPanel value="cli">
+
+```bash
+npx shadcn@latest add @coss/suggestion
+```
+
+</TabsPanel>
+
+<TabsPanel value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="suggestion" title="components/ui/suggestion.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsPanel>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Suggestion, Suggestions } from "@/components/ui/suggestion"
+```
+
+```tsx
+<Suggestions>
+  <Suggestion
+    onClick={(suggestion) => console.log(suggestion)}
+    suggestion="Explain this code"
+  />
+</Suggestions>
+```
+
+## API Reference
+
+### Suggestions
+
+Wrapping flex row of chips.
+
+### Suggestion
+
+Pill `Button` (`variant="outline" size="xs"`, rounded-full).
+
+| Prop | Type | Description |
+| --- | --- | --- |
+| `suggestion` | `string` | Prompt text; default children. |
+| `onClick` | `(suggestion: string, event: MouseEvent<HTMLButtonElement>) => void` | Called with the suggestion text. |
+
+## Examples
+
+### With icons and variants
+
+<ComponentPreview name="p-suggestion-2" />

@@ -85,3 +85,14 @@ For optional **`portalProps`** on composed `*Popup` components and **toast** pro
 
 ## Actions
 - **Button** — Primary/secondary action trigger. `./references/primitives/button.md`
+
+## AI Chat
+- **Conversation** — Stick-to-bottom chat thread with jump button, empty state, Markdown download. `./references/primitives/conversation.md`
+- **Message** — Role-aware chat bubble with actions and reply branching. `./references/primitives/message.md`
+- **Prompt Input** — Composer form: auto-grow textarea, tool buttons, submit statuses. `./references/primitives/prompt-input.md`
+- **Reasoning** — Collapsible model-thinking block with streaming-aware auto-open/close. `./references/primitives/reasoning.md`
+- **Tool** — Tool-call card with status badge, JSON input, output/error. `./references/primitives/tool.md`
+- **Sources** — Collapsible "Used N sources" citation list. `./references/primitives/sources.md`
+- **Suggestion** — Clickable prompt suggestion chips. `./references/primitives/suggestion.md`
+- **Shimmer** — Animated gradient text for streaming states. `./references/primitives/shimmer.md`
+
