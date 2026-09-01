@@ -120,7 +120,7 @@ function Reasoning({
       value={{ duration: durationProp ?? measuredDuration, isStreaming }}
     >
       <CollapsiblePrimitive.Root
-        className={cn(className)}
+        className={className}
         data-slot="reasoning"
         onOpenChange={handleOpenChange}
         open={isOpen}

@@ -16,9 +16,7 @@ function Sources({
   className,
   ...props
 }: React.ComponentProps<typeof Collapsible>): React.ReactElement {
-  return (
-    <Collapsible className={cn(className)} data-slot="sources" {...props} />
-  );
+  return <Collapsible className={className} data-slot="sources" {...props} />;
 }
 
 interface SourcesTriggerProps extends CollapsiblePrimitive.Trigger.Props {
