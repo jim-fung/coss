@@ -142,17 +142,17 @@ function ChartTooltipContent({
   nameKey,
   labelKey,
 }: React.ComponentProps<typeof Tooltip> & {
-    /** Classes for the rendered tooltip. No other DOM props are forwarded. */
-    className?: string;
-    hideLabel?: boolean;
-    hideIndicator?: boolean;
-    /** Shape of the colored indicator shown next to each series. */
-    indicator?: "line" | "dot" | "dashed";
-    /** Overrides the indicator color for every row; defaults to each series' own color. */
-    color?: string;
-    nameKey?: string;
-    labelKey?: string;
-  } & Omit<
+  /** Classes for the rendered tooltip. No other DOM props are forwarded. */
+  className?: string;
+  hideLabel?: boolean;
+  hideIndicator?: boolean;
+  /** Shape of the colored indicator shown next to each series. */
+  indicator?: "line" | "dot" | "dashed";
+  /** Overrides the indicator color for every row; defaults to each series' own color. */
+  color?: string;
+  nameKey?: string;
+  labelKey?: string;
+} & Omit<
     DefaultTooltipContentProps<TooltipValueType, TooltipNameType>,
     "accessibilityLayer"
   >): React.ReactElement | null {
