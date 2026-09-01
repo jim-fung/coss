@@ -1719,6 +1719,39 @@ export const particles: ParticleItem[] = [
     type: "registry:block",
   },
   {
+    categories: categories("chart", "card"),
+    description: "Stacked area chart with tooltip and legend",
+    files: [{ path: "particles/p-chart-1.tsx", type: "registry:block" }],
+    meta: {
+      className: "**:data-[slot=preview]:w-full",
+    },
+    name: "p-chart-1",
+    registryDependencies: ["@coss/chart", "@coss/card"],
+    type: "registry:block",
+  },
+  {
+    categories: categories("chart", "card"),
+    description: "Stacked bar chart with line-indicator tooltip",
+    files: [{ path: "particles/p-chart-2.tsx", type: "registry:block" }],
+    meta: {
+      className: "**:data-[slot=preview]:w-full",
+    },
+    name: "p-chart-2",
+    registryDependencies: ["@coss/chart", "@coss/card"],
+    type: "registry:block",
+  },
+  {
+    categories: categories("chart", "card"),
+    description: "Donut chart with center total and tooltip",
+    files: [{ path: "particles/p-chart-3.tsx", type: "registry:block" }],
+    meta: {
+      className: "**:data-[slot=preview]:w-full",
+    },
+    name: "p-chart-3",
+    registryDependencies: ["@coss/chart", "@coss/card"],
+    type: "registry:block",
+  },
+  {
     categories: categories("checkbox"),
     description: "Basic checkbox",
     files: [{ path: "particles/p-checkbox-1.tsx", type: "registry:block" }],

@@ -22,6 +22,7 @@
 - [Calendar](https://coss.com/ui/docs/components/calendar.md): A date picker for selecting single dates, ranges, or multiple dates.
 - [Card](https://coss.com/ui/docs/components/card.md): A content container for grouping related information.
 - [Carousel](https://coss.com/ui/docs/components/carousel.md): A carousel for cycling through slides, built with Embla Carousel.
+- [Chart](https://coss.com/ui/docs/components/chart.md): Themed chart primitives for Recharts with token-mapped container, tooltip, and legend.
 - [Checkbox](https://coss.com/ui/docs/components/checkbox.md): A binary toggle input for selecting one or multiple options.
 - [Checkbox Group](https://coss.com/ui/docs/components/checkbox-group.md): A collection of related checkboxes with group-level control.
 - [Collapsible](https://coss.com/ui/docs/components/collapsible.md): A component that toggles visibility of content sections.

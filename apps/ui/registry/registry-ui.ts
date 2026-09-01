@@ -13,6 +13,7 @@ export const ui: Registry["items"] = [
       "@coss/breadcrumb",
       "@coss/button",
       "@coss/carousel",
+      "@coss/chart",
       "@coss/calendar",
       "@coss/card",
       "@coss/checkbox",
@@ -248,6 +249,17 @@ export const ui: Registry["items"] = [
     ],
     name: "carousel",
     registryDependencies: ["@coss/button"],
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["recharts"],
+    files: [
+      {
+        path: "ui/chart.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "chart",
     type: "registry:ui",
   },
   {

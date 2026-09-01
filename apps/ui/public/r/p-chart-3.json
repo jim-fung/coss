@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-chart-3",
+  "description": "Donut chart with center total and tooltip",
+  "registryDependencies": [
+    "@coss/chart",
+    "@coss/card"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-chart-3.tsx",
+      "content": "\"use client\";\n\nimport { Cell, Pie, PieChart } from \"recharts\";\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardHeader,\n  CardTitle,\n} from \"@/registry/default/ui/card\";\nimport {\n  type ChartConfig,\n  ChartContainer,\n  ChartTooltip,\n  ChartTooltipContent,\n} from \"@/registry/default/ui/chart\";\n\nconst chartData = [\n  { browser: \"chrome\", visitors: 275, fill: \"var(--color-chrome)\" },\n  { browser: \"safari\", visitors: 200, fill: \"var(--color-safari)\" },\n  { browser: \"firefox\", visitors: 187, fill: \"var(--color-firefox)\" },\n  { browser: \"edge\", visitors: 173, fill: \"var(--color-edge)\" },\n  { browser: \"other\", visitors: 90, fill: \"var(--color-other)\" },\n];\n\nconst chartConfig = {\n  visitors: { label: \"Visitors\" },\n  chrome: { label: \"Chrome\", color: \"var(--chart-1)\" },\n  safari: { label: \"Safari\", color: \"var(--chart-2)\" },\n  firefox: { label: \"Firefox\", color: \"var(--chart-3)\" },\n  edge: { label: \"Edge\", color: \"var(--chart-4)\" },\n  other: { label: \"Other\", color: \"var(--chart-5)\" },\n} satisfies ChartConfig;\n\nexport default function Particle() {\n  return (\n    <Card className=\"flex max-w-md flex-col\">\n      <CardHeader>\n        <CardTitle>Browser share</CardTitle>\n        <CardDescription>Last 30 days</CardDescription>\n      </CardHeader>\n      <CardContent className=\"flex-1\">\n        <div className=\"relative\">\n          <ChartContainer\n            config={chartConfig}\n            className=\"mx-auto aspect-square max-h-60\"\n          >\n            <PieChart>\n              <ChartTooltip\n                content={<ChartTooltipContent hideLabel />}\n                cursor={false}\n              />\n              <Pie\n                cornerRadius={4}\n                data={chartData}\n                dataKey=\"visitors\"\n                innerRadius={54}\n                nameKey=\"browser\"\n                paddingAngle={2}\n              >\n                {chartData.map((entry) => (\n                  <Cell fill={entry.fill} key={entry.browser} />\n                ))}\n              </Pie>\n            </PieChart>\n          </ChartContainer>\n          <div className=\"pointer-events-none absolute inset-0 flex items-center justify-center\">\n            <div className=\"text-center\">\n              <div className=\"font-semibold text-lg tabular-nums leading-none\">\n                925\n              </div>\n              <div className=\"text-muted-foreground text-xs\">visitors</div>\n            </div>\n          </div>\n        </div>\n      </CardContent>\n    </Card>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "meta": {
+    "className": "**:data-[slot=preview]:w-full"
+  },
+  "categories": [
+    "chart",
+    "card"
+  ],
+  "type": "registry:block"
+}

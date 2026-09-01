@@ -11,6 +11,7 @@
     "@coss/breadcrumb",
     "@coss/button",
     "@coss/carousel",
+    "@coss/chart",
     "@coss/calendar",
     "@coss/card",
     "@coss/checkbox",

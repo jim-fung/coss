@@ -20,6 +20,7 @@ export const registryCategories = [
   "calendar",
   "card",
   "carousel",
+  "chart",
   "checkbox",
   "checkbox group",
   "collapsible",

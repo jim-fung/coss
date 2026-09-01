@@ -1,0 +1,158 @@
+---
+title: Chart
+description: Themed chart primitives for Recharts — a token-mapped container, plus styled tooltip and legend content.
+---
+
+<ComponentPreview name="p-chart-1" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTab value="cli">CLI</TabsTab>
+  <TabsTab value="manual">Manual</TabsTab>
+</TabsList>
+<TabsPanel value="cli">
+
+```bash
+npx shadcn@latest add @coss/chart
+```
+
+</TabsPanel>
+
+<TabsPanel value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="chart" title="components/ui/chart.tsx" />
+
+<Step>Install the dependency.</Step>
+
+```bash
+npm install recharts
+```
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsPanel>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import {
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+} from "@/components/ui/chart"
+```
+
+```tsx
+const chartConfig = {
+  desktop: { label: "Desktop", color: "var(--chart-1)" },
+} satisfies ChartConfig
+
+<ChartContainer config={chartConfig} className="h-48 w-full">
+  <AreaChart data={chartData}>
+    <ChartTooltip content={<ChartTooltipContent />} />
+    <Area dataKey="desktop" fill="var(--color-desktop)" />
+  </AreaChart>
+</ChartContainer>
+```
+
+The `config` maps series keys to labels and colors. Every color is injected as a `--color-<key>` CSS variable scoped to the container, so series reference their color as `var(--color-desktop)` and the tooltip and legend resolve labels from the same config. Charts are client-only — compose them inside a `"use client"` component.
+
+## API Reference
+
+### ChartContainer
+
+Root wrapper: renders `ResponsiveContainer`, injects the per-series `--color-<key>` variables via `ChartStyle`, and applies default styling for recharts internals (axis tick fills, grid lines, cursor, sector outlines).
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `config` | `ChartConfig` | — | Series-key to label/icon/color mapping. Required. |
+| `initialDimension` | `{ width: number; height: number }` | `{ width: 320, height: 200 }` | Size used for the first render before measurement. |
+| `id` | `string` | from `useId()` | Overrides the generated id used to scope the style block. |
+
+The container defaults to `aspect-video`; pass a height class like `h-48 w-full` to size the chart explicitly.
+
+### ChartConfig
+
+```tsx
+type ChartConfig = Record<
+  string,
+  {
+    label?: React.ReactNode
+    icon?: React.ComponentType
+  } & (
+    | { color?: string; theme?: never }
+    | { color?: never; theme: Record<"light" | "dark", string> }
+  )
+>
+```
+
+Colors are plain CSS color strings. Use the theme tokens (`var(--chart-1)` … `var(--chart-5)`) for colors that follow light/dark mode, or the `theme` variant (`{ theme: { light: "…", dark: "…" } }`) to switch a series color per theme.
+
+### ChartStyle
+
+Emits the scoped style block that defines `--color-<key>` for each configured series, including a `.dark` variant when `theme` colors are used. Rendered by `ChartContainer`; export exists for advanced compositions.
+
+### ChartTooltip
+
+Re--export of the Recharts `Tooltip` — pass `content={<ChartTooltipContent />}` and any Recharts options such as `cursor` or `defaultIndex`.
+
+### ChartTooltipContent
+
+Styled tooltip body reading series labels from the container config.
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `indicator` | `"dot" \| "line" \| "dashed"` | `"dot"` | Shape of the per-series color swatch. |
+| `hideLabel` | `boolean` | `false` | Hides the tooltip title (common for pie/donut charts). |
+| `hideIndicator` | `boolean` | `false` | Hides the color swatch entirely. |
+| `labelFormatter` | `(label, payload) => ReactNode` | — | Custom render for the tooltip title. |
+| `labelClassName` | `string` | — | Extra classes for the title element. |
+| `formatter` | Tooltip formatter | — | Custom render per row; overrides swatch and labels. |
+| `nameKey` | `string` | — | Key used to resolve config entries by series name (pie charts). |
+| `labelKey` | `string` | — | Key used to resolve the title from config instead of the axis label. |
+| `color` | `string` | payload color | Overrides the indicator color for every row. |
+
+### ChartLegend
+
+Re-export of the Recharts `Legend` — pass `content={<ChartLegendContent />}`.
+
+### ChartLegendContent
+
+Styled legend reading series labels from the container config.
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `hideIcon` | `boolean` | `false` | Hides the color swatch before each label. |
+| `nameKey` | `string` | — | Key used to resolve config entries by series name. |
+| `verticalAlign` | `"top" \| "bottom"` | `"bottom"` | Adjusts padding for legends rendered above the plot. |
+
+### useChart
+
+Context hook returning the active `ChartConfig`. Throws outside a `ChartContainer`.
+
+## Examples
+
+### Bar chart
+
+<ComponentPreview name="p-chart-2" />
+
+### Donut chart
+
+<ComponentPreview name="p-chart-3" />
+
+## Notes
+
+- Series colors resolve at render time from CSS variables, so charts re-theme with light/dark mode without re-rendering.
+- `ChartContainer` neutralizes Recharts' default white sector and dot strokes, keeping shapes clean on dark backgrounds.
+- All Recharts components (`AreaChart`, `BarChart`, `PieChart`, axes, `Cell`, …) are used directly from `recharts` inside `ChartContainer`; the wrapper only handles theming, tooltips, and legends.
