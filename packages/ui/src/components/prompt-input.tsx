@@ -227,7 +227,7 @@ function PromptInputSubmit({
   return (
     <Button
       aria-label={pending ? "Stop generating" : "Send message"}
-      className={className}
+      className={cn("ms-auto", className)}
       data-slot="prompt-input-submit"
       size={size}
       type="submit"
