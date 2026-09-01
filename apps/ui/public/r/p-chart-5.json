@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-chart-5",
+  "description": "Pie chart with wrapping legend",
+  "registryDependencies": [
+    "@coss/chart",
+    "@coss/card"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-chart-5.tsx",
+      "content": "\"use client\";\n\nimport { Cell, Pie, PieChart } from \"recharts\";\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardHeader,\n  CardTitle,\n} from \"@/registry/default/ui/card\";\nimport {\n  type ChartConfig,\n  ChartContainer,\n  ChartLegend,\n  ChartLegendContent,\n  ChartTooltip,\n  ChartTooltipContent,\n} from \"@/registry/default/ui/chart\";\n\nconst chartData = [\n  { channel: \"organic\", visitors: 320, fill: \"var(--color-organic)\" },\n  { channel: \"direct\", visitors: 245, fill: \"var(--color-direct)\" },\n  { channel: \"referral\", visitors: 188, fill: \"var(--color-referral)\" },\n  { channel: \"social\", visitors: 135, fill: \"var(--color-social)\" },\n  { channel: \"email\", visitors: 90, fill: \"var(--color-email)\" },\n];\n\nconst chartConfig = {\n  visitors: { label: \"Visitors\" },\n  organic: { label: \"Organic\", color: \"var(--chart-1)\" },\n  direct: { label: \"Direct\", color: \"var(--chart-2)\" },\n  referral: { label: \"Referral\", color: \"var(--chart-3)\" },\n  social: { label: \"Social\", color: \"var(--chart-4)\" },\n  email: { label: \"Email\", color: \"var(--chart-5)\" },\n} satisfies ChartConfig;\n\nexport default function Particle() {\n  return (\n    <Card className=\"flex max-w-md flex-col\">\n      <CardHeader>\n        <CardTitle>Traffic sources</CardTitle>\n        <CardDescription>By channel, last 30 days</CardDescription>\n      </CardHeader>\n      <CardContent className=\"flex-1\">\n        <ChartContainer\n          config={chartConfig}\n          className=\"mx-auto aspect-square max-h-60\"\n        >\n          <PieChart>\n            <ChartTooltip\n              content={<ChartTooltipContent hideLabel />}\n              cursor={false}\n            />\n            <ChartLegend\n              content={\n                <ChartLegendContent\n                  className=\"flex-wrap gap-2\"\n                  nameKey=\"channel\"\n                />\n              }\n            />\n            <Pie\n              cornerRadius={4}\n              data={chartData}\n              dataKey=\"visitors\"\n              nameKey=\"channel\"\n              paddingAngle={2}\n            >\n              {chartData.map((entry) => (\n                <Cell fill={entry.fill} key={entry.channel} />\n              ))}\n            </Pie>\n          </PieChart>\n        </ChartContainer>\n      </CardContent>\n    </Card>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "meta": {
+    "className": "**:data-[slot=preview]:w-full"
+  },
+  "categories": [
+    "chart",
+    "card"
+  ],
+  "type": "registry:block"
+}

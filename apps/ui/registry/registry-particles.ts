@@ -1752,6 +1752,50 @@ export const particles: ParticleItem[] = [
     type: "registry:block",
   },
   {
+    categories: categories("chart", "card"),
+    description: "Multi-series line chart with dashed comparison series",
+    files: [{ path: "particles/p-chart-4.tsx", type: "registry:block" }],
+    meta: {
+      className: "**:data-[slot=preview]:w-full",
+    },
+    name: "p-chart-4",
+    registryDependencies: ["@coss/chart", "@coss/card"],
+    type: "registry:block",
+  },
+  {
+    categories: categories("chart", "card"),
+    description: "Pie chart with wrapping legend",
+    files: [{ path: "particles/p-chart-5.tsx", type: "registry:block" }],
+    meta: {
+      className: "**:data-[slot=preview]:w-full",
+    },
+    name: "p-chart-5",
+    registryDependencies: ["@coss/chart", "@coss/card"],
+    type: "registry:block",
+  },
+  {
+    categories: categories("chart", "card"),
+    description: "Radial bar rings for progress share",
+    files: [{ path: "particles/p-chart-6.tsx", type: "registry:block" }],
+    meta: {
+      className: "**:data-[slot=preview]:w-full",
+    },
+    name: "p-chart-6",
+    registryDependencies: ["@coss/chart", "@coss/card"],
+    type: "registry:block",
+  },
+  {
+    categories: categories("chart", "card"),
+    description: "Gradient area chart with pinned default-index tooltip",
+    files: [{ path: "particles/p-chart-7.tsx", type: "registry:block" }],
+    meta: {
+      className: "**:data-[slot=preview]:w-full",
+    },
+    name: "p-chart-7",
+    registryDependencies: ["@coss/chart", "@coss/card"],
+    type: "registry:block",
+  },
+  {
     categories: categories("checkbox"),
     description: "Basic checkbox",
     files: [{ path: "particles/p-checkbox-1.tsx", type: "registry:block" }],

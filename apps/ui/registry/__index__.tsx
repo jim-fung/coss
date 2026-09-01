@@ -4219,6 +4219,78 @@ export const Index: Record<string, any> = {
     categories: ["chart","card"],
     meta: {"className":"**:data-[slot=preview]:w-full"},
   },
+  "p-chart-4": {
+    name: "p-chart-4",
+    description: "Multi-series line chart with dashed comparison series",
+    type: "registry:block",
+    registryDependencies: ["@coss/chart","@coss/card"],
+    files: [{
+      path: "registry/default/particles/p-chart-4.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/particles/p-chart-4.tsx")
+      const exportName = Object.keys(mod).find(key => /^[A-Z]/.test(key) && typeof mod[key] === 'function') || Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["chart","card"],
+    meta: {"className":"**:data-[slot=preview]:w-full"},
+  },
+  "p-chart-5": {
+    name: "p-chart-5",
+    description: "Pie chart with wrapping legend",
+    type: "registry:block",
+    registryDependencies: ["@coss/chart","@coss/card"],
+    files: [{
+      path: "registry/default/particles/p-chart-5.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/particles/p-chart-5.tsx")
+      const exportName = Object.keys(mod).find(key => /^[A-Z]/.test(key) && typeof mod[key] === 'function') || Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["chart","card"],
+    meta: {"className":"**:data-[slot=preview]:w-full"},
+  },
+  "p-chart-6": {
+    name: "p-chart-6",
+    description: "Radial bar rings for progress share",
+    type: "registry:block",
+    registryDependencies: ["@coss/chart","@coss/card"],
+    files: [{
+      path: "registry/default/particles/p-chart-6.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/particles/p-chart-6.tsx")
+      const exportName = Object.keys(mod).find(key => /^[A-Z]/.test(key) && typeof mod[key] === 'function') || Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["chart","card"],
+    meta: {"className":"**:data-[slot=preview]:w-full"},
+  },
+  "p-chart-7": {
+    name: "p-chart-7",
+    description: "Gradient area chart with pinned default-index tooltip",
+    type: "registry:block",
+    registryDependencies: ["@coss/chart","@coss/card"],
+    files: [{
+      path: "registry/default/particles/p-chart-7.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/particles/p-chart-7.tsx")
+      const exportName = Object.keys(mod).find(key => /^[A-Z]/.test(key) && typeof mod[key] === 'function') || Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["chart","card"],
+    meta: {"className":"**:data-[slot=preview]:w-full"},
+  },
   "p-checkbox-1": {
     name: "p-checkbox-1",
     description: "Basic checkbox",

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-chart-6",
+  "description": "Radial bar rings for progress share",
+  "registryDependencies": [
+    "@coss/chart",
+    "@coss/card"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-chart-6.tsx",
+      "content": "\"use client\";\n\nimport { Cell, PolarAngleAxis, RadialBar, RadialBarChart } from \"recharts\";\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardHeader,\n  CardTitle,\n} from \"@/registry/default/ui/card\";\nimport {\n  type ChartConfig,\n  ChartContainer,\n  ChartTooltip,\n  ChartTooltipContent,\n} from \"@/registry/default/ui/chart\";\n\nconst chartData = [\n  { workstream: \"design\", progress: 85, fill: \"var(--color-design)\" },\n  { workstream: \"backend\", progress: 72, fill: \"var(--color-backend)\" },\n  { workstream: \"frontend\", progress: 68, fill: \"var(--color-frontend)\" },\n  { workstream: \"qa\", progress: 45, fill: \"var(--color-qa)\" },\n];\n\nconst chartConfig = {\n  progress: { label: \"Complete\" },\n  design: { label: \"Design\", color: \"var(--chart-1)\" },\n  backend: { label: \"Backend\", color: \"var(--chart-2)\" },\n  frontend: { label: \"Frontend\", color: \"var(--chart-3)\" },\n  qa: { label: \"QA\", color: \"var(--chart-4)\" },\n} satisfies ChartConfig;\n\nexport default function Particle() {\n  return (\n    <Card className=\"max-w-md\">\n      <CardHeader>\n        <CardTitle>Sprint progress</CardTitle>\n        <CardDescription>Completion by workstream</CardDescription>\n      </CardHeader>\n      <CardContent>\n        <ChartContainer\n          config={chartConfig}\n          className=\"mx-auto aspect-square max-h-60\"\n        >\n          <RadialBarChart\n            barSize={10}\n            data={chartData}\n            endAngle={360}\n            innerRadius={30}\n            outerRadius={105}\n            startAngle={0}\n          >\n            <PolarAngleAxis domain={[0, 100]} tick={false} type=\"number\" />\n            <ChartTooltip\n              content={<ChartTooltipContent hideLabel nameKey=\"workstream\" />}\n              cursor={false}\n            />\n            <RadialBar background cornerRadius={10} dataKey=\"progress\">\n              {chartData.map((entry) => (\n                <Cell fill={entry.fill} key={entry.workstream} />\n              ))}\n            </RadialBar>\n          </RadialBarChart>\n        </ChartContainer>\n      </CardContent>\n    </Card>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "meta": {
+    "className": "**:data-[slot=preview]:w-full"
+  },
+  "categories": [
+    "chart",
+    "card"
+  ],
+  "type": "registry:block"
+}

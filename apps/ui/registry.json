@@ -4621,6 +4621,94 @@
     },
     {
       "categories": [
+        "chart",
+        "card"
+      ],
+      "description": "Multi-series line chart with dashed comparison series",
+      "files": [
+        {
+          "path": "registry/default/particles/p-chart-4.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "className": "**:data-[slot=preview]:w-full"
+      },
+      "name": "p-chart-4",
+      "registryDependencies": [
+        "@coss/chart",
+        "@coss/card"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
+        "chart",
+        "card"
+      ],
+      "description": "Pie chart with wrapping legend",
+      "files": [
+        {
+          "path": "registry/default/particles/p-chart-5.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "className": "**:data-[slot=preview]:w-full"
+      },
+      "name": "p-chart-5",
+      "registryDependencies": [
+        "@coss/chart",
+        "@coss/card"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
+        "chart",
+        "card"
+      ],
+      "description": "Radial bar rings for progress share",
+      "files": [
+        {
+          "path": "registry/default/particles/p-chart-6.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "className": "**:data-[slot=preview]:w-full"
+      },
+      "name": "p-chart-6",
+      "registryDependencies": [
+        "@coss/chart",
+        "@coss/card"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
+        "chart",
+        "card"
+      ],
+      "description": "Gradient area chart with pinned default-index tooltip",
+      "files": [
+        {
+          "path": "registry/default/particles/p-chart-7.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "className": "**:data-[slot=preview]:w-full"
+      },
+      "name": "p-chart-7",
+      "registryDependencies": [
+        "@coss/chart",
+        "@coss/card"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
         "checkbox"
       ],
       "description": "Basic checkbox",

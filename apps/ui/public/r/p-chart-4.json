@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-chart-4",
+  "description": "Multi-series line chart with dashed comparison series",
+  "registryDependencies": [
+    "@coss/chart",
+    "@coss/card"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-chart-4.tsx",
+      "content": "\"use client\";\n\nimport { CartesianGrid, Line, LineChart, XAxis } from \"recharts\";\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardHeader,\n  CardTitle,\n} from \"@/registry/default/ui/card\";\nimport {\n  type ChartConfig,\n  ChartContainer,\n  ChartLegend,\n  ChartLegendContent,\n  ChartTooltip,\n  ChartTooltipContent,\n} from \"@/registry/default/ui/chart\";\n\nconst chartData = [\n  { month: \"January\", thisYear: 186, lastYear: 140 },\n  { month: \"February\", thisYear: 305, lastYear: 220 },\n  { month: \"March\", thisYear: 237, lastYear: 250 },\n  { month: \"April\", thisYear: 173, lastYear: 190 },\n  { month: \"May\", thisYear: 209, lastYear: 160 },\n  { month: \"June\", thisYear: 214, lastYear: 205 },\n];\n\nconst chartConfig = {\n  thisYear: { label: \"This year\", color: \"var(--chart-1)\" },\n  lastYear: { label: \"Last year\", color: \"var(--chart-2)\" },\n} satisfies ChartConfig;\n\nexport default function Particle() {\n  return (\n    <Card className=\"max-w-md\">\n      <CardHeader>\n        <CardTitle>Sessions</CardTitle>\n        <CardDescription>This year vs last year</CardDescription>\n      </CardHeader>\n      <CardContent>\n        <ChartContainer config={chartConfig} className=\"h-48 w-full\">\n          <LineChart\n            data={chartData}\n            margin={{\n              left: -24,\n              right: 12,\n            }}\n          >\n            <CartesianGrid vertical={false} />\n            <XAxis\n              axisLine={false}\n              dataKey=\"month\"\n              tickFormatter={(value) => value.slice(0, 3)}\n              tickLine={false}\n              tickMargin={8}\n            />\n            <ChartTooltip content={<ChartTooltipContent />} />\n            <ChartLegend content={<ChartLegendContent />} />\n            <Line\n              dataKey=\"thisYear\"\n              dot={false}\n              stroke=\"var(--color-thisYear)\"\n              strokeWidth={2}\n              type=\"natural\"\n            />\n            <Line\n              dataKey=\"lastYear\"\n              dot={false}\n              stroke=\"var(--color-lastYear)\"\n              strokeDasharray=\"4 4\"\n              strokeWidth={2}\n              type=\"natural\"\n            />\n          </LineChart>\n        </ChartContainer>\n      </CardContent>\n    </Card>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "meta": {
+    "className": "**:data-[slot=preview]:w-full"
+  },
+  "categories": [
+    "chart",
+    "card"
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-chart-7",
+  "description": "Gradient area chart with pinned default-index tooltip",
+  "registryDependencies": [
+    "@coss/chart",
+    "@coss/card"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-chart-7.tsx",
+      "content": "\"use client\";\n\nimport { Area, AreaChart, CartesianGrid, XAxis } from \"recharts\";\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardHeader,\n  CardTitle,\n} from \"@/registry/default/ui/card\";\nimport {\n  type ChartConfig,\n  ChartContainer,\n  ChartTooltip,\n  ChartTooltipContent,\n} from \"@/registry/default/ui/chart\";\n\nconst chartData = [\n  { hour: \"10:00\", load: 24 },\n  { hour: \"11:00\", load: 38 },\n  { hour: \"12:00\", load: 52 },\n  { hour: \"13:00\", load: 86 },\n  { hour: \"14:00\", load: 64 },\n  { hour: \"15:00\", load: 41 },\n  { hour: \"16:00\", load: 33 },\n];\n\nconst chartConfig = {\n  load: { label: \"CPU\", color: \"var(--chart-1)\" },\n} satisfies ChartConfig;\n\nexport default function Particle() {\n  return (\n    <Card className=\"max-w-md\">\n      <CardHeader>\n        <CardTitle>Server load</CardTitle>\n        <CardDescription>CPU %, today</CardDescription>\n      </CardHeader>\n      <CardContent>\n        <ChartContainer config={chartConfig} className=\"h-48 w-full\">\n          <AreaChart\n            data={chartData}\n            margin={{\n              left: -24,\n              right: 12,\n            }}\n          >\n            <CartesianGrid vertical={false} />\n            <XAxis\n              axisLine={false}\n              dataKey=\"hour\"\n              tickFormatter={(value) => value.slice(0, 2)}\n              tickLine={false}\n              tickMargin={8}\n            />\n            <ChartTooltip\n              content={<ChartTooltipContent indicator=\"dashed\" />}\n              defaultIndex={3}\n            />\n            <Area\n              dataKey=\"load\"\n              fill=\"url(#fillLoad)\"\n              stroke=\"var(--color-load)\"\n              type=\"natural\"\n            />\n            <defs>\n              <linearGradient id=\"fillLoad\" x1=\"0\" x2=\"0\" y1=\"0\" y2=\"1\">\n                <stop\n                  offset=\"5%\"\n                  stopColor=\"var(--color-load)\"\n                  stopOpacity={0.8}\n                />\n                <stop\n                  offset=\"95%\"\n                  stopColor=\"var(--color-load)\"\n                  stopOpacity={0.1}\n                />\n              </linearGradient>\n            </defs>\n          </AreaChart>\n        </ChartContainer>\n      </CardContent>\n    </Card>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "meta": {
+    "className": "**:data-[slot=preview]:w-full"
+  },
+  "categories": [
+    "chart",
+    "card"
+  ],
+  "type": "registry:block"
+}
