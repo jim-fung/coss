@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-suggestion-1",
+  "description": "Row of clickable prompt suggestion chips",
+  "registryDependencies": [
+    "@coss/suggestion"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-suggestion-1.tsx",
+      "content": "\"use client\";\n\nimport { Suggestion, Suggestions } from \"@/registry/default/ui/suggestion\";\n\nexport default function Particle() {\n  return (\n    <Suggestions>\n      <Suggestion onClick={() => {}} suggestion=\"Explain this code\" />\n      <Suggestion onClick={() => {}} suggestion=\"Write unit tests\" />\n      <Suggestion onClick={() => {}} suggestion=\"Summarize this page\" />\n      <Suggestion onClick={() => {}} suggestion=\"Draft a reply\" />\n    </Suggestions>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "categories": [
+    "ai",
+    "button"
+  ],
+  "type": "registry:block"
+}

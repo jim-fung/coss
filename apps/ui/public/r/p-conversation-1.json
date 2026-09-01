@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-conversation-1",
+  "description": "Scrollable chat thread with stick-to-bottom and jump button",
+  "registryDependencies": [
+    "@coss/conversation"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-conversation-1.tsx",
+      "content": "\"use client\";\n\nimport {\n  Conversation,\n  ConversationContent,\n  ConversationScrollButton,\n} from \"@/registry/default/ui/conversation\";\n\nconst messages = Array.from({ length: 12 }, (_, index) => ({\n  id: index,\n  text: `Message ${index + 1}: this filler keeps the thread long enough to scroll and exercise the stick-to-bottom behavior.`,\n}));\n\nexport default function Particle() {\n  return (\n    <div className=\"flex h-96 w-full max-w-md flex-col\">\n      <Conversation className=\"rounded-lg border\">\n        <ConversationContent>\n          {messages.map((message) => (\n            <p\n              className=\"text-sm\"\n              data-from={message.id % 2 === 0 ? \"user\" : \"assistant\"}\n              key={message.id}\n            >\n              {message.text}\n            </p>\n          ))}\n        </ConversationContent>\n        <ConversationScrollButton />\n      </Conversation>\n    </div>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "meta": {
+    "className": "**:data-[slot=preview]:w-full"
+  },
+  "categories": [
+    "ai"
+  ],
+  "type": "registry:block"
+}

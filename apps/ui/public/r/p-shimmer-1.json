@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-shimmer-1",
+  "description": "Shimmering streaming indicator text",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "@coss/shimmer"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-shimmer-1.tsx",
+      "content": "\"use client\";\n\nimport { SparklesIcon } from \"lucide-react\";\nimport { Shimmer } from \"@/registry/default/ui/shimmer\";\n\nexport default function Particle() {\n  return (\n    <div className=\"flex w-full flex-col items-center gap-2 py-6 text-base\">\n      <span className=\"flex items-center gap-2 text-muted-foreground\">\n        <SparklesIcon aria-hidden=\"true\" className=\"size-4\" />\n        <Shimmer>Generating response…</Shimmer>\n      </span>\n      <p className=\"max-w-xs text-center text-muted-foreground text-sm\">\n        The shimmer effect indicates that content is being streamed.\n      </p>\n    </div>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "categories": [
+    "ai",
+    "loading"
+  ],
+  "type": "registry:block"
+}

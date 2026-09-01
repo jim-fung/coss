@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-prompt-input-2",
+  "description": "Composer with model select and submit status cycle",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "@coss/prompt-input",
+    "@coss/select"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-prompt-input-2.tsx",
+      "content": "\"use client\";\n\nimport { MicIcon, PaperclipIcon } from \"lucide-react\";\nimport { useRef, useState } from \"react\";\nimport {\n  PromptInput,\n  PromptInputButton,\n  PromptInputFooter,\n  PromptInputHeader,\n  type PromptInputStatus,\n  PromptInputSubmit,\n  PromptInputTextarea,\n  PromptInputTools,\n} from \"@/registry/default/ui/prompt-input\";\nimport {\n  Select,\n  SelectItem,\n  SelectPopup,\n  SelectTrigger,\n  SelectValue,\n} from \"@/registry/default/ui/select\";\n\nconst models = [\n  { label: \"glm-5.3\", value: \"glm-5.3\" },\n  { label: \"glm-5.3-air\", value: \"glm-5.3-air\" },\n  { label: \"glm-5.3-flash\", value: \"glm-5.3-flash\" },\n];\n\nexport default function Particle() {\n  const [status, setStatus] = useState<PromptInputStatus>(\"ready\");\n  const timers = useRef<ReturnType<typeof setTimeout>[]>([]);\n\n  const handleSubmit = () => {\n    timers.current.forEach(clearTimeout);\n    setStatus(\"submitted\");\n    timers.current = [\n      setTimeout(() => setStatus(\"streaming\"), 600),\n      setTimeout(() => setStatus(\"ready\"), 2400),\n    ];\n  };\n\n  return (\n    <PromptInput className=\"max-w-md\" onSubmit={handleSubmit}>\n      <PromptInputTextarea placeholder=\"Ask anything…\" rows={2} />\n      <PromptInputHeader>\n        <Select defaultValue=\"glm-5.3\" items={models}>\n          <SelectTrigger size=\"sm\">\n            <SelectValue />\n          </SelectTrigger>\n          <SelectPopup>\n            {models.map((model) => (\n              <SelectItem key={model.value} value={model.value}>\n                {model.label}\n              </SelectItem>\n            ))}\n          </SelectPopup>\n        </Select>\n      </PromptInputHeader>\n      <PromptInputFooter>\n        <PromptInputTools>\n          <PromptInputButton aria-label=\"Attach file\" tooltip=\"Attach file\">\n            <PaperclipIcon aria-hidden=\"true\" />\n          </PromptInputButton>\n          <PromptInputButton aria-label=\"Dictate message\" tooltip=\"Dictate\">\n            <MicIcon aria-hidden=\"true\" />\n          </PromptInputButton>\n        </PromptInputTools>\n        <PromptInputSubmit status={status} />\n      </PromptInputFooter>\n    </PromptInput>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "meta": {
+    "className": "**:data-[slot=preview]:w-full **:data-[slot=preview]:max-w-80"
+  },
+  "categories": [
+    "ai",
+    "input group",
+    "select"
+  ],
+  "type": "registry:block"
+}

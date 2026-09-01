@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-tool-2",
+  "description": "Tool call awaiting approval and one that failed",
+  "registryDependencies": [
+    "@coss/tool"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-tool-2.tsx",
+      "content": "\"use client\";\n\nimport {\n  Tool,\n  ToolHeader,\n  ToolInput,\n  ToolOutput,\n  ToolPanel,\n} from \"@/registry/default/ui/tool\";\n\nexport default function Particle() {\n  return (\n    <div className=\"flex w-full max-w-md flex-col gap-4\">\n      <Tool defaultOpen>\n        <ToolHeader state=\"approval-requested\" toolName=\"delete_file\" />\n        <ToolPanel>\n          <ToolInput input={{ path: \"/tmp/notes.txt\" }} />\n          <ToolOutput errorText=\"Waiting for the user to approve this action.\" />\n        </ToolPanel>\n      </Tool>\n      <Tool>\n        <ToolHeader state=\"output-error\" toolName=\"web_search\" />\n      </Tool>\n    </div>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "meta": {
+    "className": "**:data-[slot=preview]:w-full"
+  },
+  "categories": [
+    "ai",
+    "collapsible",
+    "error"
+  ],
+  "type": "registry:block"
+}

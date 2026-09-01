@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "suggestion",
+  "registryDependencies": [
+    "@coss/button"
+  ],
+  "files": [
+    {
+      "path": "registry/default/ui/suggestion.tsx",
+      "content": "\"use client\";\n\nimport type * as React from \"react\";\nimport { cn } from \"@/registry/default/lib/utils\";\nimport { Button } from \"@/registry/default/ui/button\";\n\nfunction Suggestions({\n  className,\n  ...props\n}: React.ComponentProps<\"div\">): React.ReactElement {\n  return (\n    <div\n      className={cn(\"flex flex-wrap gap-2\", className)}\n      data-slot=\"suggestions\"\n      {...props}\n    />\n  );\n}\n\ninterface SuggestionProps\n  extends Omit<React.ComponentProps<typeof Button>, \"onClick\"> {\n  suggestion: string;\n  onClick?: (\n    suggestion: string,\n    event: React.MouseEvent<HTMLButtonElement>,\n  ) => void;\n}\n\nfunction Suggestion({\n  suggestion,\n  onClick,\n  variant = \"outline\",\n  className,\n  children,\n  ...props\n}: SuggestionProps): React.ReactElement {\n  return (\n    <Button\n      className={cn(\"rounded-full\", className)}\n      data-slot=\"suggestion\"\n      onClick={(event: React.MouseEvent<HTMLButtonElement>) => {\n        onClick?.(suggestion, event);\n      }}\n      size=\"xs\"\n      variant={variant}\n      {...props}\n    >\n      {children ?? suggestion}\n    </Button>\n  );\n}\n\nexport { Suggestion, Suggestions };\nexport type { SuggestionProps };\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

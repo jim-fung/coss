@@ -2140,6 +2140,37 @@ export const particles: ParticleItem[] = [
     type: "registry:block",
   },
   {
+    categories: categories("ai"),
+    description: "Scrollable chat thread with stick-to-bottom and jump button",
+    files: [{ path: "particles/p-conversation-1.tsx", type: "registry:block" }],
+    meta: {
+      className: "**:data-[slot=preview]:w-full",
+    },
+    name: "p-conversation-1",
+    registryDependencies: ["@coss/conversation"],
+    type: "registry:block",
+  },
+  {
+    categories: categories("ai"),
+    dependencies: ["lucide-react"],
+    description: "Full chat demo with reasoning, sources, tool, and composer",
+    files: [{ path: "particles/p-conversation-2.tsx", type: "registry:block" }],
+    meta: {
+      className: "**:data-[slot=preview]:w-full",
+    },
+    name: "p-conversation-2",
+    registryDependencies: [
+      "@coss/conversation",
+      "@coss/message",
+      "@coss/prompt-input",
+      "@coss/reasoning",
+      "@coss/sources",
+      "@coss/suggestion",
+      "@coss/tool",
+    ],
+    type: "registry:block",
+  },
+  {
     categories: categories("dialog"),
     description: "Dialog with form",
     files: [{ path: "particles/p-dialog-1.tsx", type: "registry:block" }],
@@ -3635,6 +3666,29 @@ export const particles: ParticleItem[] = [
     type: "registry:block",
   },
   {
+    categories: categories("ai"),
+    dependencies: ["lucide-react"],
+    description: "Assistant message with copy, feedback, and regenerate",
+    files: [{ path: "particles/p-message-1.tsx", type: "registry:block" }],
+    meta: {
+      className: "**:data-[slot=preview]:w-full",
+    },
+    name: "p-message-1",
+    registryDependencies: ["@coss/message"],
+    type: "registry:block",
+  },
+  {
+    categories: categories("ai"),
+    description: "Assistant message with a branch selector toolbar",
+    files: [{ path: "particles/p-message-2.tsx", type: "registry:block" }],
+    meta: {
+      className: "**:data-[slot=preview]:w-full",
+    },
+    name: "p-message-2",
+    registryDependencies: ["@coss/message"],
+    type: "registry:block",
+  },
+  {
     categories: categories("meter"),
     description: "Basic meter",
     files: [{ path: "particles/p-meter-1.tsx", type: "registry:block" }],
@@ -4184,6 +4238,32 @@ export const particles: ParticleItem[] = [
     type: "registry:block",
   },
   {
+    categories: categories("ai", "input group", "textarea"),
+    dependencies: ["lucide-react"],
+    description: "Minimal chat composer with attachment and submit",
+    files: [{ path: "particles/p-prompt-input-1.tsx", type: "registry:block" }],
+    meta: {
+      className:
+        "**:data-[slot=preview]:w-full **:data-[slot=preview]:max-w-80",
+    },
+    name: "p-prompt-input-1",
+    registryDependencies: ["@coss/prompt-input"],
+    type: "registry:block",
+  },
+  {
+    categories: categories("ai", "input group", "select"),
+    dependencies: ["lucide-react"],
+    description: "Composer with model select and submit status cycle",
+    files: [{ path: "particles/p-prompt-input-2.tsx", type: "registry:block" }],
+    meta: {
+      className:
+        "**:data-[slot=preview]:w-full **:data-[slot=preview]:max-w-80",
+    },
+    name: "p-prompt-input-2",
+    registryDependencies: ["@coss/prompt-input", "@coss/select"],
+    type: "registry:block",
+  },
+  {
     categories: categories("radio group"),
     description: "Basic radio group",
     files: [{ path: "particles/p-radio-group-1.tsx", type: "registry:block" }],
@@ -4268,6 +4348,29 @@ export const particles: ParticleItem[] = [
     files: [{ path: "particles/p-radio-group-9.tsx", type: "registry:block" }],
     name: "p-radio-group-9",
     registryDependencies: ["@coss/radio-group", "@coss/segmented-control"],
+    type: "registry:block",
+  },
+  {
+    categories: categories("ai", "collapsible"),
+    description: "Finished reasoning block with duration and open panel",
+    files: [{ path: "particles/p-reasoning-1.tsx", type: "registry:block" }],
+    meta: {
+      className: "**:data-[slot=preview]:w-full",
+    },
+    name: "p-reasoning-1",
+    registryDependencies: ["@coss/reasoning"],
+    type: "registry:block",
+  },
+  {
+    categories: categories("ai", "collapsible", "loading"),
+    dependencies: ["lucide-react"],
+    description: "Reasoning block with simulated streaming and auto-collapse",
+    files: [{ path: "particles/p-reasoning-2.tsx", type: "registry:block" }],
+    meta: {
+      className: "**:data-[slot=preview]:w-full",
+    },
+    name: "p-reasoning-2",
+    registryDependencies: ["@coss/button", "@coss/reasoning"],
     type: "registry:block",
   },
   {
@@ -4695,6 +4798,23 @@ export const particles: ParticleItem[] = [
     type: "registry:block",
   },
   {
+    categories: categories("ai", "loading"),
+    dependencies: ["lucide-react"],
+    description: "Shimmering streaming indicator text",
+    files: [{ path: "particles/p-shimmer-1.tsx", type: "registry:block" }],
+    name: "p-shimmer-1",
+    registryDependencies: ["@coss/shimmer"],
+    type: "registry:block",
+  },
+  {
+    categories: categories("ai", "loading"),
+    description: "Shimmer text lines with custom durations",
+    files: [{ path: "particles/p-shimmer-2.tsx", type: "registry:block" }],
+    name: "p-shimmer-2",
+    registryDependencies: ["@coss/shimmer"],
+    type: "registry:block",
+  },
+  {
     categories: categories("skeleton"),
     description: "Basic skeleton",
     files: [{ path: "particles/p-skeleton-1.tsx", type: "registry:block" }],
@@ -5005,6 +5125,28 @@ export const particles: ParticleItem[] = [
     type: "registry:block",
   },
   {
+    categories: categories("ai", "collapsible"),
+    description: "Collapsible list of cited sources",
+    files: [{ path: "particles/p-sources-1.tsx", type: "registry:block" }],
+    meta: {
+      className: "**:data-[slot=preview]:w-full",
+    },
+    name: "p-sources-1",
+    registryDependencies: ["@coss/sources"],
+    type: "registry:block",
+  },
+  {
+    categories: categories("ai", "collapsible"),
+    description: "Sources cited inside an assistant message",
+    files: [{ path: "particles/p-sources-2.tsx", type: "registry:block" }],
+    meta: {
+      className: "**:data-[slot=preview]:w-full",
+    },
+    name: "p-sources-2",
+    registryDependencies: ["@coss/message", "@coss/sources"],
+    type: "registry:block",
+  },
+  {
     categories: categories("spinner"),
     description: "Basic spinner",
     files: [{ path: "particles/p-spinner-1.tsx", type: "registry:block" }],
@@ -5032,6 +5174,23 @@ export const particles: ParticleItem[] = [
     },
     name: "p-stepper-2",
     registryDependencies: ["@coss/stepper"],
+    type: "registry:block",
+  },
+  {
+    categories: categories("ai", "button"),
+    description: "Row of clickable prompt suggestion chips",
+    files: [{ path: "particles/p-suggestion-1.tsx", type: "registry:block" }],
+    name: "p-suggestion-1",
+    registryDependencies: ["@coss/suggestion"],
+    type: "registry:block",
+  },
+  {
+    categories: categories("ai", "button"),
+    dependencies: ["lucide-react"],
+    description: "Suggestion chips with icons and a secondary variant",
+    files: [{ path: "particles/p-suggestion-2.tsx", type: "registry:block" }],
+    name: "p-suggestion-2",
+    registryDependencies: ["@coss/suggestion"],
     type: "registry:block",
   },
   {
@@ -5650,6 +5809,28 @@ export const particles: ParticleItem[] = [
     },
     name: "p-timeline-2",
     registryDependencies: ["@coss/timeline"],
+    type: "registry:block",
+  },
+  {
+    categories: categories("ai", "collapsible"),
+    description: "Completed tool call with JSON input and text output",
+    files: [{ path: "particles/p-tool-1.tsx", type: "registry:block" }],
+    meta: {
+      className: "**:data-[slot=preview]:w-full",
+    },
+    name: "p-tool-1",
+    registryDependencies: ["@coss/tool"],
+    type: "registry:block",
+  },
+  {
+    categories: categories("ai", "collapsible", "error"),
+    description: "Tool call awaiting approval and one that failed",
+    files: [{ path: "particles/p-tool-2.tsx", type: "registry:block" }],
+    meta: {
+      className: "**:data-[slot=preview]:w-full",
+    },
+    name: "p-tool-2",
+    registryDependencies: ["@coss/tool"],
     type: "registry:block",
   },
   {

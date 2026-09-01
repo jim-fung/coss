@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-sources-2",
+  "description": "Sources cited inside an assistant message",
+  "registryDependencies": [
+    "@coss/message",
+    "@coss/sources"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-sources-2.tsx",
+      "content": "\"use client\";\n\nimport { Message, MessageContent } from \"@/registry/default/ui/message\";\nimport {\n  Source,\n  Sources,\n  SourcesPanel,\n  SourcesTrigger,\n} from \"@/registry/default/ui/sources\";\n\nexport default function Particle() {\n  return (\n    <div className=\"flex w-full max-w-md flex-col gap-4 py-2\">\n      <Message from=\"user\">\n        <MessageContent>What is new in Tailwind CSS v4?</MessageContent>\n      </Message>\n      <Message from=\"assistant\">\n        <MessageContent>\n          Tailwind v4 moved configuration into CSS with a new{\" \"}\n          <code className=\"rounded bg-muted px-1 py-0.5 text-xs\">@theme</code>{\" \"}\n          directive and ships a much faster engine written in Rust.\n        </MessageContent>\n        <Sources defaultOpen>\n          <SourcesTrigger count={2} />\n          <SourcesPanel>\n            <Source\n              href=\"https://tailwindcss.com\"\n              title=\"Tailwind CSS v4 release notes\"\n            />\n            <Source\n              href=\"https://tailwindcss.com/blog\"\n              title=\"Tailwind CSS blog\"\n            />\n          </SourcesPanel>\n        </Sources>\n      </Message>\n    </div>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "meta": {
+    "className": "**:data-[slot=preview]:w-full"
+  },
+  "categories": [
+    "ai",
+    "collapsible"
+  ],
+  "type": "registry:block"
+}

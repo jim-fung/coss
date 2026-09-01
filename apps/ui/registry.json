@@ -21,6 +21,7 @@
         "@coss/combobox",
         "@coss/command",
         "@coss/context-menu",
+        "@coss/conversation",
         "@coss/data-table",
         "@coss/dialog",
         "@coss/drawer",
@@ -37,6 +38,7 @@
         "@coss/label",
         "@coss/menu",
         "@coss/menubar",
+        "@coss/message",
         "@coss/meter",
         "@coss/navigation-menu",
         "@coss/number-field",
@@ -44,7 +46,9 @@
         "@coss/popover",
         "@coss/preview-card",
         "@coss/progress",
+        "@coss/prompt-input",
         "@coss/radio-group",
+        "@coss/reasoning",
         "@coss/resizable",
         "@coss/scroll-area",
         "@coss/select",
@@ -52,16 +56,20 @@
         "@coss/separator",
         "@coss/sheet",
         "@coss/sidebar",
+        "@coss/shimmer",
         "@coss/skeleton",
         "@coss/slider",
+        "@coss/sources",
         "@coss/spinner",
         "@coss/stepper",
+        "@coss/suggestion",
         "@coss/switch",
         "@coss/table",
         "@coss/tabs",
         "@coss/textarea",
         "@coss/timeline",
         "@coss/toast",
+        "@coss/tool",
         "@coss/toggle",
         "@coss/toggle-group",
         "@coss/toolbar",
@@ -365,6 +373,23 @@
     },
     {
       "dependencies": [
+        "use-stick-to-bottom"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/conversation.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "conversation",
+      "registryDependencies": [
+        "@coss/button",
+        "@coss/empty"
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "dependencies": [
         "@tanstack/react-table"
       ],
       "files": [
@@ -614,6 +639,20 @@
       "type": "registry:ui"
     },
     {
+      "files": [
+        {
+          "path": "registry/default/ui/message.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "message",
+      "registryDependencies": [
+        "@coss/button",
+        "@coss/tooltip"
+      ],
+      "type": "registry:ui"
+    },
+    {
       "dependencies": [
         "@base-ui/react"
       ],
@@ -708,6 +747,22 @@
       "type": "registry:ui"
     },
     {
+      "files": [
+        {
+          "path": "registry/default/ui/prompt-input.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "prompt-input",
+      "registryDependencies": [
+        "@coss/button",
+        "@coss/input-group",
+        "@coss/textarea",
+        "@coss/tooltip"
+      ],
+      "type": "registry:ui"
+    },
+    {
       "dependencies": [
         "@base-ui/react"
       ],
@@ -718,6 +773,20 @@
         }
       ],
       "name": "radio-group",
+      "type": "registry:ui"
+    },
+    {
+      "files": [
+        {
+          "path": "registry/default/ui/reasoning.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "reasoning",
+      "registryDependencies": [
+        "@coss/collapsible",
+        "@coss/shimmer"
+      ],
       "type": "registry:ui"
     },
     {
@@ -821,6 +890,16 @@
       "type": "registry:ui"
     },
     {
+      "files": [
+        {
+          "path": "registry/default/ui/shimmer.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "shimmer",
+      "type": "registry:ui"
+    },
+    {
       "css": {
         "@keyframes skeleton": {
           "to": {
@@ -858,6 +937,19 @@
     {
       "files": [
         {
+          "path": "registry/default/ui/sources.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "sources",
+      "registryDependencies": [
+        "@coss/collapsible"
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "files": [
+        {
           "path": "registry/default/ui/spinner.tsx",
           "type": "registry:ui"
         }
@@ -889,6 +981,19 @@
         }
       ],
       "name": "switch",
+      "type": "registry:ui"
+    },
+    {
+      "files": [
+        {
+          "path": "registry/default/ui/suggestion.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "suggestion",
+      "registryDependencies": [
+        "@coss/button"
+      ],
       "type": "registry:ui"
     },
     {
@@ -944,6 +1049,20 @@
         }
       ],
       "name": "timeline",
+      "type": "registry:ui"
+    },
+    {
+      "files": [
+        {
+          "path": "registry/default/ui/tool.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "tool",
+      "registryDependencies": [
+        "@coss/badge",
+        "@coss/collapsible"
+      ],
       "type": "registry:ui"
     },
     {
@@ -5149,6 +5268,55 @@
     },
     {
       "categories": [
+        "ai"
+      ],
+      "description": "Scrollable chat thread with stick-to-bottom and jump button",
+      "files": [
+        {
+          "path": "registry/default/particles/p-conversation-1.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "className": "**:data-[slot=preview]:w-full"
+      },
+      "name": "p-conversation-1",
+      "registryDependencies": [
+        "@coss/conversation"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
+        "ai"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "description": "Full chat demo with reasoning, sources, tool, and composer",
+      "files": [
+        {
+          "path": "registry/default/particles/p-conversation-2.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "className": "**:data-[slot=preview]:w-full"
+      },
+      "name": "p-conversation-2",
+      "registryDependencies": [
+        "@coss/conversation",
+        "@coss/message",
+        "@coss/prompt-input",
+        "@coss/reasoning",
+        "@coss/sources",
+        "@coss/suggestion",
+        "@coss/tool"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
         "dialog"
       ],
       "description": "Dialog with form",
@@ -7899,6 +8067,49 @@
     },
     {
       "categories": [
+        "ai"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "description": "Assistant message with copy, feedback, and regenerate",
+      "files": [
+        {
+          "path": "registry/default/particles/p-message-1.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "className": "**:data-[slot=preview]:w-full"
+      },
+      "name": "p-message-1",
+      "registryDependencies": [
+        "@coss/message"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
+        "ai"
+      ],
+      "description": "Assistant message with a branch selector toolbar",
+      "files": [
+        {
+          "path": "registry/default/particles/p-message-2.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "className": "**:data-[slot=preview]:w-full"
+      },
+      "name": "p-message-2",
+      "registryDependencies": [
+        "@coss/message"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
         "meter"
       ],
       "description": "Basic meter",
@@ -8937,6 +9148,57 @@
     },
     {
       "categories": [
+        "ai",
+        "input group",
+        "textarea"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "description": "Minimal chat composer with attachment and submit",
+      "files": [
+        {
+          "path": "registry/default/particles/p-prompt-input-1.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "className": "**:data-[slot=preview]:w-full **:data-[slot=preview]:max-w-80"
+      },
+      "name": "p-prompt-input-1",
+      "registryDependencies": [
+        "@coss/prompt-input"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
+        "ai",
+        "input group",
+        "select"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "description": "Composer with model select and submit status cycle",
+      "files": [
+        {
+          "path": "registry/default/particles/p-prompt-input-2.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "className": "**:data-[slot=preview]:w-full **:data-[slot=preview]:max-w-80"
+      },
+      "name": "p-prompt-input-2",
+      "registryDependencies": [
+        "@coss/prompt-input",
+        "@coss/select"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
         "radio group"
       ],
       "description": "Basic radio group",
@@ -9109,6 +9371,53 @@
       "registryDependencies": [
         "@coss/radio-group",
         "@coss/segmented-control"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
+        "ai",
+        "collapsible"
+      ],
+      "description": "Finished reasoning block with duration and open panel",
+      "files": [
+        {
+          "path": "registry/default/particles/p-reasoning-1.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "className": "**:data-[slot=preview]:w-full"
+      },
+      "name": "p-reasoning-1",
+      "registryDependencies": [
+        "@coss/reasoning"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
+        "ai",
+        "collapsible",
+        "loading"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "description": "Reasoning block with simulated streaming and auto-collapse",
+      "files": [
+        {
+          "path": "registry/default/particles/p-reasoning-2.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "className": "**:data-[slot=preview]:w-full"
+      },
+      "name": "p-reasoning-2",
+      "registryDependencies": [
+        "@coss/button",
+        "@coss/reasoning"
       ],
       "type": "registry:block"
     },
@@ -9849,6 +10158,45 @@
     },
     {
       "categories": [
+        "ai",
+        "loading"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "description": "Shimmering streaming indicator text",
+      "files": [
+        {
+          "path": "registry/default/particles/p-shimmer-1.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "name": "p-shimmer-1",
+      "registryDependencies": [
+        "@coss/shimmer"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
+        "ai",
+        "loading"
+      ],
+      "description": "Shimmer text lines with custom durations",
+      "files": [
+        {
+          "path": "registry/default/particles/p-shimmer-2.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "name": "p-shimmer-2",
+      "registryDependencies": [
+        "@coss/shimmer"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
         "skeleton"
       ],
       "description": "Basic skeleton",
@@ -10380,6 +10728,49 @@
     },
     {
       "categories": [
+        "ai",
+        "collapsible"
+      ],
+      "description": "Collapsible list of cited sources",
+      "files": [
+        {
+          "path": "registry/default/particles/p-sources-1.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "className": "**:data-[slot=preview]:w-full"
+      },
+      "name": "p-sources-1",
+      "registryDependencies": [
+        "@coss/sources"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
+        "ai",
+        "collapsible"
+      ],
+      "description": "Sources cited inside an assistant message",
+      "files": [
+        {
+          "path": "registry/default/particles/p-sources-2.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "className": "**:data-[slot=preview]:w-full"
+      },
+      "name": "p-sources-2",
+      "registryDependencies": [
+        "@coss/message",
+        "@coss/sources"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
         "spinner"
       ],
       "description": "Basic spinner",
@@ -10433,6 +10824,45 @@
       "name": "p-stepper-2",
       "registryDependencies": [
         "@coss/stepper"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
+        "ai",
+        "button"
+      ],
+      "description": "Row of clickable prompt suggestion chips",
+      "files": [
+        {
+          "path": "registry/default/particles/p-suggestion-1.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "name": "p-suggestion-1",
+      "registryDependencies": [
+        "@coss/suggestion"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
+        "ai",
+        "button"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "description": "Suggestion chips with icons and a secondary variant",
+      "files": [
+        {
+          "path": "registry/default/particles/p-suggestion-2.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "name": "p-suggestion-2",
+      "registryDependencies": [
+        "@coss/suggestion"
       ],
       "type": "registry:block"
     },
@@ -11519,6 +11949,49 @@
       "name": "p-timeline-2",
       "registryDependencies": [
         "@coss/timeline"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
+        "ai",
+        "collapsible"
+      ],
+      "description": "Completed tool call with JSON input and text output",
+      "files": [
+        {
+          "path": "registry/default/particles/p-tool-1.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "className": "**:data-[slot=preview]:w-full"
+      },
+      "name": "p-tool-1",
+      "registryDependencies": [
+        "@coss/tool"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
+        "ai",
+        "collapsible",
+        "error"
+      ],
+      "description": "Tool call awaiting approval and one that failed",
+      "files": [
+        {
+          "path": "registry/default/particles/p-tool-2.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "className": "**:data-[slot=preview]:w-full"
+      },
+      "name": "p-tool-2",
+      "registryDependencies": [
+        "@coss/tool"
       ],
       "type": "registry:block"
     },

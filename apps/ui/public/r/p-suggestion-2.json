@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-suggestion-2",
+  "description": "Suggestion chips with icons and a secondary variant",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "@coss/suggestion"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-suggestion-2.tsx",
+      "content": "\"use client\";\n\nimport { BookOpenIcon, CodeIcon, LightbulbIcon } from \"lucide-react\";\nimport { Suggestion, Suggestions } from \"@/registry/default/ui/suggestion\";\n\nexport default function Particle() {\n  return (\n    <Suggestions>\n      <Suggestion onClick={() => {}} suggestion=\"How does it work?\">\n        <LightbulbIcon aria-hidden=\"true\" />\n        How does it work?\n      </Suggestion>\n      <Suggestion onClick={() => {}} suggestion=\"Show an example\">\n        <CodeIcon aria-hidden=\"true\" />\n        Show an example\n      </Suggestion>\n      <Suggestion variant=\"secondary\" onClick={() => {}} suggestion=\"Deep dive\">\n        <BookOpenIcon aria-hidden=\"true\" />\n        Deep dive\n      </Suggestion>\n    </Suggestions>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "categories": [
+    "ai",
+    "button"
+  ],
+  "type": "registry:block"
+}

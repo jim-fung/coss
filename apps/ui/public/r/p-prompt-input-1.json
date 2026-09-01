@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-prompt-input-1",
+  "description": "Minimal chat composer with attachment and submit",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "@coss/prompt-input"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-prompt-input-1.tsx",
+      "content": "\"use client\";\n\nimport { PaperclipIcon } from \"lucide-react\";\nimport { useState } from \"react\";\nimport {\n  PromptInput,\n  PromptInputButton,\n  PromptInputFooter,\n  type PromptInputMessage,\n  PromptInputSubmit,\n  PromptInputTextarea,\n  PromptInputTools,\n} from \"@/registry/default/ui/prompt-input\";\n\nexport default function Particle() {\n  const [lastMessage, setLastMessage] = useState<string | null>(null);\n\n  const handleSubmit = (message: PromptInputMessage) => {\n    setLastMessage(message.text);\n  };\n\n  return (\n    <div className=\"flex w-full max-w-md flex-col gap-4\">\n      <PromptInput onSubmit={handleSubmit}>\n        <PromptInputTextarea placeholder=\"Write a message…\" rows={2} />\n        <PromptInputFooter>\n          <PromptInputTools>\n            <PromptInputButton aria-label=\"Attach file\" tooltip=\"Attach file\">\n              <PaperclipIcon aria-hidden=\"true\" />\n            </PromptInputButton>\n          </PromptInputTools>\n          <PromptInputSubmit />\n        </PromptInputFooter>\n      </PromptInput>\n      {lastMessage ? (\n        <p className=\"text-muted-foreground text-xs\">\n          Submitted: <span className=\"text-foreground\">{lastMessage}</span>\n        </p>\n      ) : null}\n    </div>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "meta": {
+    "className": "**:data-[slot=preview]:w-full **:data-[slot=preview]:max-w-80"
+  },
+  "categories": [
+    "ai",
+    "input group",
+    "textarea"
+  ],
+  "type": "registry:block"
+}

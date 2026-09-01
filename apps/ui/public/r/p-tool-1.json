@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-tool-1",
+  "description": "Completed tool call with JSON input and text output",
+  "registryDependencies": [
+    "@coss/tool"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-tool-1.tsx",
+      "content": "\"use client\";\n\nimport {\n  Tool,\n  ToolHeader,\n  ToolInput,\n  ToolOutput,\n  ToolPanel,\n} from \"@/registry/default/ui/tool\";\n\nexport default function Particle() {\n  return (\n    <Tool defaultOpen className=\"w-full max-w-md\">\n      <ToolHeader state=\"output-available\" title=\"get_weather\" />\n      <ToolPanel>\n        <ToolInput input={{ location: \"San Francisco\", unit: \"celsius\" }} />\n        <ToolOutput output=\"18°C, partly cloudy with a high of 21°C expected later today.\" />\n      </ToolPanel>\n    </Tool>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "meta": {
+    "className": "**:data-[slot=preview]:w-full"
+  },
+  "categories": [
+    "ai",
+    "collapsible"
+  ],
+  "type": "registry:block"
+}

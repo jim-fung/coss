@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-message-2",
+  "description": "Assistant message with a branch selector toolbar",
+  "registryDependencies": [
+    "@coss/message"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-message-2.tsx",
+      "content": "\"use client\";\n\nimport { useState } from \"react\";\nimport {\n  Message,\n  MessageBranch,\n  MessageBranchNext,\n  MessageBranchPage,\n  MessageBranchPrevious,\n  MessageBranchSelector,\n  MessageContent,\n  MessageToolbar,\n} from \"@/registry/default/ui/message\";\n\nconst branches = [\n  \"A design system is a shared language between design and engineering.\",\n  \"A design system is a library of reusable components, tokens, and guidelines.\",\n  \"Think of a design system as a product that serves other products.\",\n];\n\nexport default function Particle() {\n  const [branch, setBranch] = useState(0);\n\n  return (\n    <div className=\"flex w-full max-w-md flex-col gap-4 py-2\">\n      <Message from=\"user\">\n        <MessageContent>What is a design system?</MessageContent>\n      </Message>\n      <Message from=\"assistant\">\n        <MessageBranch\n          branch={branch}\n          onBranchChange={setBranch}\n          totalBranches={branches.length}\n        >\n          <MessageContent>{branches[branch]}</MessageContent>\n          <MessageToolbar className=\"justify-start\">\n            <MessageBranchSelector>\n              <MessageBranchPrevious />\n              <MessageBranchPage />\n              <MessageBranchNext />\n            </MessageBranchSelector>\n          </MessageToolbar>\n        </MessageBranch>\n      </Message>\n    </div>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "meta": {
+    "className": "**:data-[slot=preview]:w-full"
+  },
+  "categories": [
+    "ai"
+  ],
+  "type": "registry:block"
+}

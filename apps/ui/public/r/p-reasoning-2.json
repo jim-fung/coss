@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-reasoning-2",
+  "description": "Reasoning block with simulated streaming and auto-collapse",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "@coss/button",
+    "@coss/reasoning"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-reasoning-2.tsx",
+      "content": "\"use client\";\n\nimport { PlayIcon } from \"lucide-react\";\nimport { useState } from \"react\";\nimport { Button } from \"@/registry/default/ui/button\";\nimport {\n  Reasoning,\n  ReasoningPanel,\n  ReasoningTrigger,\n} from \"@/registry/default/ui/reasoning\";\n\nexport default function Particle() {\n  const [isStreaming, setIsStreaming] = useState(false);\n\n  const simulateStream = () => {\n    setIsStreaming(true);\n    setTimeout(() => {\n      setIsStreaming(false);\n    }, 3000);\n  };\n\n  return (\n    <div className=\"flex w-full max-w-md flex-col gap-4\">\n      <Button\n        className=\"w-fit\"\n        onClick={simulateStream}\n        size=\"sm\"\n        variant=\"outline\"\n      >\n        <PlayIcon aria-hidden=\"true\" />\n        Simulate streaming\n      </Button>\n      <Reasoning isStreaming={isStreaming}>\n        <ReasoningTrigger />\n        <ReasoningPanel>\n          First I plan the steps, then I verify the result before answering.\n          While streaming, this panel stays open and the trigger keeps\n          shimmering. One second after the stream ends it collapses again.\n        </ReasoningPanel>\n      </Reasoning>\n    </div>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "meta": {
+    "className": "**:data-[slot=preview]:w-full"
+  },
+  "categories": [
+    "ai",
+    "collapsible",
+    "loading"
+  ],
+  "type": "registry:block"
+}

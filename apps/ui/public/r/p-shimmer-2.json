@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-shimmer-2",
+  "description": "Shimmer text lines with custom durations",
+  "registryDependencies": [
+    "@coss/shimmer"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-shimmer-2.tsx",
+      "content": "\"use client\";\n\nimport { Shimmer } from \"@/registry/default/ui/shimmer\";\n\nexport default function Particle() {\n  return (\n    <div className=\"flex w-full max-w-sm flex-col gap-2 py-6 text-center font-medium text-lg\">\n      <Shimmer duration={3}>Searching the web…</Shimmer>\n      <Shimmer className=\"text-base\" duration={1}>\n        Reading 12 documents\n      </Shimmer>\n    </div>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "categories": [
+    "ai",
+    "loading"
+  ],
+  "type": "registry:block"
+}

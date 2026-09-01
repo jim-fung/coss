@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-sources-1",
+  "description": "Collapsible list of cited sources",
+  "registryDependencies": [
+    "@coss/sources"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-sources-1.tsx",
+      "content": "\"use client\";\n\nimport {\n  Source,\n  Sources,\n  SourcesPanel,\n  SourcesTrigger,\n} from \"@/registry/default/ui/sources\";\n\nexport default function Particle() {\n  return (\n    <Sources defaultOpen>\n      <SourcesTrigger count={3} />\n      <SourcesPanel>\n        <Source href=\"https://base-ui.com\" title=\"Base UI documentation\" />\n        <Source href=\"https://tailwindcss.com\" title=\"Tailwind CSS v4\" />\n        <Source href=\"https://react.dev\" title=\"React documentation\" />\n      </SourcesPanel>\n    </Sources>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "meta": {
+    "className": "**:data-[slot=preview]:w-full"
+  },
+  "categories": [
+    "ai",
+    "collapsible"
+  ],
+  "type": "registry:block"
+}

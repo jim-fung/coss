@@ -21,6 +21,7 @@ export const ui: Registry["items"] = [
       "@coss/combobox",
       "@coss/command",
       "@coss/context-menu",
+      "@coss/conversation",
       "@coss/data-table",
       "@coss/dialog",
       "@coss/drawer",
@@ -37,6 +38,7 @@ export const ui: Registry["items"] = [
       "@coss/label",
       "@coss/menu",
       "@coss/menubar",
+      "@coss/message",
       "@coss/meter",
       "@coss/navigation-menu",
       "@coss/number-field",
@@ -44,7 +46,9 @@ export const ui: Registry["items"] = [
       "@coss/popover",
       "@coss/preview-card",
       "@coss/progress",
+      "@coss/prompt-input",
       "@coss/radio-group",
+      "@coss/reasoning",
       "@coss/resizable",
       "@coss/scroll-area",
       "@coss/select",
@@ -52,16 +56,20 @@ export const ui: Registry["items"] = [
       "@coss/separator",
       "@coss/sheet",
       "@coss/sidebar",
+      "@coss/shimmer",
       "@coss/skeleton",
       "@coss/slider",
+      "@coss/sources",
       "@coss/spinner",
       "@coss/stepper",
+      "@coss/suggestion",
       "@coss/switch",
       "@coss/table",
       "@coss/tabs",
       "@coss/textarea",
       "@coss/timeline",
       "@coss/toast",
+      "@coss/tool",
       "@coss/toggle",
       "@coss/toggle-group",
       "@coss/toolbar",
@@ -319,6 +327,18 @@ export const ui: Registry["items"] = [
     type: "registry:ui",
   },
   {
+    dependencies: ["use-stick-to-bottom"],
+    files: [
+      {
+        path: "ui/conversation.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "conversation",
+    registryDependencies: ["@coss/button", "@coss/empty"],
+    type: "registry:ui",
+  },
+  {
     dependencies: ["@tanstack/react-table"],
     files: [
       {
@@ -528,6 +548,17 @@ export const ui: Registry["items"] = [
     type: "registry:ui",
   },
   {
+    files: [
+      {
+        path: "ui/message.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "message",
+    registryDependencies: ["@coss/button", "@coss/tooltip"],
+    type: "registry:ui",
+  },
+  {
     dependencies: ["@base-ui/react"],
     files: [
       {
@@ -606,6 +637,22 @@ export const ui: Registry["items"] = [
     type: "registry:ui",
   },
   {
+    files: [
+      {
+        path: "ui/prompt-input.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "prompt-input",
+    registryDependencies: [
+      "@coss/button",
+      "@coss/input-group",
+      "@coss/textarea",
+      "@coss/tooltip",
+    ],
+    type: "registry:ui",
+  },
+  {
     dependencies: ["@base-ui/react"],
     files: [
       {
@@ -614,6 +661,17 @@ export const ui: Registry["items"] = [
       },
     ],
     name: "radio-group",
+    type: "registry:ui",
+  },
+  {
+    files: [
+      {
+        path: "ui/reasoning.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "reasoning",
+    registryDependencies: ["@coss/collapsible", "@coss/shimmer"],
     type: "registry:ui",
   },
   {
@@ -704,6 +762,16 @@ export const ui: Registry["items"] = [
     type: "registry:ui",
   },
   {
+    files: [
+      {
+        path: "ui/shimmer.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "shimmer",
+    type: "registry:ui",
+  },
+  {
     css: {
       "@keyframes skeleton": {
         to: {
@@ -739,6 +807,17 @@ export const ui: Registry["items"] = [
   {
     files: [
       {
+        path: "ui/sources.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "sources",
+    registryDependencies: ["@coss/collapsible"],
+    type: "registry:ui",
+  },
+  {
+    files: [
+      {
         path: "ui/spinner.tsx",
         type: "registry:ui",
       },
@@ -766,6 +845,17 @@ export const ui: Registry["items"] = [
       },
     ],
     name: "switch",
+    type: "registry:ui",
+  },
+  {
+    files: [
+      {
+        path: "ui/suggestion.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "suggestion",
+    registryDependencies: ["@coss/button"],
     type: "registry:ui",
   },
   {
@@ -811,6 +901,17 @@ export const ui: Registry["items"] = [
       },
     ],
     name: "timeline",
+    type: "registry:ui",
+  },
+  {
+    files: [
+      {
+        path: "ui/tool.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "tool",
+    registryDependencies: ["@coss/badge", "@coss/collapsible"],
     type: "registry:ui",
   },
   {

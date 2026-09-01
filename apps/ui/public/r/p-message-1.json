@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-message-1",
+  "description": "Assistant message with copy, feedback, and regenerate",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "@coss/message"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-message-1.tsx",
+      "content": "\"use client\";\n\nimport {\n  CheckIcon,\n  CopyIcon,\n  PencilIcon,\n  RefreshCwIcon,\n  ThumbsUpIcon,\n} from \"lucide-react\";\nimport { useState } from \"react\";\nimport {\n  Message,\n  MessageAction,\n  MessageActions,\n  MessageContent,\n} from \"@/registry/default/ui/message\";\n\nexport default function Particle() {\n  const [copied, setCopied] = useState(false);\n\n  return (\n    <div className=\"flex w-full max-w-md flex-col gap-6 py-2\">\n      <Message from=\"user\">\n        <MessageContent>\n          Can you explain what a design token is in one sentence?\n        </MessageContent>\n        <MessageActions>\n          <MessageAction label=\"Edit message\">\n            <PencilIcon aria-hidden=\"true\" />\n          </MessageAction>\n        </MessageActions>\n      </Message>\n      <Message from=\"assistant\">\n        <MessageContent>\n          A design token is a named, reusable value (like a color, spacing step,\n          or font size) that encodes a design decision so interfaces stay\n          consistent.\n        </MessageContent>\n        <MessageActions>\n          <MessageAction\n            label={copied ? \"Copied\" : \"Copy message\"}\n            onClick={() => {\n              setCopied(true);\n              setTimeout(() => setCopied(false), 2000);\n            }}\n          >\n            {copied ? (\n              <CheckIcon aria-hidden=\"true\" />\n            ) : (\n              <CopyIcon aria-hidden=\"true\" />\n            )}\n          </MessageAction>\n          <MessageAction label=\"Good response\" tooltip=\"Good response\">\n            <ThumbsUpIcon aria-hidden=\"true\" />\n          </MessageAction>\n          <MessageAction label=\"Regenerate\" tooltip=\"Regenerate\">\n            <RefreshCwIcon aria-hidden=\"true\" />\n          </MessageAction>\n        </MessageActions>\n      </Message>\n    </div>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "meta": {
+    "className": "**:data-[slot=preview]:w-full"
+  },
+  "categories": [
+    "ai"
+  ],
+  "type": "registry:block"
+}

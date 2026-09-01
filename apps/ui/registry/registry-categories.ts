@@ -9,6 +9,7 @@
 export const registryCategories = [
   // UI components
   "accordion",
+  "ai",
   "alert",
   "alert dialog",
   "autocomplete",

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shimmer",
+  "files": [
+    {
+      "path": "registry/default/ui/shimmer.tsx",
+      "content": "\"use client\";\n\nimport type * as React from \"react\";\nimport { useEffect, useRef } from \"react\";\nimport { cn } from \"@/registry/default/lib/utils\";\n\ninterface ShimmerProps extends React.ComponentProps<\"span\"> {\n  /**\n   * Seconds per shimmer cycle.\n   */\n  duration?: number;\n}\n\nfunction Shimmer({\n  duration = 2,\n  className,\n  ...props\n}: ShimmerProps): React.ReactElement {\n  const ref = useRef<HTMLSpanElement>(null);\n\n  useEffect(() => {\n    const node = ref.current;\n    if (!node) {\n      return;\n    }\n    if (window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches) {\n      return;\n    }\n\n    const animation = node.animate(\n      [{ backgroundPosition: \"100% 0\" }, { backgroundPosition: \"0% 0\" }],\n      { duration: duration * 1000, iterations: Number.POSITIVE_INFINITY },\n    );\n    return () => {\n      animation.cancel();\n    };\n  }, [duration]);\n\n  return (\n    <span\n      className={cn(\n        \"bg-[length:200%_100%] bg-[linear-gradient(90deg,var(--color-muted-foreground)_40%,var(--color-foreground)_50%,var(--color-muted-foreground)_60%)] bg-clip-text bg-no-repeat text-transparent\",\n        className,\n      )}\n      data-slot=\"shimmer\"\n      ref={ref}\n      {...props}\n    />\n  );\n}\n\nexport { Shimmer };\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

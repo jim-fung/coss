@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-reasoning-1",
+  "description": "Finished reasoning block with duration and open panel",
+  "registryDependencies": [
+    "@coss/reasoning"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-reasoning-1.tsx",
+      "content": "\"use client\";\n\nimport {\n  Reasoning,\n  ReasoningPanel,\n  ReasoningTrigger,\n} from \"@/registry/default/ui/reasoning\";\n\nexport default function Particle() {\n  return (\n    <Reasoning defaultOpen duration={4} className=\"w-full max-w-md\">\n      <ReasoningTrigger />\n      <ReasoningPanel>\n        The user asked about the weather. I don&apos;t have live data, so I will\n        explain how to find a reliable forecast instead of guessing.\n      </ReasoningPanel>\n    </Reasoning>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "meta": {
+    "className": "**:data-[slot=preview]:w-full"
+  },
+  "categories": [
+    "ai",
+    "collapsible"
+  ],
+  "type": "registry:block"
+}
