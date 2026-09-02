@@ -5570,6 +5570,7 @@
       "registryDependencies": [
         "@coss/badge",
         "@coss/card",
+        "@coss/chart",
         "@coss/separator"
       ],
       "type": "registry:block"
@@ -5619,6 +5620,7 @@
         "@coss/badge",
         "@coss/button",
         "@coss/card",
+        "@coss/checkbox",
         "@coss/table"
       ],
       "type": "registry:block"
@@ -5644,6 +5646,7 @@
         "@coss/badge",
         "@coss/button",
         "@coss/card",
+        "@coss/separator",
         "@coss/use-copy-to-clipboard"
       ],
       "type": "registry:block"
@@ -5699,6 +5702,103 @@
         "@coss/select",
         "@coss/separator",
         "@coss/switch"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
+        "dashboard",
+        "card",
+        "chart"
+      ],
+      "description": "Composed workbench overview grid",
+      "files": [
+        {
+          "path": "registry/default/particles/p-dashboard-7.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "className": "**:data-[slot=preview]:w-full"
+      },
+      "name": "p-dashboard-7",
+      "registryDependencies": [
+        "@coss/badge",
+        "@coss/card",
+        "@coss/chart",
+        "@coss/separator"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
+        "dashboard",
+        "empty state",
+        "loading"
+      ],
+      "description": "Empty and loading dashboard states",
+      "files": [
+        {
+          "path": "registry/default/particles/p-dashboard-8.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "className": "**:data-[slot=preview]:w-full"
+      },
+      "name": "p-dashboard-8",
+      "registryDependencies": [
+        "@coss/button",
+        "@coss/card",
+        "@coss/empty",
+        "@coss/skeleton"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
+        "dashboard",
+        "card"
+      ],
+      "description": "Weekly digest preview card",
+      "files": [
+        {
+          "path": "registry/default/particles/p-dashboard-9.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "className": "**:data-[slot=preview]:w-full"
+      },
+      "name": "p-dashboard-9",
+      "registryDependencies": [
+        "@coss/badge",
+        "@coss/button",
+        "@coss/card"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
+        "dashboard",
+        "card"
+      ],
+      "description": "Parcels overview with hours bars",
+      "files": [
+        {
+          "path": "registry/default/particles/p-dashboard-10.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "className": "**:data-[slot=preview]:w-full"
+      },
+      "name": "p-dashboard-10",
+      "registryDependencies": [
+        "@coss/badge",
+        "@coss/button",
+        "@coss/card",
+        "@coss/separator"
       ],
       "type": "registry:block"
     },

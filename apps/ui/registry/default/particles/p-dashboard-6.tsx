@@ -1,3 +1,7 @@
+"use client";
+
+import { CheckIcon } from "lucide-react";
+import { useEffect, useState } from "react";
 import { Button } from "@/registry/default/ui/button";
 import {
   Card,
@@ -29,8 +33,8 @@ const digestDayItems = [
 ];
 
 const timezoneItems = [
-  { label: "Europe/Amsterdam", value: "europe-amsterdam" },
-  { label: "Europe/Berlin", value: "europe-berlin" },
+  { label: "Europe/Amsterdam", value: "eu-amsterdam" },
+  { label: "Europe/Berlin", value: "eu-berlin" },
   { label: "UTC", value: "utc" },
 ];
 
@@ -39,7 +43,59 @@ const unitsItems = [
   { label: "Imperial (ac, in, h)", value: "imperial" },
 ];
 
+type WorkbenchPreferences = {
+  digestDay: string;
+  timezone: string;
+  units: string;
+  autoRegister: boolean;
+  flagMissingDays: boolean;
+  includeObservations: boolean;
+};
+
+const defaultPreferences: WorkbenchPreferences = {
+  digestDay: "sunday",
+  timezone: "eu-amsterdam",
+  units: "metric",
+  autoRegister: true,
+  flagMissingDays: true,
+  includeObservations: false,
+};
+
 export default function Particle() {
+  const [lastSaved, setLastSaved] =
+    useState<WorkbenchPreferences>(defaultPreferences);
+  const [draft, setDraft] = useState<WorkbenchPreferences>(defaultPreferences);
+  const [saved, setSaved] = useState(false);
+
+  useEffect(() => {
+    if (!saved) {
+      return;
+    }
+    const timeout = setTimeout(() => {
+      setSaved(false);
+    }, 2000);
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [saved]);
+
+  const isDirty =
+    draft.digestDay !== lastSaved.digestDay ||
+    draft.timezone !== lastSaved.timezone ||
+    draft.units !== lastSaved.units ||
+    draft.autoRegister !== lastSaved.autoRegister ||
+    draft.flagMissingDays !== lastSaved.flagMissingDays ||
+    draft.includeObservations !== lastSaved.includeObservations;
+
+  const handleUpdate = () => {
+    setLastSaved(draft);
+    setSaved(true);
+  };
+
+  const handleReset = () => {
+    setDraft(lastSaved);
+  };
+
   return (
     <div className="grid gap-4">
       <Card className="w-full">
@@ -57,7 +113,15 @@ export default function Particle() {
                 Sunday summary of hours, registrations and unresolved items
               </FieldDescription>
             </Field>
-            <Select defaultValue="sunday" items={digestDayItems}>
+            <Select
+              items={digestDayItems}
+              onValueChange={(value) => {
+                if (value !== null) {
+                  setDraft({ ...draft, digestDay: value });
+                }
+              }}
+              value={draft.digestDay}
+            >
               <SelectTrigger
                 aria-label="Weekly digest"
                 className="w-36 shrink-0"
@@ -82,7 +146,15 @@ export default function Particle() {
                 Used for digest delivery and day boundaries
               </FieldDescription>
             </Field>
-            <Select defaultValue="europe-amsterdam" items={timezoneItems}>
+            <Select
+              items={timezoneItems}
+              onValueChange={(value) => {
+                if (value !== null) {
+                  setDraft({ ...draft, timezone: value });
+                }
+              }}
+              value={draft.timezone}
+            >
               <SelectTrigger
                 aria-label="Timezone"
                 className="w-44 shrink-0"
@@ -107,7 +179,15 @@ export default function Particle() {
                 Applies to areas, rainfall and durations
               </FieldDescription>
             </Field>
-            <Select defaultValue="metric" items={unitsItems}>
+            <Select
+              items={unitsItems}
+              onValueChange={(value) => {
+                if (value !== null) {
+                  setDraft({ ...draft, units: value });
+                }
+              }}
+              value={draft.units}
+            >
               <SelectTrigger
                 aria-label="Units"
                 className="w-44 shrink-0"
@@ -144,7 +224,10 @@ export default function Particle() {
             </Field>
             <Switch
               aria-label="Auto-register confirmed outcomes"
-              defaultChecked
+              checked={draft.autoRegister}
+              onCheckedChange={(checked) => {
+                setDraft({ ...draft, autoRegister: checked });
+              }}
             />
           </div>
           <Separator className="my-4" />
@@ -155,7 +238,13 @@ export default function Particle() {
                 Highlight days without any Telegram message
               </FieldDescription>
             </Field>
-            <Switch aria-label="Flag missing days" defaultChecked />
+            <Switch
+              aria-label="Flag missing days"
+              checked={draft.flagMissingDays}
+              onCheckedChange={(checked) => {
+                setDraft({ ...draft, flagMissingDays: checked });
+              }}
+            />
           </div>
           <Separator className="my-4" />
           <div className="flex items-start justify-between gap-8">
@@ -165,15 +254,65 @@ export default function Particle() {
                 Add scouting observations to the digest
               </FieldDescription>
             </Field>
-            <Switch aria-label="Include observations" />
+            <Switch
+              aria-label="Include observations"
+              checked={draft.includeObservations}
+              onCheckedChange={(checked) => {
+                setDraft({ ...draft, includeObservations: checked });
+              }}
+            />
           </div>
         </CardPanel>
         <CardFooter className="gap-2">
-          <Button size="sm">Update</Button>
-          <Button size="sm" variant="ghost">
+          <Button
+            disabled={!isDirty && !saved}
+            onClick={handleUpdate}
+            size="sm"
+            variant={saved ? "secondary" : isDirty ? "default" : "outline"}
+          >
+            {saved ? (
+              <>
+                <CheckIcon aria-hidden="true" />
+                Saved
+              </>
+            ) : (
+              "Update"
+            )}
+          </Button>
+          <Button
+            disabled={!isDirty}
+            onClick={handleReset}
+            size="sm"
+            variant="ghost"
+          >
             Reset
           </Button>
         </CardFooter>
+      </Card>
+      <Card className="w-full">
+        <CardHeader>
+          <CardTitle>Danger zone</CardTitle>
+          <CardDescription>
+            Irreversible actions for this workbench
+          </CardDescription>
+        </CardHeader>
+        <CardPanel>
+          <div className="flex items-start justify-between gap-8">
+            <Field className="min-w-0 gap-1">
+              <FieldLabel>Disable workbench</FieldLabel>
+              <FieldDescription>
+                Blocks all operators until re-enabled. Active runs finish first.
+              </FieldDescription>
+            </Field>
+            <Button
+              onClick={() => undefined}
+              size="sm"
+              variant="destructive-outline"
+            >
+              Disable
+            </Button>
+          </div>
+        </CardPanel>
       </Card>
     </div>
   );

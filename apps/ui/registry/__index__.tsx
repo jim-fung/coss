@@ -5033,7 +5033,7 @@ export const Index: Record<string, any> = {
     name: "p-dashboard-1",
     description: "Operate stats with service health strip",
     type: "registry:block",
-    registryDependencies: ["@coss/badge","@coss/card","@coss/separator"],
+    registryDependencies: ["@coss/badge","@coss/card","@coss/chart","@coss/separator"],
     files: [{
       path: "registry/default/particles/p-dashboard-1.tsx",
       type: "registry:block",
@@ -5069,7 +5069,7 @@ export const Index: Record<string, any> = {
     name: "p-dashboard-3",
     description: "Confirmation queue table with status and parcel badges",
     type: "registry:block",
-    registryDependencies: ["@coss/avatar","@coss/badge","@coss/button","@coss/card","@coss/table"],
+    registryDependencies: ["@coss/avatar","@coss/badge","@coss/button","@coss/card","@coss/checkbox","@coss/table"],
     files: [{
       path: "registry/default/particles/p-dashboard-3.tsx",
       type: "registry:block",
@@ -5087,7 +5087,7 @@ export const Index: Record<string, any> = {
     name: "p-dashboard-4",
     description: "Recent registrations feed with copy actions",
     type: "registry:block",
-    registryDependencies: ["@coss/badge","@coss/button","@coss/card","@coss/use-copy-to-clipboard"],
+    registryDependencies: ["@coss/badge","@coss/button","@coss/card","@coss/separator","@coss/use-copy-to-clipboard"],
     files: [{
       path: "registry/default/particles/p-dashboard-4.tsx",
       type: "registry:block",
@@ -5135,6 +5135,78 @@ export const Index: Record<string, any> = {
       return { default: mod.default || mod[exportName] }
     }),
     categories: ["dashboard","form","select","switch"],
+    meta: {"className":"**:data-[slot=preview]:w-full"},
+  },
+  "p-dashboard-7": {
+    name: "p-dashboard-7",
+    description: "Composed workbench overview grid",
+    type: "registry:block",
+    registryDependencies: ["@coss/badge","@coss/card","@coss/chart","@coss/separator"],
+    files: [{
+      path: "registry/default/particles/p-dashboard-7.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/particles/p-dashboard-7.tsx")
+      const exportName = Object.keys(mod).find(key => /^[A-Z]/.test(key) && typeof mod[key] === 'function') || Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["dashboard","card","chart"],
+    meta: {"className":"**:data-[slot=preview]:w-full"},
+  },
+  "p-dashboard-8": {
+    name: "p-dashboard-8",
+    description: "Empty and loading dashboard states",
+    type: "registry:block",
+    registryDependencies: ["@coss/button","@coss/card","@coss/empty","@coss/skeleton"],
+    files: [{
+      path: "registry/default/particles/p-dashboard-8.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/particles/p-dashboard-8.tsx")
+      const exportName = Object.keys(mod).find(key => /^[A-Z]/.test(key) && typeof mod[key] === 'function') || Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["dashboard","empty state","loading"],
+    meta: {"className":"**:data-[slot=preview]:w-full"},
+  },
+  "p-dashboard-9": {
+    name: "p-dashboard-9",
+    description: "Weekly digest preview card",
+    type: "registry:block",
+    registryDependencies: ["@coss/badge","@coss/button","@coss/card"],
+    files: [{
+      path: "registry/default/particles/p-dashboard-9.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/particles/p-dashboard-9.tsx")
+      const exportName = Object.keys(mod).find(key => /^[A-Z]/.test(key) && typeof mod[key] === 'function') || Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["dashboard","card"],
+    meta: {"className":"**:data-[slot=preview]:w-full"},
+  },
+  "p-dashboard-10": {
+    name: "p-dashboard-10",
+    description: "Parcels overview with hours bars",
+    type: "registry:block",
+    registryDependencies: ["@coss/badge","@coss/button","@coss/card","@coss/separator"],
+    files: [{
+      path: "registry/default/particles/p-dashboard-10.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/particles/p-dashboard-10.tsx")
+      const exportName = Object.keys(mod).find(key => /^[A-Z]/.test(key) && typeof mod[key] === 'function') || Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["dashboard","card"],
     meta: {"className":"**:data-[slot=preview]:w-full"},
   },
   "p-dialog-1": {

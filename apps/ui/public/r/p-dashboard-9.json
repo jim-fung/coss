@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-dashboard-9",
+  "description": "Weekly digest preview card",
+  "registryDependencies": [
+    "@coss/badge",
+    "@coss/button",
+    "@coss/card"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-dashboard-9.tsx",
+      "content": "import { AlertTriangleIcon, CircleAlertIcon } from \"lucide-react\";\nimport { Badge } from \"@/registry/default/ui/badge\";\nimport { Button } from \"@/registry/default/ui/button\";\nimport {\n  Card,\n  CardAction,\n  CardDescription,\n  CardFooter,\n  CardHeader,\n  CardPanel,\n  CardTitle,\n} from \"@/registry/default/ui/card\";\n\nconst categories: { hours: string; label: string; width: number }[] = [\n  { hours: \"20,1 u\", label: \"Field work\", width: 62 },\n  { hours: \"5,8 u\", label: \"Maintenance\", width: 18 },\n  { hours: \"4,6 u\", label: \"Irrigation\", width: 14 },\n  { hours: \"2,0 u\", label: \"Office\", width: 6 },\n];\n\nexport default function Particle() {\n  return (\n    <div className=\"grid gap-4\">\n      <Card className=\"w-full\">\n        <CardHeader>\n          <CardTitle>Weekly digest</CardTitle>\n          <CardDescription>\n            Preview of Cornelis&apos;s summary · Sunday 30 August\n          </CardDescription>\n          <CardAction>\n            <Badge variant=\"secondary\">draft</Badge>\n          </CardAction>\n        </CardHeader>\n        <CardPanel className=\"space-y-6\">\n          <div className=\"flex flex-wrap gap-6\">\n            <div className=\"space-y-1\">\n              <p className=\"font-semibold text-2xl tabular-nums\">32,5 u</p>\n              <p className=\"text-muted-foreground text-sm\">hours logged</p>\n            </div>\n            <div className=\"space-y-1\">\n              <p className=\"font-semibold text-2xl tabular-nums\">18</p>\n              <p className=\"text-muted-foreground text-sm\">registrations</p>\n            </div>\n            <div className=\"space-y-1\">\n              <p className=\"font-semibold text-2xl tabular-nums\">3</p>\n              <p className=\"flex items-center gap-2 text-muted-foreground text-sm\">\n                unresolved\n                <Badge size=\"sm\" variant=\"warning\">\n                  2 clarifications · 1 void\n                </Badge>\n              </p>\n            </div>\n          </div>\n          <div className=\"space-y-3\">\n            <p className=\"font-medium text-muted-foreground text-xs uppercase tracking-wide\">\n              Hours by category\n            </p>\n            {categories.map((category) => (\n              <div className=\"flex items-center gap-3\" key={category.label}>\n                <span className=\"w-28 shrink-0 truncate text-sm\">\n                  {category.label}\n                </span>\n                <div className=\"h-2 flex-1 overflow-hidden rounded-full bg-muted\">\n                  <div\n                    className=\"h-full rounded-full bg-primary\"\n                    style={{ width: `${category.width}%` }}\n                  />\n                </div>\n                <span className=\"w-14 text-right text-muted-foreground text-xs tabular-nums\">\n                  {category.hours}\n                </span>\n              </div>\n            ))}\n          </div>\n          <div className=\"space-y-3\">\n            <p className=\"font-medium text-muted-foreground text-xs uppercase tracking-wide\">\n              Needs attention\n            </p>\n            <div className=\"flex items-start gap-2 text-sm\">\n              <AlertTriangleIcon className=\"size-4 text-warning\" />\n              <p>Tuesday has no messages — ask Cornelis what happened</p>\n            </div>\n            <div className=\"flex items-start gap-2 text-sm\">\n              <CircleAlertIcon className=\"size-4 text-warning\" />\n              <p>\n                Beregenen on achter oost still awaiting &apos;Klopt dit?&apos;\n                reply{\" \"}\n                <span className=\"text-muted-foreground\">run_5d90aa71</span>\n              </p>\n            </div>\n          </div>\n        </CardPanel>\n        <CardFooter>\n          <div className=\"flex w-full items-center justify-between\">\n            <p className=\"text-muted-foreground text-xs\">\n              Sent Sundays at 18:00 · Europe/Amsterdam\n            </p>\n            <Button size=\"sm\" variant=\"outline\">\n              Send now\n            </Button>\n          </div>\n        </CardFooter>\n      </Card>\n    </div>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "meta": {
+    "className": "**:data-[slot=preview]:w-full"
+  },
+  "categories": [
+    "dashboard",
+    "card"
+  ],
+  "type": "registry:block"
+}

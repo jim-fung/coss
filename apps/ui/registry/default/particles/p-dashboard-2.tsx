@@ -1,6 +1,6 @@
 "use client";
 
-import { Area, AreaChart, CartesianGrid, XAxis } from "recharts";
+import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from "recharts";
 import {
   Card,
   CardContent,
@@ -33,61 +33,145 @@ const chartConfig = {
   asked: { label: "Asked", color: "var(--chart-3)" },
 } satisfies ChartConfig;
 
+const weeklySummary = [
+  {
+    key: "received",
+    label: "Received",
+    total: 167,
+    delta: "+12% vs last week",
+    dot: "size-2 rounded-full bg-chart-1",
+  },
+  {
+    key: "registered",
+    label: "Registered",
+    total: 143,
+    delta: "+9% vs last week",
+    dot: "size-2 rounded-full bg-chart-2",
+  },
+  {
+    key: "asked",
+    label: "Asked",
+    total: 21,
+    delta: "+26% vs last week",
+    dot: "size-2 rounded-full bg-chart-3",
+  },
+] satisfies ReadonlyArray<{
+  key: keyof typeof chartConfig;
+  label: string;
+  total: number;
+  delta: string;
+  dot: string;
+}>;
+
 export default function Particle() {
   return (
-    <Card className="w-full">
-      <CardHeader>
-        <CardTitle>Message flow</CardTitle>
-        <CardDescription>
-          Telegram messages received vs registered vs asked — last 7 days
-        </CardDescription>
-      </CardHeader>
-      <CardContent>
-        <ChartContainer config={chartConfig} className="h-64 w-full">
-          <AreaChart
-            data={chartData}
-            margin={{
-              left: -24,
-              right: 12,
-            }}
-          >
-            <CartesianGrid vertical={false} />
-            <XAxis
-              axisLine={false}
-              dataKey="day"
-              tickFormatter={(value) => value.slice(0, 3)}
-              tickLine={false}
-              tickMargin={8}
-            />
-            <ChartTooltip content={<ChartTooltipContent />} />
-            <ChartLegend content={<ChartLegendContent />} />
-            <Area
-              dataKey="received"
-              fill="var(--color-received)"
-              fillOpacity={0.4}
-              stroke="var(--color-received)"
-              stackId="a"
-              type="natural"
-            />
-            <Area
-              dataKey="registered"
-              fill="var(--color-registered)"
-              fillOpacity={0.4}
-              stroke="var(--color-registered)"
-              stackId="a"
-              type="natural"
-            />
-            <Area
-              dataKey="asked"
-              fill="var(--color-asked)"
-              fillOpacity={0.4}
-              stroke="var(--color-asked)"
-              stackId="a"
-              type="natural"
-            />
-          </AreaChart>
-        </ChartContainer>
-      </CardContent>
-    </Card>
+    <div className="grid gap-4">
+      <Card className="w-full">
+        <CardHeader>
+          <CardTitle>Message flow</CardTitle>
+          <CardDescription>
+            Telegram messages received vs registered vs asked — last 7 days
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="flex flex-col gap-4">
+          <div className="flex flex-wrap items-center gap-4">
+            {weeklySummary.map((item) => (
+              <div key={item.key} className="flex items-center gap-2">
+                <span aria-hidden="true" className={item.dot} />
+                <span className="text-muted-foreground text-xs">
+                  {item.label}
+                </span>
+                <span className="font-medium text-sm tabular-nums">
+                  {item.total}
+                </span>
+                <span className="text-muted-foreground text-xs">
+                  {item.delta}
+                </span>
+              </div>
+            ))}
+          </div>
+          <ChartContainer config={chartConfig} className="h-64 w-full">
+            <AreaChart
+              data={chartData}
+              margin={{
+                left: -24,
+                right: 12,
+              }}
+            >
+              <CartesianGrid vertical={false} />
+              <XAxis
+                axisLine={false}
+                dataKey="day"
+                tickFormatter={(value) => value.slice(0, 3)}
+                tickLine={false}
+                tickMargin={8}
+              />
+              <YAxis axisLine={false} tickLine={false} width={32} />
+              <ChartTooltip content={<ChartTooltipContent />} />
+              <ChartLegend content={<ChartLegendContent />} />
+              <Area
+                dataKey="received"
+                fill="url(#fillReceived)"
+                stroke="var(--color-received)"
+                stackId="a"
+                type="natural"
+              />
+              <Area
+                dataKey="registered"
+                fill="url(#fillRegistered)"
+                stroke="var(--color-registered)"
+                stackId="a"
+                type="natural"
+              />
+              <Area
+                dataKey="asked"
+                fill="url(#fillAsked)"
+                stroke="var(--color-asked)"
+                stackId="a"
+                type="natural"
+              />
+              <defs>
+                <linearGradient id="fillReceived" x1="0" x2="0" y1="0" y2="1">
+                  <stop
+                    offset="5%"
+                    stopColor="var(--color-received)"
+                    stopOpacity={0.8}
+                  />
+                  <stop
+                    offset="95%"
+                    stopColor="var(--color-received)"
+                    stopOpacity={0.1}
+                  />
+                </linearGradient>
+                <linearGradient id="fillRegistered" x1="0" x2="0" y1="0" y2="1">
+                  <stop
+                    offset="5%"
+                    stopColor="var(--color-registered)"
+                    stopOpacity={0.8}
+                  />
+                  <stop
+                    offset="95%"
+                    stopColor="var(--color-registered)"
+                    stopOpacity={0.1}
+                  />
+                </linearGradient>
+                <linearGradient id="fillAsked" x1="0" x2="0" y1="0" y2="1">
+                  <stop
+                    offset="5%"
+                    stopColor="var(--color-asked)"
+                    stopOpacity={0.8}
+                  />
+                  <stop
+                    offset="95%"
+                    stopColor="var(--color-asked)"
+                    stopOpacity={0.1}
+                  />
+                </linearGradient>
+              </defs>
+            </AreaChart>
+          </ChartContainer>
+        </CardContent>
+      </Card>
+    </div>
   );
 }

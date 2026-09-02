@@ -22,6 +22,7 @@ import {
   Table,
   TableBody,
   TableCell,
+  TableFooter,
   TableHead,
   TableHeader,
   TableRow,
@@ -36,6 +37,7 @@ interface AgentRun {
   status: RunStatus;
   latencyP50: string;
   latencyP95: string;
+  p95Ms: number;
   tokensIn: string;
   tokensOut: string;
   cost: string;
@@ -68,6 +70,7 @@ const agentRuns: AgentRun[] = [
     status: "succeeded",
     latencyP50: "1.2s",
     latencyP95: "3.4s",
+    p95Ms: 3400,
     tokensIn: "12.4k",
     tokensOut: "3.1k",
     cost: "€0.042",
@@ -78,6 +81,7 @@ const agentRuns: AgentRun[] = [
     status: "running",
     latencyP50: "0.8s",
     latencyP95: "2.6s",
+    p95Ms: 2600,
     tokensIn: "8.1k",
     tokensOut: "1.9k",
     cost: "€0.027",
@@ -88,6 +92,7 @@ const agentRuns: AgentRun[] = [
     status: "failed",
     latencyP50: "1.4s",
     latencyP95: "4.2s",
+    p95Ms: 4200,
     tokensIn: "9.6k",
     tokensOut: "0.4k",
     cost: "€0.026",
@@ -98,6 +103,7 @@ const agentRuns: AgentRun[] = [
     status: "timed_out",
     latencyP50: "1.1s",
     latencyP95: "30.0s",
+    p95Ms: 30000,
     tokensIn: "21.7k",
     tokensOut: "2.2k",
     cost: "€0.061",
@@ -109,6 +115,7 @@ const agentRuns: AgentRun[] = [
     status: "retried",
     latencyP50: "1.3s",
     latencyP95: "3.9s",
+    p95Ms: 3900,
     tokensIn: "14.8k",
     tokensOut: "3.4k",
     cost: "€0.049",
@@ -119,11 +126,26 @@ const agentRuns: AgentRun[] = [
     status: "succeeded",
     latencyP50: "1.0s",
     latencyP95: "2.8s",
+    p95Ms: 2800,
     tokensIn: "10.2k",
     tokensOut: "2.7k",
     cost: "€0.035",
   },
 ];
+
+function latencyBarWidth(p95Ms: number): string {
+  return `${Math.min(100, Math.round((p95Ms / 30000) * 100))}%`;
+}
+
+function latencyBarColor(p95Ms: number): string {
+  if (p95Ms > 20000) {
+    return "bg-destructive";
+  }
+  if (p95Ms > 10000) {
+    return "bg-warning";
+  }
+  return "bg-success";
+}
 
 export default function Particle() {
   const [statusFilter, setStatusFilter] = useState("all");
@@ -137,7 +159,15 @@ export default function Particle() {
       <Card className="w-full overflow-hidden">
         <CardHeader className="border-b">
           <CardTitle>Agent runs</CardTitle>
-          <CardDescription>Processing runs, last 24 hours</CardDescription>
+          <CardDescription>
+            Processing runs, last 24 hours{" "}
+            <span className="inline-flex items-center gap-1.5">
+              <span className="size-1.5 animate-pulse rounded-full bg-success" />
+              <span className="text-muted-foreground">
+                live · polled 5s ago
+              </span>
+            </span>
+          </CardDescription>
           <CardAction>
             <Select
               aria-label="Filter by status"
@@ -194,6 +224,12 @@ export default function Particle() {
                   <div className="text-muted-foreground text-xs">
                     p95 {run.latencyP95}
                   </div>
+                  <div className="mt-1.5 h-1 w-full overflow-hidden rounded-full bg-muted">
+                    <div
+                      className={`h-full rounded-full ${latencyBarColor(run.p95Ms)}`}
+                      style={{ width: latencyBarWidth(run.p95Ms) }}
+                    />
+                  </div>
                 </TableCell>
                 <TableCell className="whitespace-nowrap tabular-nums">
                   {run.tokensIn} in / {run.tokensOut} out
@@ -214,6 +250,24 @@ export default function Particle() {
               </TableRow>
             ))}
           </TableBody>
+          <TableFooter>
+            <TableRow>
+              <TableCell className="text-muted-foreground">
+                {agentRuns.length} runs
+              </TableCell>
+              <TableCell className="text-muted-foreground">—</TableCell>
+              <TableCell className="text-muted-foreground">
+                avg p95 8.2s
+              </TableCell>
+              <TableCell className="whitespace-nowrap text-muted-foreground">
+                69.8k in / 13.6k out
+              </TableCell>
+              <TableCell className="text-muted-foreground">€0.240</TableCell>
+              <TableCell className="text-right text-muted-foreground">
+                —
+              </TableCell>
+            </TableRow>
+          </TableFooter>
         </Table>
       </Card>
     </div>

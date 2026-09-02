@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-dashboard-8",
+  "description": "Empty and loading dashboard states",
+  "registryDependencies": [
+    "@coss/button",
+    "@coss/card",
+    "@coss/empty",
+    "@coss/skeleton"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-dashboard-8.tsx",
+      "content": "import { MessageCircleIcon } from \"lucide-react\";\nimport { Button } from \"@/registry/default/ui/button\";\nimport {\n  Card,\n  CardDescription,\n  CardHeader,\n  CardPanel,\n  CardTitle,\n} from \"@/registry/default/ui/card\";\nimport {\n  Empty,\n  EmptyContent,\n  EmptyDescription,\n  EmptyHeader,\n  EmptyMedia,\n  EmptyTitle,\n} from \"@/registry/default/ui/empty\";\nimport { Skeleton } from \"@/registry/default/ui/skeleton\";\n\nexport default function Particle() {\n  return (\n    <div className=\"grid gap-4 lg:grid-cols-2\">\n      <Card className=\"w-full\">\n        <CardHeader>\n          <CardTitle>Message flow</CardTitle>\n          <CardDescription>\n            Telegram messages become records here\n          </CardDescription>\n        </CardHeader>\n        <CardPanel>\n          <Empty className=\"py-6 md:py-8\">\n            <EmptyHeader>\n              <EmptyMedia variant=\"icon\">\n                <MessageCircleIcon />\n              </EmptyMedia>\n              <EmptyTitle>No messages yet</EmptyTitle>\n              <EmptyDescription>\n                Connect the farm&apos;s Telegram bot and messages will appear\n                here as they arrive.\n              </EmptyDescription>\n            </EmptyHeader>\n            <EmptyContent>\n              <div className=\"flex gap-2\">\n                <Button size=\"sm\">Connect Telegram</Button>\n                <Button size=\"sm\" variant=\"ghost\">\n                  View docs\n                </Button>\n              </div>\n            </EmptyContent>\n          </Empty>\n          <p className=\"text-center text-muted-foreground text-xs\">\n            parse pending · <span className=\"italic\">nothing to confirm</span>\n          </p>\n        </CardPanel>\n      </Card>\n      <Card className=\"w-full\">\n        <CardHeader>\n          <CardTitle>Recent registrations</CardTitle>\n          <CardDescription>Fetching the latest farm activities</CardDescription>\n        </CardHeader>\n        <CardPanel>\n          <div aria-busy=\"true\" aria-label=\"Loading registrations\">\n            <div className=\"flex items-center gap-3 py-3\">\n              <Skeleton className=\"size-8 rounded-md\" />\n              <div className=\"flex-1 space-y-1.5\">\n                <Skeleton className=\"h-3.5 w-24\" />\n                <Skeleton className=\"h-3 w-16\" />\n              </div>\n              <Skeleton className=\"h-5 w-14 rounded-full\" />\n            </div>\n            <div className=\"flex items-center gap-3 py-3\">\n              <Skeleton className=\"size-8 rounded-md\" />\n              <div className=\"flex-1 space-y-1.5\">\n                <Skeleton className=\"h-3.5 w-24\" />\n                <Skeleton className=\"h-3 w-16\" />\n              </div>\n              <Skeleton className=\"h-5 w-14 rounded-full\" />\n            </div>\n            <div className=\"flex items-center gap-3 py-3\">\n              <Skeleton className=\"size-8 rounded-md\" />\n              <div className=\"flex-1 space-y-1.5\">\n                <Skeleton className=\"h-3.5 w-24\" />\n                <Skeleton className=\"h-3 w-16\" />\n              </div>\n              <Skeleton className=\"h-5 w-14 rounded-full\" />\n            </div>\n          </div>\n        </CardPanel>\n      </Card>\n    </div>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "meta": {
+    "className": "**:data-[slot=preview]:w-full"
+  },
+  "categories": [
+    "dashboard",
+    "empty state",
+    "loading"
+  ],
+  "type": "registry:block"
+}
