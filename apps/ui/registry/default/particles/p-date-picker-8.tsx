@@ -13,7 +13,7 @@ export default function Particle() {
   const [date, setDate] = useState<Date | undefined>();
 
   return (
-    <DateField onValueChange={setDate} value={date}>
+    <DateField closeOnSelect={false} onValueChange={setDate} value={date}>
       <DateFieldTrigger
         render={<SelectButton data-placeholder={!date ? "" : undefined} />}
       >

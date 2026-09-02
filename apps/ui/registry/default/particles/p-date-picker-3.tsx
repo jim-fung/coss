@@ -79,7 +79,7 @@ export default function Particle() {
   return (
     <Field>
       <FieldLabel htmlFor={id}>Start date</FieldLabel>
-      <DateField>
+      <DateField closeOnSelect={false}>
         <DateFieldTrigger id={id} />
         <DateFieldCalendar
           captionLayout="dropdown"

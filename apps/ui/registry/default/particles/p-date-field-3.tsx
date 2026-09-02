@@ -30,7 +30,7 @@ export default function Particle() {
                   )}
                 </span>
               ) : (
-                "Pick a date"
+                "Pick dates"
               )}
             </>
           );

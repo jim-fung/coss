@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "registry/default/particles/p-date-picker-8.tsx",
-      "content": "\"use client\";\n\nimport { format } from \"date-fns\";\nimport { useState } from \"react\";\nimport {\n  DateField,\n  DateFieldCalendar,\n  DateFieldTrigger,\n} from \"@/registry/default/ui/date-field\";\nimport { SelectButton } from \"@/registry/default/ui/select\";\n\nexport default function Particle() {\n  const [date, setDate] = useState<Date | undefined>();\n\n  return (\n    <DateField onValueChange={setDate} value={date}>\n      <DateFieldTrigger\n        render={<SelectButton data-placeholder={!date ? \"\" : undefined} />}\n      >\n        {date ? format(date, \"PPP\") : \"Pick a date\"}\n      </DateFieldTrigger>\n      <DateFieldCalendar />\n    </DateField>\n  );\n}\n",
+      "content": "\"use client\";\n\nimport { format } from \"date-fns\";\nimport { useState } from \"react\";\nimport {\n  DateField,\n  DateFieldCalendar,\n  DateFieldTrigger,\n} from \"@/registry/default/ui/date-field\";\nimport { SelectButton } from \"@/registry/default/ui/select\";\n\nexport default function Particle() {\n  const [date, setDate] = useState<Date | undefined>();\n\n  return (\n    <DateField closeOnSelect={false} onValueChange={setDate} value={date}>\n      <DateFieldTrigger\n        render={<SelectButton data-placeholder={!date ? \"\" : undefined} />}\n      >\n        {date ? format(date, \"PPP\") : \"Pick a date\"}\n      </DateFieldTrigger>\n      <DateFieldCalendar />\n    </DateField>\n  );\n}\n",
       "type": "registry:block"
     }
   ],
