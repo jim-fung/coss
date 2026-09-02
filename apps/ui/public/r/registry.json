@@ -5564,7 +5564,8 @@
         }
       ],
       "meta": {
-        "className": "**:data-[slot=preview]:w-full"
+        "className": "**:data-[slot=preview]:w-full",
+        "colSpan": 2
       },
       "name": "p-dashboard-1",
       "registryDependencies": [
@@ -5589,7 +5590,8 @@
         }
       ],
       "meta": {
-        "className": "**:data-[slot=preview]:w-full"
+        "className": "**:data-[slot=preview]:w-full",
+        "colSpan": 2
       },
       "name": "p-dashboard-2",
       "registryDependencies": [
@@ -5612,7 +5614,8 @@
         }
       ],
       "meta": {
-        "className": "**:data-[slot=preview]:w-full"
+        "className": "**:data-[slot=preview]:w-full",
+        "colSpan": 2
       },
       "name": "p-dashboard-3",
       "registryDependencies": [
@@ -5639,7 +5642,8 @@
         }
       ],
       "meta": {
-        "className": "**:data-[slot=preview]:w-full"
+        "className": "**:data-[slot=preview]:w-full",
+        "colSpan": 2
       },
       "name": "p-dashboard-4",
       "registryDependencies": [
@@ -5665,7 +5669,8 @@
         }
       ],
       "meta": {
-        "className": "**:data-[slot=preview]:w-full"
+        "className": "**:data-[slot=preview]:w-full",
+        "colSpan": 2
       },
       "name": "p-dashboard-5",
       "registryDependencies": [
@@ -5692,7 +5697,8 @@
         }
       ],
       "meta": {
-        "className": "**:data-[slot=preview]:w-full"
+        "className": "**:data-[slot=preview]:w-full",
+        "colSpan": 2
       },
       "name": "p-dashboard-6",
       "registryDependencies": [
@@ -5719,7 +5725,8 @@
         }
       ],
       "meta": {
-        "className": "**:data-[slot=preview]:w-full"
+        "className": "**:data-[slot=preview]:w-full",
+        "colSpan": 2
       },
       "name": "p-dashboard-7",
       "registryDependencies": [
@@ -5744,7 +5751,8 @@
         }
       ],
       "meta": {
-        "className": "**:data-[slot=preview]:w-full"
+        "className": "**:data-[slot=preview]:w-full",
+        "colSpan": 2
       },
       "name": "p-dashboard-8",
       "registryDependencies": [
@@ -5768,7 +5776,8 @@
         }
       ],
       "meta": {
-        "className": "**:data-[slot=preview]:w-full"
+        "className": "**:data-[slot=preview]:w-full",
+        "colSpan": 2
       },
       "name": "p-dashboard-9",
       "registryDependencies": [
@@ -5791,7 +5800,8 @@
         }
       ],
       "meta": {
-        "className": "**:data-[slot=preview]:w-full"
+        "className": "**:data-[slot=preview]:w-full",
+        "colSpan": 2
       },
       "name": "p-dashboard-10",
       "registryDependencies": [

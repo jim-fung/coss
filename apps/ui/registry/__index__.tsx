@@ -5045,7 +5045,7 @@ export const Index: Record<string, any> = {
       return { default: mod.default || mod[exportName] }
     }),
     categories: ["dashboard","card","badge"],
-    meta: {"className":"**:data-[slot=preview]:w-full"},
+    meta: {"className":"**:data-[slot=preview]:w-full","colSpan":2},
   },
   "p-dashboard-2": {
     name: "p-dashboard-2",
@@ -5063,7 +5063,7 @@ export const Index: Record<string, any> = {
       return { default: mod.default || mod[exportName] }
     }),
     categories: ["dashboard","chart","card"],
-    meta: {"className":"**:data-[slot=preview]:w-full"},
+    meta: {"className":"**:data-[slot=preview]:w-full","colSpan":2},
   },
   "p-dashboard-3": {
     name: "p-dashboard-3",
@@ -5081,7 +5081,7 @@ export const Index: Record<string, any> = {
       return { default: mod.default || mod[exportName] }
     }),
     categories: ["dashboard","table","badge"],
-    meta: {"className":"**:data-[slot=preview]:w-full"},
+    meta: {"className":"**:data-[slot=preview]:w-full","colSpan":2},
   },
   "p-dashboard-4": {
     name: "p-dashboard-4",
@@ -5099,7 +5099,7 @@ export const Index: Record<string, any> = {
       return { default: mod.default || mod[exportName] }
     }),
     categories: ["dashboard","card","copy"],
-    meta: {"className":"**:data-[slot=preview]:w-full"},
+    meta: {"className":"**:data-[slot=preview]:w-full","colSpan":2},
   },
   "p-dashboard-5": {
     name: "p-dashboard-5",
@@ -5117,7 +5117,7 @@ export const Index: Record<string, any> = {
       return { default: mod.default || mod[exportName] }
     }),
     categories: ["dashboard","table","badge"],
-    meta: {"className":"**:data-[slot=preview]:w-full"},
+    meta: {"className":"**:data-[slot=preview]:w-full","colSpan":2},
   },
   "p-dashboard-6": {
     name: "p-dashboard-6",
@@ -5135,7 +5135,7 @@ export const Index: Record<string, any> = {
       return { default: mod.default || mod[exportName] }
     }),
     categories: ["dashboard","form","select","switch"],
-    meta: {"className":"**:data-[slot=preview]:w-full"},
+    meta: {"className":"**:data-[slot=preview]:w-full","colSpan":2},
   },
   "p-dashboard-7": {
     name: "p-dashboard-7",
@@ -5153,7 +5153,7 @@ export const Index: Record<string, any> = {
       return { default: mod.default || mod[exportName] }
     }),
     categories: ["dashboard","card","chart"],
-    meta: {"className":"**:data-[slot=preview]:w-full"},
+    meta: {"className":"**:data-[slot=preview]:w-full","colSpan":2},
   },
   "p-dashboard-8": {
     name: "p-dashboard-8",
@@ -5171,7 +5171,7 @@ export const Index: Record<string, any> = {
       return { default: mod.default || mod[exportName] }
     }),
     categories: ["dashboard","empty state","loading"],
-    meta: {"className":"**:data-[slot=preview]:w-full"},
+    meta: {"className":"**:data-[slot=preview]:w-full","colSpan":2},
   },
   "p-dashboard-9": {
     name: "p-dashboard-9",
@@ -5189,7 +5189,7 @@ export const Index: Record<string, any> = {
       return { default: mod.default || mod[exportName] }
     }),
     categories: ["dashboard","card"],
-    meta: {"className":"**:data-[slot=preview]:w-full"},
+    meta: {"className":"**:data-[slot=preview]:w-full","colSpan":2},
   },
   "p-dashboard-10": {
     name: "p-dashboard-10",
@@ -5207,7 +5207,7 @@ export const Index: Record<string, any> = {
       return { default: mod.default || mod[exportName] }
     }),
     categories: ["dashboard","card"],
-    meta: {"className":"**:data-[slot=preview]:w-full"},
+    meta: {"className":"**:data-[slot=preview]:w-full","colSpan":2},
   },
   "p-dialog-1": {
     name: "p-dialog-1",

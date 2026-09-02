@@ -2273,6 +2273,7 @@ export const particles: ParticleItem[] = [
     files: [{ path: "particles/p-dashboard-1.tsx", type: "registry:block" }],
     meta: {
       className: "**:data-[slot=preview]:w-full",
+      colSpan: 2,
     },
     name: "p-dashboard-1",
     registryDependencies: [
@@ -2289,6 +2290,7 @@ export const particles: ParticleItem[] = [
     files: [{ path: "particles/p-dashboard-2.tsx", type: "registry:block" }],
     meta: {
       className: "**:data-[slot=preview]:w-full",
+      colSpan: 2,
     },
     name: "p-dashboard-2",
     registryDependencies: ["@coss/card", "@coss/chart"],
@@ -2300,6 +2302,7 @@ export const particles: ParticleItem[] = [
     files: [{ path: "particles/p-dashboard-3.tsx", type: "registry:block" }],
     meta: {
       className: "**:data-[slot=preview]:w-full",
+      colSpan: 2,
     },
     name: "p-dashboard-3",
     registryDependencies: [
@@ -2318,6 +2321,7 @@ export const particles: ParticleItem[] = [
     files: [{ path: "particles/p-dashboard-4.tsx", type: "registry:block" }],
     meta: {
       className: "**:data-[slot=preview]:w-full",
+      colSpan: 2,
     },
     name: "p-dashboard-4",
     registryDependencies: [
@@ -2335,6 +2339,7 @@ export const particles: ParticleItem[] = [
     files: [{ path: "particles/p-dashboard-5.tsx", type: "registry:block" }],
     meta: {
       className: "**:data-[slot=preview]:w-full",
+      colSpan: 2,
     },
     name: "p-dashboard-5",
     registryDependencies: [
@@ -2352,6 +2357,7 @@ export const particles: ParticleItem[] = [
     files: [{ path: "particles/p-dashboard-6.tsx", type: "registry:block" }],
     meta: {
       className: "**:data-[slot=preview]:w-full",
+      colSpan: 2,
     },
     name: "p-dashboard-6",
     registryDependencies: [
@@ -2370,6 +2376,7 @@ export const particles: ParticleItem[] = [
     files: [{ path: "particles/p-dashboard-7.tsx", type: "registry:block" }],
     meta: {
       className: "**:data-[slot=preview]:w-full",
+      colSpan: 2,
     },
     name: "p-dashboard-7",
     registryDependencies: [
@@ -2386,6 +2393,7 @@ export const particles: ParticleItem[] = [
     files: [{ path: "particles/p-dashboard-8.tsx", type: "registry:block" }],
     meta: {
       className: "**:data-[slot=preview]:w-full",
+      colSpan: 2,
     },
     name: "p-dashboard-8",
     registryDependencies: [
@@ -2402,6 +2410,7 @@ export const particles: ParticleItem[] = [
     files: [{ path: "particles/p-dashboard-9.tsx", type: "registry:block" }],
     meta: {
       className: "**:data-[slot=preview]:w-full",
+      colSpan: 2,
     },
     name: "p-dashboard-9",
     registryDependencies: ["@coss/badge", "@coss/button", "@coss/card"],
@@ -2413,6 +2422,7 @@ export const particles: ParticleItem[] = [
     files: [{ path: "particles/p-dashboard-10.tsx", type: "registry:block" }],
     meta: {
       className: "**:data-[slot=preview]:w-full",
+      colSpan: 2,
     },
     name: "p-dashboard-10",
     registryDependencies: [
