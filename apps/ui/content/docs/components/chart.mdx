@@ -143,6 +143,10 @@ Context hook returning the active `ChartConfig`. Throws outside a `ChartContaine
 
 ## Examples
 
+### Area chart
+
+<ComponentPreview name="p-chart-1" />
+
 ### Line chart
 
 <ComponentPreview name="p-chart-4" />
@@ -172,3 +176,4 @@ Context hook returning the active `ChartConfig`. Throws outside a `ChartContaine
 - Series colors resolve at render time from CSS variables, so charts re-theme with light/dark mode without re-rendering.
 - `ChartContainer` neutralizes Recharts' default white sector and dot strokes, keeping shapes clean on dark backgrounds.
 - All Recharts components (`AreaChart`, `BarChart`, `PieChart`, axes, `Cell`, …) are used directly from `recharts` inside `ChartContainer`; the wrapper only handles theming, tooltips, and legends.
+- Axis tick formatters should not assume fixed-width labels: prefer splitting on a delimiter (such as `value.split(":")[0]` for hours) over slicing a fixed number of characters when the data could contain shorter values.
