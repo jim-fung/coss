@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-dashboard-1",
+  "description": "Operate stats with service health strip",
+  "registryDependencies": [
+    "@coss/badge",
+    "@coss/card",
+    "@coss/separator"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-dashboard-1.tsx",
+      "content": "import { Activity, Bot, Database, Server } from \"lucide-react\";\nimport { Badge } from \"@/registry/default/ui/badge\";\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardHeader,\n  CardTitle,\n} from \"@/registry/default/ui/card\";\nimport { Separator } from \"@/registry/default/ui/separator\";\n\nconst stats = [\n  {\n    label: \"Messages received\",\n    value: \"128\",\n    badge: { label: \"+18%\", variant: \"success\" as const },\n  },\n  {\n    label: \"Registered\",\n    value: \"96\",\n    badge: { label: \"+12%\", variant: \"success\" as const },\n  },\n  {\n    label: \"Awaiting confirmation\",\n    value: \"14\",\n    badge: { label: \"Klopt dit?\", variant: \"warning\" as const },\n  },\n  {\n    label: \"Failed runs\",\n    value: \"3\",\n    badge: { label: \"4 retried\", variant: \"destructive\" as const },\n  },\n];\n\nconst healthChecks = [\n  {\n    icon: Activity,\n    label: \"Worker heartbeat\",\n    status: \"healthy\",\n    variant: \"success\" as const,\n    detail: \"3s ago\",\n  },\n  {\n    icon: Bot,\n    label: \"Telegram polling\",\n    status: \"healthy\",\n    variant: \"success\" as const,\n    detail: \"last poll 12s ago\",\n  },\n  {\n    icon: Server,\n    label: \"Model provider\",\n    status: \"degraded\",\n    variant: \"warning\" as const,\n    detail: \"429s on relay\",\n  },\n  {\n    icon: Database,\n    label: \"Database\",\n    status: \"healthy\",\n    variant: \"success\" as const,\n    detail: \"12 ms read latency\",\n  },\n];\n\nexport default function Particle() {\n  return (\n    <div className=\"grid gap-4 sm:grid-cols-2 lg:grid-cols-4\">\n      {stats.map((stat) => (\n        <Card key={stat.label}>\n          <CardHeader>\n            <CardDescription>{stat.label}</CardDescription>\n            <CardTitle className=\"font-semibold text-2xl tabular-nums\">\n              {stat.value}\n            </CardTitle>\n          </CardHeader>\n          <CardContent>\n            <Badge variant={stat.badge.variant}>{stat.badge.label}</Badge>\n          </CardContent>\n        </Card>\n      ))}\n      <Card className=\"sm:col-span-2 lg:col-span-4\">\n        <CardHeader>\n          <CardTitle>Service health</CardTitle>\n          <CardDescription>\n            Worker heartbeat, polling and provider status — last checked 12s ago\n          </CardDescription>\n        </CardHeader>\n        <CardContent className=\"flex flex-col\">\n          {healthChecks.map((check, index) => (\n            <div key={check.label}>\n              {index > 0 && <Separator />}\n              <div className=\"flex items-center justify-between py-2.5\">\n                <div className=\"flex items-center gap-2\">\n                  <check.icon\n                    className=\"size-4 text-muted-foreground\"\n                    aria-hidden=\"true\"\n                  />\n                  <span className=\"text-sm\">{check.label}</span>\n                </div>\n                <div className=\"flex items-center gap-3\">\n                  <Badge variant={check.variant}>{check.status}</Badge>\n                  <span className=\"text-muted-foreground text-sm tabular-nums\">\n                    {check.detail}\n                  </span>\n                </div>\n              </div>\n            </div>\n          ))}\n        </CardContent>\n      </Card>\n    </div>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "meta": {
+    "className": "**:data-[slot=preview]:w-full"
+  },
+  "categories": [
+    "dashboard",
+    "card",
+    "badge"
+  ],
+  "type": "registry:block"
+}

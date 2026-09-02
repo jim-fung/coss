@@ -5552,6 +5552,157 @@
     },
     {
       "categories": [
+        "dashboard",
+        "card",
+        "badge"
+      ],
+      "description": "Operate stats with service health strip",
+      "files": [
+        {
+          "path": "registry/default/particles/p-dashboard-1.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "className": "**:data-[slot=preview]:w-full"
+      },
+      "name": "p-dashboard-1",
+      "registryDependencies": [
+        "@coss/badge",
+        "@coss/card",
+        "@coss/separator"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
+        "dashboard",
+        "chart",
+        "card"
+      ],
+      "description": "Message flow area chart with legend",
+      "files": [
+        {
+          "path": "registry/default/particles/p-dashboard-2.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "className": "**:data-[slot=preview]:w-full"
+      },
+      "name": "p-dashboard-2",
+      "registryDependencies": [
+        "@coss/card",
+        "@coss/chart"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
+        "dashboard",
+        "table",
+        "badge"
+      ],
+      "description": "Confirmation queue table with status and parcel badges",
+      "files": [
+        {
+          "path": "registry/default/particles/p-dashboard-3.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "className": "**:data-[slot=preview]:w-full"
+      },
+      "name": "p-dashboard-3",
+      "registryDependencies": [
+        "@coss/avatar",
+        "@coss/badge",
+        "@coss/button",
+        "@coss/card",
+        "@coss/table"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
+        "dashboard",
+        "card",
+        "copy"
+      ],
+      "description": "Recent registrations feed with copy actions",
+      "files": [
+        {
+          "path": "registry/default/particles/p-dashboard-4.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "className": "**:data-[slot=preview]:w-full"
+      },
+      "name": "p-dashboard-4",
+      "registryDependencies": [
+        "@coss/badge",
+        "@coss/button",
+        "@coss/card"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
+        "dashboard",
+        "table",
+        "badge"
+      ],
+      "description": "Agent runs monitor with retry actions",
+      "files": [
+        {
+          "path": "registry/default/particles/p-dashboard-5.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "className": "**:data-[slot=preview]:w-full"
+      },
+      "name": "p-dashboard-5",
+      "registryDependencies": [
+        "@coss/badge",
+        "@coss/button",
+        "@coss/card",
+        "@coss/select",
+        "@coss/table"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
+        "dashboard",
+        "form",
+        "select",
+        "switch"
+      ],
+      "description": "Workbench preferences form with selects and switches",
+      "files": [
+        {
+          "path": "registry/default/particles/p-dashboard-6.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "className": "**:data-[slot=preview]:w-full"
+      },
+      "name": "p-dashboard-6",
+      "registryDependencies": [
+        "@coss/button",
+        "@coss/card",
+        "@coss/field",
+        "@coss/select",
+        "@coss/separator",
+        "@coss/switch"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
         "dialog"
       ],
       "description": "Dialog with form",

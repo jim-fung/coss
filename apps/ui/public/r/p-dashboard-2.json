@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-dashboard-2",
+  "description": "Message flow area chart with legend",
+  "registryDependencies": [
+    "@coss/card",
+    "@coss/chart"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-dashboard-2.tsx",
+      "content": "\"use client\";\n\nimport { Area, AreaChart, CartesianGrid, XAxis } from \"recharts\";\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardHeader,\n  CardTitle,\n} from \"@/registry/default/ui/card\";\nimport {\n  type ChartConfig,\n  ChartContainer,\n  ChartLegend,\n  ChartLegendContent,\n  ChartTooltip,\n  ChartTooltipContent,\n} from \"@/registry/default/ui/chart\";\n\nconst chartData = [\n  { day: \"Mon\", received: 18, registered: 14, asked: 2 },\n  { day: \"Tue\", received: 14, registered: 11, asked: 3 },\n  { day: \"Wed\", received: 23, registered: 19, asked: 1 },\n  { day: \"Thu\", received: 27, registered: 24, asked: 4 },\n  { day: \"Fri\", received: 31, registered: 28, asked: 6 },\n  { day: \"Sat\", received: 22, registered: 18, asked: 0 },\n  { day: \"Sun\", received: 32, registered: 29, asked: 5 },\n];\n\nconst chartConfig = {\n  received: { label: \"Received\", color: \"var(--chart-1)\" },\n  registered: { label: \"Registered\", color: \"var(--chart-2)\" },\n  asked: { label: \"Asked\", color: \"var(--chart-3)\" },\n} satisfies ChartConfig;\n\nexport default function Particle() {\n  return (\n    <Card className=\"w-full\">\n      <CardHeader>\n        <CardTitle>Message flow</CardTitle>\n        <CardDescription>\n          Telegram messages received vs registered vs asked — last 7 days\n        </CardDescription>\n      </CardHeader>\n      <CardContent>\n        <ChartContainer config={chartConfig} className=\"h-64 w-full\">\n          <AreaChart\n            data={chartData}\n            margin={{\n              left: -24,\n              right: 12,\n            }}\n          >\n            <CartesianGrid vertical={false} />\n            <XAxis\n              axisLine={false}\n              dataKey=\"day\"\n              tickFormatter={(value) => value.slice(0, 3)}\n              tickLine={false}\n              tickMargin={8}\n            />\n            <ChartTooltip content={<ChartTooltipContent />} />\n            <ChartLegend content={<ChartLegendContent />} />\n            <Area\n              dataKey=\"received\"\n              fill=\"var(--color-received)\"\n              fillOpacity={0.4}\n              stroke=\"var(--color-received)\"\n              stackId=\"a\"\n              type=\"natural\"\n            />\n            <Area\n              dataKey=\"registered\"\n              fill=\"var(--color-registered)\"\n              fillOpacity={0.4}\n              stroke=\"var(--color-registered)\"\n              stackId=\"a\"\n              type=\"natural\"\n            />\n            <Area\n              dataKey=\"asked\"\n              fill=\"var(--color-asked)\"\n              fillOpacity={0.4}\n              stroke=\"var(--color-asked)\"\n              stackId=\"a\"\n              type=\"natural\"\n            />\n          </AreaChart>\n        </ChartContainer>\n      </CardContent>\n    </Card>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "meta": {
+    "className": "**:data-[slot=preview]:w-full"
+  },
+  "categories": [
+    "dashboard",
+    "chart",
+    "card"
+  ],
+  "type": "registry:block"
+}
