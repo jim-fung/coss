@@ -34,6 +34,7 @@ For optional **`portalProps`** on composed `*Popup` components and **toast** pro
 - **Calendar** — Date picker / calendar views. `./references/primitives/calendar.md`
 
 ## Forms & Validation
+- **TagInput** — Free-form tag composer with removable chips. `./references/primitives/tag-input.md`
 - **Form** — Form validation/submission with Zod. `./references/primitives/form.md`
 - **Field** — Label + description + error wiring. `./references/primitives/field.md`
 - **Fieldset** — Grouped form controls with legend. `./references/primitives/fieldset.md`
@@ -43,6 +44,7 @@ For optional **`portalProps`** on composed `*Popup` components and **toast** pro
 - **Checkbox** — Single boolean toggle. `./references/primitives/checkbox.md`
 - **CheckboxGroup** — Multiple-selection set. `./references/primitives/checkbox-group.md`
 - **RadioGroup** — Mutually exclusive single choice. `./references/primitives/radio-group.md`
+- **Rating** — Star rating input on radiogroup semantics. `./references/primitives/rating.md`
 - **Switch** — Binary on/off preference toggle. `./references/primitives/switch.md`
 - **Toggle** — Pressable two-state command button. `./references/primitives/toggle.md`
 - **ToggleGroup** — Grouped pressed-state controls. `./references/primitives/toggle-group.md`

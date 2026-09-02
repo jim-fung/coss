@@ -1,0 +1,108 @@
+---
+title: Rating
+description: A star rating input built as a radio group, with hover preview, sizes, and clear-on-click.
+
+links:
+  doc: https://base-ui.com/react/components/radio-group#api-reference
+---
+
+<ComponentPreview name="p-rating-1" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTab value="cli">CLI</TabsTab>
+  <TabsTab value="manual">Manual</TabsTab>
+</TabsList>
+<TabsPanel value="cli">
+
+```bash
+npx shadcn@latest add @coss/rating
+```
+
+</TabsPanel>
+
+<TabsPanel value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @base-ui/react
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="rating" title="components/ui/rating.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsPanel>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Rating, RatingItem } from "@/components/ui/rating"
+```
+
+```tsx
+<Rating defaultValue={3} />
+```
+
+## API Reference
+
+### Rating
+
+Root component. Styled wrapper for the `RadioGroup` from Base UI (via the coss `radio-group` component) that auto-renders `count` stars, previews the rating on hover, and can clear on click.
+
+| Prop            | Type                                        | Default     | Description                                                                                  |
+| --------------- | ------------------------------------------- | ----------- | -------------------------------------------------------------------------------------------- |
+| `value`         | `number`                                    | -           | The controlled rating value. `undefined` means nothing is rated                              |
+| `defaultValue`  | `number`                                    | -           | Initial value for uncontrolled usage                                                         |
+| `onValueChange` | `(value: number \| undefined) => void`      | -           | Called with the new rating, or `undefined` when cleared via `allowClear`                      |
+| `count`         | `number`                                    | `5`         | Number of stars rendered when no children are passed                                          |
+| `allowClear`    | `boolean`                                   | `false`     | Clicking the selected star (or pressing Space on it while focused) clears the rating to `undefined` |
+| `size`          | `"sm" \| "default" \| "lg"`                 | `"default"` | Sets `data-size` on the group, which controls the star size                                   |
+| `children`      | `React.ReactNode`                           | -           | Replaces the auto-rendered stars with explicit `RatingItem` elements                          |
+
+Note: All other `RadioGroup` props pass through. `disabled` and `readOnly` suppress interaction and the hover preview, `name`, `form`, and `required` wire the group's hidden input into forms, and keyboard navigation (arrow keys, `Home`, `End`) comes from Base UI's radio group.
+
+### RatingItem
+
+One star. Styled wrapper for the `Radio` from Base UI with a `StarIcon` that fills when active.
+
+| Prop         | Type     | Default               | Description                                                        |
+| ------------ | -------- | --------------------- | ------------------------------------------------------------------ |
+| `value`      | `number` | -                     | The rating value this star represents                              |
+| `aria-label` | `string` | `` `${value} stars` `` | Accessible label for the star, singular for `1` (e.g. `3 stars`)   |
+
+Note: All other `Radio` props pass through.
+
+## Examples
+
+### Controlled
+
+<ComponentPreview name="p-rating-2" />
+
+### Sizes
+
+<ComponentPreview name="p-rating-3" />
+
+### With field
+
+<ComponentPreview name="p-rating-4" />
+
+## Notes
+
+- Rating renders a Base UI radio group, so each star is a real radio: arrow keys, `Home`, and `End` move focus and selection, and the group is form-submittable through its hidden input.
+- Hovering a star previews the rating by filling stars up to it. The preview is suppressed when `disabled` or `readOnly` is set.
+- With `allowClear`, clicking the selected star — or pressing Space on it while focused — clears the rating, and `onValueChange` receives `undefined`.
+- Half-star precision is not supported; values are whole numbers from `1` to `count`.
+- Pass explicit `RatingItem` children to replace the default `StarIcon` with custom icons per value.

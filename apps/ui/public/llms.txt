@@ -55,6 +55,7 @@
 - [Preview Card](https://coss.com/ui/docs/components/preview-card.md): A rich preview component for displaying linked content.
 - [Progress](https://coss.com/ui/docs/components/progress.md): A visual indicator showing the completion status of a task.
 - [Radio Group](https://coss.com/ui/docs/components/radio-group.md): A set of mutually exclusive options presented as radio buttons.
+- [Rating](https://coss.com/ui/docs/components/rating.md): A star rating input built as a radio group, with hover preview, sizes, and clear-on-click.
 - [Resizable](https://coss.com/ui/docs/components/resizable.md): Accessible resizable panels with keyboard-friendly handles.
 - [Scroll Area](https://coss.com/ui/docs/components/scroll-area.md): A container with custom scrollbars for overflow content.
 - [Select](https://coss.com/ui/docs/components/select.md): A common form component for choosing a predefined value in a dropdown menu.

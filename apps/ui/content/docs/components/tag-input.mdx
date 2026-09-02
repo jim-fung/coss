@@ -1,0 +1,104 @@
+---
+title: Tag Input
+description: A free-form input for entering and managing a list of tags.
+---
+
+<ComponentPreview name="p-tag-input-1" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTab value="cli">CLI</TabsTab>
+  <TabsTab value="manual">Manual</TabsTab>
+</TabsList>
+<TabsPanel value="cli">
+
+```bash
+npx shadcn@latest add @coss/tag-input
+```
+
+</TabsPanel>
+
+<TabsPanel value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="tag-input" title="components/ui/tag-input.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsPanel>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import {
+  TagInput,
+  TagInputInput,
+  TagInputItem,
+  TagInputItemRemove
+} from "@/components/ui/tag-input"
+```
+
+```tsx
+const [tags, setTags] = React.useState<string[]>(["design", "react"])
+
+<TagInput value={tags} onValueChange={setTags}>
+  {tags.map((tag) => (
+    <TagInputItem key={tag} tag={tag} />
+  ))}
+  <TagInputInput placeholder="Add tag…" />
+</TagInput>
+```
+
+## API Reference
+
+### TagInput
+
+The root container that owns the tag list state and forwards focus to the input.
+
+| Prop              | Type                           | Default |
+| ----------------- | ------------------------------ | ------- |
+| `value`           | `string[]`                     |         |
+| `defaultValue`    | `string[]`                     | `[]`    |
+| `onValueChange`   | `(tags: string[]) => void`     |         |
+| `disabled`        | `boolean`                      | `false` |
+
+### TagInputItem
+
+Renders a single tag as a chip with a built-in remove button. Render one per tag from your `tags` array.
+
+| Prop        | Type        | Default |
+| ----------- | ----------- | ------- |
+| `tag`       | `string`    |         |
+| `children`  | `ReactNode` |         |
+
+### TagInputItemRemove
+
+The remove button rendered inside `TagInputItem`. Rendered automatically; use it directly only for custom chip layouts.
+
+| Prop        | Type     | Default |
+| ----------- | -------- | ------- |
+| `tag`       | `string` |         |
+
+### TagInputInput
+
+The free-form text input for adding new tags. Pressing Enter adds the trimmed draft as a tag (empty and duplicate values are ignored); pressing Backspace on an empty input removes the last tag.
+
+| Prop          | Type     | Default |
+| ------------- | -------- | ------- |
+| `placeholder` | `string` |         |
+
+## Examples
+
+### Max tags
+
+<ComponentPreview name="p-tag-input-2" />

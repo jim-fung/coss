@@ -19,6 +19,32 @@ npx shadcn@latest add @coss/date-field
 
 New dependency: **`date-fns`** (Date Field, for the synced package copy) — `@daypicker/react` already ships with Calendar.
 
+### Rating
+
+**`apps/ui`** adds **[Rating](/ui/docs/components/rating)**, a star rating input built on Base UI's `RadioGroup` through the coss radio-group, so the stars behave like real radios — radiogroup semantics, arrow-key navigation with `Home`/`End`, and a form-submittable hidden input when the group is given a `name`. **`value`** / **`defaultValue`** / **`onValueChange`** work with plain numbers, where `undefined` means nothing is rated, and **`count`** (default 5) auto-renders that many stars. **`allowClear`** makes clicking the selected star — or pressing Space on it while focused — clear the rating back to `undefined`, the hover preview fills stars up to the pointer and is suppressed when the group is disabled or read-only, and **`size`** switches between `sm` / `default` / `lg`. **`RatingItem`** composes custom star content when the auto-rendered `StarIcon`s aren't enough — set the value per star, override the `aria-label`, and pass any other Radio prop through.
+
+Four examples cover the basic rating, a controlled rating, sizes, and a rating wired into a `Field`.
+
+Install it with the shadcn CLI:
+
+```bash
+npx shadcn@latest add @coss/rating
+```
+
+New dependency: none.
+
+### Tag input
+
+**`apps/ui`** adds **[Tag Input](/ui/docs/components/tag-input)**, a free-form tag composer: `TagInput` manages a `string[]` (controlled or uncontrolled), `TagInputItem` renders a removable chip in the combobox-chip style, and `TagInputInput` adds tags with Enter (trimmed, duplicate-safe) and removes the last tag with Backspace when empty. Clicking the container's padding focuses the input. Compose the three parts to cap the number of tags, validate, or render chips yourself.
+
+Install it with the shadcn CLI:
+
+```bash
+npx shadcn@latest add @coss/tag-input
+```
+
+New dependency: none.
+
 ## September 1, 2026
 
 ### Chart primitives
