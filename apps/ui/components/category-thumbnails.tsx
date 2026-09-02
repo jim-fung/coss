@@ -11,6 +11,7 @@ import {
   MinusIcon,
   PlusIcon,
   SearchIcon,
+  SparklesIcon,
   TextCursorIcon,
   UserRoundIcon,
   XIcon,
@@ -224,6 +225,24 @@ export const accordionThumbnail = (
   </Card>
 );
 
+// AI
+export const aiThumbnail = (
+  <Card className="max-w-36 [--radius-2xl:14px]">
+    <CardPanel className="flex flex-col gap-2 p-4">
+      <div className="self-end rounded-lg bg-muted-foreground/8 px-3 py-2">
+        <Text className="w-14" variant="secondary" />
+      </div>
+      <div className="flex w-fit flex-col gap-2 rounded-lg border px-3 py-2">
+        <div className="flex items-center gap-1.5">
+          <Icon icon={SparklesIcon} />
+          <Text className="w-10" />
+        </div>
+        <Text className="w-16" variant="secondary" />
+      </div>
+    </CardPanel>
+  </Card>
+);
+
 // Alert
 export const alertThumbnail = (
   <Card>
@@ -373,6 +392,20 @@ export const cardThumbnail = (
   </Card>
 );
 
+// Chart
+export const chartThumbnail = (
+  <Card className="max-w-36 [--radius-2xl:14px]">
+    <CardPanel className="flex flex-col gap-4 p-4">
+      <Text className="w-[60%]" />
+      <div className="flex h-12 items-end gap-1.5">
+        <div className="h-4 w-1.5 rounded-full bg-muted-foreground/20" />
+        <div className="h-7 w-1.5 rounded-full bg-muted-foreground/40" />
+        <div className="h-12 w-1.5 rounded-full bg-linear-to-b from-(--btn-from) to-(--btn-to)" />
+      </div>
+    </CardPanel>
+  </Card>
+);
+
 // Checkbox
 export const checkboxThumbnail = (
   <div className="flex max-w-28 flex-1 flex-col gap-3">
@@ -435,6 +468,38 @@ export const commandThumbnail = (
         <CommandItem />
         <CommandItem />
         <CommandItem />
+      </div>
+    </CardPanel>
+  </Card>
+);
+
+// Date Field
+export const dateFieldThumbnail = (
+  <Card className="max-w-36 [--radius-2xl:14px]" withGradient={false}>
+    <CardPanel className="flex flex-col gap-3 p-4">
+      <div className="flex items-center gap-2 rounded-sm bg-muted-foreground/8 px-2.5 py-1.5">
+        <Icon icon={CalendarIcon} />
+        <Text className="w-[60%]" variant="secondary" />
+      </div>
+      <div className="flex flex-col gap-1.5">
+        <div className="flex items-center justify-between">
+          <div className="size-1.5 rounded-full bg-muted-foreground/20" />
+          <div className="size-1.5 rounded-full bg-muted-foreground/20" />
+          <div className="size-1.5 rounded-full bg-muted-foreground/20" />
+          <div className="size-1.5 rounded-full bg-muted-foreground/20" />
+        </div>
+        <div className="flex items-center justify-between">
+          <div className="size-1.5 rounded-full bg-muted-foreground/20" />
+          <div className="size-1.5 rounded-full bg-linear-to-b from-(--btn-from) to-(--btn-to)" />
+          <div className="size-1.5 rounded-full bg-muted-foreground/20" />
+          <div className="size-1.5 rounded-full bg-muted-foreground/20" />
+        </div>
+        <div className="flex items-center justify-between">
+          <div className="size-1.5 rounded-full bg-muted-foreground/20" />
+          <div className="size-1.5 rounded-full bg-muted-foreground/20" />
+          <div className="size-1.5 rounded-full bg-muted-foreground/20" />
+          <div className="size-1.5 rounded-full bg-muted-foreground/20" />
+        </div>
       </div>
     </CardPanel>
   </Card>
@@ -1014,6 +1079,7 @@ export const tooltipThumbnail = (
  */
 export const categoryThumbnails: Record<string, ReactNode> = {
   accordion: accordionThumbnail,
+  ai: aiThumbnail,
   alert: alertThumbnail,
   "alert-dialog": alertDialogThumbnail,
   autocomplete: autocompleteThumbnail,
@@ -1023,12 +1089,14 @@ export const categoryThumbnails: Record<string, ReactNode> = {
   button: buttonThumbnail,
   calendar: calendarThumbnail,
   card: cardThumbnail,
+  chart: chartThumbnail,
   checkbox: checkboxThumbnail,
   "checkbox-group": checkboxGroupThumbnail,
   collapsible: collapsibleThumbnail,
   combobox: comboboxThumbnail,
   command: commandThumbnail,
   "context-menu": contextMenuThumbnail,
+  "date-field": dateFieldThumbnail,
   "date-picker": datePickerThumbnail,
   dialog: dialogThumbnail,
   drawer: drawerThumbnail,
