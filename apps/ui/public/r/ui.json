@@ -22,6 +22,7 @@
     "@coss/context-menu",
     "@coss/conversation",
     "@coss/data-table",
+    "@coss/date-field",
     "@coss/dialog",
     "@coss/drawer",
     "@coss/empty",

@@ -1,13 +1,13 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
-  "name": "p-date-picker-9",
-  "description": "Two months calendar with range date",
+  "name": "p-date-field-2",
+  "description": "Range date field spanning two months",
   "registryDependencies": [
     "@coss/date-field"
   ],
   "files": [
     {
-      "path": "registry/default/particles/p-date-picker-9.tsx",
+      "path": "registry/default/particles/p-date-field-2.tsx",
       "content": "\"use client\";\n\nimport {\n  DateField,\n  DateFieldCalendar,\n  DateFieldTrigger,\n} from \"@/registry/default/ui/date-field\";\n\nexport default function Particle() {\n  return (\n    <DateField format=\"LLL dd, y\" mode=\"range\">\n      <DateFieldTrigger />\n      <DateFieldCalendar numberOfMonths={2} />\n    </DateField>\n  );\n}\n",
       "type": "registry:block"
     }
@@ -16,10 +16,7 @@
     "className": "**:data-[slot=preview]:w-full **:data-[slot=preview]:max-w-64"
   },
   "categories": [
-    "date picker",
-    "calendar",
-    "popover",
-    "button"
+    "date picker"
   ],
   "type": "registry:block"
 }

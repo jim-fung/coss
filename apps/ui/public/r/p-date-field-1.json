@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-date-field-1",
+  "description": "Date field with label that closes on select",
+  "registryDependencies": [
+    "@coss/date-field",
+    "@coss/field"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-date-field-1.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport {\n  DateField,\n  DateFieldCalendar,\n  DateFieldTrigger,\n} from \"@/registry/default/ui/date-field\";\nimport { Field, FieldLabel } from \"@/registry/default/ui/field\";\n\nexport default function Particle() {\n  const id = React.useId();\n\n  return (\n    <Field>\n      <FieldLabel htmlFor={id}>Start date</FieldLabel>\n      <DateField>\n        <DateFieldTrigger id={id} />\n        <DateFieldCalendar />\n      </DateField>\n    </Field>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "meta": {
+    "className": "**:data-[slot=preview]:w-full **:data-[slot=preview]:max-w-64"
+  },
+  "categories": [
+    "date picker",
+    "field"
+  ],
+  "type": "registry:block"
+}

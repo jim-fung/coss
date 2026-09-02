@@ -367,6 +367,24 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
+  "date-field": {
+    name: "date-field",
+    description: "",
+    type: "registry:ui",
+    registryDependencies: ["@coss/button","@coss/calendar","@coss/popover"],
+    files: [{
+      path: "registry/default/ui/date-field.tsx",
+      type: "registry:ui",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/date-field.tsx")
+      const exportName = Object.keys(mod).find(key => /^[A-Z]/.test(key) && typeof mod[key] === 'function') || Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
   "dialog": {
     name: "dialog",
     description: "",
@@ -3769,11 +3787,65 @@ export const Index: Record<string, any> = {
     categories: ["data table","multiselect","tanstack"],
     meta: {"className":"**:data-[slot=preview]:w-full"},
   },
+  "p-date-field-1": {
+    name: "p-date-field-1",
+    description: "Date field with label that closes on select",
+    type: "registry:block",
+    registryDependencies: ["@coss/date-field","@coss/field"],
+    files: [{
+      path: "registry/default/particles/p-date-field-1.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/particles/p-date-field-1.tsx")
+      const exportName = Object.keys(mod).find(key => /^[A-Z]/.test(key) && typeof mod[key] === 'function') || Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["date picker","field"],
+    meta: {"className":"**:data-[slot=preview]:w-full **:data-[slot=preview]:max-w-64"},
+  },
+  "p-date-field-2": {
+    name: "p-date-field-2",
+    description: "Range date field spanning two months",
+    type: "registry:block",
+    registryDependencies: ["@coss/date-field"],
+    files: [{
+      path: "registry/default/particles/p-date-field-2.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/particles/p-date-field-2.tsx")
+      const exportName = Object.keys(mod).find(key => /^[A-Z]/.test(key) && typeof mod[key] === 'function') || Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["date picker"],
+    meta: {"className":"**:data-[slot=preview]:w-full **:data-[slot=preview]:max-w-64"},
+  },
+  "p-date-field-3": {
+    name: "p-date-field-3",
+    description: "Multiple dates field with badge trigger",
+    type: "registry:block",
+    registryDependencies: ["@coss/badge","@coss/date-field"],
+    files: [{
+      path: "registry/default/particles/p-date-field-3.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/particles/p-date-field-3.tsx")
+      const exportName = Object.keys(mod).find(key => /^[A-Z]/.test(key) && typeof mod[key] === 'function') || Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["date picker","badge"],
+    meta: {"className":"**:data-[slot=preview]:w-full **:data-[slot=preview]:max-w-64"},
+  },
   "p-date-picker-1": {
     name: "p-date-picker-1",
     description: "Basic date picker",
     type: "registry:block",
-    registryDependencies: ["@coss/calendar","@coss/popover","@coss/button"],
+    registryDependencies: ["@coss/date-field"],
     files: [{
       path: "registry/default/particles/p-date-picker-1.tsx",
       type: "registry:block",
@@ -3791,7 +3863,7 @@ export const Index: Record<string, any> = {
     name: "p-date-picker-2",
     description: "Date range picker",
     type: "registry:block",
-    registryDependencies: ["@coss/calendar","@coss/popover","@coss/button"],
+    registryDependencies: ["@coss/date-field"],
     files: [{
       path: "registry/default/particles/p-date-picker-2.tsx",
       type: "registry:block",
@@ -3809,7 +3881,7 @@ export const Index: Record<string, any> = {
     name: "p-date-picker-9",
     description: "Two months calendar with range date",
     type: "registry:block",
-    registryDependencies: ["@coss/calendar","@coss/popover","@coss/button"],
+    registryDependencies: ["@coss/date-field"],
     files: [{
       path: "registry/default/particles/p-date-picker-9.tsx",
       type: "registry:block",
@@ -3827,7 +3899,7 @@ export const Index: Record<string, any> = {
     name: "p-date-picker-3",
     description: "Date picker with field and dropdown navigation",
     type: "registry:block",
-    registryDependencies: ["@coss/button","@coss/calendar","@coss/combobox","@coss/field","@coss/popover"],
+    registryDependencies: ["@coss/combobox","@coss/date-field","@coss/field"],
     files: [{
       path: "registry/default/particles/p-date-picker-3.tsx",
       type: "registry:block",
@@ -3845,7 +3917,7 @@ export const Index: Record<string, any> = {
     name: "p-date-picker-4",
     description: "Date picker with presets",
     type: "registry:block",
-    registryDependencies: ["@coss/button","@coss/calendar","@coss/popover"],
+    registryDependencies: ["@coss/button","@coss/calendar","@coss/date-field","@coss/popover"],
     files: [{
       path: "registry/default/particles/p-date-picker-4.tsx",
       type: "registry:block",
@@ -3863,7 +3935,7 @@ export const Index: Record<string, any> = {
     name: "p-date-picker-5",
     description: "Date picker with input",
     type: "registry:block",
-    registryDependencies: ["@coss/button","@coss/calendar","@coss/input-group","@coss/popover"],
+    registryDependencies: ["@coss/button","@coss/date-field","@coss/input-group"],
     files: [{
       path: "registry/default/particles/p-date-picker-5.tsx",
       type: "registry:block",
@@ -3881,7 +3953,7 @@ export const Index: Record<string, any> = {
     name: "p-date-picker-6",
     description: "Date picker that closes on select",
     type: "registry:block",
-    registryDependencies: ["@coss/calendar","@coss/popover","@coss/button"],
+    registryDependencies: ["@coss/date-field"],
     files: [{
       path: "registry/default/particles/p-date-picker-6.tsx",
       type: "registry:block",
@@ -3899,7 +3971,7 @@ export const Index: Record<string, any> = {
     name: "p-date-picker-7",
     description: "Multiple dates picker",
     type: "registry:block",
-    registryDependencies: ["@coss/badge","@coss/button","@coss/calendar","@coss/popover"],
+    registryDependencies: ["@coss/badge","@coss/date-field"],
     files: [{
       path: "registry/default/particles/p-date-picker-7.tsx",
       type: "registry:block",
@@ -3917,7 +3989,7 @@ export const Index: Record<string, any> = {
     name: "p-date-picker-8",
     description: "Date picker with select-like trigger",
     type: "registry:block",
-    registryDependencies: ["@coss/calendar","@coss/popover","@coss/select"],
+    registryDependencies: ["@coss/date-field","@coss/select"],
     files: [{
       path: "registry/default/particles/p-date-picker-8.tsx",
       type: "registry:block",

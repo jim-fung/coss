@@ -3,6 +3,22 @@ title: Changelog
 description: Breaking changes, migration guides, and notable updates.
 ---
 
+## September 2, 2026
+
+### Date Field
+
+**`apps/ui`** adds **[Date Field](/ui/docs/components/date-field)**, a field component that composes **`Popover`**, **`Button`**, and **`Calendar`** into one date picker with per-mode typing: **`mode="single"`** holds a `Date`, **`mode="multiple"`** holds a `Date[]`, and **`mode="range"`** holds a `DateRange`, with `value` / `defaultValue` / `onValueChange` supporting controlled and uncontrolled usage. Close-on-select is deterministic per mode — single closes on every select, range and multiple never auto-close (DayPicker's first range click already sets a same-day range) — and **`closeOnSelect`** overrides any of them. The trigger renders per-mode labels ("Pick a date", "Pick a date range", "Pick dates") with the selected value formatted through date-fns format strings via the **`format`** prop, and its content can be replaced with a function that receives the current value. **`DateFieldCalendar`** wires the popup and calendar to the field — reopening lands on the current selection — and passes through every Calendar prop (`numberOfMonths`, `captionLayout`, `min`/`max`, …). **`useDateField`** is the escape hatch for bespoke popup layouts such as a preset sidebar next to the calendar.
+
+Examples cover a label + field composition, a range with two months, and a multiple mode with a badge trigger. The nine [Date Picker](/ui/docs/components/date-picker) examples were rebuilt on `DateField`.
+
+Install it with the shadcn CLI:
+
+```bash
+npx shadcn@latest add @coss/date-field
+```
+
+New dependency: none — **`@daypicker/react`** and **`date-fns`** already ship with Calendar.
+
 ## September 1, 2026
 
 ### Chart primitives

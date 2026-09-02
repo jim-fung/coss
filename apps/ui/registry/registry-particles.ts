@@ -1340,8 +1340,43 @@ export const particles: ParticleItem[] = [
     type: "registry:block",
   },
   {
+    categories: categories("date picker", "field"),
+    description: "Date field with label that closes on select",
+    files: [{ path: "particles/p-date-field-1.tsx", type: "registry:block" }],
+    meta: {
+      className:
+        "**:data-[slot=preview]:w-full **:data-[slot=preview]:max-w-64",
+    },
+    name: "p-date-field-1",
+    registryDependencies: ["@coss/date-field", "@coss/field"],
+    type: "registry:block",
+  },
+  {
+    categories: categories("date picker"),
+    description: "Range date field spanning two months",
+    files: [{ path: "particles/p-date-field-2.tsx", type: "registry:block" }],
+    meta: {
+      className:
+        "**:data-[slot=preview]:w-full **:data-[slot=preview]:max-w-64",
+    },
+    name: "p-date-field-2",
+    registryDependencies: ["@coss/date-field"],
+    type: "registry:block",
+  },
+  {
+    categories: categories("date picker", "badge"),
+    description: "Multiple dates field with badge trigger",
+    files: [{ path: "particles/p-date-field-3.tsx", type: "registry:block" }],
+    meta: {
+      className:
+        "**:data-[slot=preview]:w-full **:data-[slot=preview]:max-w-64",
+    },
+    name: "p-date-field-3",
+    registryDependencies: ["@coss/badge", "@coss/date-field"],
+    type: "registry:block",
+  },
+  {
     categories: categories("date picker", "calendar", "popover", "button"),
-    dependencies: ["date-fns", "lucide-react"],
     description: "Basic date picker",
     files: [{ path: "particles/p-date-picker-1.tsx", type: "registry:block" }],
     meta: {
@@ -1349,12 +1384,11 @@ export const particles: ParticleItem[] = [
         "**:data-[slot=preview]:w-full **:data-[slot=preview]:max-w-64",
     },
     name: "p-date-picker-1",
-    registryDependencies: ["@coss/calendar", "@coss/popover", "@coss/button"],
+    registryDependencies: ["@coss/date-field"],
     type: "registry:block",
   },
   {
     categories: categories("date picker", "calendar", "popover", "button"),
-    dependencies: ["date-fns", "lucide-react"],
     description: "Date range picker",
     files: [{ path: "particles/p-date-picker-2.tsx", type: "registry:block" }],
     meta: {
@@ -1362,12 +1396,11 @@ export const particles: ParticleItem[] = [
         "**:data-[slot=preview]:w-full **:data-[slot=preview]:max-w-64",
     },
     name: "p-date-picker-2",
-    registryDependencies: ["@coss/calendar", "@coss/popover", "@coss/button"],
+    registryDependencies: ["@coss/date-field"],
     type: "registry:block",
   },
   {
     categories: categories("date picker", "calendar", "popover", "button"),
-    dependencies: ["date-fns", "lucide-react"],
     description: "Two months calendar with range date",
     files: [{ path: "particles/p-date-picker-9.tsx", type: "registry:block" }],
     meta: {
@@ -1375,7 +1408,7 @@ export const particles: ParticleItem[] = [
         "**:data-[slot=preview]:w-full **:data-[slot=preview]:max-w-64",
     },
     name: "p-date-picker-9",
-    registryDependencies: ["@coss/calendar", "@coss/popover", "@coss/button"],
+    registryDependencies: ["@coss/date-field"],
     type: "registry:block",
   },
   {
@@ -1387,7 +1420,6 @@ export const particles: ParticleItem[] = [
       "field",
       "combobox",
     ),
-    dependencies: ["date-fns", "lucide-react"],
     description: "Date picker with field and dropdown navigation",
     files: [{ path: "particles/p-date-picker-3.tsx", type: "registry:block" }],
     meta: {
@@ -1395,18 +1427,11 @@ export const particles: ParticleItem[] = [
         "**:data-[slot=preview]:w-full **:data-[slot=preview]:max-w-64",
     },
     name: "p-date-picker-3",
-    registryDependencies: [
-      "@coss/button",
-      "@coss/calendar",
-      "@coss/combobox",
-      "@coss/field",
-      "@coss/popover",
-    ],
+    registryDependencies: ["@coss/combobox", "@coss/date-field", "@coss/field"],
     type: "registry:block",
   },
   {
     categories: categories("date picker", "calendar", "popover", "button"),
-    dependencies: ["date-fns", "lucide-react"],
     description: "Date picker with presets",
     files: [{ path: "particles/p-date-picker-4.tsx", type: "registry:block" }],
     meta: {
@@ -1414,7 +1439,12 @@ export const particles: ParticleItem[] = [
         "**:data-[slot=preview]:w-full **:data-[slot=preview]:max-w-64",
     },
     name: "p-date-picker-4",
-    registryDependencies: ["@coss/button", "@coss/calendar", "@coss/popover"],
+    registryDependencies: [
+      "@coss/button",
+      "@coss/calendar",
+      "@coss/date-field",
+      "@coss/popover",
+    ],
     type: "registry:block",
   },
   {
@@ -1425,7 +1455,6 @@ export const particles: ParticleItem[] = [
       "button",
       "input",
     ),
-    dependencies: ["date-fns", "lucide-react"],
     description: "Date picker with input",
     files: [{ path: "particles/p-date-picker-5.tsx", type: "registry:block" }],
     meta: {
@@ -1435,15 +1464,13 @@ export const particles: ParticleItem[] = [
     name: "p-date-picker-5",
     registryDependencies: [
       "@coss/button",
-      "@coss/calendar",
+      "@coss/date-field",
       "@coss/input-group",
-      "@coss/popover",
     ],
     type: "registry:block",
   },
   {
     categories: categories("date picker", "calendar", "popover", "button"),
-    dependencies: ["date-fns", "lucide-react"],
     description: "Date picker that closes on select",
     files: [{ path: "particles/p-date-picker-6.tsx", type: "registry:block" }],
     meta: {
@@ -1451,7 +1478,7 @@ export const particles: ParticleItem[] = [
         "**:data-[slot=preview]:w-full **:data-[slot=preview]:max-w-64",
     },
     name: "p-date-picker-6",
-    registryDependencies: ["@coss/calendar", "@coss/popover", "@coss/button"],
+    registryDependencies: ["@coss/date-field"],
     type: "registry:block",
   },
   {
@@ -1462,7 +1489,6 @@ export const particles: ParticleItem[] = [
       "button",
       "badge",
     ),
-    dependencies: ["date-fns", "lucide-react"],
     description: "Multiple dates picker",
     files: [{ path: "particles/p-date-picker-7.tsx", type: "registry:block" }],
     meta: {
@@ -1470,17 +1496,11 @@ export const particles: ParticleItem[] = [
         "**:data-[slot=preview]:w-full **:data-[slot=preview]:max-w-64",
     },
     name: "p-date-picker-7",
-    registryDependencies: [
-      "@coss/badge",
-      "@coss/button",
-      "@coss/calendar",
-      "@coss/popover",
-    ],
+    registryDependencies: ["@coss/badge", "@coss/date-field"],
     type: "registry:block",
   },
   {
     categories: categories("date picker", "calendar", "popover", "button"),
-    dependencies: ["date-fns", "lucide-react"],
     description: "Date picker with select-like trigger",
     files: [{ path: "particles/p-date-picker-8.tsx", type: "registry:block" }],
     meta: {
@@ -1488,7 +1508,7 @@ export const particles: ParticleItem[] = [
         "**:data-[slot=preview]:w-full **:data-[slot=preview]:max-w-64",
     },
     name: "p-date-picker-8",
-    registryDependencies: ["@coss/calendar", "@coss/popover", "@coss/select"],
+    registryDependencies: ["@coss/date-field", "@coss/select"],
     type: "registry:block",
   },
   {

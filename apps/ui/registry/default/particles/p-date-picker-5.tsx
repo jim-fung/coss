@@ -4,17 +4,16 @@ import { format, isValid, parse } from "date-fns";
 import { CalendarIcon } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/registry/default/ui/button";
-import { Calendar } from "@/registry/default/ui/calendar";
+import {
+  DateField,
+  DateFieldCalendar,
+  DateFieldTrigger,
+} from "@/registry/default/ui/date-field";
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
 } from "@/registry/default/ui/input-group";
-import {
-  Popover,
-  PopoverPopup,
-  PopoverTrigger,
-} from "@/registry/default/ui/popover";
 
 export default function Particle() {
   const [date, setDate] = useState<Date | undefined>();
@@ -36,18 +35,15 @@ export default function Particle() {
     }
   };
 
-  const handleSelect = (selectedDate: Date | undefined) => {
-    setDate(selectedDate);
-    if (selectedDate) {
-      setInputValue(format(selectedDate, "yyyy-MM-dd"));
-      setMonth(selectedDate);
-    } else {
-      setInputValue("");
-    }
-  };
-
   return (
-    <Popover>
+    <DateField
+      closeOnSelect={false}
+      onValueChange={(selected) => {
+        setDate(selected);
+        setInputValue(selected ? format(selected, "yyyy-MM-dd") : "");
+      }}
+      value={date}
+    >
       <InputGroup>
         <InputGroupInput
           aria-label="Select date"
@@ -58,25 +54,23 @@ export default function Particle() {
           value={inputValue}
         />
         <InputGroupAddon>
-          <PopoverTrigger
+          <DateFieldTrigger
             aria-label="Select date"
             render={
               <Button aria-label="Select date" size="icon-xs" variant="ghost" />
             }
           >
             <CalendarIcon aria-hidden="true" />
-          </PopoverTrigger>
+          </DateFieldTrigger>
         </InputGroupAddon>
       </InputGroup>
-      <PopoverPopup align="start" alignOffset={-4} sideOffset={8}>
-        <Calendar
-          mode="single"
-          month={month}
-          onMonthChange={setMonth}
-          onSelect={handleSelect}
-          selected={date}
-        />
-      </PopoverPopup>
-    </Popover>
+      <DateFieldCalendar
+        align="start"
+        alignOffset={-4}
+        month={month}
+        onMonthChange={setMonth}
+        sideOffset={8}
+      />
+    </DateField>
   );
 }

@@ -24,6 +24,7 @@ export const ui: Registry["items"] = [
       "@coss/context-menu",
       "@coss/conversation",
       "@coss/data-table",
+      "@coss/date-field",
       "@coss/dialog",
       "@coss/drawer",
       "@coss/empty",
@@ -360,6 +361,18 @@ export const ui: Registry["items"] = [
     ],
     name: "data-table",
     registryDependencies: ["@coss/button", "@coss/select", "@coss/table"],
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["date-fns", "lucide-react"],
+    files: [
+      {
+        path: "ui/date-field.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "date-field",
+    registryDependencies: ["@coss/button", "@coss/calendar", "@coss/popover"],
     type: "registry:ui",
   },
   {

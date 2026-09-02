@@ -1,11 +1,7 @@
 "use client";
 
 import type { DropdownProps } from "@daypicker/react";
-import { format } from "date-fns";
-import { CalendarIcon } from "lucide-react";
 import * as React from "react";
-import { Button } from "@/registry/default/ui/button";
-import { Calendar } from "@/registry/default/ui/calendar";
 import {
   Combobox,
   ComboboxEmpty,
@@ -14,12 +10,12 @@ import {
   ComboboxList,
   ComboboxPopup,
 } from "@/registry/default/ui/combobox";
-import { Field, FieldLabel } from "@/registry/default/ui/field";
 import {
-  Popover,
-  PopoverPopup,
-  PopoverTrigger,
-} from "@/registry/default/ui/popover";
+  DateField,
+  DateFieldCalendar,
+  DateFieldTrigger,
+} from "@/registry/default/ui/date-field";
+import { Field, FieldLabel } from "@/registry/default/ui/field";
 
 interface DropdownItem {
   disabled?: boolean;
@@ -79,32 +75,19 @@ function CalendarDropdown(props: DropdownProps) {
 }
 
 export default function Particle() {
-  const [date, setDate] = React.useState<Date | undefined>();
   const id = React.useId();
   return (
     <Field>
       <FieldLabel htmlFor={id}>Start date</FieldLabel>
-      <Popover>
-        <PopoverTrigger
-          id={id}
-          render={<Button className="w-full justify-start" variant="outline" />}
-        >
-          <CalendarIcon aria-hidden="true" />
-          {date ? format(date, "PPP") : "Pick a date"}
-        </PopoverTrigger>
-        <PopoverPopup>
-          <Calendar
-            captionLayout="dropdown"
-            components={{ Dropdown: CalendarDropdown }}
-            defaultMonth={date}
-            endMonth={new Date()}
-            mode="single"
-            onSelect={setDate}
-            selected={date}
-            startMonth={new Date(1900, 0)}
-          />
-        </PopoverPopup>
-      </Popover>
+      <DateField>
+        <DateFieldTrigger id={id} />
+        <DateFieldCalendar
+          captionLayout="dropdown"
+          components={{ Dropdown: CalendarDropdown }}
+          endMonth={new Date()}
+          startMonth={new Date(1900, 0)}
+        />
+      </DateField>
     </Field>
   );
 }

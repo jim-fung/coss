@@ -1,0 +1,142 @@
+---
+title: Date Field
+description: Popover date picker with single, multiple, and range modes, configurable close-on-select, and calendar passthrough.
+---
+
+<ComponentPreview name="p-date-field-1" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTab value="cli">CLI</TabsTab>
+  <TabsTab value="manual">Manual</TabsTab>
+</TabsList>
+<TabsPanel value="cli">
+
+```bash
+npx shadcn@latest add @coss/date-field
+```
+
+</TabsPanel>
+
+<TabsPanel value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="date-field" title="components/ui/date-field.tsx" />
+
+<Step>Install the dependencies.</Step>
+
+```bash
+npm install @daypicker/react date-fns
+```
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsPanel>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import {
+  DateField,
+  DateFieldCalendar,
+  DateFieldTrigger,
+} from "@/components/ui/date-field"
+```
+
+```tsx
+<DateField>
+  <DateFieldTrigger />
+  <DateFieldCalendar />
+</DateField>
+```
+
+`DateField` composes `Popover`, `Button`, and `Calendar` into a single field: the trigger shows the current value (or a placeholder) and the popup hosts the calendar. `mode` selects what the field holds — `"single"` (default), `"multiple"`, or `"range"`.
+
+## API Reference
+
+### DateField
+
+Root wrapper: owns the value and open state, provides them through context, and renders a `Popover` root. All other Popover root props pass through.
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `mode` | `"single" \| "multiple" \| "range"` | `"single"` | Selection mode; determines the shape of the value. |
+| `value` | `Date \| Date[] \| DateRange` (per mode) | — | Controlled value. |
+| `defaultValue` | `Date \| Date[] \| DateRange` (per mode) | — | Uncontrolled initial value. |
+| `onValueChange` | `(value) => void` | — | Called on selection with the per-mode value (`Date`, `Date[]`, or `DateRange`) or `undefined` when cleared. |
+| `closeOnSelect` | `boolean` | per mode | Overrides the mode's default close behavior: `true` closes after every select, `false` never closes. Range and multiple stay open by default — DayPicker's first range click already sets a same-day range. |
+| `placeholder` | `string` | per mode | Trigger label shown while the value is empty: `"Pick a date"` / `"Pick a date range"` / `"Pick dates"`. |
+| `format` | `string` | `"PPP"` | date-fns format string used for the trigger label. |
+| `open` | `boolean` | — | Controlled open state. |
+| `defaultOpen` | `boolean` | `false` | Uncontrolled initial open state. |
+| `onOpenChange` | `(open: boolean) => void` | — | Called on open changes. |
+
+Default close-on-select behavior per mode:
+
+| Mode | Default behavior |
+| --- | --- |
+| `single` | Closes on every select. |
+| `range` | Never auto-closes. |
+| `multiple` | Never auto-closes. |
+
+### DateFieldTrigger
+
+Renders a `PopoverTrigger` around an outline `Button` (`w-full justify-start`) with a calendar icon and a per-mode label: the formatted date for `single`, `from - to` for `range` (just `from` until the second end is picked), and `N dates` — or the single date when only one is selected — for `multiple`.
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `children` | `ReactNode \| ((state: { value: DateFieldValue }) => ReactNode)` | — | Replaces the default icon and label content. A function receives the current value and renders custom content. |
+| `render` | `ReactElement` | — | Swaps the rendered button, e.g. `render={<SelectButton />}`. |
+| `id` | `string` | — | Forwards to the trigger button for `FieldLabel` wiring. |
+
+All other props forward to `PopoverTrigger`.
+
+### DateFieldCalendar
+
+Renders the `PopoverPopup` with a `Calendar` wired to the field context: `mode`, `selected`, and `onSelect` come from the field and cannot be overridden. All other Calendar props pass through — `numberOfMonths`, `disabled`, `captionLayout`, `components`, `month` / `onMonthChange`, `startMonth` / `endMonth`, `min` / `max`, `resetOnSelect`, …
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `defaultMonth` | `Date` | current value | Month shown on open; defaults to the current selection so reopening lands on it. |
+| `children` | `ReactNode` | — | Extra content rendered before the calendar inside the popup. |
+| `side` | `"top" \| "bottom" \| "left" \| "right" \| "inline-start" \| "inline-end"` | — | Side of the trigger to position the popup on. |
+| `align` | `"start" \| "center" \| "end"` | — | Alignment of the popup relative to the trigger. |
+| `sideOffset` | `number` | — | Distance from the trigger along the side axis. |
+| `alignOffset` | `number` | — | Distance from the trigger along the align axis. |
+| `className` | `string` | — | Styles the popup. |
+
+### useDateField
+
+Context hook for bespoke compositions: render your own `PopoverPopup` and `Calendar` inside `DateField` — for example a preset sidebar next to the calendar — and drive them from the returned `{ mode, value, setValue, closeOnSelect, setOpen, placeholder, formatStr }`. Throws outside a `DateField`.
+
+## Examples
+
+### With label
+
+<ComponentPreview name="p-date-field-1" />
+
+### Date range
+
+<ComponentPreview name="p-date-field-2" />
+
+### Multiple dates
+
+<ComponentPreview name="p-date-field-3" />
+
+## Notes
+
+- `format` accepts any date-fns format string (`"PPP"`, `"MM/dd/yyyy"`, …); ranges render as `from - to`.
+- Use the `useDateField` escape hatch for bespoke popup layouts, such as a preset sidebar rendered next to the calendar.
+- Pass a function as `DateFieldTrigger`'s `children` to render custom trigger content from the current value — for example a badge list in multiple mode.
+- In range mode, DayPicker selects the clicked day as both start and end on the first click; click a later day to extend the range or an earlier day to restart it.
+- `DateField` is not a segmented or typeable date input — that waits on Base UI date primitives (roadmap). Time of day is not supported.

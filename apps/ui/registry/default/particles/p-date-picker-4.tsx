@@ -1,29 +1,20 @@
 "use client";
 
-import { addDays, format } from "date-fns";
-import { CalendarIcon } from "lucide-react";
+import { addDays } from "date-fns";
 import { useState } from "react";
 import { Button } from "@/registry/default/ui/button";
 import { Calendar } from "@/registry/default/ui/calendar";
-import {
-  Popover,
-  PopoverPopup,
-  PopoverTrigger,
-} from "@/registry/default/ui/popover";
+import { DateField, DateFieldTrigger } from "@/registry/default/ui/date-field";
+import { PopoverPopup } from "@/registry/default/ui/popover";
 
 export default function Particle() {
   const today = new Date();
-  const [month, setMonth] = useState(today);
   const [date, setDate] = useState<Date | undefined>(today);
+  const [month, setMonth] = useState(today);
 
   return (
-    <Popover>
-      <PopoverTrigger
-        render={<Button className="w-full justify-start" variant="outline" />}
-      >
-        <CalendarIcon aria-hidden="true" />
-        {date ? format(date, "PPP") : "Pick a date"}
-      </PopoverTrigger>
+    <DateField closeOnSelect={false} onValueChange={setDate} value={date}>
+      <DateFieldTrigger />
       <PopoverPopup>
         <div className="flex max-sm:flex-col">
           <div className="relative py-1 ps-1 max-sm:order-1 max-sm:border-t">
@@ -87,6 +78,6 @@ export default function Particle() {
           />
         </div>
       </PopoverPopup>
-    </Popover>
+    </DateField>
   );
 }

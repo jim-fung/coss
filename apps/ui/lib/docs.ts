@@ -3,6 +3,7 @@ export const PAGES_NEW = [
   "/docs/components/carousel",
   "/docs/components/chart",
   "/docs/components/data-table",
+  "/docs/components/date-field",
   "/docs/components/menubar",
   "/docs/components/navigation-menu",
   "/docs/components/resizable",

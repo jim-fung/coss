@@ -24,6 +24,7 @@
         "@coss/context-menu",
         "@coss/conversation",
         "@coss/data-table",
+        "@coss/date-field",
         "@coss/dialog",
         "@coss/drawer",
         "@coss/empty",
@@ -417,6 +418,25 @@
         "@coss/button",
         "@coss/select",
         "@coss/table"
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "dependencies": [
+        "date-fns",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/date-field.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "date-field",
+      "registryDependencies": [
+        "@coss/button",
+        "@coss/calendar",
+        "@coss/popover"
       ],
       "type": "registry:ui"
     },
@@ -3942,13 +3962,73 @@
     {
       "categories": [
         "date picker",
+        "field"
+      ],
+      "description": "Date field with label that closes on select",
+      "files": [
+        {
+          "path": "registry/default/particles/p-date-field-1.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "className": "**:data-[slot=preview]:w-full **:data-[slot=preview]:max-w-64"
+      },
+      "name": "p-date-field-1",
+      "registryDependencies": [
+        "@coss/date-field",
+        "@coss/field"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
+        "date picker"
+      ],
+      "description": "Range date field spanning two months",
+      "files": [
+        {
+          "path": "registry/default/particles/p-date-field-2.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "className": "**:data-[slot=preview]:w-full **:data-[slot=preview]:max-w-64"
+      },
+      "name": "p-date-field-2",
+      "registryDependencies": [
+        "@coss/date-field"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
+        "date picker",
+        "badge"
+      ],
+      "description": "Multiple dates field with badge trigger",
+      "files": [
+        {
+          "path": "registry/default/particles/p-date-field-3.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "className": "**:data-[slot=preview]:w-full **:data-[slot=preview]:max-w-64"
+      },
+      "name": "p-date-field-3",
+      "registryDependencies": [
+        "@coss/badge",
+        "@coss/date-field"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
+        "date picker",
         "calendar",
         "popover",
         "button"
-      ],
-      "dependencies": [
-        "date-fns",
-        "lucide-react"
       ],
       "description": "Basic date picker",
       "files": [
@@ -3962,9 +4042,7 @@
       },
       "name": "p-date-picker-1",
       "registryDependencies": [
-        "@coss/calendar",
-        "@coss/popover",
-        "@coss/button"
+        "@coss/date-field"
       ],
       "type": "registry:block"
     },
@@ -3974,10 +4052,6 @@
         "calendar",
         "popover",
         "button"
-      ],
-      "dependencies": [
-        "date-fns",
-        "lucide-react"
       ],
       "description": "Date range picker",
       "files": [
@@ -3991,9 +4065,7 @@
       },
       "name": "p-date-picker-2",
       "registryDependencies": [
-        "@coss/calendar",
-        "@coss/popover",
-        "@coss/button"
+        "@coss/date-field"
       ],
       "type": "registry:block"
     },
@@ -4003,10 +4075,6 @@
         "calendar",
         "popover",
         "button"
-      ],
-      "dependencies": [
-        "date-fns",
-        "lucide-react"
       ],
       "description": "Two months calendar with range date",
       "files": [
@@ -4020,9 +4088,7 @@
       },
       "name": "p-date-picker-9",
       "registryDependencies": [
-        "@coss/calendar",
-        "@coss/popover",
-        "@coss/button"
+        "@coss/date-field"
       ],
       "type": "registry:block"
     },
@@ -4034,10 +4100,6 @@
         "button",
         "field",
         "combobox"
-      ],
-      "dependencies": [
-        "date-fns",
-        "lucide-react"
       ],
       "description": "Date picker with field and dropdown navigation",
       "files": [
@@ -4051,11 +4113,9 @@
       },
       "name": "p-date-picker-3",
       "registryDependencies": [
-        "@coss/button",
-        "@coss/calendar",
         "@coss/combobox",
-        "@coss/field",
-        "@coss/popover"
+        "@coss/date-field",
+        "@coss/field"
       ],
       "type": "registry:block"
     },
@@ -4065,10 +4125,6 @@
         "calendar",
         "popover",
         "button"
-      ],
-      "dependencies": [
-        "date-fns",
-        "lucide-react"
       ],
       "description": "Date picker with presets",
       "files": [
@@ -4084,6 +4140,7 @@
       "registryDependencies": [
         "@coss/button",
         "@coss/calendar",
+        "@coss/date-field",
         "@coss/popover"
       ],
       "type": "registry:block"
@@ -4095,10 +4152,6 @@
         "popover",
         "button",
         "input"
-      ],
-      "dependencies": [
-        "date-fns",
-        "lucide-react"
       ],
       "description": "Date picker with input",
       "files": [
@@ -4113,9 +4166,8 @@
       "name": "p-date-picker-5",
       "registryDependencies": [
         "@coss/button",
-        "@coss/calendar",
-        "@coss/input-group",
-        "@coss/popover"
+        "@coss/date-field",
+        "@coss/input-group"
       ],
       "type": "registry:block"
     },
@@ -4125,10 +4177,6 @@
         "calendar",
         "popover",
         "button"
-      ],
-      "dependencies": [
-        "date-fns",
-        "lucide-react"
       ],
       "description": "Date picker that closes on select",
       "files": [
@@ -4142,9 +4190,7 @@
       },
       "name": "p-date-picker-6",
       "registryDependencies": [
-        "@coss/calendar",
-        "@coss/popover",
-        "@coss/button"
+        "@coss/date-field"
       ],
       "type": "registry:block"
     },
@@ -4155,10 +4201,6 @@
         "popover",
         "button",
         "badge"
-      ],
-      "dependencies": [
-        "date-fns",
-        "lucide-react"
       ],
       "description": "Multiple dates picker",
       "files": [
@@ -4173,9 +4215,7 @@
       "name": "p-date-picker-7",
       "registryDependencies": [
         "@coss/badge",
-        "@coss/button",
-        "@coss/calendar",
-        "@coss/popover"
+        "@coss/date-field"
       ],
       "type": "registry:block"
     },
@@ -4185,10 +4225,6 @@
         "calendar",
         "popover",
         "button"
-      ],
-      "dependencies": [
-        "date-fns",
-        "lucide-react"
       ],
       "description": "Date picker with select-like trigger",
       "files": [
@@ -4202,8 +4238,7 @@
       },
       "name": "p-date-picker-8",
       "registryDependencies": [
-        "@coss/calendar",
-        "@coss/popover",
+        "@coss/date-field",
         "@coss/select"
       ],
       "type": "registry:block"
