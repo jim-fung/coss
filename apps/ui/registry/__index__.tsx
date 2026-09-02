@@ -5087,7 +5087,7 @@ export const Index: Record<string, any> = {
     name: "p-dashboard-4",
     description: "Recent registrations feed with copy actions",
     type: "registry:block",
-    registryDependencies: ["@coss/badge","@coss/button","@coss/card"],
+    registryDependencies: ["@coss/badge","@coss/button","@coss/card","@coss/use-copy-to-clipboard"],
     files: [{
       path: "registry/default/particles/p-dashboard-4.tsx",
       type: "registry:block",

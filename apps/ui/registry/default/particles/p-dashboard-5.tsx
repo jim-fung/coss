@@ -1,4 +1,7 @@
+"use client";
+
 import { RotateCcwIcon } from "lucide-react";
+import { useState } from "react";
 import { Badge } from "@/registry/default/ui/badge";
 import { Button } from "@/registry/default/ui/button";
 import {
@@ -55,6 +58,7 @@ const statusOptions = [
   { label: "Succeeded", value: "succeeded" },
   { label: "Failed", value: "failed" },
   { label: "Timed out", value: "timed_out" },
+  { label: "Retried", value: "retried" },
 ];
 
 const agentRuns: AgentRun[] = [
@@ -122,6 +126,12 @@ const agentRuns: AgentRun[] = [
 ];
 
 export default function Particle() {
+  const [statusFilter, setStatusFilter] = useState("all");
+  const visibleRuns =
+    statusFilter === "all"
+      ? agentRuns
+      : agentRuns.filter((run) => run.status === statusFilter);
+
   return (
     <div className="grid gap-4">
       <Card className="w-full overflow-hidden">
@@ -131,8 +141,9 @@ export default function Particle() {
           <CardAction>
             <Select
               aria-label="Filter by status"
-              defaultValue="all"
               items={statusOptions}
+              onValueChange={(value) => setStatusFilter(value ?? "all")}
+              value={statusFilter}
             >
               <SelectTrigger className="w-36" size="sm">
                 <SelectValue />
@@ -161,7 +172,7 @@ export default function Particle() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {agentRuns.map((run) => (
+            {visibleRuns.map((run) => (
               <TableRow key={run.id}>
                 <TableCell>
                   <div className="font-mono text-muted-foreground text-xs">

@@ -5643,7 +5643,8 @@
       "registryDependencies": [
         "@coss/badge",
         "@coss/button",
-        "@coss/card"
+        "@coss/card",
+        "@coss/use-copy-to-clipboard"
       ],
       "type": "registry:block"
     },

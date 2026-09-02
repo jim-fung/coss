@@ -2314,7 +2314,12 @@ export const particles: ParticleItem[] = [
       className: "**:data-[slot=preview]:w-full",
     },
     name: "p-dashboard-4",
-    registryDependencies: ["@coss/badge", "@coss/button", "@coss/card"],
+    registryDependencies: [
+      "@coss/badge",
+      "@coss/button",
+      "@coss/card",
+      "@coss/use-copy-to-clipboard",
+    ],
     type: "registry:block",
   },
   {

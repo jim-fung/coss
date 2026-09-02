@@ -1,7 +1,7 @@
 "use client";
 
 import { CheckIcon, ClockIcon, CopyIcon, SendIcon } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useCopyToClipboard } from "@/registry/default/hooks/use-copy-to-clipboard";
 import { Badge } from "@/registry/default/ui/badge";
 import { Button } from "@/registry/default/ui/button";
 import {
@@ -99,28 +99,16 @@ const statusBadge: Record<
 };
 
 function CopyRunIdButton({ runId }: { runId: string }) {
-  const [copied, setCopied] = useState(false);
-  const timeoutRef = useRef<number | undefined>(undefined);
-
-  useEffect(() => {
-    return () => window.clearTimeout(timeoutRef.current);
-  }, []);
-
-  const handleCopy = () => {
-    navigator.clipboard.writeText(runId);
-    setCopied(true);
-    window.clearTimeout(timeoutRef.current);
-    timeoutRef.current = window.setTimeout(() => setCopied(false), 2000);
-  };
+  const { copyToClipboard, isCopied } = useCopyToClipboard();
 
   return (
     <Button
       aria-label={`Copy ${runId}`}
-      onClick={handleCopy}
+      onClick={() => copyToClipboard(runId)}
       size="icon-sm"
       variant="ghost"
     >
-      {copied ? (
+      {isCopied ? (
         <CheckIcon aria-hidden="true" />
       ) : (
         <CopyIcon aria-hidden="true" />
