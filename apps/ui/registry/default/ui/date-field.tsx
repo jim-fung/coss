@@ -228,7 +228,7 @@ function DateFieldTrigger({
 }
 
 function shouldCloseAfterSelect(
-  selected: DateFieldValue,
+  _selected: DateFieldValue,
   mode: DateFieldMode,
   closeOnSelect: boolean | undefined,
 ): boolean {

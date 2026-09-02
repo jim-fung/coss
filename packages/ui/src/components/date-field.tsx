@@ -113,7 +113,8 @@ function DateField(props: DateFieldProps): React.ReactElement {
   const [internalOpen, setInternalOpen] = useState<boolean>(
     defaultOpen ?? false,
   );
-  const open: boolean = (openControlled ? controlledOpen : internalOpen) ?? false;
+  const open: boolean =
+    (openControlled ? controlledOpen : internalOpen) ?? false;
 
   const setValue = useCallback(
     (next: DateFieldValue): void => {
@@ -227,7 +228,7 @@ function DateFieldTrigger({
 }
 
 function shouldCloseAfterSelect(
-  selected: DateFieldValue,
+  _selected: DateFieldValue,
   mode: DateFieldMode,
   closeOnSelect: boolean | undefined,
 ): boolean {
