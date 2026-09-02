@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-rating-4",
+  "description": "Star rating in a field with description",
+  "registryDependencies": [
+    "@coss/field",
+    "@coss/rating"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-rating-4.tsx",
+      "content": "import {\n  Field,\n  FieldDescription,\n  FieldLabel,\n} from \"@/registry/default/ui/field\";\nimport { Rating } from \"@/registry/default/ui/rating\";\n\nexport default function Particle() {\n  return (\n    <Field className=\"max-w-sm\">\n      <FieldLabel>How was the call?</FieldLabel>\n      <Rating defaultValue={4} name=\"rating\" />\n      <FieldDescription>\n        Your rating helps us improve call quality.\n      </FieldDescription>\n    </Field>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "meta": {
+    "className": "**:data-[slot=preview]:w-full **:data-[slot=preview]:max-w-64"
+  },
+  "categories": [
+    "rating",
+    "field"
+  ],
+  "type": "registry:block"
+}

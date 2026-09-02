@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-rating-2",
+  "description": "Controlled star rating with clear-on-click and readout",
+  "registryDependencies": [
+    "@coss/rating"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-rating-2.tsx",
+      "content": "\"use client\";\n\nimport { useState } from \"react\";\nimport { Rating } from \"@/registry/default/ui/rating\";\n\nexport default function Particle() {\n  const [rating, setRating] = useState<number | undefined>(3);\n\n  return (\n    <div className=\"flex items-center gap-3\">\n      <Rating allowClear onValueChange={setRating} value={rating} />\n      <span className=\"text-muted-foreground text-sm tabular-nums\">\n        {rating ?? 0} / 5\n      </span>\n    </div>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "meta": {
+    "className": "**:data-[slot=preview]:w-full **:data-[slot=preview]:max-w-64"
+  },
+  "categories": [
+    "rating"
+  ],
+  "type": "registry:block"
+}

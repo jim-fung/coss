@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-rating-3",
+  "description": "Star rating sizes",
+  "registryDependencies": [
+    "@coss/rating"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-rating-3.tsx",
+      "content": "import { Rating } from \"@/registry/default/ui/rating\";\n\nconst sizes = [\n  { defaultValue: 2, label: \"Small\", size: \"sm\" },\n  { defaultValue: 3, label: \"Default\", size: \"default\" },\n  { defaultValue: 4, label: \"Large\", size: \"lg\" },\n] as const;\n\nexport default function Particle() {\n  return (\n    <div className=\"flex max-w-sm flex-col gap-3\">\n      {sizes.map(({ label, size, defaultValue }) => (\n        <div key={size} className=\"flex flex-col gap-1.5\">\n          <span className=\"text-muted-foreground text-xs\">{label}</span>\n          <Rating defaultValue={defaultValue} size={size} />\n        </div>\n      ))}\n    </div>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "meta": {
+    "className": "**:data-[slot=preview]:w-full **:data-[slot=preview]:max-w-64"
+  },
+  "categories": [
+    "rating"
+  ],
+  "type": "registry:block"
+}

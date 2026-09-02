@@ -4493,6 +4493,54 @@ export const particles: ParticleItem[] = [
     type: "registry:block",
   },
   {
+    categories: categories("rating"),
+    description: "Star rating with three of five selected",
+    files: [{ path: "particles/p-rating-1.tsx", type: "registry:block" }],
+    meta: {
+      className:
+        "**:data-[slot=preview]:w-full **:data-[slot=preview]:max-w-64",
+    },
+    name: "p-rating-1",
+    registryDependencies: ["@coss/rating"],
+    type: "registry:block",
+  },
+  {
+    categories: categories("rating"),
+    description: "Controlled star rating with clear-on-click and readout",
+    files: [{ path: "particles/p-rating-2.tsx", type: "registry:block" }],
+    meta: {
+      className:
+        "**:data-[slot=preview]:w-full **:data-[slot=preview]:max-w-64",
+    },
+    name: "p-rating-2",
+    registryDependencies: ["@coss/rating"],
+    type: "registry:block",
+  },
+  {
+    categories: categories("rating"),
+    description: "Star rating sizes",
+    files: [{ path: "particles/p-rating-3.tsx", type: "registry:block" }],
+    meta: {
+      className:
+        "**:data-[slot=preview]:w-full **:data-[slot=preview]:max-w-64",
+    },
+    name: "p-rating-3",
+    registryDependencies: ["@coss/rating"],
+    type: "registry:block",
+  },
+  {
+    categories: categories("rating", "field"),
+    description: "Star rating in a field with description",
+    files: [{ path: "particles/p-rating-4.tsx", type: "registry:block" }],
+    meta: {
+      className:
+        "**:data-[slot=preview]:w-full **:data-[slot=preview]:max-w-64",
+    },
+    name: "p-rating-4",
+    registryDependencies: ["@coss/field", "@coss/rating"],
+    type: "registry:block",
+  },
+  {
     categories: categories("ai", "collapsible"),
     description: "Finished reasoning block with duration and open panel",
     files: [{ path: "particles/p-reasoning-1.tsx", type: "registry:block" }],
@@ -5760,6 +5808,28 @@ export const particles: ParticleItem[] = [
     files: [{ path: "particles/p-tabs-15.tsx", type: "registry:block" }],
     name: "p-tabs-15",
     registryDependencies: ["@coss/tabs"],
+    type: "registry:block",
+  },
+  {
+    categories: categories("tag"),
+    description: "Controlled tag input with add, remove, and dedupe",
+    files: [{ path: "particles/p-tag-input-1.tsx", type: "registry:block" }],
+    meta: {
+      className: "**:data-[slot=preview]:w-full",
+    },
+    name: "p-tag-input-1",
+    registryDependencies: ["@coss/tag-input"],
+    type: "registry:block",
+  },
+  {
+    categories: categories("tag"),
+    description: "Tag input capped at five tags with a hint",
+    files: [{ path: "particles/p-tag-input-2.tsx", type: "registry:block" }],
+    meta: {
+      className: "**:data-[slot=preview]:w-full",
+    },
+    name: "p-tag-input-2",
+    registryDependencies: ["@coss/tag-input"],
     type: "registry:block",
   },
   {

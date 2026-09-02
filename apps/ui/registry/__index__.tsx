@@ -835,6 +835,24 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
+  "rating": {
+    name: "rating",
+    description: "",
+    type: "registry:ui",
+    registryDependencies: ["@coss/radio-group"],
+    files: [{
+      path: "registry/default/ui/rating.tsx",
+      type: "registry:ui",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/rating.tsx")
+      const exportName = Object.keys(mod).find(key => /^[A-Z]/.test(key) && typeof mod[key] === 'function') || Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
   "reasoning": {
     name: "reasoning",
     description: "",
@@ -1153,6 +1171,24 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/default/ui/tabs.tsx")
+      const exportName = Object.keys(mod).find(key => /^[A-Z]/.test(key) && typeof mod[key] === 'function') || Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "tag-input": {
+    name: "tag-input",
+    description: "",
+    type: "registry:ui",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/default/ui/tag-input.tsx",
+      type: "registry:ui",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/tag-input.tsx")
       const exportName = Object.keys(mod).find(key => /^[A-Z]/.test(key) && typeof mod[key] === 'function') || Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),
@@ -8467,6 +8503,78 @@ export const Index: Record<string, any> = {
     categories: ["radio group","segmented control"],
     meta: undefined,
   },
+  "p-rating-1": {
+    name: "p-rating-1",
+    description: "Star rating with three of five selected",
+    type: "registry:block",
+    registryDependencies: ["@coss/rating"],
+    files: [{
+      path: "registry/default/particles/p-rating-1.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/particles/p-rating-1.tsx")
+      const exportName = Object.keys(mod).find(key => /^[A-Z]/.test(key) && typeof mod[key] === 'function') || Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["rating"],
+    meta: {"className":"**:data-[slot=preview]:w-full **:data-[slot=preview]:max-w-64"},
+  },
+  "p-rating-2": {
+    name: "p-rating-2",
+    description: "Controlled star rating with clear-on-click and readout",
+    type: "registry:block",
+    registryDependencies: ["@coss/rating"],
+    files: [{
+      path: "registry/default/particles/p-rating-2.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/particles/p-rating-2.tsx")
+      const exportName = Object.keys(mod).find(key => /^[A-Z]/.test(key) && typeof mod[key] === 'function') || Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["rating"],
+    meta: {"className":"**:data-[slot=preview]:w-full **:data-[slot=preview]:max-w-64"},
+  },
+  "p-rating-3": {
+    name: "p-rating-3",
+    description: "Star rating sizes",
+    type: "registry:block",
+    registryDependencies: ["@coss/rating"],
+    files: [{
+      path: "registry/default/particles/p-rating-3.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/particles/p-rating-3.tsx")
+      const exportName = Object.keys(mod).find(key => /^[A-Z]/.test(key) && typeof mod[key] === 'function') || Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["rating"],
+    meta: {"className":"**:data-[slot=preview]:w-full **:data-[slot=preview]:max-w-64"},
+  },
+  "p-rating-4": {
+    name: "p-rating-4",
+    description: "Star rating in a field with description",
+    type: "registry:block",
+    registryDependencies: ["@coss/field","@coss/rating"],
+    files: [{
+      path: "registry/default/particles/p-rating-4.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/particles/p-rating-4.tsx")
+      const exportName = Object.keys(mod).find(key => /^[A-Z]/.test(key) && typeof mod[key] === 'function') || Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["rating","field"],
+    meta: {"className":"**:data-[slot=preview]:w-full **:data-[slot=preview]:max-w-64"},
+  },
   "p-reasoning-1": {
     name: "p-reasoning-1",
     description: "Finished reasoning block with duration and open panel",
@@ -10392,6 +10500,42 @@ export const Index: Record<string, any> = {
     }),
     categories: ["tabs"],
     meta: undefined,
+  },
+  "p-tag-input-1": {
+    name: "p-tag-input-1",
+    description: "Controlled tag input with add, remove, and dedupe",
+    type: "registry:block",
+    registryDependencies: ["@coss/tag-input"],
+    files: [{
+      path: "registry/default/particles/p-tag-input-1.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/particles/p-tag-input-1.tsx")
+      const exportName = Object.keys(mod).find(key => /^[A-Z]/.test(key) && typeof mod[key] === 'function') || Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["tag"],
+    meta: {"className":"**:data-[slot=preview]:w-full"},
+  },
+  "p-tag-input-2": {
+    name: "p-tag-input-2",
+    description: "Tag input capped at five tags with a hint",
+    type: "registry:block",
+    registryDependencies: ["@coss/tag-input"],
+    files: [{
+      path: "registry/default/particles/p-tag-input-2.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/particles/p-tag-input-2.tsx")
+      const exportName = Object.keys(mod).find(key => /^[A-Z]/.test(key) && typeof mod[key] === 'function') || Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["tag"],
+    meta: {"className":"**:data-[slot=preview]:w-full"},
   },
   "p-textarea-1": {
     name: "p-textarea-1",

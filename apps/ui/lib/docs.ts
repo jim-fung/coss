@@ -6,9 +6,11 @@ export const PAGES_NEW = [
   "/docs/components/date-field",
   "/docs/components/menubar",
   "/docs/components/navigation-menu",
+  "/docs/components/rating",
   "/docs/components/resizable",
   "/docs/components/select-native",
   "/docs/components/stepper",
+  "/docs/components/tag-input",
   "/docs/components/timeline",
   "/docs/components/tree",
 ];

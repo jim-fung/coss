@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-tag-input-1",
+  "description": "Controlled tag input with add, remove, and dedupe",
+  "registryDependencies": [
+    "@coss/tag-input"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-tag-input-1.tsx",
+      "content": "\"use client\";\n\nimport { useState } from \"react\";\nimport {\n  TagInput,\n  TagInputInput,\n  TagInputItem,\n} from \"@/registry/default/ui/tag-input\";\n\nexport default function Particle() {\n  const [tags, setTags] = useState<string[]>([\"design\", \"react\"]);\n\n  return (\n    <div className=\"flex w-full max-w-sm flex-col gap-2\">\n      <TagInput onValueChange={setTags} value={tags}>\n        {tags.map((tag) => (\n          <TagInputItem key={tag} tag={tag} />\n        ))}\n        <TagInputInput placeholder=\"Add tag…\" />\n      </TagInput>\n      <p className=\"text-muted-foreground text-xs\">\n        {tags.length === 0\n          ? \"No tags yet.\"\n          : `${tags.length} tag${tags.length === 1 ? \"\" : \"s\"}: ${tags.join(\", \")}`}\n      </p>\n    </div>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "meta": {
+    "className": "**:data-[slot=preview]:w-full"
+  },
+  "categories": [
+    "tag"
+  ],
+  "type": "registry:block"
+}

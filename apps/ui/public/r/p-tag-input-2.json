@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-tag-input-2",
+  "description": "Tag input capped at five tags with a hint",
+  "registryDependencies": [
+    "@coss/tag-input"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-tag-input-2.tsx",
+      "content": "\"use client\";\n\nimport { useState } from \"react\";\nimport {\n  TagInput,\n  TagInputInput,\n  TagInputItem,\n} from \"@/registry/default/ui/tag-input\";\n\nconst MAX_TAGS = 5;\n\nexport default function Particle() {\n  const [tags, setTags] = useState<string[]>([\"next\", \"typescript\"]);\n  const limitReached = tags.length >= MAX_TAGS;\n  const remaining = MAX_TAGS - tags.length;\n\n  return (\n    <div className=\"flex w-full max-w-sm flex-col gap-2\">\n      <TagInput onValueChange={setTags} value={tags}>\n        {tags.map((tag) => (\n          <TagInputItem key={tag} tag={tag} />\n        ))}\n        <TagInputInput\n          disabled={limitReached}\n          placeholder={limitReached ? \"Tag limit reached\" : \"Add tag…\"}\n        />\n      </TagInput>\n      <p className=\"text-muted-foreground text-xs\">\n        {limitReached\n          ? `Maximum of ${MAX_TAGS} tags reached.`\n          : `${remaining} more tag${remaining === 1 ? \"\" : \"s\"} allowed.`}\n      </p>\n    </div>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "meta": {
+    "className": "**:data-[slot=preview]:w-full"
+  },
+  "categories": [
+    "tag"
+  ],
+  "type": "registry:block"
+}

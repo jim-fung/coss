@@ -50,6 +50,7 @@
         "@coss/progress",
         "@coss/prompt-input",
         "@coss/radio-group",
+        "@coss/rating",
         "@coss/reasoning",
         "@coss/resizable",
         "@coss/scroll-area",
@@ -68,6 +69,7 @@
         "@coss/switch",
         "@coss/table",
         "@coss/tabs",
+        "@coss/tag-input",
         "@coss/textarea",
         "@coss/timeline",
         "@coss/toast",
@@ -810,6 +812,22 @@
       "type": "registry:ui"
     },
     {
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/rating.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "rating",
+      "registryDependencies": [
+        "@coss/radio-group"
+      ],
+      "type": "registry:ui"
+    },
+    {
       "files": [
         {
           "path": "registry/default/ui/reasoning.tsx",
@@ -1060,6 +1078,16 @@
       "registryDependencies": [
         "@coss/segmented-control"
       ],
+      "type": "registry:ui"
+    },
+    {
+      "files": [
+        {
+          "path": "registry/default/ui/tag-input.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "tag-input",
       "type": "registry:ui"
     },
     {
@@ -9677,6 +9705,88 @@
     },
     {
       "categories": [
+        "rating"
+      ],
+      "description": "Star rating with three of five selected",
+      "files": [
+        {
+          "path": "registry/default/particles/p-rating-1.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "className": "**:data-[slot=preview]:w-full **:data-[slot=preview]:max-w-64"
+      },
+      "name": "p-rating-1",
+      "registryDependencies": [
+        "@coss/rating"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
+        "rating"
+      ],
+      "description": "Controlled star rating with clear-on-click and readout",
+      "files": [
+        {
+          "path": "registry/default/particles/p-rating-2.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "className": "**:data-[slot=preview]:w-full **:data-[slot=preview]:max-w-64"
+      },
+      "name": "p-rating-2",
+      "registryDependencies": [
+        "@coss/rating"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
+        "rating"
+      ],
+      "description": "Star rating sizes",
+      "files": [
+        {
+          "path": "registry/default/particles/p-rating-3.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "className": "**:data-[slot=preview]:w-full **:data-[slot=preview]:max-w-64"
+      },
+      "name": "p-rating-3",
+      "registryDependencies": [
+        "@coss/rating"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
+        "rating",
+        "field"
+      ],
+      "description": "Star rating in a field with description",
+      "files": [
+        {
+          "path": "registry/default/particles/p-rating-4.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "className": "**:data-[slot=preview]:w-full **:data-[slot=preview]:max-w-64"
+      },
+      "name": "p-rating-4",
+      "registryDependencies": [
+        "@coss/field",
+        "@coss/rating"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
         "ai",
         "collapsible"
       ],
@@ -11927,6 +12037,46 @@
       "name": "p-tabs-15",
       "registryDependencies": [
         "@coss/tabs"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
+        "tag"
+      ],
+      "description": "Controlled tag input with add, remove, and dedupe",
+      "files": [
+        {
+          "path": "registry/default/particles/p-tag-input-1.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "className": "**:data-[slot=preview]:w-full"
+      },
+      "name": "p-tag-input-1",
+      "registryDependencies": [
+        "@coss/tag-input"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "categories": [
+        "tag"
+      ],
+      "description": "Tag input capped at five tags with a hint",
+      "files": [
+        {
+          "path": "registry/default/particles/p-tag-input-2.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "meta": {
+        "className": "**:data-[slot=preview]:w-full"
+      },
+      "name": "p-tag-input-2",
+      "registryDependencies": [
+        "@coss/tag-input"
       ],
       "type": "registry:block"
     },

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-rating-1",
+  "description": "Star rating with three of five selected",
+  "registryDependencies": [
+    "@coss/rating"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-rating-1.tsx",
+      "content": "import { Rating } from \"@/registry/default/ui/rating\";\n\nexport default function Particle() {\n  return (\n    <div className=\"flex max-w-sm flex-col gap-2\">\n      <span className=\"text-muted-foreground text-sm\">\n        Rate your experience\n      </span>\n      <Rating defaultValue={3} />\n    </div>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "meta": {
+    "className": "**:data-[slot=preview]:w-full **:data-[slot=preview]:max-w-64"
+  },
+  "categories": [
+    "rating"
+  ],
+  "type": "registry:block"
+}

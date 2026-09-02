@@ -50,6 +50,7 @@ export const ui: Registry["items"] = [
       "@coss/progress",
       "@coss/prompt-input",
       "@coss/radio-group",
+      "@coss/rating",
       "@coss/reasoning",
       "@coss/resizable",
       "@coss/scroll-area",
@@ -68,6 +69,7 @@ export const ui: Registry["items"] = [
       "@coss/switch",
       "@coss/table",
       "@coss/tabs",
+      "@coss/tag-input",
       "@coss/textarea",
       "@coss/timeline",
       "@coss/toast",
@@ -689,6 +691,18 @@ export const ui: Registry["items"] = [
     type: "registry:ui",
   },
   {
+    dependencies: ["lucide-react"],
+    files: [
+      {
+        path: "ui/rating.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "rating",
+    registryDependencies: ["@coss/radio-group"],
+    type: "registry:ui",
+  },
+  {
     files: [
       {
         path: "ui/reasoning.tsx",
@@ -905,6 +919,16 @@ export const ui: Registry["items"] = [
     ],
     name: "tabs",
     registryDependencies: ["@coss/segmented-control"],
+    type: "registry:ui",
+  },
+  {
+    files: [
+      {
+        path: "ui/tag-input.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "tag-input",
     type: "registry:ui",
   },
   {
