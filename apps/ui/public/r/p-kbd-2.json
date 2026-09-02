@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-kbd-2",
+  "description": "Keyboard shortcut combination",
+  "registryDependencies": [
+    "@coss/kbd"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-kbd-2.tsx",
+      "content": "import { Kbd, KbdGroup } from \"@/registry/default/ui/kbd\";\n\nexport default function Particle() {\n  return (\n    <div className=\"flex flex-col gap-2 text-sm\">\n      <p className=\"flex items-center gap-1.5\">\n        Press\n        <KbdGroup>\n          <Kbd>⌘</Kbd>\n          <Kbd>K</Kbd>\n        </KbdGroup>\n        to open the command menu\n      </p>\n      <p className=\"flex items-center gap-1.5 text-muted-foreground\">\n        Or\n        <KbdGroup>\n          <Kbd>Ctrl</Kbd>\n          <Kbd>⇧</Kbd>\n          <Kbd>P</Kbd>\n        </KbdGroup>\n        to run any command\n      </p>\n    </div>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "categories": [
+    "kbd"
+  ],
+  "type": "registry:block"
+}

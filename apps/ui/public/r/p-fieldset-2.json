@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-fieldset-2",
+  "description": "Disabled fieldset with controls",
+  "registryDependencies": [
+    "@coss/checkbox",
+    "@coss/field",
+    "@coss/fieldset",
+    "@coss/radio-group"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-fieldset-2.tsx",
+      "content": "import { Checkbox } from \"@/registry/default/ui/checkbox\";\nimport {\n  Field,\n  FieldDescription,\n  FieldItem,\n  FieldLabel,\n} from \"@/registry/default/ui/field\";\nimport { Fieldset, FieldsetLegend } from \"@/registry/default/ui/fieldset\";\nimport { Radio, RadioGroup } from \"@/registry/default/ui/radio-group\";\n\nexport default function Particle() {\n  return (\n    <Fieldset className=\"flex w-full flex-col gap-6\" disabled>\n      <FieldsetLegend>Notification preferences</FieldsetLegend>\n\n      <Field>\n        <FieldLabel>\n          <Checkbox defaultChecked />\n          Email notifications\n        </FieldLabel>\n      </Field>\n\n      <Field>\n        <FieldLabel>\n          <Checkbox />\n          Push notifications\n        </FieldLabel>\n      </Field>\n\n      <Field>\n        <RadioGroup defaultValue=\"daily\">\n          <FieldItem>\n            <FieldLabel>\n              <Radio value=\"daily\" /> Daily digest\n            </FieldLabel>\n          </FieldItem>\n          <FieldItem>\n            <FieldLabel>\n              <Radio value=\"weekly\" /> Weekly summary\n            </FieldLabel>\n          </FieldItem>\n        </RadioGroup>\n        <FieldDescription>\n          Notification settings are managed by your organization.\n        </FieldDescription>\n      </Field>\n    </Fieldset>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "categories": [
+    "fieldset",
+    "input"
+  ],
+  "type": "registry:block"
+}

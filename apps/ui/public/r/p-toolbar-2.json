@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-toolbar-2",
+  "description": "Formatting toolbar with grouped toggles",
+  "registryDependencies": [
+    "@coss/toggle-group",
+    "@coss/toolbar"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-toolbar-2.tsx",
+      "content": "import {\n  AlignCenterIcon,\n  AlignLeftIcon,\n  AlignRightIcon,\n  BoldIcon,\n  ItalicIcon,\n  UnderlineIcon,\n} from \"lucide-react\";\nimport {\n  ToggleGroup,\n  ToggleGroupItem,\n} from \"@/registry/default/ui/toggle-group\";\nimport {\n  Toolbar,\n  ToolbarButton,\n  ToolbarGroup,\n  ToolbarSeparator,\n} from \"@/registry/default/ui/toolbar\";\n\nexport default function Particle() {\n  return (\n    <Toolbar aria-label=\"Text formatting\">\n      <ToolbarGroup>\n        <ToggleGroup defaultValue={[\"bold\"]} multiple>\n          <ToolbarButton\n            aria-label=\"Toggle bold\"\n            render={<ToggleGroupItem value=\"bold\" />}\n          >\n            <BoldIcon />\n          </ToolbarButton>\n          <ToolbarButton\n            aria-label=\"Toggle italic\"\n            render={<ToggleGroupItem value=\"italic\" />}\n          >\n            <ItalicIcon />\n          </ToolbarButton>\n          <ToolbarButton\n            aria-label=\"Toggle underline\"\n            render={<ToggleGroupItem value=\"underline\" />}\n          >\n            <UnderlineIcon />\n          </ToolbarButton>\n        </ToggleGroup>\n      </ToolbarGroup>\n      <ToolbarSeparator />\n      <ToolbarGroup>\n        <ToggleGroup defaultValue={[\"left\"]}>\n          <ToolbarButton\n            aria-label=\"Align left\"\n            render={<ToggleGroupItem value=\"left\" />}\n          >\n            <AlignLeftIcon />\n          </ToolbarButton>\n          <ToolbarButton\n            aria-label=\"Align center\"\n            render={<ToggleGroupItem value=\"center\" />}\n          >\n            <AlignCenterIcon />\n          </ToolbarButton>\n          <ToolbarButton\n            aria-label=\"Align right\"\n            render={<ToggleGroupItem value=\"right\" />}\n          >\n            <AlignRightIcon />\n          </ToolbarButton>\n        </ToggleGroup>\n      </ToolbarGroup>\n    </Toolbar>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "categories": [
+    "toolbar"
+  ],
+  "type": "registry:block"
+}

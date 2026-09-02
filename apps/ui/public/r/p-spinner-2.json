@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-spinner-2",
+  "description": "Spinner sizes",
+  "registryDependencies": [
+    "@coss/spinner"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-spinner-2.tsx",
+      "content": "import { Spinner } from \"@/registry/default/ui/spinner\";\n\nexport default function Particle() {\n  return (\n    <div className=\"flex flex-wrap items-center gap-6\">\n      <div className=\"flex flex-col items-center gap-2\">\n        <Spinner className=\"size-4\" />\n        <span className=\"text-muted-foreground text-xs\">Small</span>\n      </div>\n      <div className=\"flex flex-col items-center gap-2\">\n        <Spinner />\n        <span className=\"text-muted-foreground text-xs\">Default</span>\n      </div>\n      <div className=\"flex flex-col items-center gap-2\">\n        <Spinner className=\"size-8\" />\n        <span className=\"text-muted-foreground text-xs\">Large</span>\n      </div>\n      <div className=\"flex flex-col items-center gap-2\">\n        <Spinner className=\"size-12\" />\n        <span className=\"text-muted-foreground text-xs\">Extra large</span>\n      </div>\n    </div>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "categories": [
+    "spinner"
+  ],
+  "type": "registry:block"
+}

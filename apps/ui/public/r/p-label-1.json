@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-label-1",
+  "description": "Label with input",
+  "registryDependencies": [
+    "@coss/input",
+    "@coss/label"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-label-1.tsx",
+      "content": "import { useId } from \"react\";\nimport { Input } from \"@/registry/default/ui/input\";\nimport { Label } from \"@/registry/default/ui/label\";\n\nexport default function Particle() {\n  const id = useId();\n  return (\n    <div className=\"flex w-full max-w-sm flex-col gap-2\">\n      <Label htmlFor={id}>Email address</Label>\n      <Input id={id} placeholder=\"Email address\" type=\"email\" />\n    </div>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "categories": [
+    "label",
+    "input"
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-empty-2",
+  "description": "Empty state with icon and action",
+  "registryDependencies": [
+    "@coss/button",
+    "@coss/empty"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-empty-2.tsx",
+      "content": "import { SearchXIcon } from \"lucide-react\";\nimport { Button } from \"@/registry/default/ui/button\";\nimport {\n  Empty,\n  EmptyContent,\n  EmptyDescription,\n  EmptyHeader,\n  EmptyMedia,\n  EmptyTitle,\n} from \"@/registry/default/ui/empty\";\n\nexport default function Particle() {\n  return (\n    <Empty>\n      <EmptyHeader>\n        <EmptyMedia variant=\"icon\">\n          <SearchXIcon />\n        </EmptyMedia>\n        <EmptyTitle>No results found</EmptyTitle>\n        <EmptyDescription>\n          Try a different search or clear your filters to see everything.\n        </EmptyDescription>\n      </EmptyHeader>\n      <EmptyContent>\n        <Button size=\"sm\" variant=\"outline\">\n          Clear filters\n        </Button>\n      </EmptyContent>\n    </Empty>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "categories": [
+    "empty state"
+  ],
+  "type": "registry:block"
+}

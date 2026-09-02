@@ -5371,6 +5371,24 @@ export const Index: Record<string, any> = {
     categories: ["empty state"],
     meta: undefined,
   },
+  "p-empty-2": {
+    name: "p-empty-2",
+    description: "Empty state with icon and action",
+    type: "registry:block",
+    registryDependencies: ["@coss/button","@coss/empty"],
+    files: [{
+      path: "registry/default/particles/p-empty-2.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/particles/p-empty-2.tsx")
+      const exportName = Object.keys(mod).find(key => /^[A-Z]/.test(key) && typeof mod[key] === 'function') || Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["empty state"],
+    meta: undefined,
+  },
   "p-field-1": {
     name: "p-field-1",
     description: "Field with description",
@@ -5713,6 +5731,24 @@ export const Index: Record<string, any> = {
     categories: ["fieldset","input"],
     meta: {"className":"**:data-[slot=preview]:w-full **:data-[slot=preview]:max-w-64"},
   },
+  "p-fieldset-2": {
+    name: "p-fieldset-2",
+    description: "Disabled fieldset with controls",
+    type: "registry:block",
+    registryDependencies: ["@coss/checkbox","@coss/field","@coss/fieldset","@coss/radio-group"],
+    files: [{
+      path: "registry/default/particles/p-fieldset-2.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/particles/p-fieldset-2.tsx")
+      const exportName = Object.keys(mod).find(key => /^[A-Z]/.test(key) && typeof mod[key] === 'function') || Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["fieldset","input"],
+    meta: undefined,
+  },
   "p-form-1": {
     name: "p-form-1",
     description: "Input in a form",
@@ -5837,6 +5873,60 @@ export const Index: Record<string, any> = {
       return { default: mod.default || mod[exportName] }
     }),
     categories: ["kbd"],
+    meta: undefined,
+  },
+  "p-kbd-2": {
+    name: "p-kbd-2",
+    description: "Keyboard shortcut combination",
+    type: "registry:block",
+    registryDependencies: ["@coss/kbd"],
+    files: [{
+      path: "registry/default/particles/p-kbd-2.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/particles/p-kbd-2.tsx")
+      const exportName = Object.keys(mod).find(key => /^[A-Z]/.test(key) && typeof mod[key] === 'function') || Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["kbd"],
+    meta: undefined,
+  },
+  "p-label-1": {
+    name: "p-label-1",
+    description: "Label with input",
+    type: "registry:block",
+    registryDependencies: ["@coss/input","@coss/label"],
+    files: [{
+      path: "registry/default/particles/p-label-1.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/particles/p-label-1.tsx")
+      const exportName = Object.keys(mod).find(key => /^[A-Z]/.test(key) && typeof mod[key] === 'function') || Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["label","input"],
+    meta: undefined,
+  },
+  "p-label-2": {
+    name: "p-label-2",
+    description: "Label with checkbox and disabled state",
+    type: "registry:block",
+    registryDependencies: ["@coss/checkbox","@coss/label"],
+    files: [{
+      path: "registry/default/particles/p-label-2.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/particles/p-label-2.tsx")
+      const exportName = Object.keys(mod).find(key => /^[A-Z]/.test(key) && typeof mod[key] === 'function') || Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["label","checkbox"],
     meta: undefined,
   },
   "p-group-1": {
@@ -9025,6 +9115,24 @@ export const Index: Record<string, any> = {
     categories: ["separator"],
     meta: undefined,
   },
+  "p-separator-2": {
+    name: "p-separator-2",
+    description: "Vertical separator",
+    type: "registry:block",
+    registryDependencies: ["@coss/separator"],
+    files: [{
+      path: "registry/default/particles/p-separator-2.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/particles/p-separator-2.tsx")
+      const exportName = Object.keys(mod).find(key => /^[A-Z]/.test(key) && typeof mod[key] === 'function') || Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["separator"],
+    meta: undefined,
+  },
   "p-sheet-1": {
     name: "p-sheet-1",
     description: "Basic sheet",
@@ -9613,6 +9721,24 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/default/particles/p-spinner-1.tsx")
+      const exportName = Object.keys(mod).find(key => /^[A-Z]/.test(key) && typeof mod[key] === 'function') || Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["spinner"],
+    meta: undefined,
+  },
+  "p-spinner-2": {
+    name: "p-spinner-2",
+    description: "Spinner sizes",
+    type: "registry:block",
+    registryDependencies: ["@coss/spinner"],
+    files: [{
+      path: "registry/default/particles/p-spinner-2.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/particles/p-spinner-2.tsx")
       const exportName = Object.keys(mod).find(key => /^[A-Z]/.test(key) && typeof mod[key] === 'function') || Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),
@@ -11161,6 +11287,24 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/default/particles/p-toolbar-1.tsx")
+      const exportName = Object.keys(mod).find(key => /^[A-Z]/.test(key) && typeof mod[key] === 'function') || Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["toolbar"],
+    meta: undefined,
+  },
+  "p-toolbar-2": {
+    name: "p-toolbar-2",
+    description: "Formatting toolbar with grouped toggles",
+    type: "registry:block",
+    registryDependencies: ["@coss/toggle-group","@coss/toolbar"],
+    files: [{
+      path: "registry/default/particles/p-toolbar-2.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/particles/p-toolbar-2.tsx")
       const exportName = Object.keys(mod).find(key => /^[A-Z]/.test(key) && typeof mod[key] === 'function') || Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),

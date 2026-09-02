@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-label-2",
+  "description": "Label with checkbox and disabled state",
+  "registryDependencies": [
+    "@coss/checkbox",
+    "@coss/label"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-label-2.tsx",
+      "content": "import { Checkbox } from \"@/registry/default/ui/checkbox\";\nimport { Label } from \"@/registry/default/ui/label\";\n\nexport default function Particle() {\n  return (\n    <div className=\"flex flex-col gap-3\">\n      <Label>\n        <Checkbox defaultChecked />\n        Email notifications\n      </Label>\n      <Label>\n        <Checkbox />\n        Push notifications\n      </Label>\n      <Label aria-disabled className=\"text-muted-foreground\">\n        <Checkbox disabled />\n        SMS notifications\n      </Label>\n    </div>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "categories": [
+    "label",
+    "checkbox"
+  ],
+  "type": "registry:block"
+}

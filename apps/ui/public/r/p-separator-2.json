@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-separator-2",
+  "description": "Vertical separator",
+  "registryDependencies": [
+    "@coss/separator"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-separator-2.tsx",
+      "content": "import { Separator } from \"@/registry/default/ui/separator\";\n\nexport default function Particle() {\n  return (\n    <div className=\"flex items-center gap-6\">\n      <div className=\"flex max-w-48 flex-col gap-1\">\n        <p className=\"font-medium text-sm\">Free plan</p>\n        <p className=\"text-muted-foreground text-sm\">\n          Up to three projects with basic analytics and community support.\n        </p>\n      </div>\n      <Separator className=\"h-16\" orientation=\"vertical\" />\n      <div className=\"flex max-w-48 flex-col gap-1\">\n        <p className=\"font-medium text-sm\">Pro plan</p>\n        <p className=\"text-muted-foreground text-sm\">\n          Unlimited projects with advanced insights and priority support.\n        </p>\n      </div>\n    </div>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "categories": [
+    "separator"
+  ],
+  "type": "registry:block"
+}
