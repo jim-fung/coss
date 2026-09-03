@@ -133,7 +133,7 @@ export default function Particle() {
                   </div>
                   <div className="flex items-center gap-1.5">
                     <Badge size="sm" variant="outline">
-                      <ActivityIcon />
+                      <ActivityIcon aria-hidden="true" />
                       {parcel.lastActivity.action} {parcel.lastActivity.ago}
                     </Badge>
                     {parcel.polygon ? (
@@ -142,7 +142,7 @@ export default function Particle() {
                       </Badge>
                     ) : (
                       <Badge size="sm" variant="outline">
-                        no polygon
+                        <span className="italic">polygon not recorded</span>
                       </Badge>
                     )}
                   </div>

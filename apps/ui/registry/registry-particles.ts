@@ -2269,6 +2269,7 @@ export const particles: ParticleItem[] = [
   },
   {
     categories: categories("dashboard", "card", "badge"),
+    dependencies: ["lucide-react"],
     description: "Operate stats with service health strip",
     files: [{ path: "particles/p-dashboard-1.tsx", type: "registry:block" }],
     meta: {
@@ -2317,6 +2318,7 @@ export const particles: ParticleItem[] = [
   },
   {
     categories: categories("dashboard", "card", "copy"),
+    dependencies: ["lucide-react"],
     description: "Recent registrations feed with copy actions",
     files: [{ path: "particles/p-dashboard-4.tsx", type: "registry:block" }],
     meta: {
@@ -2335,6 +2337,7 @@ export const particles: ParticleItem[] = [
   },
   {
     categories: categories("dashboard", "table", "badge"),
+    dependencies: ["lucide-react"],
     description: "Agent runs monitor with retry actions",
     files: [{ path: "particles/p-dashboard-5.tsx", type: "registry:block" }],
     meta: {
@@ -2353,6 +2356,7 @@ export const particles: ParticleItem[] = [
   },
   {
     categories: categories("dashboard", "form", "select", "switch"),
+    dependencies: ["lucide-react"],
     description: "Workbench preferences form with selects and switches",
     files: [{ path: "particles/p-dashboard-6.tsx", type: "registry:block" }],
     meta: {
@@ -2372,6 +2376,7 @@ export const particles: ParticleItem[] = [
   },
   {
     categories: categories("dashboard", "card", "chart"),
+    dependencies: ["lucide-react"],
     description: "Composed workbench overview grid",
     files: [{ path: "particles/p-dashboard-7.tsx", type: "registry:block" }],
     meta: {
@@ -2389,6 +2394,7 @@ export const particles: ParticleItem[] = [
   },
   {
     categories: categories("dashboard", "empty state", "loading"),
+    dependencies: ["lucide-react"],
     description: "Empty and loading dashboard states",
     files: [{ path: "particles/p-dashboard-8.tsx", type: "registry:block" }],
     meta: {
@@ -2406,6 +2412,7 @@ export const particles: ParticleItem[] = [
   },
   {
     categories: categories("dashboard", "card"),
+    dependencies: ["lucide-react"],
     description: "Weekly digest preview card",
     files: [{ path: "particles/p-dashboard-9.tsx", type: "registry:block" }],
     meta: {
@@ -2418,6 +2425,7 @@ export const particles: ParticleItem[] = [
   },
   {
     categories: categories("dashboard", "card"),
+    dependencies: ["lucide-react"],
     description: "Parcels overview with hours bars",
     files: [{ path: "particles/p-dashboard-10.tsx", type: "registry:block" }],
     meta: {

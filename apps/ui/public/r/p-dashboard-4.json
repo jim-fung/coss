@@ -2,6 +2,9 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "p-dashboard-4",
   "description": "Recent registrations feed with copy actions",
+  "dependencies": [
+    "lucide-react"
+  ],
   "registryDependencies": [
     "@coss/badge",
     "@coss/button",
@@ -17,7 +20,8 @@
     }
   ],
   "meta": {
-    "className": "**:data-[slot=preview]:w-full"
+    "className": "**:data-[slot=preview]:w-full",
+    "colSpan": 2
   },
   "categories": [
     "dashboard",

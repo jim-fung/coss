@@ -18,7 +18,8 @@
     }
   ],
   "meta": {
-    "className": "**:data-[slot=preview]:w-full"
+    "className": "**:data-[slot=preview]:w-full",
+    "colSpan": 2
   },
   "categories": [
     "dashboard",

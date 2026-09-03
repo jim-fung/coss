@@ -35,12 +35,11 @@ interface AgentRun {
   runId: string;
   attempt?: number;
   status: RunStatus;
-  latencyP50: string;
-  latencyP95: string;
+  p50Ms: number;
   p95Ms: number;
-  tokensIn: string;
-  tokensOut: string;
-  cost: string;
+  tokensInK: number;
+  tokensOutK: number;
+  costEur: number;
 }
 
 const statusVariants: Record<
@@ -68,70 +67,68 @@ const agentRuns: AgentRun[] = [
     id: 1,
     runId: "run_7c1e9a4b",
     status: "succeeded",
-    latencyP50: "1.2s",
-    latencyP95: "3.4s",
+    p50Ms: 1200,
     p95Ms: 3400,
-    tokensIn: "12.4k",
-    tokensOut: "3.1k",
-    cost: "€0.042",
+    tokensInK: 12.4,
+    tokensOutK: 3.1,
+    costEur: 0.042,
   },
   {
     id: 2,
     runId: "run_a3f08d12",
     status: "running",
-    latencyP50: "0.8s",
-    latencyP95: "2.6s",
+    p50Ms: 800,
     p95Ms: 2600,
-    tokensIn: "8.1k",
-    tokensOut: "1.9k",
-    cost: "€0.027",
+    tokensInK: 8.1,
+    tokensOutK: 1.9,
+    costEur: 0.027,
   },
   {
     id: 3,
     runId: "run_e49b77c0",
     status: "failed",
-    latencyP50: "1.4s",
-    latencyP95: "4.2s",
+    p50Ms: 1400,
     p95Ms: 4200,
-    tokensIn: "9.6k",
-    tokensOut: "0.4k",
-    cost: "€0.026",
+    tokensInK: 9.6,
+    tokensOutK: 0.4,
+    costEur: 0.026,
   },
   {
     id: 4,
     runId: "run_5d2c8ef1",
     status: "timed_out",
-    latencyP50: "1.1s",
-    latencyP95: "30.0s",
+    p50Ms: 1100,
     p95Ms: 30000,
-    tokensIn: "21.7k",
-    tokensOut: "2.2k",
-    cost: "€0.061",
+    tokensInK: 21.7,
+    tokensOutK: 2.2,
+    costEur: 0.061,
   },
   {
     id: 5,
     runId: "run_b90a3f6e",
     attempt: 2,
     status: "retried",
-    latencyP50: "1.3s",
-    latencyP95: "3.9s",
+    p50Ms: 1300,
     p95Ms: 3900,
-    tokensIn: "14.8k",
-    tokensOut: "3.4k",
-    cost: "€0.049",
+    tokensInK: 14.8,
+    tokensOutK: 3.4,
+    costEur: 0.049,
   },
   {
     id: 6,
     runId: "run_12fa4c8d",
     status: "succeeded",
-    latencyP50: "1.0s",
-    latencyP95: "2.8s",
+    p50Ms: 1000,
     p95Ms: 2800,
-    tokensIn: "10.2k",
-    tokensOut: "2.7k",
-    cost: "€0.035",
+    tokensInK: 10.2,
+    tokensOutK: 2.7,
+    costEur: 0.035,
   },
 ];
+
+function formatSeconds(ms: number): string {
+  return `${(ms / 1000).toFixed(1)}s`;
+}
 
 function latencyBarWidth(p95Ms: number): string {
   return `${Math.min(100, Math.round((p95Ms / 30000) * 100))}%`;
@@ -153,6 +150,12 @@ export default function Particle() {
     statusFilter === "all"
       ? agentRuns
       : agentRuns.filter((run) => run.status === statusFilter);
+  const totalTokensIn = visibleRuns.reduce((sum, r) => sum + r.tokensInK, 0);
+  const totalTokensOut = visibleRuns.reduce((sum, r) => sum + r.tokensOutK, 0);
+  const totalCost = visibleRuns.reduce((sum, r) => sum + r.costEur, 0);
+  const avgP95 = visibleRuns.length
+    ? visibleRuns.reduce((sum, r) => sum + r.p95Ms, 0) / visibleRuns.length
+    : 0;
 
   return (
     <div className="grid gap-4">
@@ -162,7 +165,10 @@ export default function Particle() {
           <CardDescription>
             Processing runs, last 24 hours{" "}
             <span className="inline-flex items-center gap-1.5">
-              <span className="size-1.5 animate-pulse rounded-full bg-success" />
+              <span
+                aria-hidden="true"
+                className="size-1.5 animate-pulse rounded-full bg-success"
+              />
               <span className="text-muted-foreground">
                 live · polled 5s ago
               </span>
@@ -220,9 +226,9 @@ export default function Particle() {
                   </Badge>
                 </TableCell>
                 <TableCell className="tabular-nums">
-                  <div className="text-sm">p50 {run.latencyP50}</div>
+                  <div className="text-sm">p50 {formatSeconds(run.p50Ms)}</div>
                   <div className="text-muted-foreground text-xs">
-                    p95 {run.latencyP95}
+                    p95 {formatSeconds(run.p95Ms)}
                   </div>
                   <div className="mt-1.5 h-1 w-full overflow-hidden rounded-full bg-muted">
                     <div
@@ -232,9 +238,12 @@ export default function Particle() {
                   </div>
                 </TableCell>
                 <TableCell className="whitespace-nowrap tabular-nums">
-                  {run.tokensIn} in / {run.tokensOut} out
+                  {run.tokensInK.toFixed(1)}k in / {run.tokensOutK.toFixed(1)}k
+                  out
                 </TableCell>
-                <TableCell className="tabular-nums">{run.cost}</TableCell>
+                <TableCell className="tabular-nums">
+                  €{run.costEur.toFixed(3)}
+                </TableCell>
                 <TableCell className="text-right">
                   {run.status === "failed" || run.status === "timed_out" ? (
                     <Button size="sm" variant="outline">
@@ -253,16 +262,19 @@ export default function Particle() {
           <TableFooter>
             <TableRow>
               <TableCell className="text-muted-foreground">
-                {agentRuns.length} runs
+                {visibleRuns.length} {visibleRuns.length === 1 ? "run" : "runs"}
               </TableCell>
               <TableCell className="text-muted-foreground">—</TableCell>
               <TableCell className="text-muted-foreground">
-                avg p95 8.2s
+                avg p95 {formatSeconds(avgP95)}
               </TableCell>
               <TableCell className="whitespace-nowrap text-muted-foreground">
-                69.8k in / 13.6k out
+                {totalTokensIn.toFixed(1)}k in / {totalTokensOut.toFixed(1)}k
+                out
               </TableCell>
-              <TableCell className="text-muted-foreground">€0.240</TableCell>
+              <TableCell className="text-muted-foreground">
+                €{totalCost.toFixed(3)}
+              </TableCell>
               <TableCell className="text-right text-muted-foreground">
                 —
               </TableCell>

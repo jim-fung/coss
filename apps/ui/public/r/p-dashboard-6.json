@@ -2,6 +2,9 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "p-dashboard-6",
   "description": "Workbench preferences form with selects and switches",
+  "dependencies": [
+    "lucide-react"
+  ],
   "registryDependencies": [
     "@coss/button",
     "@coss/card",
@@ -18,7 +21,8 @@
     }
   ],
   "meta": {
-    "className": "**:data-[slot=preview]:w-full"
+    "className": "**:data-[slot=preview]:w-full",
+    "colSpan": 2
   },
   "categories": [
     "dashboard",

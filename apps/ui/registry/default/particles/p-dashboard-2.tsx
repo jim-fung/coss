@@ -111,27 +111,27 @@ export default function Particle() {
               <ChartLegend content={<ChartLegendContent />} />
               <Area
                 dataKey="received"
-                fill="url(#fillReceived)"
+                fill="url(#flowReceived)"
                 stroke="var(--color-received)"
                 stackId="a"
                 type="natural"
               />
               <Area
                 dataKey="registered"
-                fill="url(#fillRegistered)"
+                fill="url(#flowRegistered)"
                 stroke="var(--color-registered)"
                 stackId="a"
                 type="natural"
               />
               <Area
                 dataKey="asked"
-                fill="url(#fillAsked)"
+                fill="url(#flowAsked)"
                 stroke="var(--color-asked)"
                 stackId="a"
                 type="natural"
               />
               <defs>
-                <linearGradient id="fillReceived" x1="0" x2="0" y1="0" y2="1">
+                <linearGradient id="flowReceived" x1="0" x2="0" y1="0" y2="1">
                   <stop
                     offset="5%"
                     stopColor="var(--color-received)"
@@ -143,7 +143,7 @@ export default function Particle() {
                     stopOpacity={0.1}
                   />
                 </linearGradient>
-                <linearGradient id="fillRegistered" x1="0" x2="0" y1="0" y2="1">
+                <linearGradient id="flowRegistered" x1="0" x2="0" y1="0" y2="1">
                   <stop
                     offset="5%"
                     stopColor="var(--color-registered)"
@@ -155,7 +155,7 @@ export default function Particle() {
                     stopOpacity={0.1}
                   />
                 </linearGradient>
-                <linearGradient id="fillAsked" x1="0" x2="0" y1="0" y2="1">
+                <linearGradient id="flowAsked" x1="0" x2="0" y1="0" y2="1">
                   <stop
                     offset="5%"
                     stopColor="var(--color-asked)"

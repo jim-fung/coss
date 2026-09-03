@@ -5556,6 +5556,9 @@
         "card",
         "badge"
       ],
+      "dependencies": [
+        "lucide-react"
+      ],
       "description": "Operate stats with service health strip",
       "files": [
         {
@@ -5634,6 +5637,9 @@
         "card",
         "copy"
       ],
+      "dependencies": [
+        "lucide-react"
+      ],
       "description": "Recent registrations feed with copy actions",
       "files": [
         {
@@ -5660,6 +5666,9 @@
         "dashboard",
         "table",
         "badge"
+      ],
+      "dependencies": [
+        "lucide-react"
       ],
       "description": "Agent runs monitor with retry actions",
       "files": [
@@ -5689,6 +5698,9 @@
         "select",
         "switch"
       ],
+      "dependencies": [
+        "lucide-react"
+      ],
       "description": "Workbench preferences form with selects and switches",
       "files": [
         {
@@ -5717,6 +5729,9 @@
         "card",
         "chart"
       ],
+      "dependencies": [
+        "lucide-react"
+      ],
       "description": "Composed workbench overview grid",
       "files": [
         {
@@ -5743,6 +5758,9 @@
         "empty state",
         "loading"
       ],
+      "dependencies": [
+        "lucide-react"
+      ],
       "description": "Empty and loading dashboard states",
       "files": [
         {
@@ -5768,6 +5786,9 @@
         "dashboard",
         "card"
       ],
+      "dependencies": [
+        "lucide-react"
+      ],
       "description": "Weekly digest preview card",
       "files": [
         {
@@ -5791,6 +5812,9 @@
       "categories": [
         "dashboard",
         "card"
+      ],
+      "dependencies": [
+        "lucide-react"
       ],
       "description": "Parcels overview with hours bars",
       "files": [

@@ -1,6 +1,12 @@
 "use client";
 
-import { ActivityIcon, BrainIcon, DatabaseIcon, SendIcon } from "lucide-react";
+import {
+  ActivityIcon,
+  BrainIcon,
+  DatabaseIcon,
+  type LucideIcon,
+  SendIcon,
+} from "lucide-react";
 import { Fragment } from "react";
 import { Area, AreaChart, CartesianGrid, XAxis } from "recharts";
 import { Badge } from "@/registry/default/ui/badge";
@@ -73,7 +79,7 @@ const flowConfig = {
 type HealthStatus = "healthy" | "degraded";
 
 const healthRows: {
-  icon: typeof ActivityIcon;
+  icon: LucideIcon;
   label: string;
   status: HealthStatus;
 }[] = [
@@ -178,27 +184,33 @@ export default function Particle() {
               <ChartLegend content={<ChartLegendContent />} />
               <Area
                 dataKey="received"
-                fill="url(#fillReceived)"
+                fill="url(#overviewReceived)"
                 stroke="var(--color-received)"
                 stackId="a"
                 type="natural"
               />
               <Area
                 dataKey="registered"
-                fill="url(#fillRegistered)"
+                fill="url(#overviewRegistered)"
                 stroke="var(--color-registered)"
                 stackId="a"
                 type="natural"
               />
               <Area
                 dataKey="asked"
-                fill="url(#fillAsked)"
+                fill="url(#overviewAsked)"
                 stroke="var(--color-asked)"
                 stackId="a"
                 type="natural"
               />
               <defs>
-                <linearGradient id="fillReceived" x1="0" x2="0" y1="0" y2="1">
+                <linearGradient
+                  id="overviewReceived"
+                  x1="0"
+                  x2="0"
+                  y1="0"
+                  y2="1"
+                >
                   <stop
                     offset="5%"
                     stopColor="var(--color-received)"
@@ -210,7 +222,13 @@ export default function Particle() {
                     stopOpacity={0.1}
                   />
                 </linearGradient>
-                <linearGradient id="fillRegistered" x1="0" x2="0" y1="0" y2="1">
+                <linearGradient
+                  id="overviewRegistered"
+                  x1="0"
+                  x2="0"
+                  y1="0"
+                  y2="1"
+                >
                   <stop
                     offset="5%"
                     stopColor="var(--color-registered)"
@@ -222,7 +240,7 @@ export default function Particle() {
                     stopOpacity={0.1}
                   />
                 </linearGradient>
-                <linearGradient id="fillAsked" x1="0" x2="0" y1="0" y2="1">
+                <linearGradient id="overviewAsked" x1="0" x2="0" y1="0" y2="1">
                   <stop
                     offset="5%"
                     stopColor="var(--color-asked)"
@@ -255,6 +273,7 @@ export default function Particle() {
                       className="size-3.5 shrink-0 text-muted-foreground"
                     />
                     <span
+                      aria-hidden="true"
                       className={
                         row.status === "healthy"
                           ? "size-1.5 animate-pulse rounded-full bg-success"
