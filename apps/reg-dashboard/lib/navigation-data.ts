@@ -5,6 +5,7 @@ import {
   InboxIcon,
   type LucideIcon,
   RouteIcon,
+  SearchIcon,
 } from "lucide-react";
 
 export interface NavItem {
@@ -24,6 +25,12 @@ export const navMainItems: NavItem[] = [
     icon: GaugeIcon,
     title: "Operate",
     url: "/operate",
+  },
+  {
+    icon: SearchIcon,
+    matchPath: "/investigate",
+    title: "Investigate",
+    url: "/investigate",
   },
   {
     icon: RouteIcon,
