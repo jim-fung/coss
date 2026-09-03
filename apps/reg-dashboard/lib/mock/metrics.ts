@@ -1,0 +1,145 @@
+import type { DailyMetric, FunnelStage, HealthPanel } from "../types";
+import { T } from "./core";
+
+export const healthPanels: HealthPanel[] = [
+  {
+    id: "worker-heartbeat",
+    label: "Worker heartbeat",
+    health: "healthy",
+    detail: "messaging worker polling Telegram · last poll 12 s ago",
+    observedAt: `2026-09-03T09:14:02${T}`,
+    freshness: "live",
+  },
+  {
+    id: "database",
+    label: "Database reachability",
+    health: "healthy",
+    detail: "repository Postgres · migrations 0001–0003 applied",
+    observedAt: `2026-09-03T09:14:00${T}`,
+    freshness: "live",
+  },
+  {
+    id: "model-provider",
+    label: "Model provider",
+    health: "degraded",
+    detail:
+      "429 rate-limits on Sep 1 (run 2d5a8b… retried 3×); currently serving",
+    observedAt: `2026-09-03T09:13:45${T}`,
+    freshness: "delayed",
+    alertLink: "/runs?errorCode=provider_429",
+  },
+  {
+    id: "queue",
+    label: "Queue / backlog",
+    health: "healthy",
+    detail: "0 queued · 1 running (bge21ecd, retry budget 3/3)",
+    observedAt: `2026-09-03T09:14:02${T}`,
+    freshness: "live",
+  },
+  {
+    id: "storage",
+    label: "Storage",
+    health: "healthy",
+    detail: "message attachments 62% of quota",
+    observedAt: `2026-09-03T06:00:00${T}`,
+    freshness: "delayed",
+  },
+  {
+    id: "intake",
+    label: "Unmapped intake",
+    health: "degraded",
+    detail: "3 messages waiting on identity mapping (TG-5)",
+    observedAt: `2026-09-03T09:12:00${T}`,
+    freshness: "live",
+    alertLink: "/intake",
+  },
+];
+
+export const funnelStages: FunnelStage[] = [
+  { id: "received", label: "Received", count: 62 },
+  { id: "persisted", label: "Persisted", count: 62 },
+  { id: "scoped", label: "Farm-scoped", count: 59 },
+  { id: "started", label: "Run started", count: 56 },
+  { id: "clarified", label: "Clarified (asked)", count: 9 },
+  { id: "validated", label: "Validated", count: 51 },
+  { id: "registered", label: "Registered", count: 38, branchOf: "terminal" },
+  { id: "observed", label: "Observed", count: 7, branchOf: "terminal" },
+  { id: "ignored", label: "Ignored", count: 6, branchOf: "terminal" },
+  { id: "expired", label: "Expired", count: 4, branchOf: "terminal" },
+  { id: "failed", label: "Failed (undecided)", count: 2, branchOf: "terminal" },
+  { id: "running", label: "In flight", count: 2, branchOf: "terminal" },
+  {
+    id: "quarantined",
+    label: "Quarantined (unmapped)",
+    count: 3,
+    branchOf: "terminal",
+  },
+];
+
+export const dailyMetrics: DailyMetric[] = [
+  {
+    date: "2026-08-28",
+    p50LatencyMs: 2100,
+    p95LatencyMs: 4800,
+    tokensIn: 18_400,
+    tokensOut: 9_100,
+    costAmount: 0.42,
+    runs: 11,
+  },
+  {
+    date: "2026-08-29",
+    p50LatencyMs: 1900,
+    p95LatencyMs: 4100,
+    tokensIn: 15_200,
+    tokensOut: 7_600,
+    costAmount: 0.35,
+    runs: 9,
+  },
+  {
+    date: "2026-08-30",
+    p50LatencyMs: 1750,
+    p95LatencyMs: 3900,
+    tokensIn: 11_800,
+    tokensOut: 5_900,
+    costAmount: 0.27,
+    runs: 7,
+  },
+  {
+    date: "2026-08-31",
+    p50LatencyMs: 2050,
+    p95LatencyMs: 5200,
+    tokensIn: 16_900,
+    tokensOut: 8_400,
+    costAmount: 0.39,
+    runs: 10,
+  },
+  {
+    date: "2026-09-01",
+    p50LatencyMs: 2400,
+    p95LatencyMs: 8900,
+    tokensIn: 22_600,
+    tokensOut: 11_200,
+    costAmount: 0.58,
+    runs: 14,
+  },
+  {
+    date: "2026-09-02",
+    p50LatencyMs: 1850,
+    p95LatencyMs: 4300,
+    tokensIn: 19_300,
+    tokensOut: 9_600,
+    costAmount: 0.44,
+    runs: 12,
+  },
+  {
+    date: "2026-09-03",
+    p50LatencyMs: 1780,
+    p95LatencyMs: 3900,
+    tokensIn: 8_100,
+    tokensOut: 4_000,
+    costAmount: 0.19,
+    runs: 5,
+  },
+];
+
+// ── Lookups ──────────────────────────────────────────────────────────────────
