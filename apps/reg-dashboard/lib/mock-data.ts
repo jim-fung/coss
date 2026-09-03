@@ -21,6 +21,7 @@ import type {
   FunnelStage,
   HealthPanel,
   ImportBatch,
+  RegistrationConversation,
   RegistrationMessage,
   SeasonField,
 } from "./types";
@@ -77,6 +78,7 @@ export const seasonFields: SeasonField[] = [
 export const registrationMessages: RegistrationMessage[] = [
   {
     id: 101,
+    conversationId: "conv-0901-08",
     farmId: "bijovira-synthetic",
     reporterId: "tg:cornelis-s",
     direction: "in",
@@ -88,6 +90,7 @@ export const registrationMessages: RegistrationMessage[] = [
   },
   {
     id: 102,
+    conversationId: "conv-0901-08",
     farmId: "bijovira-synthetic",
     reporterId: "tg:cornelis-s",
     direction: "out",
@@ -98,6 +101,7 @@ export const registrationMessages: RegistrationMessage[] = [
   },
   {
     id: 103,
+    conversationId: "conv-0901-10",
     farmId: "bijovira-synthetic",
     reporterId: "tg:cornelis-s",
     direction: "in",
@@ -108,6 +112,7 @@ export const registrationMessages: RegistrationMessage[] = [
   },
   {
     id: 104,
+    conversationId: "conv-0901-10",
     farmId: "bijovira-synthetic",
     reporterId: "tg:agent",
     direction: "out",
@@ -118,6 +123,7 @@ export const registrationMessages: RegistrationMessage[] = [
   },
   {
     id: 105,
+    conversationId: "conv-0901-13",
     farmId: "bijovira-synthetic",
     reporterId: "tg:cornelis-s",
     direction: "in",
@@ -128,6 +134,7 @@ export const registrationMessages: RegistrationMessage[] = [
   },
   {
     id: 106,
+    conversationId: "conv-0901-15",
     farmId: "bijovira-synthetic",
     reporterId: "tg:cornelis-s",
     direction: "in",
@@ -138,6 +145,7 @@ export const registrationMessages: RegistrationMessage[] = [
   },
   {
     id: 107,
+    conversationId: "conv-0902-09",
     farmId: "bijovira-synthetic",
     reporterId: "tg:cornelis-s",
     direction: "in",
@@ -149,6 +157,7 @@ export const registrationMessages: RegistrationMessage[] = [
   },
   {
     id: 108,
+    conversationId: "conv-0902-09",
     farmId: "bijovira-synthetic",
     reporterId: "tg:agent",
     direction: "out",
@@ -159,6 +168,7 @@ export const registrationMessages: RegistrationMessage[] = [
   },
   {
     id: 109,
+    conversationId: "conv-0902-09",
     farmId: "bijovira-synthetic",
     reporterId: "tg:cornelis-s",
     direction: "in",
@@ -169,6 +179,7 @@ export const registrationMessages: RegistrationMessage[] = [
   },
   {
     id: 110,
+    conversationId: "conv-0828-19",
     farmId: "bijovira-synthetic",
     reporterId: "tg:cornelis-s",
     direction: "in",
@@ -180,6 +191,7 @@ export const registrationMessages: RegistrationMessage[] = [
   },
   {
     id: 111,
+    conversationId: "conv-0829-17",
     farmId: "bijovira-synthetic",
     reporterId: "tg:cornelis-s",
     direction: "in",
@@ -190,6 +202,7 @@ export const registrationMessages: RegistrationMessage[] = [
   },
   {
     id: 112,
+    conversationId: "conv-0902-11",
     farmId: "bijovira-synthetic",
     reporterId: "tg:cornelis-s",
     direction: "in",
@@ -200,6 +213,7 @@ export const registrationMessages: RegistrationMessage[] = [
   },
   {
     id: 113,
+    conversationId: "conv-0830-09",
     farmId: "bijovira-synthetic",
     reporterId: "tg:cornelis-s",
     direction: "in",
@@ -210,6 +224,7 @@ export const registrationMessages: RegistrationMessage[] = [
   },
   {
     id: 114,
+    conversationId: "conv-0831-08",
     farmId: "bijovira-synthetic",
     reporterId: "tg:cornelis-s",
     direction: "in",
@@ -220,6 +235,7 @@ export const registrationMessages: RegistrationMessage[] = [
   },
   {
     id: 115,
+    conversationId: "conv-0831-08",
     farmId: "bijovira-synthetic",
     reporterId: "tg:cornelis-s",
     direction: "in",
@@ -264,6 +280,131 @@ export const registrationMessages: RegistrationMessage[] = [
   },
 ];
 
+// ── Conversations (migration 0003: one open conversation per chat) ───────────
+
+const CHAT = "tg:chat-bijovira-1";
+
+export const registrationConversations: RegistrationConversation[] = [
+  {
+    id: "conv-0828-19",
+    farmId: "bijovira-synthetic",
+    reporterId: "tg:cornelis-s",
+    channel: "telegram",
+    providerChatId: CHAT,
+    status: "closed",
+    openedAt: `2026-08-28T19:44:00${T}`,
+    updatedAt: `2026-08-28T19:44:00${T}`,
+    closedAt: `2026-08-28T19:45:00${T}`,
+    closeReason: "confirmed",
+  },
+  {
+    id: "conv-0829-17",
+    farmId: "bijovira-synthetic",
+    reporterId: "tg:cornelis-s",
+    channel: "telegram",
+    providerChatId: CHAT,
+    status: "closed",
+    openedAt: `2026-08-29T17:02:00${T}`,
+    updatedAt: `2026-08-29T17:02:00${T}`,
+    closedAt: `2026-08-29T17:03:00${T}`,
+    closeReason: "confirmed",
+  },
+  {
+    id: "conv-0830-09",
+    farmId: "bijovira-synthetic",
+    reporterId: "tg:cornelis-s",
+    channel: "telegram",
+    providerChatId: CHAT,
+    status: "closed",
+    openedAt: `2026-08-30T09:00:00${T}`,
+    updatedAt: `2026-08-30T09:00:00${T}`,
+    closedAt: `2026-08-30T09:01:00${T}`,
+    closeReason: "confirmed",
+  },
+  {
+    id: "conv-0831-08",
+    farmId: "bijovira-synthetic",
+    reporterId: "tg:cornelis-s",
+    channel: "telegram",
+    providerChatId: CHAT,
+    status: "expired",
+    openedAt: `2026-08-31T08:00:00${T}`,
+    updatedAt: `2026-08-31T08:00:01${T}`,
+    closedAt: `2026-09-01T08:00:00${T}`,
+    closeReason: "expired",
+  },
+  {
+    id: "conv-0901-08",
+    farmId: "bijovira-synthetic",
+    reporterId: "tg:cornelis-s",
+    channel: "telegram",
+    providerChatId: CHAT,
+    status: "closed",
+    openedAt: `2026-09-01T08:12:00${T}`,
+    updatedAt: `2026-09-01T08:12:04${T}`,
+    closedAt: `2026-09-01T08:13:00${T}`,
+    closeReason: "confirmed",
+  },
+  {
+    id: "conv-0901-10",
+    farmId: "bijovira-synthetic",
+    reporterId: "tg:cornelis-s",
+    channel: "telegram",
+    providerChatId: CHAT,
+    status: "awaiting_confirmation",
+    openedAt: `2026-09-01T10:40:00${T}`,
+    updatedAt: `2026-09-01T10:40:03${T}`,
+  },
+  {
+    id: "conv-0901-13",
+    farmId: "bijovira-synthetic",
+    reporterId: "tg:cornelis-s",
+    channel: "telegram",
+    providerChatId: CHAT,
+    status: "closed",
+    openedAt: `2026-09-01T13:05:00${T}`,
+    updatedAt: `2026-09-01T13:05:00${T}`,
+    closedAt: `2026-09-01T13:06:00${T}`,
+    closeReason: "confirmed",
+  },
+  {
+    id: "conv-0901-15",
+    farmId: "bijovira-synthetic",
+    reporterId: "tg:cornelis-s",
+    channel: "telegram",
+    providerChatId: CHAT,
+    status: "closed",
+    openedAt: `2026-09-01T15:22:00${T}`,
+    updatedAt: `2026-09-01T15:22:00${T}`,
+    closedAt: `2026-09-01T15:23:00${T}`,
+    closeReason: "confirmed",
+  },
+  {
+    id: "conv-0902-09",
+    farmId: "bijovira-synthetic",
+    reporterId: "tg:cornelis-s",
+    channel: "telegram",
+    providerChatId: CHAT,
+    status: "closed",
+    openedAt: `2026-09-02T09:03:00${T}`,
+    updatedAt: `2026-09-02T09:20:00${T}`,
+    closedAt: `2026-09-02T09:21:00${T}`,
+    closeReason: "confirmed",
+  },
+  {
+    id: "conv-0902-11",
+    farmId: "bijovira-synthetic",
+    reporterId: "tg:cornelis-s",
+    channel: "telegram",
+    providerChatId: CHAT,
+    status: "closed",
+    openedAt: `2026-09-02T11:30:00${T}`,
+    updatedAt: `2026-09-02T11:30:00${T}`,
+    closedAt: `2026-09-02T11:31:00${T}`,
+    closeReason: "confirmed",
+  },
+];
+
 // ── Agent runs ───────────────────────────────────────────────────────────────
 
 export const agentRuns: AgentRun[] = [
@@ -271,6 +412,7 @@ export const agentRuns: AgentRun[] = [
     runId: "0b3e6f2a-4c11-4a5e-9d21-8f5a01c3b001",
     farmId: "bijovira-synthetic",
     messageId: 101,
+    conversationId: "conv-0901-08",
     entryId: "E-0901-01",
     sourceKind: "telegram",
     environment: "pilot",
@@ -317,6 +459,7 @@ export const agentRuns: AgentRun[] = [
     runId: "2d5a8b4c-6e33-4c7a-bf43-ab7c23e5d003",
     farmId: "bijovira-synthetic",
     messageId: 105,
+    conversationId: "conv-0901-13",
     entryId: "E-0901-02",
     sourceKind: "telegram",
     environment: "pilot",
@@ -340,6 +483,7 @@ export const agentRuns: AgentRun[] = [
     runId: "3e6b9c5d-7f44-4d8b-ca54-bc8d34f6e004",
     farmId: "bijovira-synthetic",
     messageId: 106,
+    conversationId: "conv-0901-15",
     sourceKind: "telegram",
     environment: "pilot",
     executionMode: "live",
@@ -385,6 +529,7 @@ export const agentRuns: AgentRun[] = [
     runId: "5a8dbe7f-9b66-4fad-ec76-deaf56b8a006",
     farmId: "bijovira-synthetic",
     messageId: 111,
+    conversationId: "conv-0829-17",
     entryId: "E-0829-01",
     sourceKind: "telegram",
     environment: "pilot",
@@ -408,6 +553,7 @@ export const agentRuns: AgentRun[] = [
     runId: "6b9ecf8a-ac77-4abe-fd87-ebfa67c9b007",
     farmId: "bijovira-synthetic",
     messageId: 112,
+    conversationId: "conv-0902-11",
     sourceKind: "telegram",
     environment: "pilot",
     executionMode: "live",
@@ -430,6 +576,7 @@ export const agentRuns: AgentRun[] = [
     runId: "7cafda9b-bd88-4bcf-fe98-fcab78dac008",
     farmId: "bijovira-synthetic",
     messageId: 113,
+    conversationId: "conv-0830-09",
     sourceKind: "telegram",
     environment: "pilot",
     executionMode: "live",
@@ -497,6 +644,7 @@ export const agentRuns: AgentRun[] = [
     runId: "afd10dbc-eabb-4efc-9acb-cfbdab0def11",
     farmId: "bijovira-synthetic",
     messageId: 110,
+    conversationId: "conv-0828-19",
     sourceKind: "replay",
     environment: "ci",
     executionMode: "deterministic",
@@ -519,6 +667,7 @@ export const agentRuns: AgentRun[] = [
     runId: "b0e21ecd-fbcc-4fad-9bcd-d0cebc1def12",
     farmId: "bijovira-synthetic",
     messageId: 115,
+    conversationId: "conv-0831-08",
     sourceKind: "telegram",
     environment: "pilot",
     executionMode: "live",
@@ -1551,6 +1700,22 @@ export function getMessage(
     return undefined;
   }
   return registrationMessages.find((message) => message.id === id);
+}
+
+export function getConversation(
+  conversationId: string,
+): RegistrationConversation | undefined {
+  return registrationConversations.find(
+    (conversation) => conversation.id === conversationId,
+  );
+}
+
+export function getConversationMessages(
+  conversationId: string,
+): RegistrationMessage[] {
+  return registrationMessages
+    .filter((message) => message.conversationId === conversationId)
+    .sort((a, b) => a.sentAt.localeCompare(b.sentAt));
 }
 
 export function getRun(runId: string): AgentRun | undefined {

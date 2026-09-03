@@ -62,9 +62,18 @@ const columns = (runs: AgentRun[]): ColumnDef<RegistrationMessage>[] => [
   {
     accessorKey: "id",
     header: "Message",
-    cell: ({ row }): React.ReactElement => (
-      <span className="font-mono text-xs">msg-{row.original.id}</span>
-    ),
+    cell: ({ row }): React.ReactElement =>
+      row.original.conversationId ? (
+        <Link
+          className="font-mono text-xs underline underline-offset-2 hover:text-foreground"
+          href={`/investigate/${row.original.conversationId}`}
+          title="Open conversation thread"
+        >
+          msg-{row.original.id}
+        </Link>
+      ) : (
+        <span className="font-mono text-xs">msg-{row.original.id}</span>
+      ),
     enableSorting: false,
   },
   {

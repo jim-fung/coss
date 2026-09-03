@@ -4,6 +4,7 @@ import type * as React from "react";
 import { NotRecorded } from "@/components/not-recorded";
 import type {
   BusinessDecision,
+  ConversationStatus,
   ExecutionStatus,
   ServiceHealth,
   TestVerdict,
@@ -65,6 +66,17 @@ const verdictConfig: Record<TestVerdict, StatusConfig> = {
   not_run: { label: "not run", variant: "outline" },
 };
 
+/** Conversation lifecycle (migration 0003) — chat-state, not a WB-2 dimension. */
+const conversationStatusConfig: Record<ConversationStatus, StatusConfig> = {
+  open: { label: "open", variant: "secondary" },
+  awaiting_confirmation: {
+    label: "awaiting confirmation",
+    variant: "warning",
+  },
+  closed: { label: "closed", variant: "success" },
+  expired: { label: "expired", variant: "outline" },
+};
+
 export function ServiceHealthBadge({
   value,
 }: {
@@ -116,5 +128,14 @@ export function VerdictBadge({
     return <Badge variant="outline">not run</Badge>;
   }
   const config = verdictConfig[value];
+  return <Badge variant={config.variant}>{config.label}</Badge>;
+}
+
+export function ConversationStatusBadge({
+  value,
+}: {
+  value: ConversationStatus;
+}): React.ReactElement {
+  const config = conversationStatusConfig[value];
   return <Badge variant={config.variant}>{config.label}</Badge>;
 }

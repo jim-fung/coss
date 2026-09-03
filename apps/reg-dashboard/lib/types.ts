@@ -168,6 +168,35 @@ export interface RegistrationMessage {
   identityState: IdentityState;
   /** Stable intake idempotency key; exists before mapping. */
   replayKey?: string;
+  /** Owning conversation (migration 0003); absent pre-mapping. */
+  conversationId?: string;
+}
+
+// ── Conversations (migration 0003, AG-10/TG-5) ───────────────────────────────
+
+export type ConversationStatus =
+  | "open"
+  | "awaiting_confirmation"
+  | "closed"
+  | "expired";
+
+export type ConversationCloseReason =
+  | "confirmed"
+  | "expired"
+  | "rejected"
+  | "superseded";
+
+export interface RegistrationConversation {
+  id: string;
+  farmId: string;
+  reporterId: string;
+  channel: "telegram";
+  providerChatId?: string;
+  status: ConversationStatus;
+  openedAt: string;
+  updatedAt: string;
+  closedAt?: string;
+  closeReason?: ConversationCloseReason;
 }
 
 // ── Run registry (migration 0003, DM-13/WB-1) ────────────────────────────────
