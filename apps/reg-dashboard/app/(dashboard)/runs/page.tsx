@@ -4,7 +4,7 @@ import {
   AppHeaderDescription,
 } from "@/components/app/app-header";
 import { RunsTable } from "@/components/app/runs-table";
-import { agentRuns } from "@/lib/mock-data";
+import { agentRuns, farms } from "@/lib/mock-data";
 
 export default function RunsPage() {
   return (
@@ -17,7 +17,7 @@ export default function RunsPage() {
           </AppHeaderDescription>
         </AppHeaderContent>
       </AppHeader>
-      <RunsTable runs={agentRuns} />
+      <RunsTable farms={farms} runs={agentRuns} />
       <p className="mt-6 text-muted-foreground text-xs">
         Messages with no run (unmapped intake) are listed under{" "}
         <a className="underline underline-offset-2" href="/intake">
