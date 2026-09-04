@@ -67,7 +67,7 @@ export default function OperatePage() {
           <div className="mb-2 flex items-baseline justify-between gap-2">
             <h2 className="font-medium text-sm">Flow funnel — last 7 days</h2>
             <p className="text-muted-foreground text-xs">
-              Window: Aug 28 – Sep 3 · 62 messages · terminal branches are
+              Window: Aug 28 – Sep 3 · 68 messages · terminal branches are
               mutually exclusive (WB-3 T2)
             </p>
           </div>
