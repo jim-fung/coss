@@ -4,6 +4,7 @@ import {
   GaugeIcon,
   InboxIcon,
   type LucideIcon,
+  RepeatIcon,
   RouteIcon,
   SearchIcon,
 } from "lucide-react";
@@ -48,6 +49,12 @@ export const navMainItems: NavItem[] = [
     matchPath: "/evaluations",
     title: "Evaluations",
     url: "/evaluations",
+  },
+  {
+    icon: RepeatIcon,
+    matchPath: "/replays",
+    title: "Replays",
+    url: "/replays",
   },
   {
     icon: DatabaseIcon,

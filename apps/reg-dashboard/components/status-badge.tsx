@@ -6,6 +6,8 @@ import type {
   BusinessDecision,
   ConversationStatus,
   ExecutionStatus,
+  ReplayAuthorization,
+  ReplayOutcome,
   ServiceHealth,
   TestVerdict,
   ValidationStatus,
@@ -137,5 +139,41 @@ export function ConversationStatusBadge({
   value: ConversationStatus;
 }): React.ReactElement {
   const config = conversationStatusConfig[value];
+  return <Badge variant={config.variant}>{config.label}</Badge>;
+}
+
+/**
+ * WB-6 replay dimensions. T2: deterministic is the default; a live model call
+ * requires explicit authorization, and an attempted live call shows as
+ * blocked — never as a successful pass.
+ */
+const replayAuthorizationConfig: Record<ReplayAuthorization, StatusConfig> = {
+  deterministic: { label: "deterministic", variant: "secondary" },
+  live_authorized: { label: "live authorized", variant: "info" },
+  live_denied: { label: "live denied", variant: "destructive" },
+};
+
+const replayOutcomeConfig: Record<ReplayOutcome, StatusConfig> = {
+  completed: { label: "completed", variant: "success" },
+  blocked: { label: "blocked", variant: "destructive" },
+  failed_closed: { label: "failed closed", variant: "warning" },
+  inconclusive: { label: "inconclusive", variant: "outline" },
+};
+
+export function ReplayAuthorizationBadge({
+  value,
+}: {
+  value: ReplayAuthorization;
+}): React.ReactElement {
+  const config = replayAuthorizationConfig[value];
+  return <Badge variant={config.variant}>{config.label}</Badge>;
+}
+
+export function ReplayOutcomeBadge({
+  value,
+}: {
+  value: ReplayOutcome;
+}): React.ReactElement {
+  const config = replayOutcomeConfig[value];
   return <Badge variant={config.variant}>{config.label}</Badge>;
 }

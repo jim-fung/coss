@@ -323,6 +323,65 @@ export interface ImportBatch {
   rowsDeferred: number;
 }
 
+// ── Safe replay (WB-6, QA-2/5, ADR-0006) ─────────────────────────────────────
+
+/** Bounded fault vocabulary (WB-6 T3). */
+export type ReplayFault =
+  | "provider_429"
+  | "provider_timeout"
+  | "malformed_tool_result"
+  | "invariant_rejection"
+  | "database_failure"
+  | "duplicate_update"
+  | "restart_recovery";
+
+/** T2: deterministic is the default; live requires explicit authorization. */
+export type ReplayAuthorization =
+  | "deterministic"
+  | "live_authorized"
+  | "live_denied";
+
+export type ReplayOutcome =
+  | "completed"
+  | "blocked"
+  | "failed_closed"
+  | "inconclusive";
+
+export interface DisposableDatabase {
+  id: string;
+  createdFrom: string;
+  cleanupOutcome: "dropped" | "retained_for_debug" | "not_created";
+}
+
+/**
+ * T4 audit record: actor, purpose, source, target environment, fixture,
+ * authorization, window and cleanup. Contains no source text or secrets —
+ * searchable by replayRunId; pre-mapping sources are keyed by replay_key.
+ */
+export interface ReplayAction {
+  id: string;
+  /** Fresh run_id in agent_runs — never the source run's id (T1). */
+  replayRunId: string;
+  source:
+    | { kind: "case"; caseId: string; evalRunId: string }
+    | { kind: "run"; runId: string }
+    | { kind: "replay_key"; replayKey: string };
+  actor: string;
+  purpose: string;
+  targetEnvironment: "staging" | "ci";
+  fixtureRef?: string;
+  authorization: ReplayAuthorization;
+  modelCallPermission: "test_model" | "live" | "denied";
+  disposableDatabase: DisposableDatabase;
+  injectedFault?: ReplayFault;
+  outcome: ReplayOutcome;
+  reasonCode?: string;
+  startedAt: string;
+  endedAt?: string;
+  /** Present when this replay repeats an earlier action (T3 idempotency). */
+  repeatedOf?: string;
+}
+
 // ── Operational aggregates (OPS-10 / WB-3) ───────────────────────────────────
 
 export interface HealthPanel {

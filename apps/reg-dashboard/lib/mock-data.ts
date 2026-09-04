@@ -22,7 +22,8 @@ import {
   noorderhofMessages,
 } from "./mock/messages-noorderhof";
 import { dailyMetrics, funnelStages, healthPanels } from "./mock/metrics";
-import { agentRunAttempts, agentRuns } from "./mock/runs";
+import { replayActions, replayRuns } from "./mock/replays";
+import { agentRunAttempts, agentRuns as processingRuns } from "./mock/runs";
 import type {
   AgentRun,
   AgentRunAttempt,
@@ -39,7 +40,11 @@ import type {
 } from "./types";
 
 export { farms, seasonFields };
-export { agentRuns, agentRunAttempts };
+export { agentRunAttempts };
+export { replayActions, replayRuns };
+
+/** Processing runs plus WB-6 replay runs — replays always carry fresh run_ids. */
+export const agentRuns: AgentRun[] = [...processingRuns, ...replayRuns];
 export { agentRunEvents };
 export { farmActivities, farmObservations };
 export { evalRuns, evalCaseResults, importBatches };
